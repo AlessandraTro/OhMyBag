@@ -32,6 +32,9 @@ public class Prodotto implements Serializable {
 		this.sconto=0;
 		this.disponibilita=0;
 	}
+	public Prodotto() {
+		
+	}
 
 	public String getId() {
 		return id;

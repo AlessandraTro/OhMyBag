@@ -48,7 +48,7 @@ public class ConnesioneDatabase {
 				connection = getConnection();
 			}
 		} else {
-			connection = createDBConnection();		
+			connection = createDBConnection();
 		}
 
 		return connection;

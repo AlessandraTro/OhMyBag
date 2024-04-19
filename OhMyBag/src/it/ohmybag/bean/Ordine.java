@@ -17,13 +17,13 @@ public class Ordine implements Serializable{
 	private GregorianCalendar data;
 	private String circuito;
 	private boolean confezioneRegalo;
-	private int numeroCarta;
+	private String numeroCarta;
 	private String username;
 	
 	public Ordine(int id,float prezzoTotale,String destinatario,String metodoDiPagamento,
 			String indirizzoSpedizione,String noteCorriere,String metodoDiSpedizione,
 			String numeroTracking,GregorianCalendar data,String circuito,boolean confezioneRegalo,
-			int numeroCarta,String username) {
+			String numeroCarta,String username) {
 			super();
 			
 			this.id = id;
@@ -108,10 +108,10 @@ public class Ordine implements Serializable{
 	public void setConfezioneRegalo(boolean confezioneRegalo) {
 		this.confezioneRegalo = confezioneRegalo;
 	}
-	public int getNumeroCarta() {
+	public String getNumeroCarta() {
 		return numeroCarta;
 	}
-	public void setNumeroCarta(int numeroCarta) {
+	public void setNumeroCarta(String numeroCarta) {
 		this.numeroCarta = numeroCarta;
 	}
 	public String getUsername() {

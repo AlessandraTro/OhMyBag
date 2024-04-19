@@ -78,4 +78,10 @@ public class Carta {
 		this.username = username;
 	}
 
+	@Override
+	public String toString() {
+		return "Carta [id=" + id + ", numeroCarta=" + numeroCarta + ", cvv=" + cvv + ", dataScadenza=" + dataScadenza
+				+ ", circuito=" + circuito + ", username=" + username + "]";
+	}
+
 }

@@ -116,4 +116,11 @@ public class Utente implements Serializable {
 		this.admin = admin;
 	}
 
+	@Override
+	public String toString() {
+		return "Utente [username=" + username + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome
+				+ ", cf=" + cf + ", email=" + email + ", indirizzoSpedizione=" + indirizzoSpedizione + ", telefono="
+				+ telefono + ", admin=" + admin + ", dataNascita=" + dataNascita + "]";
+	}
+
 }

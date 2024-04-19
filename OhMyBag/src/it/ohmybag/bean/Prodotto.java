@@ -19,8 +19,7 @@ public class Prodotto implements Serializable {
 	private int sconto;
 	private int disponibilita;
 
-	public Prodotto(String id, String marca, String nome, float prezzo, String tipologia, int idcategoria, String descrizione, int annocollezione, 
-					GregorianCalendar dataInserimento, int sconto, int disponibilita){
+	public Prodotto(String id, String marca, String nome, float prezzo, String tipologia, int idcategoria, String descrizione, int annoCollezione){
 		this.id=id;
 		this.marca=marca;
 		this.nome=nome;
@@ -29,9 +28,9 @@ public class Prodotto implements Serializable {
 		this.idCategoria=idcategoria;
 		this.descrizione=descrizione;
 		this.annoCollezione=annoCollezione;
-		this.dataInserimento=dataInserimento;
-		this.sconto=sconto;
-		this.disponibilita=disponibilita;
+		this.dataInserimento=new GregorianCalendar();
+		this.sconto=0;
+		this.disponibilita=0;
 	}
 
 	public String getId() {

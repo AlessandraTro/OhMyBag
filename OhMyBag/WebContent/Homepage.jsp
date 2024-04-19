@@ -12,7 +12,7 @@
 	<!-- include dell'Header -->
 	<jsp:include page="Header.jsp" />
 
-	<p>Home del sito</p>
+	<p>Home del sito OhMyBag</p>
 
 	<!-- include del footer -->
 	<jsp:include page="Footer.jsp" />

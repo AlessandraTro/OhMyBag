@@ -12,7 +12,6 @@ public class Utente implements Serializable {
 	private GregorianCalendar dataNascita;
 
 	
-	
 	//costruttore
 	public Utente() {
 		this.setAdmin(false);

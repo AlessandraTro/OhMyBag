@@ -5,16 +5,15 @@ import java.util.GregorianCalendar;
 public class Carta {
 
 	private String id;
-	private int numeroCarta;
+	private String numeroCarta;
 	private int cvv;
 	private GregorianCalendar dataScadenza;
 	private String circuito;
 	private String username;
 	
 	
-	
 	//costruttore
-	public Carta(String id, int numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
+	public Carta(String id, String numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
 		this.numeroCarta = numeroCarta;
 		this.cvv = cvv;
 		this.circuito = circuito;
@@ -29,12 +28,11 @@ public class Carta {
 	}
 	
 	
-	
-	public int getNumeroCarta() {
+	public String getNumeroCarta() {
 		return numeroCarta;
 	}
 	
-	public void setNumeroCarta(int numeroCarta) {
+	public void setNumeroCarta(String numeroCarta) {
 		this.numeroCarta = numeroCarta;
 	}
 	

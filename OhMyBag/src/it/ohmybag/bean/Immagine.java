@@ -39,4 +39,9 @@ public class Immagine implements Serializable{
 	public void setIdProdotto(String idProdotto) {
 		this.idProdotto = idProdotto;
 	}
+
+	@Override
+	public String toString() {
+		return "Immagine [nome=" + nome + ", copertina=" + copertina + ", idProdotto=" + idProdotto + "]";
+	}
 }

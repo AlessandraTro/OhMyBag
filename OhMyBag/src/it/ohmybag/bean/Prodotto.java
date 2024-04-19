@@ -120,4 +120,12 @@ public class Prodotto implements Serializable {
 		this.disponibilita = disponibilita;
 	}
 
+	@Override
+	public String toString() {
+		return "Prodotto [id=" + id + ", marca=" + marca + ", nome=" + nome + ", prezzo=" + prezzo + ", tipologia="
+				+ tipologia + ", idCategoria=" + idCategoria + ", descrizione=" + descrizione + ", annoCollezione="
+				+ annoCollezione + ", dataInserimento=" + dataInserimento + ", sconto=" + sconto + ", disponibilita="
+				+ disponibilita + "]";
+	}
+
 }

@@ -1,86 +1,40 @@
 package it.ohmybag.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.GregorianCalendar;
 
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String Username, pin, nome, cognome, codiceFiscale, email, indirizzoSpedizione, telefono, sesso, tipo;
-	private String myHash;
-	private boolean verificato;
+	private String username, password, nome, cognome, cf, email, indirizzoSpedizione; 
+	private int telefono;
+	private boolean admin;
+	private GregorianCalendar dataNascita;
 
-	// private int amministratore;
-	private Date dataDiNascita;
-
+	
+	
+	//costruttore
 	public Utente() {
-
-		tipo = "cliente";
+		this.setAdmin(false);
 
 	}
 	
 	
-
-	public Utente(String username, String pin, String nome, String cognome, String codiceFiscale, String email,
-			String indirizzoSpedizione, String telefono, String sesso, String tipo, String myHash, boolean verificato,
-			Date dataDiNascita) {
+	//costruttore
+	public Utente(String username, String password, String nome, String cognome, String cf, String email,
+			String indirizzoSpedizione, int telefono,GregorianCalendar dataNascita, boolean admin) {
 		super();
-		this.Username = username;
-		this.pin = pin;
+		this.setUsername(username);
+		this.setPassword(password);
 		this.nome = nome;
 		this.cognome = cognome;
-		this.codiceFiscale = codiceFiscale;
+		this.cf = cf;
 		this.email = email;
 		this.indirizzoSpedizione = indirizzoSpedizione;
 		this.telefono = telefono;
-		this.sesso = sesso;
-		this.tipo = tipo;
-		this.myHash = myHash;
-		this.verificato = verificato;
-		this.dataDiNascita = dataDiNascita;
+		this.dataNascita = dataNascita;
 	}
 
-
-
-	public boolean isVerificato() {
-		return verificato;
-	}
-
-	public void setVerificato(boolean verificato) {
-		this.verificato = verificato;
-	}
-
-	public String getMyHash() {
-		return myHash;
-	}
-
-	public void setMyHash(String myHash) {
-		this.myHash = myHash;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getUsername() {
-		return Username;
-	}
-
-	public void setUsername(String username) {
-		Username = username;
-	}
-
-	public String getPin() {
-		return pin;
-	}
-
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
 
 	public String getNome() {
 		return nome;
@@ -99,11 +53,11 @@ public class Utente implements Serializable {
 	}
 
 	public String getCodiceFiscale() {
-		return codiceFiscale;
+		return cf;
 	}
 
-	public void setCodiceFiscale(String codiceFiscale) {
-		this.codiceFiscale = codiceFiscale;
+	public void setCodiceFiscale(String cf) {
+		this.cf = cf;
 	}
 
 	public String getEmail() {
@@ -122,28 +76,44 @@ public class Utente implements Serializable {
 		this.indirizzoSpedizione = indirizzoSpedizione;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 
-	public Date getDataDiNascita() {
-		return dataDiNascita;
+	public GregorianCalendar getDataDiNascita() {
+		return dataNascita;
 	}
 
-	public void setDataDiNascita(Date dataDiNascita) {
-		this.dataDiNascita = dataDiNascita;
+	public void setDataDiNascita(GregorianCalendar dataNascita) {
+		this.dataNascita = dataNascita;
 	}
 
-	public String getSesso() {
-		return sesso;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setSesso(String sesso) {
-		this.sesso = sesso;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 }

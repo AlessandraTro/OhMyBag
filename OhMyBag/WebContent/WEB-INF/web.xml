@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>OhMyBag</display-name>
 	<welcome-file-list>
-		<welcome-file>Homepage.jsp</welcome-file>
+		<welcome-file>home</welcome-file>
 	</welcome-file-list>
 	<resource-ref>
 		<description>JNDI reference to a data source</description>

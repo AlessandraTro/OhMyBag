@@ -21,7 +21,7 @@ Username		varchar(100) not null,
 CVV				int			 check(CVV>=0)not null,
 Circuito		varchar(100) not null,
 DataScadenza	date 		 not null,
-NumeroCarta 	varchat(25)  not null,
+NumeroCarta 	varchar(25)  not null,
 foreign key (Username) references Utente(Username)
 );
 

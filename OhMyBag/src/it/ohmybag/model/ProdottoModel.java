@@ -6,7 +6,7 @@ import java.util.*;
 import it.ohmybag.bean.*;
 
 public class ProdottoModel{
-
+	/*il metodo getConnection mi permette di avere la connessione al Databse definita nel file ConnessioneDatabase*/
 	private Connection getConnection() throws SQLException{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -16,15 +16,17 @@ public class ProdottoModel{
 		return ConnesioneDatabase.getConnection();
 	}
 	
+	/*permette di salvare un nuovo Prodotto all'interno del database*/
 	public synchronized void saveProduct(Prodotto prodotto)throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
+		/*Sringa con Query*/
 		String insertSQL="INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
-			conn=getConnection();
-			statement= conn.prepareStatement(insertSQL);
+			conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(insertSQL);/*creo lo statement per poter comunicare con il database*/
 			
 			statement.setString(1, prodotto.getId());
 			statement.setString(2, prodotto.getMarca());
@@ -55,6 +57,7 @@ public class ProdottoModel{
 		}
 	}
 	
+	/*Permette di eliminare dal database il prodotto con un determinato ID*/
 	public synchronized boolean deleteProduct(int idProdotto) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -81,7 +84,8 @@ public class ProdottoModel{
 		return result!=0;
 	}
 	
-	public synchronized void scontoCategoria(int sconto,int categoria) throws SQLException {
+	/*permette di applicare lo sconto ai prodotti di una determinata categoria es. uomo donna o viaggio*/
+	public synchronized void updateDiscountCategory(int sconto,int categoria) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -106,7 +110,8 @@ public class ProdottoModel{
 		}
 	}
 	
-	public synchronized void scontoAnnoCollezione(int sconto,int AnnoCollezione) throws SQLException {
+	/*permette di applicare lo sconto ai prodotti di un determinato AnnoCollezione*/
+	public synchronized void updateDiscountYearCollection(int sconto,int AnnoCollezione) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -131,7 +136,8 @@ public class ProdottoModel{
 		}
 	}
 	
-	public synchronized void scontoTipologia(int sconto,String tipologia) throws SQLException {
+	/*permette di applicare lo scnto ai prodotti di una determinata tipologia es. Zaini, accessori, ecc.*/
+	public synchronized void updateDiscountTipology(int sconto,String tipologia) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -156,7 +162,8 @@ public class ProdottoModel{
 		}
 	}
 	
-	public synchronized void scontoCatTip(int sconto,int categoria,String tipologia) throws SQLException {
+	/*permette di applicare lo sconto ai prodotti di una determinata tipologia in una determinata categoria es. Borse in Donna, Accessori in uomo, ecc.*/
+	public synchronized void updateDiscountTOC(int sconto, int categoria, String tipologia) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -182,7 +189,8 @@ public class ProdottoModel{
 		}
 	}
 
-	public synchronized void cambioPrezzo(int id) throws SQLException {
+	/*permette di aggiornare il prezzo di un determinato prodotto*/
+	public synchronized void updateChangePrice(int id) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -206,7 +214,8 @@ public class ProdottoModel{
 		}
 	}
 
-	public synchronized void cambioDisponibilita(int disponibilita) throws SQLException {
+	/*permette di aggiornare la quantità di un determinato prodotto*/
+	public synchronized void updateQuantity(int disponibilita, String id) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -217,6 +226,8 @@ public class ProdottoModel{
 			statement=conn.prepareStatement(updateSQL);
 			
 			statement.setInt(1, disponibilita);
+			statement.setString(2, id);
+			
 		}finally {
 			try {
 				if(statement!= null) {
@@ -230,6 +241,7 @@ public class ProdottoModel{
 		}
 	}
 
+	/*ritorna tutti i prodotti che si trovano all'interno del database*/
 	public synchronized Collection<Prodotto> allProduct() throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -279,6 +291,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti di una determinata categoria es. uomo, donna, viaggi*/
 	public synchronized Collection<Prodotto> allCategoryProduct(int categoria) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -329,6 +342,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti di una determinata marca in una determinata categoria*/
 	public synchronized Collection<Prodotto> allBrandProduct(int categoria, String marca) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -380,6 +394,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti di un determinato anno di collezione in una determinata categoria in modo crescente in base al prezzo*/
 	public synchronized Collection<Prodotto> allYearCollectionProductASC(int categoria, int annocollezione) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -431,6 +446,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti di un determinato anno di collezione in una determinata categoria in modo decrescente in base al prezzo*/
 	public synchronized Collection<Prodotto> allYearCollectionProductDESC(int categoria, int annocollezione) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -482,6 +498,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna il numero di prodotti di una determinata categoria in un determinato range di prezzo in modo crescente in base al prezzo*/
 	public synchronized Collection<Prodotto> allRangePriceProductASC(int categoria, float min, float max) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -534,6 +551,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna il numero di prodotti di una determinata categoria in un determinato range di prezzo in modo decrescente in base al prezzo*/
 	public synchronized Collection<Prodotto> allRangePriceProductDESC(int categoria, float min, float max) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -586,6 +604,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti di una determinata tipologia in una determinata categoria es. Zaini in donna, cinture in uomo, ecc.*/
 	public synchronized Collection<Prodotto> allTypologyProduct(int categoria, String tipologia) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -637,6 +656,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 
+	/*ritorna tutti i prodotti che si trovano in sconto*/
 	public synchronized Collection<Prodotto> allDiscountProduct(int sconto) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;

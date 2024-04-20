@@ -10,10 +10,16 @@ public class Immagine implements Serializable{
 	private boolean copertina;
 	private String idProdotto;
 	
+	//Costruttore
 	public Immagine(String nome, boolean copertina, String idProdotto) {
 		this.nome=nome;
 		this.copertina=copertina;
 		this.idProdotto=idProdotto;
+	}
+	
+	//Costruttore vuoto
+	public Immagine() {
+		
 	}
 
 	public String getNome() {

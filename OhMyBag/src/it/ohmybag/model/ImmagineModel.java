@@ -33,8 +33,8 @@ public class ImmagineModel {
 			connection = getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, image.getNome());
-			preparedStatement.setBoolean(0, image.isCopertina());
-			preparedStatement.setString(2, image.getIdProdotto());
+			preparedStatement.setBoolean(2, image.isCopertina());
+			preparedStatement.setString(3, image.getIdProdotto());
 
 			preparedStatement.executeUpdate();
 
@@ -166,4 +166,42 @@ public class ImmagineModel {
 		return images;
 
 	}
+
+    /* Recupera le immagini di copertina dal database */
+	public Collection<Immagine> retrieveCatalogImages() throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        
+        Collection<Immagine> catalogImages = new LinkedList<Immagine>();
+        
+        // Query per recuperare le immagini di copertina dal database
+        String selectSQL = "SELECT * FROM Immagine WHERE copertina = true";
+
+        try {
+        	connection = getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+            // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
+            while (rs.next()) {
+                Immagine immagine = new Immagine();
+                immagine.setIdProdotto(rs.getString("id"));
+                immagine.setNome(rs.getString("nome"));
+                immagine.setCopertina(rs.getBoolean("copertina"));
+
+                catalogImages.add(immagine);
+            }
+        } finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+        return catalogImages;
+    }
 }

@@ -3,7 +3,7 @@
 <Context>
     <Resource name="jdbc/OhMyBag"
         auth="Container"
-        driverClassName="com.mysql.jdbc.Driver"
+        driverClassName="com.mysql.cj.jdbc.Driver"
         type="javax.sql.DataSource"
         username="root"
         password="root"

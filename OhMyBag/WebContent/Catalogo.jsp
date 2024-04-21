@@ -1,10 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine"%>
+	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
 
 
 
 <!DOCTYPE html>
+
+
+<% //ottengo tutti i prodotti nel db
+
+ProdottoModel prodottoModel = new ProdottoModel();
+ArrayList<Prodotto> arrayProdotti = new ArrayList<>();
+
+
+try {
+    // Ottieni tutti i prodotti dal database
+    Collection<Prodotto> prodotti = prodottoModel.allProduct();
+    
+    // Converti la collezione di prodotti in un array
+    arrayProdotti = new ArrayList<>(prodotti);
+  
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+%>
+
+
+<% //ottengo tutte le immagini nel db
+
+	ImmagineModel immagineModel = new ImmagineModel();
+	
+	try {
+	    // Recupera tutte le immagini dal database
+	    Collection<Immagine> immagini = immagineModel.doRetrieveAll();
+	    
+	    // Converte la collezione in un array
+	    Immagine[] immaginiArray = immagini.toArray(new Immagine[0]);
+	    
+	    // Stampa le informazioni sulle immagini
+	    for (Immagine immagine : immaginiArray) {
+	        System.out.println("Nome: " + immagine.getNome());
+	        System.out.println("Copertina: " + immagine.isCopertina());
+	        System.out.println("ID Prodotto: " + immagine.getIdProdotto());
+	        System.out.println();
+	    }
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+%>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -80,6 +124,7 @@
 </head>
 <body>
 
+	<!-- Immagini carousel -->
 	<div id="carouselCatalogo" class="carousel slide w-100 mx-auto"
 		data-bs-ride="carousel">
 		<div class="carousel-inner justify-content-center">
@@ -117,7 +162,7 @@
     </div>
   </section>-->
 
-		<div class="album py-5 bg-body-tertiary">
+		<!--  <div class="album py-5 bg-body-tertiary">
 			<div class="container">
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -146,7 +191,68 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
+		
+		<% 
+// Stampiamo la dimensione dell'array per debug
+out.println("Numero di prodotti: " + arrayProdotti.size());
+%>
+		
+
+<% 
+// Itera attraverso tutti i prodotti e stampa le informazioni per debug
+for (Prodotto prodotto : arrayProdotti) {
+%>
+    <!-- Stampiamo i dettagli del prodotto -->
+    <div>
+        <!-- Stampiamo il nome del prodotto -->
+        Nome: <%= prodotto.getNome() %><br>
+        <!-- Stampiamo la marca del prodotto -->
+        Marca: <%= prodotto.getMarca() %><br>
+        <!-- Stampiamo il prezzo del prodotto -->
+        Prezzo: <%= prodotto.getPrezzo() %><br>
+        <hr> <!-- Linea di separazione tra un prodotto e l'altro -->
+    </div>
+<% 
+}
+%>
+
+
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% 
+            for (Prodotto prodotto : arrayProdotti) {
+            %>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                        </svg>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <h1><%= prodotto.getNome() %></h1> <br>
+                            </p>
+                            <div style="display: flex; justify-content: space-between;">
+                                <div><%= prodotto.getMarca() %></div>
+                                <div><%= prodotto.getPrezzo() %></div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+
 
 
 	</main>

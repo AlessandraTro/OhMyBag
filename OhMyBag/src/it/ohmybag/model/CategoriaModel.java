@@ -14,7 +14,7 @@ public class CategoriaModel {
 			e.printStackTrace();
 		}
 		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/gameshub?useSSL=false", "root", "root");
+				"jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
 	}
 	
 	/*inserisce una categoria*/

@@ -73,7 +73,7 @@ CREATE TABLE Composizione(
 );
 
 CREATE TABLE Immagine(
-	Nome 	   varchar(100) 	Primary key,
+	Nome 	   varchar(500) 	Primary key,
     Copertina  boolean			not null,
     IDProdotto varchar(100) 	not null,
     foreign key (IDProdotto) references Prodotto(ID)

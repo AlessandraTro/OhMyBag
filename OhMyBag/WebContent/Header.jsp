@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
-
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .dropdown-hover:hover .dropdown-menu {
+            display: block;
+        }
+         .navbar {
+         height: 80px;
+    }
+    </style>
 </head>
 <body>
 
@@ -16,31 +25,59 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Something else
-									here</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link disabled"
-						aria-disabled="true">Disabled</a></li>
-				</ul>
-				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search"
-						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
-			</div>
-		</div>
-	</nav>
-
+				<ul class="nav nav-underline">
+					<li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" style="color: black; role="button"
+                            aria-haspopup="true" aria-expanded="false">Donna</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-content" href="#">Borse</a></li>
+                            <li><a class="dropdown-content" href="#">Zaini</a></li>
+                            <li><a class="dropdown-content" href="#">Cinture</a></li>
+                            <li><a class="dropdown-content" href="#">Portafogli</a></li>
+                            <li><a class="dropdown-content" href="#">Accessori</a></li>
+                            <li><a class="dropdown-content" href="#">Sciarpe e Cappelli</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" style="color: black; role="button"
+                            aria-haspopup="true" aria-expanded="false">Uomo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-content" href="#">Marsupi e Borselli</a></li>
+                            <li><a class="dropdown-content" href="#">Zaini</a></li>
+                            <li><a class="dropdown-content" href="#">Cinture</a></li>
+                            <li><a class="dropdown-content" href="#">Portafogli</a></li>
+                            <li><a class="dropdown-content" href="#">Accessori</a></li>
+                            <li><a class="dropdown-content" href="#">Sciarpe e Cappelli</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link dropdown-toggle" href="#" style="color: black; role="button"
+                            aria-haspopup="true" aria-expanded="false">Viaggi</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-content" href="#">Valigie</a></li>
+                            <li><a class="dropdown-content" href="#">Bagaglio a mano</a></li>
+                            <li><a class="dropdown-content" href="#">Zaini da Viaggio</a></li>
+                            <li><a class="dropdown-content" href="#">Borsoni da Viaggio</a></li>
+                            <li><a class="dropdown-content" href="#">Accessori da Viaggio</a></li>
+                        </ul>
+                    </li>
+                </ul>
+						
+			 <div class="ml-auto d-flex align-items-center">
+           		<form class="d-flex" role="search"">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+				<i class="fas fa-search"></i></button>
+            </form>
+            
+            <div class="navbar-nav">
+             	<a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+						
+			
 </body>
 

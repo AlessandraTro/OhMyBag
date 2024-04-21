@@ -2,6 +2,8 @@ package it.ohmybag.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import it.ohmybag.bean.Immagine;
+import it.ohmybag.bean.Prodotto;
+import it.ohmybag.model.ImmagineModel;
+import it.ohmybag.model.ProdottoModel;
 
 /*import it.ohmybag.model.GiocoModel;
 import it.ohmybag.model.ImmagineModel;
@@ -20,13 +27,13 @@ import it.ohmybag.model.OrdineModel;*/
 @WebServlet("/HomeControl")
 public class HomeControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	/*static ProductModel giocoModel;
+	static ProdottoModel prodottoModel;
 	static ImmagineModel immagineModel;
 
 	static {
-		immagineModel = new ImmagineModel();
-		giocoModel = new GiocoModel();
-		}*/
+		 immagineModel = new ImmagineModel();
+		 prodottoModel = new ProdottoModel();
+		}
 
        
     /**
@@ -41,20 +48,22 @@ public class HomeControl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//try {
-			/* setta l'attributo products che conterrà tutti i giochi contenuti nel DB */
-			//request.getSession().setAttribute("products", prodottoModel.doRetrieveAll());
+	
+		try {
 			
-			 /*setta l'attributo ImageList che conterrà tutte le immagini dei giochi contenuti nel DB*/
-			//request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll());
+			/* setta l'attributo products che conterrà tutti i prodotti contenuti nel DB */
+			request.getSession().setAttribute("products", prodottoModel.allProduct());
+		    // Ottieni tutti i prodotti dal database
 			
-			
-		/*} catch (SQLException e) {
+			/*setta l'attributo ImageList che conterrà tutte le immagini dei prodotti contenuti nel DB*/
+			request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll());
+		  
+		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
+		}
 
-		}*/
-
+	
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -66,5 +75,6 @@ public class HomeControl extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }

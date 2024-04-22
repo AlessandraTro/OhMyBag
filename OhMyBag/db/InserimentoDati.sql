@@ -290,7 +290,170 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/sc
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/accessori/Carpisa/Portacellulare - Vanity Spring/Nero/1.jpg", 1, "AAC06204444");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/accessori/Carpisa/Portacellulare - Vanity Spring/Nero/2.jpg", 0, "AAC06204444");
 
+/*UOMO*/
 
+/*INSERIMENTO ZAINI*/
 
+/*TUCANO*/
 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) values ("003AAA", "Tucano",  "Luna Gravity", 02, "Zaino per laptop 15.6 e MacBook 16 dotato di sistema anti-gravity, una sospensione elastica degli spallacci concepita per ridurre il carico sulle spalle e sulla schiena quando il corpo è in movimento. La funzione anti gravity system, oltre a migliorare la postura e a ridurre lo sforzo muscolare, attenua in modo specifico la rigidità dei muscoli del dorso e del collo distribuendo in modo equilibrato il peso dello zaino tra le spalle e il bacino. Realizzato in materiale tecnico ad alta densità, Luna Gravity ha un'ottima organizzazione delle tasche. Il vano interno, è dotato di una tasca protettiva per laptop mentre il lato anteriore presenta tasche con differenti altezze chiuse da cerniere. La parte posteriore ha uno schienale ergonomico, spallacci imbottiti con sistema di sospensione, fascia per trolley e tasca di sicurezza. Una rain cover estraibile, nascosta all'interno della base, permette di proteggere lo zaino durante la pioggia.
+<ul>
+<li>Colore Nero</li>
+  <li>
+    <strong>AGS, Anti Gravity System:</strong> grazie allelasticità degli spallacci alleggerisce la sensazione di peso sulle spalle migliorando la postura
+  </li>
+  <li>Materiale tecnico ad alta densità</li>
+  <li>Ottima organizzazione delle tasche</li>
+  <li>Tasca interna imbottita per laptop</li>
+  <li>Tasca di sicurezza sulla parte posteriore</li>
+  <li>Spallacci imbottiti dotati di sistema di sospensione</li>
+  <li>Schienale ergonomico</li>
+  <li>Rain cover estraibile</li>
+  <li>Nastri con stampa all over</li>
+</ul>", 2023, "16/04/2024", 0, 10);
 
+/*SPRAYGROUND*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+VALUES (
+    '002AAA',
+    'Sprayground',
+    'ZAINO SPRAYGROUND TEAR IT UP CAMO BACKPACK MARRONE',
+    119.00,
+    'Zaino',
+    02,
+    'Esterno<ul><li>Dimensioni: 46cm x 15cm x 29cm</li><li>Tasca frontale con cerniera</li><li>Tasche laterali</li><li>Tasca nascosta con cerniera</li><li>Imbottitura posteriore ergonomica in rete</li><li>Cinghie regolabili per taglie personalizzate</li><li>Cerniere in nylon con hardware in metallo</li><li>Badge "Sprayground Authentic" in metallo</li><li>Manicotto posteriore scorrevole si collega al bagaglio a mano per liberare le mani</li></ul>Interno<ul><li>Scomparto separato per laptop</li><li>Scomparto separato per occhiali da sole in velour</li><li>Tasca organizer in rete</li></ul>Tessuto Eco-Pelle resistente e durevole',
+    2024,
+    '2024-04-16',
+    0,
+    10
+);
+
+/*PIQUADRO*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES (
+    '001AAA',
+    'Piquadro',
+    'Zaino piccolo per computer 14’’ ed ipad',
+    365.00,
+    'Zaino',
+    02,
+    'Zaino piccolo porta computer con scomparto per iPad®, tasche porta bottiglia e porta ombrello
+    <ul>
+      <li>Numero comparti: 2</li>
+      <li>Può contenere: notebook da 14"</li>
+      <li>Caratteristiche porta PC: Shock Absorber</li>
+      <li>Porta iPad® 10,2\'\'Air 10,9\'\'Pro 11\'\': not removable</li>
+      <li>Materiale: pelle</li>
+      <li>Fodera interna: 100% Poliestere</li>
+      <li>Tipologia manici: fissi</li>
+      <li>Litraggio: 15,50</li>
+      <li>Codice prodotto: CA3214B2</li>
+      <li>Dimensioni: 27.5 X 39.0 X 15.0 (cm)</li>
+      <li>Peso: 838 gr</li>
+    </ul>',
+    2022,
+    '2024-04-16',
+    0,
+    10
+);
+
+/*MOLESKINE*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES (
+    '000AAA',
+    'Moleskine',
+    'Precious & Ethical',
+    318.00,
+    'Zaino',
+    02,
+    'Esterne<ul><li>Zaino in materiale nuovo con effetto pitone (lesterno è 100% VEGEA®)</li><li>Logo serigrafato metallizzato</li><li>Apertura principale con cerniera lampo in metallo</li><li>Tracolla regolabile in fettuccia in tonalità</li><li>Schienale in air-mesh traspirante</li><li>Cinghia per bagagli</li><li>Piedini in metallo sul fondo</li><li>Accessori in metallo</li><li>Maniglia in fettuccia sulla parte superiore</li><li>Anello da personalizzare con charms</li></ul>Interne<ul><li>Tasca porta taccuino pocket My Moleskine per mettere via le idee</li><li>Scomparto per dispositivi: 22x33cm</li><li>Tasca interna con zip e porta biglietti da visita</li><li>Tasca per occhiali foderata in microfibra</li><li>Pochette separata foderata dello stesso tessuto dello zaino con una seconda pochette in mesh all\'interno</li><li>Custodia per riporre il sacchetto antipolvere</li><li>Clip portachiavi per ritrovare sempre le chiavi</li></ul>Dimensione e volumeDimensioni: 26 x 37 x 9 cmVolume: 8LVi presentiamo uno zaino lussuoso che unisce design, manifattura artigianale e attenzione ai dettagli. L\'esterno tattile e particolare è realizzato da VEGEA®, un marchio all avanguardia che utilizza gli scarti organici dell industria vinicola italiana e li trasforma in materiali innovativi*. All interno dello zaino si trovano tre pochette, una dust bag e scomparti foderati per un dispositivo digitale (dimensioni dello scomparto: 22x33 cm), occhiali e altri oggetti indispensabili. La sacca antipolvere ripiegabile è contenuta in un elegante custodia. Sono inoltre presenti una pochette con cerniera dello stesso materiale dello zaino e una custodia in mesh per racchiudere e proteggere i propri effetti personali quando si è in movimento. Questo zaino è dotato anche di una clip portachiavi attaccata ad una lunga cinghia interna, per poter usare le chiavi senza doverle tirare fuori completamente dallo zaino e quindi senza mai perderle. Gli spallacci regolabili e lo schienale in air-mesh traspirante contribuiscono alla confortevolezza durante la giornata, mentre una cinghia per bagaglio mantiene lo zaino saldamente attaccato alla valigia nei viaggi più lunghi.</li>',
+    2024,
+    '2024-04-16',
+    0,
+    10
+);
+
+/*EASTPAK*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES (
+    '004AAA',
+    'Eastpak',
+    'Padded Pak’R',
+    55.00,
+    'Zaino',
+    02,
+    'L iconico zaino Padded Pak’r nella nostra classica tonalità Black: stile tradizionale, struttura comoda
+    <ul>
+      <li>Altezza: 40 cm</li>
+      <li>Larghezza: 30 cm</li>
+      <li>Profondità: 18 cm</li>
+      <li>Volume (in L): 24 Litri</li>
+      <li>Peso: 380 g</li>
+      <li>Garanzia: 30 anni</li>
+      <li>Occasion: Studio | Lavoro | Gite fuori porta</li>
+      <li>Volume Size: M</li>
+    </ul>',
+    2020,
+    '2024-04-16',
+    0,
+    10
+);
+
+/*IMMAGINI*/
+
+/*TUCANO*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16.jpg", 1, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (1).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (2).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (3).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (4).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (5).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (6).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (7).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (8).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (9).jpg", 0, "003AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Tucano/tucano-tutti-gli-zaini-luna-gravity-macbook-pro-16 (10).jpg", 0, "003AAA");
+
+/*SPRAYGROUND*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-1-140-1710931105_900x.jpg", 1, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-2-140-1710931105_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-3-140-1710931105_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-4-140-1710931111_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-5-140-1710931111_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-6-140-1710931111_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-7-140-1710931118_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-8-140-1710931118_900x.jpg", 0, "002AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/SprayGround/ext-135018-9-140-1710931118_900x.jpg", 0, "002AAA");
+
+/*PIQUADRO*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_1.jpg", 1, "001AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_DETT1.jpg", 0, "001AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_DETT10.jpg", 0, "001AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_DETT2.jpg", 0, "001AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_DETT3.jpg", 0, "001AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Piquadro/CA3214B2-R_DETT8.jpg", 0, "001AAA");
+
+/*MOLESKINE*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_01.png", 1, "000AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_02.png", 0, "000AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_03.png", 0, "000AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_04.png", 0, "000AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_06.png", 0, "000AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Moleskine/gtin_8056999271305_08.png", 0, "000AAA");
+
+/*EASTPACK*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_1.jpg", 1, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT001_1.jpg", 0, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT002_1.jpg", 0, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT003_1.jpg", 0, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT004_1.jpg", 0, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT005_1.jpg", 0, "004AAA");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT006_1.jpg", 0, "004AAA");

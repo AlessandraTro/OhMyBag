@@ -17,10 +17,6 @@ import it.ohmybag.bean.Prodotto;
 import it.ohmybag.model.ImmagineModel;
 import it.ohmybag.model.ProdottoModel;
 
-/*import it.ohmybag.model.GiocoModel;
-import it.ohmybag.model.ImmagineModel;
-import it.ohmybag.model.OrdineModel;*/
-
 /**
  * Servlet implementation class HomeControl
  */

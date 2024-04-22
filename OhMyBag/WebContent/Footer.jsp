@@ -62,8 +62,8 @@
 				<!-- Newsletter -->
 				<div class="col-sm-3">
 					<form>
-						<h5>Subscribe to our newsletter</h5>
-						<p>Monthly digest of what's new and exciting from us.</p>
+						<h5>Entra nel mondo di OhMyBag</h5>
+						<p>Resta aggiornato su eventi, collezioni e novità esclusive.</p>
 						<div class="d-flex flex-column flex-sm-row w-100 gap-2">
 							<label for="newsletter1" class="visually-hidden">Email
 								address</label> <input id="newsletter1" type="text" class="form-control"

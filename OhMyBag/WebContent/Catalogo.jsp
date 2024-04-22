@@ -91,38 +91,35 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 			</div>
 		</div>-->
 
+
 		<div class="album py-5 bg-body-tertiary">
-			<div class="container">
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-					<%
-					for (Prodotto prodotto : products) {
-					%>
-					<div class="col">
-						<div class="card shadow-sm">
-							<img src="img/website/Carousel/louisVuitton.jpg" />
-							<div class="card-body">
-								<p class="card-text">
-								<h1><%=prodotto.getNome()%></h1>
-								<br>
-								</p>
-								<div style="display: flex; justify-content: space-between;">
-									<div><%=prodotto.getMarca()%></div>
-									<div><%=prodotto.getPrezzo() + " €"%></div>
-								</div>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<%
-					}
-					%>
-				</div>
-			</div>
-		</div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% for (Prodotto prodotto : products) { %>
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <% for(Immagine immagine: images){
+                        if(prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()){ %>
+                            <img src="<%=immagine.getNome()%>" class="card-img-top img-fluid" style="height: 400px;">
+                    <% } %>
+                     <% } %>
+                    <div class="card-body d-flex flex-column">
+                        <div class="card-text mb-auto">
+                            <h5><%=prodotto.getNome()%></h5>
+                        </div>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <div class="text-start"><%=prodotto.getMarca()%></div>
+                            <div class="text-end"><%=prodotto.getPrezzo() + " €"%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+
 
 	</main>
 

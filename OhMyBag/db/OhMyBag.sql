@@ -54,7 +54,7 @@ CREATE TABLE Prodotto(
     Prezzo 			float 		  check(Prezzo>=0)not null,
     Tipologia 		varchar(100)  not null,
     IDCategoria 	int 		  check(IDCategoria IN (01,02,03))not null,
-    Descrizione 	varchar(2000) not null,
+    Descrizione 	varchar(3000) not null,
     AnnoCollezione  int 		  check(AnnoCollezione>=1900)not null,
     DataInserimento Date 		  not null,
     Sconto 			int 		  check(Sconto>=0 && Sconto<100),

@@ -137,6 +137,71 @@ VALUES("0000PH0700010", "CALVIN KLEIN", "Zaino Rotondo", 76.00, "Zaino", 01,
 </ul>", 
 2023, '2024-04-16', 10, 10);
 
+/* GUCCI ZAINO OPHIDIA DOPPIA GG */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+VALUES ("547965 9U8BT 8994", "GUCCI", "Zaino Ophidia In Gg Supreme Misura Piccola", 1490.00, "Zaino", 01, "Lo zaino si conferma un accessorio essenziale delle collezioni Gucci e ogni stagione è riproposto in nuove varianti e dimensioni. Parte della linea Ophidia, questo modello è realizzato in tessuto GG Supreme, profilato da pelle marrone a contrasto. Il nastro Web verde e rosso e la Doppia G rendono omaggio alla tradizione della Maison.<br>
+<ul>
+  <li><b>Tessuto GG Supreme beige ed ebano, materiale a ridotto impatto ambientale, con finiture in pelle marrone</b></li>
+  <li><b>Colore:</b> Beige ed Ebano</li>
+  <li><b>Nastro Web rosso e verde</b></li>
+  <li><b>Finiture anticate color oro</b></li>
+  <li><b>Doppia G</b></li>
+  <li><b>Parte posteriore </b>  in rete nera</li>
+  <li><b>Tasca frontale </b> con cerniera</li>
+  <li><b>Tasca interna </b>  cerniera</li>
+  <li><b>Spallacci </b> regolabili</li>
+  <li><b>Chiusura con cerniera</b></li>
+  <li><b>Misura piccola:</b> L 22 cm x A 29 cm x P 15 cm</li>
+  <li><b>Peso:</b> circa 0,4 kg</li>
+  <li><b>Fabbricato in Italia</b></li>
+  <li>La modella è alta 180cm</li>
+  <li><b>Fodera </b> in cotone e lino</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* ZAINO CHANEL 22 */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("AS3859 B16652 NY077", "CHANELL", "Zaino Chanel 22", 5800.00, "Zaino", 01, "Pelle effetto lucido, pelle & metallo effetto dorato Bianco & nero.<br>
+<ul>
+  <li><b>Dimensioni:</b> 34 × 29 × 8 cm ( in )</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* PRADA Zaino small in Re-Nylon */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("1BZ677_RV44_F0076_V_OOO", "PRADA", "Zaino small in Re-Nylon", 1750.00, "Zaino", 01, "Parte dell'heritage di Prada fin dagli anni '80, lo zaino in nylon riflette le caratteristiche principali del marchio: l'innovazione dei materiali, l’approccio utilitaristico al lusso e la reinterpretazione dei classici. Questo modello dal design minimalista e moderno è riproposto in Re-Nylon, ottenuto dal riciclo e dalla purificazione delle materie plastiche raccolte negli oceani.<br>
+<ul>
+  <li>Dettagli in Saffiano</li>
+  <li><b>Bretelle </b> regolabili e maniglia in nastro </li>
+  <li><b>Tasche </b> davanti con pattina e chiusura a fibbia</li>
+  <li><b>Finiture in metallo</b></li>
+  <li><b>Logo </b>  su triangolo in metallo smaltato sulla pattina</li>
+  <li><b>Chiusura </b> con coulisse, pattina e chiusura a fibbia</li>
+  <li><b>Interno in Re-Nylon </b> siglato con due tasche di cui una con zip</li>
+  <li><b>Altezza:</b> 28cm</li>
+  <li><b>Larghezza:</b> 23cm</li>
+  <li><b>Lunghezza:</b> 12cm</li>
+  <li><b>Materiale:</b> Tessuto</li>
+  <li><b>Colore:</b> Celeste</li>
+</ul>
+<i> Per una cura sostenibile del prodotto, per preservarne le caratteristiche e per ridurre la dispersione di microfibre, si consiglia di non lavare il prodotto troppo spesso, di far prendere aria dopo ogni utilizzo e affidare il lavaggio a secco ad una tintoria specializzata ed ecologica.</i>", 2024, '2024-04-16', 0, 10);
+
+/* CARPISA Zaino - New Mandy V2 */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("BSB05007942", "Carpisa", "Zaino - New Mandy V2", 39.95, "Zaino", 01, "Zaino da donna della linea New Mandy V2 by Carpisa pratico e resistente. Il modello si contraddistingue per la sua ampiezza e capienza che la rendono adatto per portare con te tutto ciò che ti serve in ufficio ma anche nelle trasferte di lavoro.<br>
+<ul>
+  <li><b>Ampio scomparto interno </b>con chiusura a zip</li>
+  <li><b>Spallacci </b>in nastro regolabili</li>
+  <li><b>Due tasche esterne </b>nella parte frontale con chiusura con cerniera</li>
+  <li><b>Una tasca </b>sul retro con zip</li>
+  <li>Numerose tasche interne per gli accessori</li>
+  <li><b>Capienza </b> PC da max 15</li>
+  <li><b>Linea:</b> NEW MANDY V2</li>
+  <li><b>Materiale:</b> Sintetico</li>
+  <li><b>Made in:</b> Cina</li>
+  <li><b>Collezione:</b> Continuativo 2022</li>
+  <li><b>Dimensioni (cm):</b> 30 x 39 x 12.5</li>
+  <li><b>Colore:</b> Indaco</li>",
+2023, '2024-04-16', 43, 10);
+
 
 
 
@@ -157,6 +222,52 @@ VALUES ("AW0AW15763AES", "TOMMY HILFIGER", "CINTURA TH MONOGRAM IN PELLE", 45.00
   <li><b>Materiale:</b> 100% pelle</li>
 </ul>", 
 2023, '2024-04-16', 30, 10);
+
+/* CHANEL Cintura*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("AAA105 B16750 NY272", "CHANEL", "Cintura", 1210.00, "Cintura", 01, "Capretto effetto scamosciato, pelle di agnello & metallo.<br>
+<ul>
+  <li><b>Colore:</b> Nero & oro</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+
+/*GUCCI Cintura Sottile GG Marmont */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("409417 0AAA5 1000", "GUCCI", "CINTURA SOTTILE GG MARMONT", 350.00, "Cintura", 01, "Nell'ultima collezione, i motivi più emblematici della Maison sono rappresentati come simboli senza tempo ma in continua evoluzione. L'iconica Doppia G color oro definisce questo accessorio con il suo stile inconfondibile.<br>
+<ul>
+  <li><b>Pelle nera</b></li>
+  <li><b>Finiture color oro chiaro</b></li>
+  <li><b>Fibbia Doppia G</b></li>
+  <li><b>Fibbia:</b> L 4 cm x A 3 cm</li>
+  <li><b>Altezza cintura:</b> 2 cm</li>
+  <li><b>Larghezza:</b> 2 cm</li>
+  <li><b>Fabbricato in Italia</b></li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* VERSACE Cintura con catena */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("1007687-1A00620_DTU_UNICA_3P010__", "VERSACE", "CINTURA CON CATENA GRECA GODDESS", 790.00, "Cintura", 01, "Questa cintura con catena è realizzata con iconiche maglie con Greca, un simbolo del brand, reso con un'unica linea ininterrotta. Tutti i gioielli firmati Versace sono privi di piombo e nichel. Tutti i materiali sono ipoallergenici.<br>
+<ul>
+  <li><b>Elementi in metallo con Greca</b></li>
+  <li><b>Chiusura con moschettone</b></li>
+  <li><b>Materiale:</b> 100% metallo</li>
+  <li><b>Colore:</b> Metallico</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* CARPISA Cintura - Liv */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("ACC08305444", "Carpisa", "Cintura - Liv", 9.95, "Cintura", 01, "Cintura da donna della linea Liv by Carpisa in simil pelle effetto granato. Un accessorio in stile classico, sempre di moda, che vi permetterà facili abbinamenti.<br>
+<ul>
+  <li><b>Linea:</b> LIV</li>
+  <li><b>Materiale:</b> Sintetico</li>
+  <li><b>Colore:</b> Ardesia</li>
+  <li><b>Made in:</b> Cina</li>
+  <li><b>Collezione:</b> Primavera/Estate 2024</li>
+  <li><b>Dimensioni (cm):</b> 115 x 2 x 0</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
 
 
 /* INSERIMENTO PORTAFOGLI */
@@ -180,6 +291,69 @@ VALUES("M60531", "LOUIS VUITTON", "Portafoglio Sarah", 530.00, "Portafoglio", 01
 </ul>
 L'articolo può essere prodotto in Francia, Spagna, Italia o negli Stati Uniti.", 
 2024, '2024-04-17', 0, 10);
+
+/* CARPISA Piccolo - Alma */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("PDC01308444", "Carpisa", "Portafoglio Piccolo - Alma", 15.95, "Portafoglio", 01, "Portafoglio piccolo della linea Alma by Carpisa realizzato in similpelle effetto struzzo.
+Dotato di chiusura con cerniera all round, tasca interna portamonete e otto slot portacarte.<br>
+<ul>
+  <li><b>Linea:</b> ALMA</li>
+  <li><b>Materiale:</b> Sintetico</li>
+  <li><b>Colore:</b> Pistacchio chiaro</li>
+  <li><b>Made in:</b> Cina</li>
+  <li><b>Collezione:</b> Primavera/Estate 2024</li>
+  <li><b>Dimensioni (cm):</b> 11.5 x 8 x 2</li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* GUCCI Portacarte GG Marmont */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("466492 DTDHT 1712", "GUCCI", "PORTACARTE GG MARMONT", 385, "Portafoglio", 01, "La collezione GG Marmont è definita dall'emblematico dettaglio Doppia G, una versione contemporanea di una fibbia per cintura degli archivi Gucci degli anni '70 diventata un elemento distintivo della Maison. Questo portacarte è realizzato con la stessa pelle matelassé delle borse della collezione.<br>
+<ul>
+  <li><b>Pelle chevron matelassé grigio chiaro</b></li>
+  <li><b>Finiture color oro</b></li>
+  <li><b>Fodera in moiré</b></li>
+  <li><b>Colore:</b> Grigio chiaro</li>
+  <li><b>Doppia G</b></li>
+  <li><b>Cinque fessure per carte</b></li>
+  <li><b>Uno scomparto per banconote</b></li>
+  <li><b>Tasca con cerniera</b></li>
+  <li><b>Chiusura a scatto</b></li>
+  <li><b>Chiuso:</b> L 11 cm x A 8,5 cm x P 3 cm</li>
+  <li><b>Aperto:</b> L 11 cm x A 17,5 cm</li>
+  <li><b>Fabbricato in Italia</b></li>
+</ul>", 2024, '2024-04-16', 0, 10);
+
+/* VERSACE Medusa '95 */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("1014689-1A10795_DTU_UNICA_1KD7V__", "VERSACE", "PORTAFOGLIO MEDUSA '95", 550, "Portafoglio", 01, "Un portafoglio realizzato in pelle liscia dettagliato da una personalizzazione con cintura Medusa '95 sul davanti e dotato di diversi scomparti interni per carte e banconote e un portamonete. Il piccolo accessorio è completato da una taschina posteriore con logo in rilievo.<br>
+<ul>
+  <li><b>Personalizzazione Medusa '95</b></li>
+  <li><b>Logo Versace</b></li>
+  <li><b>Scomparti interni per carte</b></li>
+  <li><b>Scomparto per banconote</b></li>
+  <li><b>Portamonete con zip</b></li>
+  <li><b>Taschino posteriore</b></li>
+  <li><b>Design con tre parti</b></li>
+  <li><b>Colore:</b> Nero</li>
+  <li><b>Composizione esterno:</b> 100% pelle di vitello</li>
+  <li><b>Fodera:</b> 60% cotone, 40% viscosa</li>
+  <li><b>Finiture:</b> 100% pelle di agnello</li>
+</ul>", 2024, '2024-04-17', 0, 10);
+
+/* Tommy Hilfiger PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+VALUES ("AW0AW15743BDS", "TOMMY HILFIGER", "PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI", 55, "Portafoglio", 01, "Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un'icona inconfondibile del brand. La stampa di monogrammi TH all over e la pratica chiusura con zip sono le caratteristiche distintive del grintoso portafogli, abbastanza spazioso da contenere tutto l'essenziale.<br>
+<ul>
+  <li><b>Finitura liscia</b></li>
+  <li><b>Stampa di monogrammi TH all over</b></li>
+  <li><b>Chiusura con zip</b></li>
+  <li><b>Colore:</b> Nero</li>
+  <li><b>Scomparto principale</b></li>
+  <li><b>Placchetta con monogramma TH sul davanti</b></li>
+  <li><b>Branding Tommy Hilfiger</b></li>
+  <li><b>Dimensioni:</b> 11 x 20 x 3 cm</li>
+  <li><b>100% poliuretano</b></li>
+</ul>", 2023, '2024-04-17', 30, 10);
 
 
 /* INSERIMENTO SCIARPE E CAPPELLI */
@@ -231,6 +405,14 @@ Dotato di chiusura principale con cerniera, due taschine esterne, tira lampo in 
 
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/1.jpg", 1, "678842 FACPO 5743");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/2.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/3.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/4.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/5.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/6.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/7.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/8.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/9.jpg", 0, "678842 FACPO 5743");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Gucci/Borsa Shopping Gucci Diana Misura Media/Pelle Beige Chiaro/10.jpg", 0, "678842 FACPO 5743");
 
 
 
@@ -238,6 +420,13 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/bo
 
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/1.jpg", 1, "1013169-1A10795_DTU_UNICA_1B00V__");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/2.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/3.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/4.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/5.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/6.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Versace/Shopper Piccola Medusa '95/Nero e Oro/7.jpg", 0, "1013169-1A10795_DTU_UNICA_1B00V__");
+
+
 
 /*CARPISA BORSA SHOPPING - ATHENA*/
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Carpisa/Borsa Shopping/Ardesia/1.jpg", 1,"BSB99201444"); 
@@ -247,12 +436,19 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/bo
 /* ARMANI Borsa hobo a spalla in pelle stampa cervo */
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/1.jpg", 1, "Y3E205Y497O180100");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/2.jpg", 0, "Y3E205Y497O180100");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/3.jpg", 0, "Y3E205Y497O180100");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/4.jpg", 0, "Y3E205Y497O180100");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/5.jpg", 0, "Y3E205Y497O180100");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Armani/Borsa hobo a spalla in pelle stampa cervo/Tortora/6.jpg", 0, "Y3E205Y497O180100");
 
 
 
 /* PADRA Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano */
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Prada/Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano/Sughero/1.jpg", 1,"1BH218_R064_F0594_V_OOO");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Prada/Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano/Sughero/2.jpg", 0,"1BH218_R064_F0594_V_OOO");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Prada/Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano/Sughero/3.jpg", 0,"1BH218_R064_F0594_V_OOO");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Prada/Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano/Sughero/4.jpg", 0,"1BH218_R064_F0594_V_OOO");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/borse/Prada/Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano/Sughero/5.jpg", 0,"1BH218_R064_F0594_V_OOO");
 
 
 /* ZAINI */
@@ -260,6 +456,41 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/bo
 /* CALVIN KLEIN ZAINO ROTONDO */
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Calvin Klein/Zaino Rotondo/Nero/1.jpg", 1,"0000PH0700010"); 
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Calvin Klein/Zaino Rotondo/Nero/2.jpg", 0,"0000PH0700010"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Calvin Klein/Zaino Rotondo/Nero/3.jpg", 0,"0000PH0700010"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Calvin Klein/Zaino Rotondo/Nero/4.jpg", 0,"0000PH0700010"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Calvin Klein/Zaino Rotondo/Nero/5.jpg", 0,"0000PH0700010"); 
+
+/* GUCCI ZAINO OPHIDIA DOPPIA GG */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/1.jpg", 1,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/2.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/3.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/4.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/5.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/6.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/7.jpg", 0,"547965 9U8BT 8994"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Gucci/Zaino Ophidia in GG Supreme Misura Piccola/Beige e Ebano/8.jpg", 0,"547965 9U8BT 8994"); 
+
+/* ZAINO CHANEL 22 */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Chanel/Zaino Chanel 22/Bianco e Nero/1.jpg", 1,"AS3859 B16652 NY077"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Chanel/Zaino Chanel 22/Bianco e Nero/2.jpg", 0,"AS3859 B16652 NY077"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Chanel/Zaino Chanel 22/Bianco e Nero/3.jpg", 0,"AS3859 B16652 NY077"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Chanel/Zaino Chanel 22/Bianco e Nero/4.jpg", 0,"AS3859 B16652 NY077"); 
+
+
+/* PRADA Zaino small in Re-Nylon */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/1.jpg", 1,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/2.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/3.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/4.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/5.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/6.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/7.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
+
+/* CARPISA Zaino - New Mandy V2 */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/1.jpg", 1,"BSB05007942"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/2.jpg", 0,"BSB05007942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/3.jpg", 0,"BSB05007942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/4.jpg", 0,"BSB05007942");
 
 
 
@@ -267,7 +498,28 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/za
 
 /* TOMMY HILFIGER CINTURA TH MONOGRAM IN PELLE */
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Tommy Hilfiger/Cintura TH Monogram in pelle/White Clay/1.jpg", 1, "AW0AW15763AES");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Tommy Hilfiger/Cintura TH Monogram in pelle/White Clay/2.jpg", 0, "AW0AW15763AES");
+
+
+/* CHANEL Cintura*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Chanel/Cintura/Nero e Oro/1.jpg", 1, "AAA105 B16750 NY272");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Chanel/Cintura/Nero e Oro/2.jpg", 0, "AAA105 B16750 NY272");
+
+
+/*GUCCI Cintura Sottile GG Marmont */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Gucci/Cintura Sottile GG Marmont/Nero/1.jpg", 1, "409417 0AAA5 1000");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Gucci/Cintura Sottile GG Marmont/Nero/2.jpg", 0, "409417 0AAA5 1000");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Gucci/Cintura Sottile GG Marmont/Nero/3.jpg", 0, "409417 0AAA5 1000");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Gucci/Cintura Sottile GG Marmont/Nero/4.jpg", 0, "409417 0AAA5 1000");
+
+/* VERSACE Cintura con catena */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Versace/Cintura con catena/Metallico/1.jpg", 1, "1007687-1A00620_DTU_UNICA_3P010__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Versace/Cintura con catena/Metallico/2.jpg", 0, "1007687-1A00620_DTU_UNICA_3P010__");
+
+/* CARPISA Cintura - Liv */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/cinture/Carpisa/Cintura - Liv/Ardesia/1.jpg", 1, "ACC08305444");
+
+
+
 
 
 /* PORTAFOGLI */
@@ -275,6 +527,38 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/ci
 /* LOUIS VUITTON PORTAFOGLIO SARAH*/
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/1.jpg", 1, "M60531");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/2.jpg", 0, "M60531");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/3.jpg", 0, "M60531");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/4.jpg", 0, "M60531");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/5.jpg", 0, "M60531");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Louis Vuitton/Portafoglio Sarah/Marrone/6.jpg", 0, "M60531");
+
+
+/* CARPISA Piccolo - Alma */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Carpisa/Portafoglio Piccolo - Alma/Pistacchio chiaro/1.jpg", 1, "PDC01308444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Carpisa/Portafoglio Piccolo - Alma/Pistacchio chiaro/2.jpg", 0, "PDC01308444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Carpisa/Portafoglio Piccolo - Alma/Pistacchio chiaro/3.jpg", 0, "PDC01308444");
+
+/* GUCCI Portacarte GG Marmont */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/1.jpg", 1, "466492 DTDHT 1712");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/2.jpg", 0, "466492 DTDHT 1712");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/3.jpg", 0, "466492 DTDHT 1712");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/4.jpg", 0, "466492 DTDHT 1712");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/5.jpg", 0, "466492 DTDHT 1712");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Gucci/Portacarte GG Marmont/Grigio Chiaro/6.jpg", 0, "466492 DTDHT 1712");
+
+/* VERSACE Medusa '95 */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Versace/Medusa ‘95/Nero/1.jpg", 1, "1014689-1A10795_DTU_UNICA_1KD7V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Versace/Medusa ‘95/Nero/2.jpg", 0, "1014689-1A10795_DTU_UNICA_1KD7V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Versace/Medusa ‘95/Nero/3.jpg", 0, "1014689-1A10795_DTU_UNICA_1KD7V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Versace/Medusa ‘95/Nero/4.jpg", 0, "1014689-1A10795_DTU_UNICA_1KD7V__");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Versace/Medusa ‘95/Nero/5.jpg", 0, "1014689-1A10795_DTU_UNICA_1KD7V__");
+
+/* Tommy Hilfiger PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Tommy Hilfiger/Portafogli Iconic Grande con Monogrammi/Nero/1.jpg", 1, "AW0AW15743BDS");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Tommy Hilfiger/Portafogli Iconic Grande con Monogrammi/Nero/2.jpg", 0, "AW0AW15743BDS");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/portafogli/Tommy Hilfiger/Portafogli Iconic Grande con Monogrammi/Nero/3.jpg", 0, "AW0AW15743BDS");
+
+
 
 
 /* SCIARPE E CAPPELLI */
@@ -282,6 +566,7 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/po
 /* LOUIS VUITTON SCIARPA THE ULTIMATE */
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/sciarpe_e_cappelli/Louis Vuitton/Sciarpa The Ultimate/Beige/1.jpg", 1, "M76382");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/sciarpe_e_cappelli/Louis Vuitton/Sciarpa The Ultimate/Beige/2.jpg", 0, "M76382");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/sciarpe_e_cappelli/Louis Vuitton/Sciarpa The Ultimate/Beige/3.jpg", 0, "M76382");
 
 
 /* ACCESSORI */

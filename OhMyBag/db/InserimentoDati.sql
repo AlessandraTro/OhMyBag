@@ -923,7 +923,7 @@ VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessor
 
 INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viaggio', 03,
-'Borsone/Zaino della linea Jump Go by Carpisa realizzato in materiali performanti e tecnici con contrasti materici e dettagli in contrasto di colore. Il modello, dal design forte e deciso sfrutta al meglio tutti gli spazi e scomparti, l'interno è strutturato con cinghie ferma abiti, vano per pc o tablet fino a 17', numerose tasche esterne, schienale con rivestimento in rete per conferire una maggiore traspirabilità, fascia per aggancio a trolley e spallacci imbottiti regolabili e removibili. Ultraccessoriato con divisorio regolabile e necessaire staccabile. Zaino perfetto per viaggiare in totale comfort.<br>
+'Borsone-Zaino della linea Jump Go by Carpisa realizzato in materiali performanti e tecnici con contrasti materici e dettagli in contrasto di colore. Il modello, dal design forte e deciso sfrutta al meglio tutti gli spazi e scomparti, l’interno è strutturato con cinghie ferma abiti, vano per pc o tablet fino a 17’, numerose tasche esterne, schienale con rivestimento in rete per conferire una maggiore traspirabilità, fascia per aggancio a trolley e spallacci imbottiti regolabili e removibili. Ultraccessoriato con divisorio regolabile e necessaire staccabile. Zaino perfetto per viaggiare in totale comfort.<br>
 <ul>
     <li><b>Linea:</b> JUMP GO</li>
     <li><b>Materiale:</b> Tessuto </li>
@@ -932,6 +932,7 @@ VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viagg
     <li><b> Dimensioni (cm):</b> 32 x 50 x 18 </li>
 </ul>',
 2024, '2024-04-16', 0, 10);
+
 
 
 /*URBAN TRACK -ZAINO 14*/
@@ -1173,17 +1174,17 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/a
 
 /*BEAUTY-GOTECH GREEN BEAUTY*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/2.jpg", 1, "TVVA65601942");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/1.jpg", 0, "TVVA65601942");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/3.jpg", 0, "TVVA65601942");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/4.jpg", 0, "TVVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/2.jpg", 1, "VVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/1.jpg", 0, "VVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/3.jpg", 0, "VVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/4.jpg", 0, "VVA65601942");
 
 /*ZAINO – JUMP GP*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/1.jpg", 1, "VBC0440244");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/2.jpg", 0, "VBC0440244");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/3.jpg", 0, "VBC0440244");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/4.jpg", 0, "VBC0440244");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/1.jpg", 1, "VBC04402444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/2.jpg", 0, "VBC04402444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/3.jpg", 0, "VBC04402444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/4.jpg", 0, "VBC04402444");
 
 /*URBAN TRACK -ZAINO 14*/
 

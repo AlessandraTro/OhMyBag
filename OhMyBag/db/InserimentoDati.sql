@@ -295,8 +295,8 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/ac
 /*INSERIMENTO ZAINI*/
 
 /*TUCANO*/
-
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) values ("003AAA", "Tucano",  "Luna Gravity", 02, "Zaino per laptop 15.6 e MacBook 16 dotato di sistema anti-gravity, una sospensione elastica degli spallacci concepita per ridurre il carico sulle spalle e sulla schiena quando il corpo è in movimento. La funzione anti gravity system, oltre a migliorare la postura e a ridurre lo sforzo muscolare, attenua in modo specifico la rigidità dei muscoli del dorso e del collo distribuendo in modo equilibrato il peso dello zaino tra le spalle e il bacino. Realizzato in materiale tecnico ad alta densità, Luna Gravity ha un'ottima organizzazione delle tasche. Il vano interno, è dotato di una tasca protettiva per laptop mentre il lato anteriore presenta tasche con differenti altezze chiuse da cerniere. La parte posteriore ha uno schienale ergonomico, spallacci imbottiti con sistema di sospensione, fascia per trolley e tasca di sicurezza. Una rain cover estraibile, nascosta all'interno della base, permette di proteggere lo zaino durante la pioggia.
+use OhMyBag;
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) values ("003AAA", "Tucano",  "Luna Gravity", 200.00, "Zaino",  02, "Zaino per laptop 15.6 e MacBook 16 dotato di sistema anti-gravity, una sospensione elastica degli spallacci concepita per ridurre il carico sulle spalle e sulla schiena quando il corpo è in movimento. La funzione anti gravity system, oltre a migliorare la postura e a ridurre lo sforzo muscolare, attenua in modo specifico la rigidità dei muscoli del dorso e del collo distribuendo in modo equilibrato il peso dello zaino tra le spalle e il bacino. Realizzato in materiale tecnico ad alta densità, Luna Gravity ha un'ottima organizzazione delle tasche. Il vano interno, è dotato di una tasca protettiva per laptop mentre il lato anteriore presenta tasche con differenti altezze chiuse da cerniere. La parte posteriore ha uno schienale ergonomico, spallacci imbottiti con sistema di sospensione, fascia per trolley e tasca di sicurezza. Una rain cover estraibile, nascosta all'interno della base, permette di proteggere lo zaino durante la pioggia.
 <ul>
 <li>Colore Nero</li>
   <li>
@@ -310,7 +310,7 @@ INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizio
   <li>Schienale ergonomico</li>
   <li>Rain cover estraibile</li>
   <li>Nastri con stampa all over</li>
-</ul>", 2023, "16/04/2024", 0, 10);
+</ul>", 2023, "2024-04-16", 0, 10);
 
 /*SPRAYGROUND*/
 INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)

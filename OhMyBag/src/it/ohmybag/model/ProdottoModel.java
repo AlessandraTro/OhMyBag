@@ -708,7 +708,7 @@ public class ProdottoModel{
 	}
 	
 	/*ritorna il prodotto con un determinato id*/
-	public synchronized Prodotto doRetriveById(String id) throws SQLException{
+	public synchronized Prodotto doRetrieveById(String id) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
 		Prodotto bean=new Prodotto();

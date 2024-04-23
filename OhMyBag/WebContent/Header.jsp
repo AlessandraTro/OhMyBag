@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .dropdown-hover:hover .dropdown-menu {
             display: block;
@@ -13,11 +13,9 @@
     </style>
 </head>
 <body>
-
-
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Navbar</a>
+			<a class="navbar-brand" href="/OhMyBag">OhMyBag</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -65,10 +63,10 @@
 						
 			 <div class="ml-auto d-flex align-items-center">
            		<form class="d-flex" role="search"">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">
-				<i class="fas fa-search"></i></button>
-            </form>
+                	<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                	<button class="btn btn-outline-success" type="submit">
+					<i class="fas fa-search"></i></button>
+            	</form>
             
             <div class="navbar-nav">
              	<a class="nav-link" href="#"><i class="fas fa-user"></i></a>

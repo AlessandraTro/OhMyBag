@@ -862,7 +862,7 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sci
 /*INSERIMENTO ACCESSORI DA VIAGGIO*/
 
 /*POCHETTE DIORTRAVEL CON CERNIERA*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('S5440UTEU_M928', 'DIOR', 'Pochette DiorTravel con cerniera', 530.00, 'Accessori Da Viaggio', 03,
 'Questa pochette DiorTravel è un accessorio pratico e minimalista. Realizzata in tessuto tecnico blu, presenta il motivo Toile de Jouy Reverse, una rivisitazione a colori invertiti della classica fantasia Dior. Impreziosita dalla firma Christian Dior Paris, è abbastanza capiente da poter custodire tutto l’indispensabile. Può essere portata a mano o riposta in una borsa, ed è perfetta da abbinare alle altre creazioni Toile de Jouy Reverse. Firma Christian Dior Paris sul davanti.Made in Italy <br>
 <ul>
@@ -871,7 +871,7 @@ VALUES ('S5440UTEU_M928', 'DIOR', 'Pochette DiorTravel con cerniera', 530.00, 'A
 2024, '2024-04-16', 0, 10);
 
 /* MONO SILVER WASHBAG UNISEX - Accessorio da viaggio */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('C1854H03O-Q11', 'CALVIN KLEIN JEANS', 'MONO SILVER WASHBAG UNISEX - Accessorio da viaggio', 59.90, 'Accessori Da Viaggio', 03,
 '<ul>
   <li><b>Materiale: </b> Poliestere</li>
@@ -883,7 +883,7 @@ VALUES ('C1854H03O-Q11', 'CALVIN KLEIN JEANS', 'MONO SILVER WASHBAG UNISEX - Acc
 
 /* HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('TOB54H06R-Q11', 'TOMMY JEANS', 'HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio', 117.00, 'Accessori da Viaggio', 03,
 '<ul>
     <li><b>Materiale esterno:</b> Poliestere</li>
@@ -905,7 +905,7 @@ VALUES ('TOB54H06R-Q11', 'TOMMY JEANS', 'HERITAGE ROUND DUFFLE UNISEX - Accessor
 
 /*BEAUTY-GOTECH GREEN BEAUTY*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessori da Viaggio', 03,
 'Beauty Gotech® è realizzato con materiale ultra resistente progettato dal centro R&S CARPISA e dotato di superficie anti-graffio. Dispone di una tracolla staccabile. <br>
 <ul>
@@ -921,7 +921,7 @@ VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessor
 
 /*ZAINO – JUMP GP*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viaggio', 03,
 'Borsone/Zaino della linea Jump Go by Carpisa realizzato in materiali performanti e tecnici con contrasti materici e dettagli in contrasto di colore. Il modello, dal design forte e deciso sfrutta al meglio tutti gli spazi e scomparti, l'interno è strutturato con cinghie ferma abiti, vano per pc o tablet fino a 17', numerose tasche esterne, schienale con rivestimento in rete per conferire una maggiore traspirabilità, fascia per aggancio a trolley e spallacci imbottiti regolabili e removibili. Ultraccessoriato con divisorio regolabile e necessaire staccabile. Zaino perfetto per viaggiare in totale comfort.<br>
 <ul>
@@ -936,7 +936,7 @@ VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viagg
 
 /*URBAN TRACK -ZAINO 14*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('147626-A029', 'AMERICAN TOURISTER', 'URBAN TRACK -ZAINO 14', 79.90, 'Zaini da viaggio', 03,
 '<ul>
 <li><b>Garanzia:</b> Garanzia legale</li>
@@ -963,7 +963,7 @@ VALUES ('147626-A029', 'AMERICAN TOURISTER', 'URBAN TRACK -ZAINO 14', 79.90, 'Za
 
 /*SOJOURN PORTER 65L*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('O8D2401', 'OSPREY', 'SOJOURN PORTER 65L', 220.00, 'Zaini da Viaggio', 03,
 'Ideale per le escursioni più lunghe e le avventure di tutti i tipi, il Sojourn Porter 65 offre una maggiore capienza e un’organizzazione pratica per permetterti di accedere al contenuto quando sei in movimento. Lo schienale AirScape™ ti mantiene al fresco e all’asciutto durante tutto il viaggio. Le pareti laterali imbottite proteggono il contenuto durante i viaggi in aereo, in treno o in automobile. Le cinghie StraightJacket comprimono l’interno per massimizzare lo spazio e migliorare l’ergonomia. Puoi estrarre l’imbracatura e la cintura in vita a scomparsa per trasportarlo come uno zaino, o riporle per proteggerle. Realizzato con tessuti durevoli, così potrai contare sulla longevità di questo zaino per anni. <br>
 <ul>
@@ -978,7 +978,7 @@ VALUES ('O8D2401', 'OSPREY', 'SOJOURN PORTER 65L', 220.00, 'Zaini da Viaggio', 0
 
 /* BOREALIS CLASSIC – ZAINO DA VIAGGIO*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('TH344E013-Q11', 'THE NORTH FACE', 'BOREALIS CLASSIC - Zaino da viaggio', 105.99, 'Zaini da viaggio', 03,
 '<ul>
     <li><b>Composizione e istruzioni di lavaggio</b></li>
@@ -1000,7 +1000,7 @@ VALUES ('TH344E013-Q11', 'THE NORTH FACE', 'BOREALIS CLASSIC - Zaino da viaggio'
 </ul>', 2024, '2024-04-16', 0, 10);
 
 /* PRO-DLX 6 */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
 VALUES ('151779-1090', 'SAMSONITE', 'PRO-DLX 6', 280.00, 'Zaini da viaggio', 03,
 '<ul>
     <li><b>Porta USB:</b> Sì</li>
@@ -1040,7 +1040,7 @@ VALUES ('151779-1090', 'SAMSONITE', 'PRO-DLX 6', 280.00, 'Zaini da viaggio', 03,
 
 /* SOUNDBOX TROLLEY – Trolley*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('AT851H00K-I11', 'AMERICAN TOURISTER', 'SOUNDBOX TROLLEY - Trolley', 155.00, 'Valigie', 03,  
 '<ul>
     <li><b>Colore:</b> lilla</li>
@@ -1058,7 +1058,7 @@ VALUES ('AT851H00K-I11', 'AMERICAN TOURISTER', 'SOUNDBOX TROLLEY - Trolley', 155
 
 /* GOTECH GREEN PLUS */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('VAA505MN942', 'CARPISA', 'GOTECH GREEN PLUS', 149.95, 'Valigie', 03,  
 'La linea vanta un upgrade di qualità e sposa a pieno la filosofia GREEN ORIENTED.
 Carpisa Gotech Green è realizzata con materiale ultra resistente e composto da un mix all’80% di materiali provenienti da riciclo. La fodera interna è in 100% materiale riciclato.
@@ -1087,7 +1087,7 @@ Chiusura con lucchetto TSA. <br>
 
 /* BORSONE-LUCKY TRAVEL BAGS */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('BSC21402444', 'CARPISA', 'BORSONE-LUCKY TRAVEL BAGS', 59.95, 'Valigie', 03,  
 'Borsone della linea Lucky Travel Bags by Carpisa realizzato in similpelle con stampa all over.Il modello è dotato di chiusura con zip, ampi manici e una tracollina regolabile e removibile. Pratico, capiente e leggero è ideale per viaggiare. <br> 
 <ul>
@@ -1100,7 +1100,7 @@ VALUES ('BSC21402444', 'CARPISA', 'BORSONE-LUCKY TRAVEL BAGS', 59.95, 'Valigie',
 
 /* ESSENTIAL DUFFLE UNISEX - Borsa da viaggio*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('C1854H024-Q11', 'CALVIN KLEIN JEANS', 'ESSENTIAL DUFFLE UNISEX - Borsa da viaggio', 71.92, 'Borsoni da Viaggio', 03,  
 '<ul>
     <li><b>Colore :</b> Colore: black</li>
@@ -1118,7 +1118,7 @@ VALUES ('C1854H024-Q11', 'CALVIN KLEIN JEANS', 'ESSENTIAL DUFFLE UNISEX - Borsa 
 
 /* LUSTRE - Bagaglio a mano */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('GU151H448-A11', 'GUESS', 'LUSTRE - Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
 '<ul>
     <li><b>Colore:</b> bianco</li>
@@ -1135,7 +1135,7 @@ VALUES ('GU151H448-A11', 'GUESS', 'LUSTRE - Bagaglio a mano', 136.00, 'Bagagli a
 
 /* BUGATTI – Bagaglio a mano */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
 VALUES ('BU154H03T-Q11', 'BUGATTI', 'BUGATTI – Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
 '<ul>
     <li><b>Colore:</b> Nero</li>
@@ -1222,33 +1222,33 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/v
 
 /* GOTECH GREEN PLUS */
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/1.jpg", 1, "VAA505MN942 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/2.jpg", 0, "VAA505MN942 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/3.jpg", 0, "VAA505MN942 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/4.jpg", 0, "VAA505MN942 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/1.jpg", 1, "VAA505MN942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/2.jpg", 0, "VAA505MN942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/3.jpg", 0, "VAA505MN942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/4.jpg", 0, "VAA505MN942");
 
 /*INSERIMENTO BORSONI DA VIAGGIO */
 
 /*BORSONE-LUCKY TRAVEL BAGS*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/1.jpg", 1, "BSC21402444 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/2.jpg", 0, "BSC21402444 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/1.jpg", 1, "BSC21402444");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/2.jpg", 0, "BSC21402444");
 
 /* ESSENTIAL DUFFLE UNISEX - Borsa da viaggio*/
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/1.jpg", 1, "C1854H024-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/2.jpg", 0, "C1854H024-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/3.jpg", 0, "C1854H024-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/1.jpg", 1, "C1854H024-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/2.jpg", 0, "C1854H024-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/3.jpg", 0, "C1854H024-Q11");
 
 /*INSERIMENTO BAGAGLI A MANO*/
 
 /* LUSTRE - Bagaglio a mano */
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/3.jpg", 1, "GU151H448-A11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/1.jpg", 0, "GU151H448-A11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/2.jpg", 0, "GU151H448-A11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/3.jpg", 1, "GU151H448-A11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/1.jpg", 0, "GU151H448-A11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/2.jpg", 0, "GU151H448-A11");
 
 /*BUGATTI – Bagaglio a mano */
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/5.jpg", 1, "BU154H03T-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/1.jpg", 0, "BU154H03T-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/2.jpg", 0, "BU154H03T-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/3.jpg", 0, "BU154H03T-Q11 ");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/4.jpg", 0, "BU154H03T-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/5.jpg", 1, "BU154H03T-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/1.jpg", 0, "BU154H03T-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/2.jpg", 0, "BU154H03T-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/3.jpg", 0, "BU154H03T-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/4.jpg", 0, "BU154H03T-Q11");

@@ -487,10 +487,10 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/za
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino small in Re-Nylon/Celeste/7.jpg", 0,"1BZ677_RV44_F0076_V_OOO"); 
 
 /* CARPISA Zaino - New Mandy V2 */
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/1.jpg", 1,"BSB05007942"); 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/2.jpg", 0,"BSB05007942");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/3.jpg", 0,"BSB05007942");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Prada/Zaino - New Mandy V2/Indaco/4.jpg", 0,"BSB05007942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Carpisa/Zaino - New Mandy V2/Indaco/1.jpg", 1,"BSB05007942"); 
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Carpisa/Zaino - New Mandy V2/Indaco/2.jpg", 0,"BSB05007942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Carpisa/Zaino - New Mandy V2/Indaco/3.jpg", 0,"BSB05007942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/zaini/Carpisa/Zaino - New Mandy V2/Indaco/4.jpg", 0,"BSB05007942");
 
 
 

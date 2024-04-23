@@ -457,3 +457,398 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zai
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT004_1.jpg", 0, "004AAA");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT005_1.jpg", 0, "004AAA");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT006_1.jpg", 0, "004AAA");
+
+/*VIAGGI*/
+/*INSERIMENTO ACCESSORI DA VIAGGIO*/
+
+/*POCHETTE DIORTRAVEL CON CERNIERA*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('S5440UTEU_M928', 'DIOR', 'Pochette DiorTravel con cerniera', 530.00, 'Accessori Da Viaggio', 03,
+'Questa pochette DiorTravel è un accessorio pratico e minimalista. Realizzata in tessuto tecnico blu, presenta il motivo Toile de Jouy Reverse, una rivisitazione a colori invertiti della classica fantasia Dior. Impreziosita dalla firma Christian Dior Paris, è abbastanza capiente da poter custodire tutto l’indispensabile. Può essere portata a mano o riposta in una borsa, ed è perfetta da abbinare alle altre creazioni Toile de Jouy Reverse. Firma Christian Dior Paris sul davanti.Made in Italy <br>
+<ul>
+  <li><b> Dimensioni:</b> 27,5 x 21,5 cm (lunghezza x altezza)</li>
+</ul>',
+2024, '2024-04-16', 0, 10);
+
+/* MONO SILVER WASHBAG UNISEX - Accessorio da viaggio */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('C1854H03O-Q11', 'CALVIN KLEIN JEANS', 'MONO SILVER WASHBAG UNISEX - Accessorio da viaggio', 59.90, 'Accessori Da Viaggio', 03,
+'<ul>
+  <li><b>Materiale: </b> Poliestere</li>
+  <li><b>Materiale esterno:</b> Poliestere</li>
+  <li><b>Fodera:</b> Poliestere</li>
+  <li><b>Materiale:</b> Tessuto</li>
+</ul>',
+2024, '2024-04-20', 0, 5);
+
+/* HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('TOB54H06R-Q11', 'TOMMY JEANS', 'HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio', 117.00, 'Accessori da Viaggio', 03,
+'<ul>
+    <li><b>Materiale esterno:</b> Poliestere</li>
+   <li><b>Colore:</b> Nero</li>
+    <li><b>Materiale della fodera:</b> Poliestere</li>
+    <li><b>Scomparti:</b> Scomparto interno spazioso, Tasche anteriori</li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Fantasia:</b> Monocromo</li>
+    <li><b>Taglia e fit</b></li>
+    <li><b>Altezza:</b> 29 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 46 cm nella taglia One Size</li>
+    <li><b>Ampiezza:</b> 29 cm nella taglia One Size</li>
+    <li><b>Manico:</b> 21 cm nella taglia One Size</li>
+    <li><b>Standard del prodotto</b></li>
+    <li><b>Materiale riciclato</b></li>
+    <li><b>Materiale esterno:</b> 100% materiale riciclato</li>
+</ul>',
+2024, '2024-04-16', 10, 10);
+
+/*BEAUTY-GOTECH GREEN BEAUTY*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessori da Viaggio', 03,
+'Beauty Gotech® è realizzato con materiale ultra resistente progettato dal centro R&S CARPISA e dotato di superficie anti-graffio. Dispone di una tracolla staccabile. <br>
+<ul>
+    <li><b>Materiale:</b> ABS/Policarbonato </li>
+   <li><b>Colore:</b> Avion</li>
+    <li><b> Made in: </b> Cina</li>
+    <li><b> Dimensioni (cm):</b> 32.5 x 26 x 18 </li>
+</ul>',
+2022, '2024-04-16', 0, 10);
+
+
+/* INSERIMENTO ZAINI */
+
+/*ZAINO – JUMP GP*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viaggio', 03,
+'Borsone/Zaino della linea Jump Go by Carpisa realizzato in materiali performanti e tecnici con contrasti materici e dettagli in contrasto di colore. Il modello, dal design forte e deciso sfrutta al meglio tutti gli spazi e scomparti, l'interno è strutturato con cinghie ferma abiti, vano per pc o tablet fino a 17', numerose tasche esterne, schienale con rivestimento in rete per conferire una maggiore traspirabilità, fascia per aggancio a trolley e spallacci imbottiti regolabili e removibili. Ultraccessoriato con divisorio regolabile e necessaire staccabile. Zaino perfetto per viaggiare in totale comfort.<br>
+<ul>
+    <li><b>Linea:</b> JUMP GO</li>
+    <li><b>Materiale:</b> Tessuto </li>
+    <li><b>Colore:</b> Nero</li>
+    <li><b> Made in: </b> Cina</li>
+    <li><b> Dimensioni (cm):</b> 32 x 50 x 18 </li>
+</ul>',
+2024, '2024-04-16', 0, 10);
+
+
+/*URBAN TRACK -ZAINO 14*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('147626-A029', 'AMERICAN TOURISTER', 'URBAN TRACK -ZAINO 14', 79.90, 'Zaini da viaggio', 03,
+'<ul>
+<li><b>Garanzia:</b> Garanzia legale</li>
+<li><b>Modello:</b> Zaino</li>
+<li><b>Materiale:</b> Fabbricati a partire da Poliestere rPet con 17 bottiglie riciclate in PET usando la tecnologia Recyclex™</li>
+<li><b>Colore:</b> Verdigris</li>
+<li><b>Dimensione:</b> 40 x 25 x 20 cm</li>
+<li><b>Volume:</b> 24 L</li>
+<li><b>Peso:</b> 0.5 kg</li>
+<li><b>Categoria:</b> Morbido</li>
+<li><b>Cerniere:</b> Sì</li>
+<li><b>Maniglie:</b> Manigli(a)(e) superior(e)(i)</li>
+<li><b>Smart Sleeve:</b> Sì</li>
+<li><b>Spallacci:</b> Spallacci ergonomici</li>
+<li><b>Bagaglio a mano:</b> Sì</li>
+<li><b>Porta bottiglie:</b> Sì</li>
+<li><b>Logo:</b> Sul davanti</li>
+<li><b>Cinghie fermabiti:</b> Nel comparto inferiore</li>
+<li><b>Comparto porta laptop:</b> Sì</li>
+<li><b>Dimensioni dello schermo:</b> 14</li>
+<li><b>Organizzazione interna:</b> Sì</li>
+</ul>',
+ 2024, '2024-04-13', 0, 10);
+
+/*SOJOURN PORTER 65L*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('O8D2401', 'OSPREY', 'SOJOURN PORTER 65L', 220.00, 'Zaini da Viaggio', 03,
+'Ideale per le escursioni più lunghe e le avventure di tutti i tipi, il Sojourn Porter 65 offre una maggiore capienza e un’organizzazione pratica per permetterti di accedere al contenuto quando sei in movimento. Lo schienale AirScape™ ti mantiene al fresco e all’asciutto durante tutto il viaggio. Le pareti laterali imbottite proteggono il contenuto durante i viaggi in aereo, in treno o in automobile. Le cinghie StraightJacket comprimono l’interno per massimizzare lo spazio e migliorare l’ergonomia. Puoi estrarre l’imbracatura e la cintura in vita a scomparsa per trasportarlo come uno zaino, o riporle per proteggerle. Realizzato con tessuti durevoli, così potrai contare sulla longevità di questo zaino per anni. <br>
+<ul>
+<li><b>Taglia unica</b></li>
+<li><b>Colore</b> koseret green</li>
+<li><b>Volume:</b> 65 L</li>
+<li><b>Dimensioni:</b> 48H X 45W X 39D CM</li>
+<li><b>Peso:</b> 1.85 KG</li>
+<li><b>Tessuto principale: </b> Approvato bluesign®, 100% poliestere riciclato 200D, trattamento DWR senza PFAS</li>
+<li><b>Tessuto in basso</b>100% poliestere balistico riciclato 1680D, trattamento DWR senza PFAS</li>
+</ul>', 2024, '2024-04-16', 0, 10);
+
+/* BOREALIS CLASSIC – ZAINO DA VIAGGIO*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('TH344E013-Q11', 'THE NORTH FACE', 'BOREALIS CLASSIC - Zaino da viaggio', 105.99, 'Zaini da viaggio', 03,
+'<ul>
+    <li><b>Composizione e istruzioni di lavaggio</b></li>
+    <li><b>Materiale esterno:</b> Nylon</li>
+    <li><b>Materiale della fodera:</b> Tessuto</li>
+    <li><b>Colore: </b> Black/asphalt grey </li>
+    <li><b>Tipo di sport:</b> Outdoor, Training, Trekking urbano, Sci alpino</li>
+    <li><b>Extra:</b> Compartimento per portatile 15 pollici, Possibilità di agganciare il casco</li>
+    <li><b>Cinture:</b> Cintura altezza busto, Bretelle rinforzate, Cintura removibile</li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Apertura:</b> Apertura frontale</li>
+    <li><b>Fantasia:</b> Stampa</li>
+    <li><b>Sistema di idratazione:</b> Compatibile</li>
+    <li><b>Volume:</b> 29 l nella taglia One Size</li>
+    <li><b>Altezza:</b> 50 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 34.5 cm nella taglia One Size</li>
+    <li><b>Lunghezza schienale:</b> Corto (40-49 cm)</li>
+    <li><b>Ampiezza:</b> 22 cm nella taglia One Size</li>
+</ul>', 2024, '2024-04-16', 0, 10);
+
+/* PRO-DLX 6 */
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)
+VALUES ('151779-1090', 'SAMSONITE', 'PRO-DLX 6', 280.00, 'Zaini da viaggio', 03,
+'<ul>
+    <li><b>Porta USB:</b> Sì</li>
+    <li><b>Garanzia:</b> Garanzia legale</li>
+    <li><b>Modello:</b> Zaino</li>
+    <li><b>Materiale:</b> Exterior: Nylon balistico / Interior: 100% Poliestere riciclato (RPET)</li>
+    <li><b>Colore:</b> Blu</li>
+    <li><b>Dimensione:</b> 45 x 35 x 20 cm</li>
+    <li><b>Grandezza:</b> Bagaglio a mano</li>
+    <li><b>Volume:</b> 26.5 L</li>
+    <li><b>Peso:</b> 1.3 kg</li>
+    <li><b>Categoria:</b> Morbido</li>
+    <li><b>Cerniere:</b> Sì</li>
+    <li><b>Maniglie:</b> Manigli(a)(e) superior(e)(i)</li>
+    <li><b>Tasche esterne:</b> 2 tasche frontali</li>
+    <li><b>Smart Sleeve:</b> Sì</li>
+    <li><b>Spallacci:</b> Spallacci ergonomici</li>
+    <li><b>Porta bottiglie:</b> 2 portabottiglia</li>
+    <li><b>Logo:</b> Sul davanti</li>
+    <li><b>Resistente All’acqua:</b> Sì</li>
+    <li><b>Underseater:</b> Sì</li>
+    <li><b>Scomparto principale:</b> Sì</li>
+    <li><b>Divisorio:</b> Sì</li>
+    <li><b>Comparto porta laptop:</b> Sì</li>
+    <li><b>Dimensioni dello schermo:</b> 15.6"</li>
+    <li><b>Tasca per tablet:</b> Sì</li>
+    <li><b>Portachiavi:</b> Sì</li>
+    <li><b>Tasca di plastica:</b> Sì</li>
+    <li><b>RFID:</b> La tasca con protezione da RFID mette al riparo da frodi su pagamenti e furti d’identità, grazie al materiale di blocco RFID posizionato tra lo strato esterno del prodotto e la fodera interna.</li>
+    <li><b>Dimensioni dello schermo del tablet:</b> 10.5"</li>
+    <li><b>Sistema Easy Pass:</b> Sì</li>
+    <li><b>Organizzazione interna:</b> Sì</li>
+    <li><b>Cinghie elastiche fermabiti:</b> Sì</li>
+</ul>', 2024, '2024-04-16', 0, 10);
+
+/* INSERIMENTO VALIGIE */
+
+/* SOUNDBOX TROLLEY – Trolley*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('AT851H00K-I11', 'AMERICAN TOURISTER', 'SOUNDBOX TROLLEY - Trolley', 155.00, 'Valigie', 03,  
+'<ul>
+    <li><b>Colore:</b> lilla</li>
+    <li><b>Dettagli prodotto</b></li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Fantasia:</b> Monocromo</li>
+    <li><b>Dettagli:</b> Cerniera lampo a due direzioni</li>
+    <li><b>Volume:</b> 97 l nella taglia One Size</li>
+    <li><b>Peso:</b> 4200 g</li>
+    <li><b>Altezza:</b> 77 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 51.5 cm nella taglia One Size</li>
+    <li><b>Ampiezza:</b> 32.5 cm nella taglia One Size</li>
+</ul>', 2024, '2024-04-16', 0, 10); 
+
+
+/* GOTECH GREEN PLUS */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('VAA505MN942', 'CARPISA', 'GOTECH GREEN PLUS', 149.95, 'Valigie', 03,  
+'La linea vanta un upgrade di qualità e sposa a pieno la filosofia GREEN ORIENTED.
+Carpisa Gotech Green è realizzata con materiale ultra resistente e composto da un mix all’80% di materiali provenienti da riciclo. La fodera interna è in 100% materiale riciclato.
+Il bagaglio è dotato del CARPISA QR-GO: nuovo Sistema di comunicazione e accesso a vari servizi, fruibili in maniera semplice ed immediata.
+Garanzia 10 anni sul materiale e, grande novità, estesa anche sulle doppie ruote removibili brevettate, ultra-silenziose ed innovative.
+Chiusura con lucchetto TSA. <br> 
+<ul>
+    <li><b>Linea:</b> GOTECH GREEN</li>
+    <li><b>Materiale:</b> CARPISA GOTECH</li>
+    <li><b>Colore:</b> Avion</li>
+    <li><b>Capacità (L):</b> 60</li>
+    <li><b>Tipologia:</b> RIGIDO</li>
+    <li><b>Taglia:</b> Trolley M</li>
+    <li><b>Caratteristiche Speciali:</b> Green Oriented</li>
+    <li><b>Chiusura:</b> TSA</li>
+    <li><b>Ruote:</b> 4</li>
+    <li><b>Made in:</b> Cina</li>
+    <li><b>Collezione:</b> Continuativo 2022</li>
+    <li><b>Espandibile:</b> SI</li>
+    <li><b>Dimensioni senza ruote e carrello (cm):</b> 40.5 x 60.5 x 26</li>
+    <li><b>Dimensioni con ruote e carrello (cm):</b> 44 x 68 x 26</li>
+    <li><b>Peso (kg):</b> 3.7</li>
+</ul>', 2024, '2024-04-16', 0, 10); 
+
+/* INSERIMENTO BORSONI DA VIAGGIO */
+
+/* BORSONE-LUCKY TRAVEL BAGS */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('BSC21402444', 'CARPISA', 'BORSONE-LUCKY TRAVEL BAGS', 59.95, 'Valigie', 03,  
+'Borsone della linea Lucky Travel Bags by Carpisa realizzato in similpelle con stampa all over.Il modello è dotato di chiusura con zip, ampi manici e una tracollina regolabile e removibile. Pratico, capiente e leggero è ideale per viaggiare. <br> 
+<ul>
+    <li><b>Linea:</b> LUCKY TRAVEL BAGS</li>
+    <li><b>Colore:</b> Ardesia/Multicolore</li>
+    <li><b>Materiale:</b> Sintetico</li>
+    <li><b>Made in:</b> Cina</li>
+    <li><b>Collezione:</b> Primavera/Estate 2024</li>
+</ul>', 2024, '2024-04-17', 0, 10); 	
+
+/* ESSENTIAL DUFFLE UNISEX - Borsa da viaggio*/
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('C1854H024-Q11', 'CALVIN KLEIN JEANS', 'ESSENTIAL DUFFLE UNISEX - Borsa da viaggio', 71.92, 'Borsoni da Viaggio', 03,  
+'<ul>
+    <li><b>Colore :</b> Colore: black</li>
+    <li><b>Materiale esterno:</b> Poliestere</li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Fantasia:</b> Monocromo</li>
+    <li><b>Codice articolo:</b> C1854H024-Q11</li>
+    <li><b>Altezza:</b> 26 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 46 cm nella taglia One Size</li>
+    <li><b>Ampiezza:</b> 17 cm nella taglia One Size</li>
+    <li><b>Manico:</b> 19 cm nella taglia One Size</li>
+</ul>', 2024, '2024-04-17', 20, 10); 	
+
+/* INSERIMENTO BAGAGLI A MANO */
+
+/* LUSTRE - Bagaglio a mano */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('GU151H448-A11', 'GUESS', 'LUSTRE - Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
+'<ul>
+    <li><b>Colore:</b> bianco</li>
+    <li><b>Materiale esterno:</b> ABS</li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Fantasia:</b> Monocromo</li>
+    <li><b>Dettagli:</b> Cerniera lampo a due direzioni</li>
+    <li><b>Codice articolo:</b> GU151H448-A11</li>
+    <li><b>Altezza:</b> 45.72 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 31.75 cm nella taglia One Size</li>
+    <li><b>Ampiezza:</b> 24.13 cm nella taglia One Size</li>
+</ul>', 
+2024, '2024-04-19', 15, 10); 	
+
+/* BUGATTI – Bagaglio a mano */
+
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità)  
+VALUES ('BU154H03T-Q11', 'BUGATTI', 'BUGATTI – Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
+'<ul>
+    <li><b>Colore:</b> Nero</li>
+    <li><b>Materiale esterno:</b> Tessuto</li>
+    <li><b>Dettagli prodotto</b></li>
+    <li><b>Chiusura:</b> Cerniera</li>
+    <li><b>Fantasia:</b> Monocromo</li>
+    <li><b>Dettagli:</b> Cerniera lampo a due direzioni</li>
+    <li><b>Altezza:</b> 64 cm nella taglia One Size</li>
+    <li><b>Lunghezza:</b> 44 cm nella taglia One Size</li>
+    <li><b>Ampiezza:</b> 29 cm nella taglia One Size</li>
+</ul>',
+2024, '2024-04-19', 15, 10); 	
+
+/*IMMAGINI*/
+/*POCHETTE DIORTRAVEL CON CERNIERA*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Dior/Pochette DiorTravel con cerniera/blu/1.jpg", 1, "S5440UTEU_M928");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Dior/Pochette DiorTravel con cerniera/blu/2.jpg", 0, "S5440UTEU_M928");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Dior/Pochette DiorTravel con cerniera/blu/3.jpg", 0, "S5440UTEU_M928");
+
+/* MONO SILVER WASHBAG UNISEX - Accessorio da viaggio */
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Calvin Klein/MONO SILVER WASHBAG UNISEX/nero/1.jpg", 1, "C1854H03O-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Calvin Klein/MONO SILVER WASHBAG UNISEX/nero/2.jpg", 0, "C1854H03O-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Calvin Klein/MONO SILVER WASHBAG UNISEX/nero/3.jpg", 0, "C1854H03O-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Calvin Klein/MONO SILVER WASHBAG UNISEX/nero/4.jpg", 0, "C1854H03O-Q11");
+
+/* HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Tommy Hilfigher/HERITAGE ROUND DUFFLE UNISEX/foto/4.jpg", 1, "TOB54H06R-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Tommy Hilfigher/HERITAGE ROUND DUFFLE UNISEX/foto/1.jpg", 0, "TOB54H06R-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Tommy Hilfigher/HERITAGE ROUND DUFFLE UNISEX/foto/2.jpg", 0, "TOB54H06R-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Tommy Hilfigher/HERITAGE ROUND DUFFLE UNISEX/foto/3.jpg", 0, "TOB54H06R-Q11");
+
+/*BEAUTY-GOTECH GREEN BEAUTY*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/2.jpg", 1, "TVVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/1.jpg", 0, "TVVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/3.jpg", 0, "TVVA65601942");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/accessori da viaggio/Carpisa/Beauty - Gotech Green Beauty/Avion/4.jpg", 0, "TVVA65601942");
+
+/*ZAINO – JUMP GP*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/1.jpg", 1, "VBC0440244");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/2.jpg", 0, "VBC0440244");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/3.jpg", 0, "VBC0440244");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Carpisa/Zaino - Jump Go/Nero/4.jpg", 0, "VBC0440244");
+
+/*URBAN TRACK -ZAINO 14*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/American Tourister/Urban Track Zaino 14/Verdigris/3.jpg", 1, "147626-A029");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/American Tourister/Urban Track Zaino 14/Verdigris/1.jpg", 0, "147626-A029");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/American Tourister/Urban Track Zaino 14/Verdigris/2.jpg", 0, "147626-A029");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/American Tourister/Urban Track Zaino 14/Verdigris/4.jpg", 0, "147626-A029");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/American Tourister/Urban Track Zaino 14/Verdigris/5.jpg", 0, "147626-A029");
+
+/*SOJOURN PORTER 65L*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Osprey/SOJOURN PORTER 65L/Koseret green/1.jpg", 1, "O8D2401");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Osprey/SOJOURN PORTER 65L/Koseret green/2.jpg", 0, "O8D2401");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Osprey/SOJOURN PORTER 65L/Koseret green/3.jpg", 0, "O8D2401");
+
+/* BOREALIS CLASSIC – ZAINO DA VIAGGIO*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/North face/BOREALIS CLASSIC/Nero/3.jpg", 1, "TH344E013-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/North face/BOREALIS CLASSIC/Nero/1.jpg", 0, "TH344E013-Q11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/North face/BOREALIS CLASSIC/Nero/2.jpg", 0, "TH344E013-Q11");
+
+/* PRO-DLX 6*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Samsonite/Zaino PRO-DLX 6/blu/1.jpg", 1, "151779-1090");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Samsonite/Zaino PRO-DLX 6/blu/2.jpg", 0, "151779-1090");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Samsonite/Zaino PRO-DLX 6/blu/3.jpg", 0, "151779-1090");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Samsonite/Zaino PRO-DLX 6/blu/4.jpg", 0, "151779-1090");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/zaini da viaggio/Samsonite/Zaino PRO-DLX 6/blu/5.jpg", 0, "151779-1090");
+
+/*INSERIMENTO VALIGIE*/
+
+/* SOUNDBOX TROLLEY – Trolley*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/1.jpg", 1, "AT851H00K-I11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/2.jpg", 0, "AT851H00K-I11");
+
+/* GOTECH GREEN PLUS */
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/1.jpg", 1, "VAA505MN942 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/2.jpg", 0, "VAA505MN942 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/3.jpg", 0, "VAA505MN942 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/Carpisa/Gotech green plus/Avion/4.jpg", 0, "VAA505MN942 ");
+
+/*INSERIMENTO BORSONI DA VIAGGIO */
+
+/*BORSONE-LUCKY TRAVEL BAGS*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/1.jpg", 1, "BSC21402444 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Carpisa/borsone-lucky travel bags/Ardesia/2.jpg", 0, "BSC21402444 ");
+
+/* ESSENTIAL DUFFLE UNISEX - Borsa da viaggio*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/1.jpg", 1, "C1854H024-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/2.jpg", 0, "C1854H024-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/borsoni da viaggio/Calvin Klein/ESSENTIAL DUFFLE UNISEX/Nero/3.jpg", 0, "C1854H024-Q11 ");
+
+/*INSERIMENTO BAGAGLI A MANO*/
+
+/* LUSTRE - Bagaglio a mano */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/3.jpg", 1, "GU151H448-A11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/1.jpg", 0, "GU151H448-A11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Guess/LUSTRE - Bagaglio a mano/Bianco/2.jpg", 0, "GU151H448-A11 ");
+
+/*BUGATTI – Bagaglio a mano */
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/5.jpg", 1, "BU154H03T-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/1.jpg", 0, "BU154H03T-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/2.jpg", 0, "BU154H03T-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/3.jpg", 0, "BU154H03T-Q11 ");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/bagaglio a mano/Bugatti/BUGATTI-BAGAGLIO A MANO/Nero/4.jpg", 0, "BU154H03T-Q11 ");

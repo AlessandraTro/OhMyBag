@@ -405,7 +405,7 @@ VALUES (
 /*Sciarpe e cappelli*/
 
 /*GUCCI*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
 VALUES (
     '002AAB',
     'Gucci',
@@ -429,7 +429,7 @@ VALUES (
 );
 
 /*TOMMY HILFIGER-CAPPELLO*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
 VALUES (
     '000AAB',
     'Tommy Hilfiger',
@@ -467,7 +467,7 @@ Composizione e lavaggio<br>
 );
 
 /*TOMMY HILFIGER-SCIARPA*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
 VALUES (
     '001AAB',
     'Tommy Hilfiger',
@@ -555,23 +555,23 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zai
 /*SCIARPE E CAPPELLI*/
 /*GUCCI*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/1.jpg", 1, "002AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/2.jpg", 0, "002AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/3.jpg", 0, "002AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/Gucci/1.jpg", 1, "002AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/Gucci/2.jpg", 0, "002AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/Gucci/3.jpg", 0, "002AAB");
 
 /*TOMMY HILFIGER CAPPELLO*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/1.jpeg", 1, "000AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/2.jpeg", 0, "000AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/3.jpeg", 0, "000AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/4.jpg", 0, "000AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/5.jpg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/1.jpg", 1, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/2.jpg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/3.jpg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/4.jpg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/5.jpg", 0, "000AAB");
 
 /*TOMMY HILFIGER SCIARPA*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/1.jpeg", 1, "001AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/2.jpeg", 0, "001AAB");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/3.jpeg", 0, "001AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/1.jpg", 1, "001AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/2.jpg", 0, "001AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/3.jpg", 0, "001AAB");
 
 /*VIAGGI*/
 /*INSERIMENTO ACCESSORI DA VIAGGIO*/

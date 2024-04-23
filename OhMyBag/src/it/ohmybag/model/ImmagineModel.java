@@ -185,12 +185,12 @@ public class ImmagineModel {
 
             // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
             while (rs.next()) {
-                Immagine immagine = new Immagine();
-                immagine.setIdProdotto(rs.getString("id"));
-                immagine.setNome(rs.getString("nome"));
-                immagine.setCopertina(rs.getBoolean("copertina"));
+                Immagine bean = new Immagine();
+                bean.setIdProdotto(rs.getString("id"));
+                bean.setNome(rs.getString("nome"));
+                bean.setCopertina(rs.getBoolean("copertina"));
 
-                catalogImages.add(immagine);
+                catalogImages.add(bean);
             }
         } finally {
 			try {
@@ -203,5 +203,44 @@ public class ImmagineModel {
 		}
 
         return catalogImages;
+    }
+	
+	/* Recupera le immagini di un prodotto dal database */
+	public Collection<Immagine> doRetrieveByProductId(String idProdotto) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        
+        Collection<Immagine> images = new LinkedList<Immagine>();
+        
+        // Query per recuperare le immagini di un prodotto dal database
+        String selectSQL = "SELECT * FROM Immagine WHERE IdProdotto = ?";
+
+        try {
+        	connection = getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, idProdotto);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+            // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
+            while (rs.next()) {
+                Immagine bean = new Immagine();
+                bean.setIdProdotto(rs.getString("id"));
+                bean.setNome(rs.getString("nome"));
+                bean.setCopertina(rs.getBoolean("copertina"));
+
+                images.add(bean);
+            }
+        } finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+        return images;
     }
 }

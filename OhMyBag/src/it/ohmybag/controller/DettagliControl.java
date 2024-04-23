@@ -36,30 +36,36 @@ public class DettagliControl extends HttpServlet {
        // TODO Auto-generated constructor stub
    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String myString = (String)request.getParameter("id");
-		request.setAttribute("id", myString);
-		try {
-			
-			/* setta l'attributo products che conterrà tutti i prodotti contenuti nel DB */
-			request.getSession().setAttribute("products", prodottoModel.allProduct());
-		    // Ottieni tutti i prodotti dal database
-			
-			/*setta l'attributo ImageList che conterrà tutte le immagini dei prodotti contenuti nel DB*/
-			request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll());
-		  
-		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
-
-	
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dettagli.jsp");
-		dispatcher.forward(request, response);
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+	    String productId = request.getParameter("id");
+	    try {
+	        // Carica solo il prodotto richiesto tramite l'ID
+	        Prodotto product = prodottoModel.doRetrieveById(productId);  // Da vedere come si chiama la funzione
+	        // Carica solo le immagini del prodotto richiesto
+	        Collection<Immagine> images = immagineModel.doRetrieveByProductId(productId);
+	        
+	        if (product != null) {
+	            // Se il prodotto viene trovato, inoltra la richiesta alla pagina di dettaglio del prodotto
+	            request.setAttribute("product", product);
+	            request.setAttribute("images", images);
+	            // Inoltra la richiesta alla pagina JSP dei dettagli del prodotto
+	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dettagli.jsp");
+	            dispatcher.forward(request, response);
+	        } else {
+	            // Se il prodotto non viene trovato, reindirizza alla homepage
+	            response.sendRedirect(request.getContextPath() + "/Homepage.jsp");
+	        }
+	    } catch (SQLException e) {
+	        // Gestisci l'eccezione SQL
+	        e.printStackTrace();
+	        request.setAttribute("errorMessage", "Errore durante il recupero del prodotto");
+	        // Reindirizza alla homepage in caso di errore
+	        response.sendRedirect(request.getContextPath() + "/Homepage.jsp");
+	    }
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

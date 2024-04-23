@@ -706,5 +706,51 @@ public class ProdottoModel{
 		}
 		return prodotti;
 	}
+	
+	/*ritorna il prodotto con un determinato id*/
+	public synchronized Prodotto doRetriveById(String id) throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		Prodotto bean=new Prodotto();
+		
+		String QuerySQL="SELECT * FROM Prodotto WHERE ID=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(QuerySQL);
+			statement.setString(1,id);
+
+			ResultSet rs= statement.executeQuery();
+
+			bean.setId(rs.getString("ID"));
+			bean.setMarca(rs.getString("Marca"));
+			bean.setNome(rs.getString("Nome"));
+			bean.setPrezzo(rs.getFloat("Prezzo"));
+			bean.setTipologia(rs.getString("Tipologia"));
+			bean.setIdCategoria(rs.getInt("IDCategoria"));
+			bean.setDescrizione(rs.getString("Descrizione"));
+			bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+
+		    java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+		    GregorianCalendar dataInserimento = new GregorianCalendar();
+		    dataInserimento.setTime(dataInserimentoSQL);
+			bean.setDataInserimento(dataInserimento);
+
+			bean.setSconto(rs.getInt("Sconto"));
+			bean.setDisponibilita(rs.getInt("Disponibilita"));
+
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return bean;
+	}
 
 }

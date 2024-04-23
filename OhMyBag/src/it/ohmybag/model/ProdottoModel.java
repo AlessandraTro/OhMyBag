@@ -708,49 +708,51 @@ public class ProdottoModel{
 	}
 	
 	/*ritorna il prodotto con un determinato id*/
-	public synchronized Prodotto doRetrieveById(String id) throws SQLException{
-		Connection conn=null;
-		PreparedStatement statement=null;
-		Prodotto bean=new Prodotto();
-		
-		String QuerySQL="SELECT * FROM Prodotto WHERE ID=?";
-		
-		try {
-			conn=getConnection();
-			statement=conn.prepareStatement(QuerySQL);
-			statement.setString(1,id);
+	public synchronized Prodotto doRetrieveById(String id) throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    Prodotto bean = null; // Inizializzo il bean come null inizialmente
 
-			ResultSet rs= statement.executeQuery();
+	    String querySQL = "SELECT * FROM Prodotto WHERE ID=?";
 
-			bean.setId(rs.getString("ID"));
-			bean.setMarca(rs.getString("Marca"));
-			bean.setNome(rs.getString("Nome"));
-			bean.setPrezzo(rs.getFloat("Prezzo"));
-			bean.setTipologia(rs.getString("Tipologia"));
-			bean.setIdCategoria(rs.getInt("IDCategoria"));
-			bean.setDescrizione(rs.getString("Descrizione"));
-			bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        statement.setString(1, id);
 
-		    java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
-		    GregorianCalendar dataInserimento = new GregorianCalendar();
-		    dataInserimento.setTime(dataInserimentoSQL);
-			bean.setDataInserimento(dataInserimento);
+	        ResultSet rs = statement.executeQuery();
 
-			bean.setSconto(rs.getInt("Sconto"));
-			bean.setDisponibilita(rs.getInt("Disponibilita"));
+	        if (rs.next()) { // Controlla se ci sono risultati nel ResultSet
+	            bean = new Prodotto(); // Se ci sono risultati, inizializzo il bean
+	            bean.setId(rs.getString("ID"));
+	            bean.setMarca(rs.getString("Marca"));
+	            bean.setNome(rs.getString("Nome"));
+	            bean.setPrezzo(rs.getFloat("Prezzo"));
+	            bean.setTipologia(rs.getString("Tipologia"));
+	            bean.setIdCategoria(rs.getInt("IDCategoria"));
+	            bean.setDescrizione(rs.getString("Descrizione"));
+	            bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
 
-		}finally {
-			try {
-				if(statement!= null) {
-					statement.close();
-				}
-			}finally {
-				if(conn!=null) {
-					conn.close();
-				}
-			}
-		}
-		return bean;
+	            java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+	            GregorianCalendar dataInserimento = new GregorianCalendar();
+	            dataInserimento.setTime(dataInserimentoSQL);
+	            bean.setDataInserimento(dataInserimento);
+
+	            bean.setSconto(rs.getInt("Sconto"));
+	            bean.setDisponibilita(rs.getInt("Disponibilita"));
+	        }
+	    } finally {
+	        try {
+	            if (statement != null) {
+	                statement.close();
+	            }
+	        } finally {
+	            if (conn != null) {
+	                conn.close();
+	            }
+	        }
+	    }
+	    return bean; // Restituisce il bean, che potrebbe essere null se non ci sono risultati nel ResultSet
 	}
 
 }

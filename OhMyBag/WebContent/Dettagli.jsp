@@ -4,7 +4,7 @@
 
 <%
 Prodotto product = (Prodotto) request.getAttribute("products");
-Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("ImageList");
+Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("images");
 %>
 
 <!DOCTYPE html>
@@ -78,14 +78,11 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 <body>
     <%@ include file="Header.jsp" %>
     <div class="container">
-        <div class="product-images">
-            <% 
-                // Itera sulle immagini del prodotto
-                for (Immagine immagine : images) { 
-            %>
-                <img src="<%= immagine.getNome() %>" alt="Immagine prodotto">
-            <% } %>
-        </div>
+        <div class="product-images"> 
+        <% for (Immagine immagine : images) { %>
+            <img src="<%= immagine.getNome() %>" alt="Immagine prodotto">
+    <% } %>
+</div>
 
         <div class="product-info">
             <div class="product-name"><%= product.getNome() %></div>

@@ -38,7 +38,7 @@ public class DettagliControl extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
-	    String productId = request.getParameter("id");
+	   String productId = (String)request.getParameter("ID");
 	    try {
 	        // Carica solo il prodotto richiesto tramite l'ID
 	        Prodotto product = prodottoModel.doRetrieveById(productId);  // Da vedere come si chiama la funzione
@@ -47,8 +47,9 @@ public class DettagliControl extends HttpServlet {
 	        
 	        if (product != null) {
 	            // Se il prodotto viene trovato, inoltra la richiesta alla pagina di dettaglio del prodotto
-	            request.setAttribute("product", product);
+	            request.setAttribute("products", product);
 	            request.setAttribute("images", images);
+	            
 	            // Inoltra la richiesta alla pagina JSP dei dettagli del prodotto
 	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dettagli.jsp");
 	            dispatcher.forward(request, response);
@@ -56,6 +57,7 @@ public class DettagliControl extends HttpServlet {
 	            // Se il prodotto non viene trovato, reindirizza alla homepage
 	            response.sendRedirect(request.getContextPath() + "/Homepage.jsp");
 	        }
+
 	    } catch (SQLException e) {
 	        // Gestisci l'eccezione SQL
 	        e.printStackTrace();

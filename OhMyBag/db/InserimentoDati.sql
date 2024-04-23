@@ -402,7 +402,101 @@ VALUES (
     10
 );
 
+/*Sciarpe e cappelli*/
+
+/*GUCCI*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+VALUES (
+    '002AAB',
+    'Gucci',
+    'SCIARPA IN LANA CASHMERE CON INCROCIO GG',
+    430.00,
+    'Sciarpa',
+    02,
+    'I motivi storici della Maison risplendono su nuove stampe accattivanti. Questa sciarpa in cashmere presenta il dettaglio Incrocio GG jacquard, che propone l innovazione dei codici d archivio di Gucci.
+<ul>
+    <li>Lana cashmere nera e grigio chiaro</li>
+    <li>Nappine</li>
+    <li>Dettaglio Incrocio GG jacquard</li>
+    <li>L 32 cm x A 200 cm</li>
+    <li>Fabbricato in Italia</li>
+    <li>85% lana, 15% cashmere</li>
+</ul>',
+    2024,
+    '2024-04-17',
+    0,
+    10
+);
+
+/*TOMMY HILFIGER-CAPPELLO*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+VALUES (
+    '000AAB',
+    'Tommy Hilfiger',
+    'CAPPELLO DA BASEBALL CON BANDIERINA',
+    39.99,
+    'Cappello',
+    02,
+    'Completa gli outfit per la bella stagione grazie al classico cappello da baseball con sei sezioni e visiera a contrasto, rifinito dallesclusiva bandierina ricamata.<br>
+<ul>
+    <li>Puro cotone biologico</li>
+    <li>Visiera a contrasto</li>
+    <li>Modello con sei sezioni</li>
+    <li>Bottone sulla corona</li>
+    <li>Fori di ventilazione</li>
+    <li>Cuciture in rilievo sulla visiera</li>
+    <li>Regolatore in metallo sul retro</li>
+    <li>Branding Tommy Hilfiger</li>
+    <li>Bandierina Tommy Hilfiger ricamata sul davanti</li>
+    <li>Logo Tommy Hilfiger impresso sul regolatore</li>
+</ul>
+
+Modello e vestibilità<br>
+<ul>
+    <li>Circonferenza: 58 cm</li>
+</ul>
+
+Composizione e lavaggio<br>
+<ul>
+    <li>100% cotone biologico</li>
+</ul>',
+2020,
+'2024-04-16',
+0,
+10
+);
+
+/*TOMMY HILFIGER-SCIARPA*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilità) 
+VALUES (
+    '001AAB',
+    'Tommy Hilfiger',
+    'SCIARPA HILFIGER MONOTYPE',
+    79.90,
+    'Sciarpa',
+    02,
+    'Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un icona inconfondibile del brand. La sciarpa in maglia misto viscosa, cotone e lana, abbellita dal logo Hilfiger monotipo, è l alleata perfetta per esprimere tutto il tuo stile.
+Caratteristiche principali
+<ul>
+    <li>Misto viscosa, cotone e lana</li>
+    <li>Nastro iconico sul lato</li>
+    <li>Logo Hilfiger monotipo sul lato</li>
+    <li>Branding Tommy Hilfiger</li>
+</ul>
+
+Composizione e lavaggio
+<ul>
+    <li>50% bambù, 30% cotone, 20% lana</li>
+</ul>',
+    2023,
+    '2024-04-16',
+    0,
+    10
+);
+
 /*IMMAGINI*/
+
+/*ZAINI*/
 
 /*TUCANO*/
 
@@ -457,6 +551,27 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zai
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT004_1.jpg", 0, "004AAA");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT005_1.jpg", 0, "004AAA");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/zaini/Eastpack/EK000620_9J4_ALT006_1.jpg", 0, "004AAA");
+
+/*SCIARPE E CAPPELLI*/
+/*GUCCI*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/1.jpg", 1, "002AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/2.jpg", 0, "002AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/Gucci/3.jpg", 0, "002AAB");
+
+/*TOMMY HILFIGER CAPPELLO*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/1.jpeg", 1, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/2.jpeg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/3.jpeg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/4.jpg", 0, "000AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Cappello/5.jpg", 0, "000AAB");
+
+/*TOMMY HILFIGER SCIARPA*/
+
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/1.jpeg", 1, "001AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/2.jpeg", 0, "001AAB");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/portafogli/sciarpe_e_cappelli/TommyHilfiger/Immagini-Sciarpa/3.jpeg", 0, "001AAB");
 
 /*VIAGGI*/
 /*INSERIMENTO ACCESSORI DA VIAGGIO*/

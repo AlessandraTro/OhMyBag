@@ -49,7 +49,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 
 		<div class="album py-5 bg-body-tertiary">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
 					<%
 					for (Prodotto prodotto : products) {
@@ -62,7 +62,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 									if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
 								%>
 								<img src="<%=immagine.getNome()%>"
-								class="card-img-top img-fluid" style="height: 400px;"> <%
+								class="card-img-top img-fluid" style="height: 600px;"> <%
  									}
  								%>
 								<%

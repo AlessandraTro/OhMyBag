@@ -25,31 +25,17 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
         }
         
         .container {
-             max-width: 1200px;
-            margin: 20px auto;
-            display: flex;
-            justify-content: space-between;
+            margin-top: 20px;
         }
         .product-images {
             flex: 1;
-            margin-right: 20px;
-            max-width: 800px;
             overflow-x: hidden;
-            margin: 0;
-    		padding: 0;
-    		margin-left: 0;
+            display: flex;
+            justify-content: space-between;
             
         }
-        
-        .product-images img {
-        	flex: 1;
-            width: 100%;
-            margin-right: 20px;
-    		overflow-x: hidden;
-    		margin: 0;
-   		 	padding: 0;
-   		 	
-            
+        img{
+        	width:400px;
         }
         .product-info {
              flex: 1;
@@ -93,54 +79,49 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
             display: block;
         }
         .carousel-control-prev,
-.carousel-control-next {
-    font-size: 24px; /* Imposta la dimensione desiderata */
-    width: 50px;
-    height: 500px;
-}
-.carousel {
-    margin-left: 0; /* Imposta il margine sinistro a 0 */
-}
+		.carousel-control-next {
+		    font-size: 24px; /* Imposta la dimensione desiderata */
+		    width: 50px;
+		    height: 500px;
+		}
+		.carousel {
+		    max-width: 400px;
+		}
 
         
         .slider {
             display: flex;
             width: calc(100% * <%= images.size() %>); 
-            
         }
- 			
-
-        
-      
     </style>
 </head>
 <body>
-    <%@ include file="Header.jsp" %>
-    <div class="container">
-        <div class="product-images"> 
-        <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <% for (int i = 0; i < images.size(); i++) { %>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <% if (i == 0) { %>class="active"<% } %> aria-label="Slide <%= i + 1 %>"></button>
-    <% } %>
-  </div>
-  <div class="carousel-inner">
-    <% int index = 0; %>
-    <% for (Immagine immagine : images) { %>
-      <div class="carousel-item <% if (index == 0) { %>active<% } %>">
-        <img src="<%= immagine.getNome() %>" class="d-block"  alt="...">
-      </div>
-      <% index++; %>
-    <% } %>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<%@ include file="Header.jsp" %>
+<div class="container">
+<div class="product-images"> 
+<div id="carouselExampleIndicators" class="carousel slide">
+	<div class="carousel-indicators">
+		<% for (int i = 0; i < images.size(); i++) { %>
+		<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <% if (i == 0) { %>class="active"<% } %> aria-label="Slide <%= i + 1 %>"></button>
+		<% } %>
+	</div>
+	<div class="carousel-inner">
+		<% int index = 0; %>
+		<% for (Immagine immagine : images) { %>
+		<div class="carousel-item <% if (index == 0) { %>active<% } %>">
+			<img src="<%= immagine.getNome() %>" class="d-block"  alt="...">
+		</div>
+		<% index++; %>
+		<% } %>
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
 </div>
 
 

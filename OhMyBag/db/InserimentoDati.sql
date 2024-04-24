@@ -1218,8 +1218,8 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/z
 
 /* SOUNDBOX TROLLEY – Trolley*/
 
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/1.jpg", 1, "AT851H00K-I11");
-INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/2.jpg", 0, "AT851H00K-I11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/1.jpg", 0, "AT851H00K-I11");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/viaggi/valigie/American Tourister/Soundbox trolley/Lilla/foto/2.jpg", 1, "AT851H00K-I11");
 
 /* GOTECH GREEN PLUS */
 

@@ -6,14 +6,15 @@
 <meta charset="UTF-8">
 
 </head>
-	<style>
-    	    /* Rimuovere l'effetto di sottolineatura dai link */
-        	a {
-            	text-decoration: none; /* Rimuove l'effetto di sottolineatura */
-            	color: inherit; /* Utilizza il colore ereditato dal testo circostante */
-        	}
-    </style>
-    
+<style>
+/* Rimuovere l'effetto di sottolineatura dai link */
+a {
+	text-decoration: none; /* Rimuove l'effetto di sottolineatura */
+	color: inherit;
+	/* Utilizza il colore ereditato dal testo circostante */
+}
+</style>
+
 <body>
 	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -31,7 +32,7 @@
   </symbol>
   <symbol id="twitter-x" viewBox="0 0 16 16">
     <path
-			d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"" />
+			d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" " />
   </symbol>
 </svg>
 
@@ -45,8 +46,10 @@
 					<h5>Get Started</h5>
 					<ul class="nav flex-column">
 						<li><a href="ButtonHomeControl">Home</a></li>
-						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>	<!-- Da fare -->
-						<li><a href="ButtonLoginControl">Login</a></li>				<!-- Da fare -->
+						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>
+						<!-- Da fare -->
+						<li><a href="ButtonLoginControl">Login</a></li>
+						<!-- Da fare -->
 					</ul>
 				</div>
 
@@ -54,8 +57,10 @@
 				<div class="col-sm-2">
 					<h5>About us</h5>
 					<ul class="nav flex-column">
-						<li><a href="ButtonChiSiamoControl">Our Team</a></li>		<!-- Da fare -->
-						<li><a href="ButtonContattaciControl">Contact us</a></li>	<!-- Da fare -->
+						<li><a href="ButtonChiSiamoControl">Our Team</a></li>
+						<!-- Da fare -->
+						<li><a href="ButtonContattaciControl">Contact us</a></li>
+						<!-- Da fare -->
 					</ul>
 				</div>
 
@@ -102,9 +107,15 @@
 				class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
 				<p>&copy; 2024 OhMyBag, Inc. All rights reserved.</p>
 				<ul class="list-unstyled d-flex">
-					<li class="ms-3"><a class="link-body-emphasis" href="https://twitter.com/?lang=it"><svg class="bi" width="24" height="24"> <use xlink:href="#twitter-x" /></svg></a></li>
-					<li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/"><svg class="bi" width="24" height="24"> <use xlink:href="#instagram" /></svg></a></li>
-					<li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/?locale=it_IT"><svg class="bi" width="24" height="24"> <use xlink:href="#facebook" /></svg></a></li>
+					<li class="ms-3"><a class="link-body-emphasis"
+						href="https://twitter.com/?lang=it"><svg class="bi" width="24"
+								height="24"> <use xlink:href="#twitter-x" /></svg></a></li>
+					<li class="ms-3"><a class="link-body-emphasis"
+						href="https://www.instagram.com/"><svg class="bi" width="24"
+								height="24"> <use xlink:href="#instagram" /></svg></a></li>
+					<li class="ms-3"><a class="link-body-emphasis"
+						href="https://www.facebook.com/?locale=it_IT"><svg class="bi"
+								width="24" height="24"> <use xlink:href="#facebook" /></svg></a></li>
 				</ul>
 			</div>
 		</footer>

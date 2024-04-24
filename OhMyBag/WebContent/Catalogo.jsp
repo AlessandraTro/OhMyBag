@@ -51,15 +51,23 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 		<div class="album py-5 bg-body-tertiary">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-					<% for (Prodotto prodotto : products) { %>
+					<%
+					for (Prodotto prodotto : products) {
+					%>
 					<div class="col">
 						<div class="card shadow-sm h-100">
 							<a href="DettagliControl?ID=<%=prodotto.getId()%>"> <!-- da modificare con il control -->
-								<% for(Immagine immagine: images){
-                            if(prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()){ %>
+								<%
+								for (Immagine immagine : images) {
+									if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
+								%>
 								<img src="<%=immagine.getNome()%>"
-								class="card-img-top img-fluid" style="height: 400px;"> <% } %>
-								<% } %>
+								class="card-img-top img-fluid" style="height: 400px;"> <%
+ 									}
+ 								%>
+								<%
+								}
+								%>
 							</a>
 							<div class="card-body d-flex flex-column">
 								<div class="card-text mb-auto">
@@ -73,7 +81,9 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 							</div>
 						</div>
 					</div>
-					<% } %>
+					<%
+					}
+					%>
 				</div>
 			</div>
 		</div>

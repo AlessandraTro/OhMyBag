@@ -1,0 +1,79 @@
+/* rende responsive le immagini */
+.responsive {
+	width: 100%;
+	max-width: 900px;
+	height: auto;
+}
+
+/* Nelle card */
+.bi {
+	vertical-align: -.125em;
+	fill: currentColor;
+}
+
+/* croller per la navigazione */
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+/* stilizzare una barra di navigazione orizzontale */
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+.album {
+	margin: 80px 50px;
+}
+
+.card-img-top-custom {
+	max-width: 100%; /* Imposta la larghezza massima delle immagini */
+	min-height: 450px;
+	max-height: 450px; /* Imposta l'altezza massima delle immagini */
+	width: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	height: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	display: block; /* Per garantire che l'immagine sia un blocco */
+	margin: auto; /* Per allineare l'immagine al centro */
+}
+
+
+
+
+@media ( min-width : 1601px) {
+	.row-cols-md-3>* {
+		flex: 0 0 auto;
+		width: 25%;
+	}
+}
+
+@media ( max-width : 1600px) {
+	.row-cols-md-3>* {
+		flex: 0 0 auto;
+		width: 33.33%;
+	}
+}
+
+@media ( max-width : 1100px) {
+	.row-cols-sm-2>* {
+		flex: 0 0 auto;
+		width: 50%;
+	}
+}
+
+@media ( max-width : 768px) {
+	.row-cols-sm-2>* {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+}

@@ -22,6 +22,9 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
+					<li class="nav-item"><a class="nav-link"
+						href="CatalogoControl">Catalogo</a></li>
+						
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Donna </a>
@@ -61,14 +64,14 @@
 				</ul>
 				<div class="custom-container">
 					<form class="d-flex" role="search">
-						<input class="form-control me-2" type="search"
-							placeholder="Cerca" aria-label="Search">
+						<input class="form-control me-2" type="search" placeholder="Cerca"
+							aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Cerca</button>
 
 					</form>
 					<div class="cart-section">
-						<a class="nav-link" href="#"><i class="fas fa-user"></i></a> 
-						<a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+						<a class="nav-link" href="#"><i class="fas fa-user"></i></a> <a
+							class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
 					</div>
 				</div>
 

@@ -16,8 +16,6 @@
 
 	<!--<p>Home del sito OhMyBag</p>-->
 	
-	<!-- include del catalogo -->
-	<jsp:include page= "Catalogo.jsp"/>
 
 	<!-- include del footer -->
 	<jsp:include page="Footer.jsp" />

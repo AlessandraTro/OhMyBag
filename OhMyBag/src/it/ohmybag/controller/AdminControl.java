@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ohmybag.model.*;
+import it.ohmybag.bean.*;
 
 /**
  * Servlet implementation class HomeControl
@@ -33,22 +34,38 @@ public class AdminControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String action= request.getParameter("action");
 		String parametro = (String) request.getParameter("ID");
-
-			try {
-				prodottiModel.deleteProduct(parametro);
-				System.out.println("Eliminato");
-
-				request.getSession().setAttribute("products", prodottiModel.allProduct());
-
-			} catch (SQLException e) {
-				e.printStackTrace();
+		
+		try {
+			if(action != null) {
+				switch(action.toLowerCase()){
+					case ("delete"):
+						prodottiModel.deleteProduct(parametro);
+						System.out.println("Eliminato");
+						request.getSession().setAttribute("products", prodottiModel.allProduct());
+						break;
+					case ("detail"):
+						Prodotto prodotto=prodottiModel.doRetrieveById(parametro);
+						String descrizione=prodotto.getDescrizione();
+						request.setAttribute("descrizione",descrizione);
+						break;
+					case ("moddesc"):
+						prodottiModel.updateDescription(parametro,request.getParameter("modDescrizione"));
+						request.getSession().setAttribute("products", prodottiModel.allProduct());
+						System.out.println("Aggiornato");
+						break;
+				}
 			}
-			System.out.println("ci sono");
+				
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
-			dispatcher.forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -201,7 +201,7 @@ public class ProdottoModel{
 	}
 
 	/*permette di aggiornare il prezzo di un determinato prodotto*/
-	public synchronized void updateChangePrice(int id) throws SQLException {
+	public synchronized void updateChangePrice(String id, float prezzo) throws SQLException {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -211,7 +211,8 @@ public class ProdottoModel{
 			conn=getConnection();
 			statement=conn.prepareStatement(updateSQL);
 			
-			statement.setInt(1, id);
+			statement.setFloat(1, prezzo);
+			statement.setString(2, id);
 			
 			statement.executeUpdate();
 		}finally {
@@ -242,6 +243,35 @@ public class ProdottoModel{
 			statement.setString(2, id);
 			
 			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+	
+	/*permette di aggiornare la descrizione di un determinato prodotto*/
+	public synchronized void updateDescription(String id, String descrizione) throws SQLException {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String updateSQL="update Prodotto set Descrizione=? where ID=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(updateSQL);
+			
+			statement.setString(1, descrizione);
+			statement.setString(2, id);
+			
+			statement.executeUpdate();
+			System.out.println("sono nella query id:"+id+"descrizione: "+descrizione);
 		}finally {
 			try {
 				if(statement!= null) {

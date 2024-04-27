@@ -17,11 +17,14 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Catalogo</title>
-<link href="css/Catalogo.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/catalogo.css" rel="stylesheet" type="text/css">
+<link href="css/NavBar.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-
+	<%@ include file="Header.jsp"%>
 	<!-- Immagini carousel -->
 	<div id="carouselCatalogo" class="carousel slide w-100 mx-auto"
 		data-bs-ride="carousel">
@@ -86,6 +89,6 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 		</div>
 
 	</main>
-
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

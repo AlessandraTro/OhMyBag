@@ -76,5 +76,5 @@ CREATE TABLE Immagine(
 	Nome 	   varchar(500) 	Primary key,
     Copertina  boolean			not null,
     IDProdotto varchar(100) 	not null,
-    foreign key (IDProdotto) references Prodotto(ID)
+    foreign key (IDProdotto) references Prodotto(ID) on delete cascade
 );

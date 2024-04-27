@@ -17,9 +17,17 @@
 		<servlet-name>HomeControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.HomeControl</servlet-class>
 	</servlet>
-		<servlet>
+	<servlet>
 		<servlet-name>DettagliControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.DettagliControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CatalogoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CatalogoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminControl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>

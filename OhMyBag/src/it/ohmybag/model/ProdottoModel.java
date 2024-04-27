@@ -58,7 +58,7 @@ public class ProdottoModel{
 	}
 	
 	/*Permette di eliminare dal database il prodotto con un determinato ID*/
-	public synchronized boolean deleteProduct(int idProdotto) throws SQLException{
+	public synchronized boolean deleteProduct(String idProdotto) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
 		int result=0;
@@ -69,7 +69,9 @@ public class ProdottoModel{
 			conn=getConnection();
 			statement=conn.prepareStatement(deleteSQL);
 			
-			statement.setInt(1, idProdotto);
+			statement.setString(1, idProdotto);
+			
+			result=statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -97,6 +99,8 @@ public class ProdottoModel{
 			
 			statement.setInt(1, sconto);
 			statement.setInt(2, categoria);
+			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -123,6 +127,8 @@ public class ProdottoModel{
 			
 			statement.setInt(1, sconto);
 			statement.setInt(2, AnnoCollezione);
+			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -149,6 +155,8 @@ public class ProdottoModel{
 			
 			statement.setInt(1, sconto);
 			statement.setString(2, tipologia);
+			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -176,6 +184,8 @@ public class ProdottoModel{
 			statement.setInt(1, sconto);
 			statement.setString(2, tipologia);
 			statement.setInt(3, categoria);
+			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -201,6 +211,8 @@ public class ProdottoModel{
 			statement=conn.prepareStatement(updateSQL);
 			
 			statement.setInt(1, id);
+			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {
@@ -228,6 +240,7 @@ public class ProdottoModel{
 			statement.setInt(1, disponibilita);
 			statement.setString(2, id);
 			
+			statement.executeUpdate();
 		}finally {
 			try {
 				if(statement!= null) {

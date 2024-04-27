@@ -13,6 +13,18 @@ a {
 	color: inherit;
 	/* Utilizza il colore ereditato dal testo circostante */
 }
+
+
+.footer-container{
+    background-color: #d6ccc2; /* Colore di sfondo */
+    ali
+   
+}
+
+#myFooter{
+	padding: 50px 50px 0px 50px;
+}
+
 </style>
 
 <body>
@@ -36,16 +48,15 @@ a {
   </symbol>
 </svg>
 
-
-	<div class="container">
+	<div class="footer-container">
 		<footer id="myFooter">
-			<div class="row">
+			<div class="row"> <!-- padding superiore e inferiore di 4 unità di spazio -->
 
 				<!-- Get Started -->
 				<div class="col-sm-2">
 					<h5>Get Started</h5>
 					<ul class="nav flex-column">
-						<li><a href="ButtonHomeControl">Home</a></li>
+						<li><a href="HomeControl">Home</a></li>
 						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>
 						<!-- Da fare -->
 						<li><a href="ButtonLoginControl">Login</a></li>
@@ -104,7 +115,7 @@ a {
 
 
 			<div
-				class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+				class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
 				<p>&copy; 2024 OhMyBag, Inc. All rights reserved.</p>
 				<ul class="list-unstyled d-flex">
 					<li class="ms-3"><a class="link-body-emphasis"

@@ -70,7 +70,7 @@
 
 					</form>
 					<div class="cart-section">
-						<a class="nav-link" href="#"><i class="fas fa-user"></i></a> <a
+						<a class="nav-link" href="AdminControl"><i class="fas fa-user"></i></a> <a
 							class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
 					</div>
 				</div>

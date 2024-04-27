@@ -6,15 +6,16 @@ import java.util.*;
 import it.ohmybag.bean.*;
 
 public class ProdottoModel{
-	/*il metodo getConnection mi permette di avere la connessione al Databse definita nel file ConnessioneDatabase*/
-	private Connection getConnection() throws SQLException{
+	private Connection getConnection() throws SQLException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		}catch(Exception e){
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return ConnesioneDatabase.getConnection();
+		return DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
 	}
+	
 	
 	/*permette di salvare un nuovo Prodotto all'interno del database*/
 	public synchronized void saveProduct(Prodotto prodotto)throws SQLException{

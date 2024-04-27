@@ -27,9 +27,7 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 				</tr>
 				<%
 					if (products != null && products.size() != 0) {
-						Iterator<?> it = products.iterator();
-						while (it.hasNext()) {
-							Prodotto bean = (Prodotto) it.next();
+						for(Prodotto bean:products){
 				%>
 				<tr>
 					<td><%=bean.getId()%></td>

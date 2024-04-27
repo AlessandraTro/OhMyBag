@@ -36,12 +36,10 @@ public class AdminControl extends HttpServlet {
 		String parametro = (String) request.getParameter("ID");
 
 			try {
-				System.out.println(parametro);
 				prodottiModel.deleteProduct(parametro);
 				System.out.println("Eliminato");
 
 				request.getSession().setAttribute("products", prodottiModel.allProduct());
-				System.out.println("Aggiornato");
 
 			} catch (SQLException e) {
 				e.printStackTrace();

@@ -4,16 +4,16 @@ import java.sql.*;
 import java.util.*;
 
 import it.ohmybag.bean.*;
+import it.ohmybag.model.*;
 
 public class ProdottoModel{
 	private Connection getConnection() throws SQLException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
+		return ConnesioneDatabase.getConnection();
 	}
 	
 	

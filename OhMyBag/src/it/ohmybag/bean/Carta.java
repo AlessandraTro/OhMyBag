@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 public class Carta {
 
-	private String id;
+	private int id;
 	private String numeroCarta;
 	private int cvv;
 	private GregorianCalendar dataScadenza;
@@ -13,7 +13,7 @@ public class Carta {
 	
 	
 	//costruttore
-	public Carta(String id, String numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
+	public Carta(int id, String numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
 		this.numeroCarta = numeroCarta;
 		this.cvv = cvv;
 		this.circuito = circuito;
@@ -52,11 +52,11 @@ public class Carta {
 		this.circuito = circuito;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -2,19 +2,18 @@
 
 body {
 	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
 }
 
 .container {
-	margin-top: 20px;
+	margin: 30px;
 }
 
-.product-images {
+.product-images{
 	flex: 1;
 	overflow-x: hidden;
 	display: flex;
-	justify-content: space-between;
+	flex-wrap:wrap;
+	justify-content:center;
 }
 
 img {
@@ -23,7 +22,6 @@ img {
 
 .product-info {
 	flex: 1;
-	margin-left: 20px;
 	align-items: flex-start;
 }
 
@@ -50,7 +48,7 @@ img {
 
 .description, .shipping-returns {
 	display: none;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 .toggle-button {
@@ -75,4 +73,29 @@ img {
 
 .carousel {
 	max-width: 400px;
+}
+
+/* Stili CSS per il menu */
+.shipping-returns {
+	display: none; /* Nascondi il contenuto del menu per default */
+}
+
+/* Nascondi completamente il checkbox */
+input[type="checkbox"] {
+	display: none;
+}
+
+/* Stili CSS per il link toggle */
+.toggle-button, .toggle-description, .toggle-shipping {
+	color: black;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#toggle-description:checked ~ #description-content {
+	display: block;
+}
+
+#toggle-shipping:checked ~ #shipping-content {
+	display: block;
 }

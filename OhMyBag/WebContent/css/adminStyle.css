@@ -3,7 +3,10 @@
 	justify-content: space-evenly;
 }
 .container-table{
-	margin:20px;
+	margin-right:20px;
+}
+.container-insert{
+	margin-right:20px;
 }
 
 table, th, td {

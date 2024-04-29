@@ -20,6 +20,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 <link href="css/Dettagli.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
+
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
@@ -60,14 +61,28 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 				<div class="product-price">
 					Prezzo: €<%= product.getPrezzo() %></div>
 				<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
-				<a href="#description" class="toggle-button" style="color: black;">Descrizione
-					Prodotto</a>
-				<div id="description" class="description">
-					<p><%= product.getDescrizione() %></p>
+
+
+
+				<input type="checkbox" id="toggle-description">
+
+				<!-- Label per il checkbox (il link toggle) -->
+				<label for="toggle-description" class="toggle-button">Descrizione
+					Prodotto</label>
+
+				<div class="shipping-returns" id="description-content">
+					<!-- Contenuto del dropdown-menu -->
+					<p><%= product.getDescrizione()%></p>
 				</div>
-				<a href="#shipping-returns" class="toggle-button"
-					style="color: black;">Spedizione e Resi</a>
-				<div id="shipping-returns" class="shipping-returns">
+
+
+				<input type="checkbox" id="toggle-shipping">
+				<!-- Label per il checkbox (il link toggle) -->
+				<label for="toggle-shipping" class="toggle-button">Spedizione
+					e Resi</label>
+
+				<!-- Contenuto del menu -->
+				<div class="shipping-returns" id="shipping-content">
 					<!-- Informazioni sulla spedizione e resi -->
 					<strong>Spedizione Standard</strong>
 					<p>Consegna entro 3-4 giorni lavorativi (Gratis)</p>

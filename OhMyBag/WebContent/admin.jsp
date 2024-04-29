@@ -12,7 +12,7 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 
 <head>
         <title> Admin Page </title>
-        <link rel="stylesheet" type="text/css" href="./css/stileAdmin.css">
+        <link rel="stylesheet" type="text/css" href="./css/adminStyle.css">
 </head>
 <body>
 	<div class="container">
@@ -91,20 +91,20 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 					<input type="submit" value="Add"><input type="reset" value="Reset">
 				</form>
 			</div>
-			<div class="product-details">
-				<%if(request.getAttribute("descrizione")!= null){ %>
-					<h2>Dettagli del prodotto</h2>
-					<form action="AdminControl" method="POST">
-						<input type="hidden" name="action" value="modDesc">
-						<input type="hidden" name="ID" value="<%= request.getParameter("ID") %>">
-						
-						<label for="modDescrizione">Modifica Descrizione:</label><br>
-						<textarea name="modDescrizione" type="text" maxlength="3000" rows="3" required placeholder="enter Descrizione"><%= request.getAttribute("descrizione") %></textarea><br>
-						
-						<input type="submit" value="apply"><input type="reset" value="Reset">
-					</form>
-				<%} %>
-			</div>
+		</div>
+		<div class="product-details">
+			<%if(request.getAttribute("descrizione")!= null){ %>
+				<h2>Dettagli del prodotto</h2>
+				<form action="AdminControl" method="POST">
+					<input type="hidden" name="action" value="modDesc">
+					<input type="hidden" name="ID" value="<%= request.getParameter("ID") %>">
+					
+					<label for="modDescrizione">Modifica Descrizione:</label><br>
+					<textarea name="modDescrizione" type="text" maxlength="3000" rows="3" required placeholder="enter Descrizione"><%= request.getAttribute("descrizione") %></textarea><br>
+					
+					<input type="submit" value="apply"><input type="reset" value="Reset">
+				</form>
+			<%} %>
 		</div>
 	</div>
 </body>

@@ -33,8 +33,8 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 					<td><%=bean.getId()%></td>
 					<td><%=bean.getNome()%></td>
 					<!--<td><%=bean.getDescrizione()%></td>-->
-					<td><a href="AdminControl?ID=<%=bean.getId()%>">Delete</a><br>
-						<a href="AdminControl?action=read&id=<%=bean.getId()%>">Details</a><br>
+					<td><a href="AdminControl?action=delete&ID=<%=bean.getId()%>">Delete</a><br><!-- aggiungere Alert per conferma di eliminazione -->
+						<a href="AdminControl?action=detail&ID=<%=bean.getId()%>">Details</a><br>
 					</td>
 				</tr>
 				<%
@@ -53,7 +53,7 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 		<div class="container-insert">
 			<div class="insert-form">
 				<h2>Insert</h2>
-				<form action="product" method="post">
+				<form action="AdminControl" method="post">
 					<input type="hidden" name="action" value="insert"> 
 					
 					<label for="ID">ID:</label><br> 
@@ -77,7 +77,7 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 					Viaggi <input name="Categoria" type="radio" value="03"><br>
 
 					<label for="Descrizione">Descrizione:</label><br> 
-					<textarea name="Descrizione" type="text" maxlength="2000" rows="3" required placeholder="enter Descrizione"></textarea><br>
+					<textarea name="Descrizione" type="text" maxlength="3000" rows="3" required placeholder="enter Descrizione"></textarea><br>
 					
 					<label for="AnnoCollezione">AnnoCollezione:</label><br> 
 					<input name="AnnoCollezione" type="number" min="1900" required placeholder="enter Anno Collezione"><br>
@@ -92,7 +92,18 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 				</form>
 			</div>
 			<div class="product-details">
-				<h2>Dettagli del prodotto</h2>
+				<%if(request.getAttribute("descrizione")!= null){ %>
+					<h2>Dettagli del prodotto</h2>
+					<form action="AdminControl" method="POST">
+						<input type="hidden" name="action" value="modDesc">
+						<input type="hidden" name="ID" value="<%= request.getParameter("ID") %>">
+						
+						<label for="modDescrizione">Modifica Descrizione:</label><br>
+						<textarea name="modDescrizione" type="text" maxlength="3000" rows="3" required placeholder="enter Descrizione"><%= request.getAttribute("descrizione") %></textarea><br>
+						
+						<input type="submit" value="apply"><input type="reset" value="Reset">
+					</form>
+				<%} %>
 			</div>
 		</div>
 	</div>

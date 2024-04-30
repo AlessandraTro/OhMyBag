@@ -4,14 +4,12 @@
 <%
 Collection <Prodotto> product= (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
 Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
-System.out.println("IMMAGINI JSP:"+ images.size());
-
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Carrello.css" rel="stylesheet" type="text/css">
@@ -21,7 +19,7 @@ System.out.println("IMMAGINI JSP:"+ images.size());
 <body>
 	<%@ include file="Header.jsp"%>
 
-	<div class="container-fluid">
+<div class="container-fluid">
 
 		<div class="container-fluid no-padding">
 
@@ -40,13 +38,14 @@ System.out.println("IMMAGINI JSP:"+ images.size());
 							<div class="d-flex align-items-center mb-5">
 								<div class="flex-shrink-0">
                                     <% for (Immagine immagine : images) {
-                                        if (immagine != null && prodotto.getId().equals(immagine.getIdProdotto())) {
+                                        if (immagine != null && prodotto.getId().equals(immagine.getIdProdotto())&& immagine.isCopertina()) {
                                     %>
                                         <img src="<%= immagine.getNome() %>" class="img-fluid"
                                             style="width: 150px;" alt="Generic placeholder image">
-                                    <% } %>
-                                    <% } %>                                        
+                                    <% } 
+                                        } %>                                        
                                 </div>
+                       
 								<div class="flex-grow-1 ms-3">
 									<a href="#!" class="float-end text-black"><i
 										class="fas fa-times"></i></a>
@@ -54,8 +53,6 @@ System.out.println("IMMAGINI JSP:"+ images.size());
 									<h6 style="color: #9e9e9e;"><%= prodotto.getMarca()%></h6>
 									<div class="d-flex align-items-center">
 										<p class="fw-bold mb-0 me-5 pe-3"><%=prodotto.getPrezzo()+"€"%></p>
-										<%} %>
-
 										<div class="def-number-input number-input safari_only">
 											<button
 												onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
@@ -66,10 +63,13 @@ System.out.println("IMMAGINI JSP:"+ images.size());
 												onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
 												class="plus"></button>
 										</div>
+																	
+										
 									</div>
 								</div>
-							</div>
 
+							</div>
+<% } %>
 						</div>
 						<div class="col-lg-5 px-5 py-4">
 

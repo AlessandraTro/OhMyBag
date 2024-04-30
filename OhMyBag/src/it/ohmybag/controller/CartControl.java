@@ -58,17 +58,13 @@ public class CartControl extends HttpServlet {
 	            product.add(prodotto);
 	            images.add(immagine);
 	            
-	            System.out.println("IMMAGINI:"+ images.size());
 
 	            request.getSession().setAttribute("Carrello", product);
 	            request.getSession().setAttribute("images", images);
 
-	            System.out.println("PRODOTTI CARRELLO" + product.size());
 	        } else {
 	            System.out.println("Prodotto o immagine non trovati");
-	            // Puoi gestire il caso in cui prodotto o immagine sono null, ad esempio
-	            // reindirizzando l'utente a una pagina di errore o stampando un messaggio
-	            // di errore sulla stessa pagina.
+	            // reindirizzando l'utente a una pagina di errore 
 	        }
 
 	    } catch (SQLException e) {

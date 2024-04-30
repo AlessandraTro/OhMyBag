@@ -223,11 +223,10 @@ public class ImmagineModel {
 
 	            // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
 	            if (rs.next()) {
-	                Immagine bean = new Immagine();
-	                bean.setIdProdotto(rs.getString("idProdotto"));
-	                bean.setNome(rs.getString("nome"));
-	                bean.setCopertina(rs.getBoolean("copertina"));
-
+	            	catalogImages.setIdProdotto(rs.getString("idProdotto"));
+	            	catalogImages.setNome(rs.getString("nome"));
+	            	catalogImages.setCopertina(rs.getBoolean("copertina"));
+	                
 	            }
 	        } finally {
 				try {

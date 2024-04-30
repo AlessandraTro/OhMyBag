@@ -71,10 +71,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 							</div>
 							<% } 
-							}else{
-							%><h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
-								Nessun Prodotto nel carrello</h3>
-							<%} %>
+							%>
 
 						</div>
 
@@ -102,7 +99,10 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 							</div>
 							<button type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block">Checkout</button>
-
+<%}else{
+							%><h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
+								Nessun Prodotto nel carrello</h3>
+							<%} %>
 							<div class="card mb-6 mb-lg-0 p-5"
 								style="margin-top: 60px; background-color: #dcdcdc;">
 								<div class="card-body">

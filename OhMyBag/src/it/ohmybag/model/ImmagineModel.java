@@ -186,7 +186,7 @@ public class ImmagineModel {
             // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
             while (rs.next()) {
                 Immagine bean = new Immagine();
-                bean.setIdProdotto(rs.getString("id"));
+                bean.setIdProdotto(rs.getString("idProdotto"));
                 bean.setNome(rs.getString("nome"));
                 bean.setCopertina(rs.getBoolean("copertina"));
 
@@ -204,6 +204,43 @@ public class ImmagineModel {
 
         return catalogImages;
     }
+	
+	 /* Recupera le immagini di copertina dal database in base all'id del prodotto */
+		public Immagine retrieveCatalogImagesById(String idProdotto) throws SQLException {
+	        Connection connection = null;
+	        PreparedStatement preparedStatement = null;
+	        
+	        Immagine catalogImages = new Immagine();
+	        
+	        // Query per recuperare le immagini di copertina dal database
+	        String selectSQL = "SELECT * FROM Immagine WHERE copertina = true && IdProdotto = ?";
+
+	        try {
+	        	connection = getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
+				preparedStatement.setString(1, idProdotto);
+				ResultSet rs = preparedStatement.executeQuery();
+
+	            // Iterazione sui risultati per creare oggetti Immagine e aggiungerli alla lista
+	            if (rs.next()) {
+	                Immagine bean = new Immagine();
+	                bean.setIdProdotto(rs.getString("idProdotto"));
+	                bean.setNome(rs.getString("nome"));
+	                bean.setCopertina(rs.getBoolean("copertina"));
+
+	            }
+	        } finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					if (connection != null)
+						connection.close();
+				}
+			}
+
+	        return catalogImages;
+	    }
 	
 	/* Recupera le immagini di un prodotto dal database */
 	public Collection<Immagine> doRetrieveByProductId(String idProdotto) throws SQLException {

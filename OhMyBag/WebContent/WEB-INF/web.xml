@@ -29,6 +29,10 @@
 		<servlet-name>AdminControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.AdminControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CartControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CartControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

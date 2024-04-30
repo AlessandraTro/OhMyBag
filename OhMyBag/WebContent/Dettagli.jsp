@@ -60,10 +60,9 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 				<div class="product-name"><%= product.getNome() %></div>
 				<div class="product-price">
 					Prezzo: €<%= product.getPrezzo() %></div>
-				<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
-
-
-
+					<a href="CartControl?ID=<%= product.getId()%>">
+						<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
+					</a>
 				<input type="checkbox" id="toggle-description">
 
 				<!-- Label per il checkbox (il link toggle) -->

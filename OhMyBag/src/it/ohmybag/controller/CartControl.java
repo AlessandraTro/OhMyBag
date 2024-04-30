@@ -37,30 +37,49 @@ public class CartControl extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	        throws ServletException, IOException {
 
-		String idProdotto = request.getParameter("ID");
-		try {
-			prodotto = prodottomodel.doRetrieveById(idProdotto);
-			immagine = (Immagine) immagineModel.retrieveCatalogImagesById(idProdotto);
+	    String idProdotto = request.getParameter("ID");
+	    try {
+	        prodotto = prodottomodel.doRetrieveById(idProdotto);
+	        immagine = (Immagine) immagineModel.retrieveCatalogImagesById(idProdotto);
 
-			Collection<Prodotto> product = (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
-			Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
+	        if (prodotto != null && immagine != null) {
+	            Collection<Prodotto> product = (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
+	            Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
 
-			product.add(prodotto);
-			images.add(immagine);
+	            if (product == null) {
+	                product = new ArrayList<>();
+	            }
+	            if (images == null) {
+	                images = new ArrayList<>();
+	            }
 
-			request.getSession().setAttribute("Carrello", product);
-			request.getSession().setAttribute("images", images);
+	            product.add(prodotto);
+	            images.add(immagine);
+	            
+	            System.out.println("IMMAGINI:"+ images.size());
 
-			System.out.println("PRODOTTI CARRELLO" + product.size());
+	            request.getSession().setAttribute("Carrello", product);
+	            request.getSession().setAttribute("images", images);
 
-		} catch (SQLException e) {
-			System.out.println("Errore" + e.getMessage());
-		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
-		dispatcher.forward(request, response);
+	            System.out.println("PRODOTTI CARRELLO" + product.size());
+	        } else {
+	            System.out.println("Prodotto o immagine non trovati");
+	            // Puoi gestire il caso in cui prodotto o immagine sono null, ad esempio
+	            // reindirizzando l'utente a una pagina di errore o stampando un messaggio
+	            // di errore sulla stessa pagina.
+	        }
+
+	    } catch (SQLException e) {
+	        System.out.println("Errore SQL: " + e.getMessage());
+	        // Puoi gestire l'eccezione SQL, ad esempio reindirizzando l'utente a una pagina
+	        // di errore o stampando un messaggio di errore sulla stessa pagina.
+	    }
+	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+	    dispatcher.forward(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

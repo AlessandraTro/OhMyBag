@@ -2,6 +2,8 @@ package it.ohmybag.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,14 +21,10 @@ public class CartControl extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	static ProdottoModel prodottomodel;
 	static Prodotto prodotto;
-	static CartModel carrellomodel;
-	static Carrello carrello;
 	
 	static {
-		carrello=new Carrello();
 		prodotto=new Prodotto();
 		prodottomodel=new ProdottoModel();
-		carrellomodel=new CartModel();
 	}
 	
 	public CartControl() {
@@ -36,12 +34,14 @@ public class CartControl extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Collection<Prodotto> prodotticarrello=new ArrayList<Prodotto>();
 		
-		String prodottoCart=request.getParameter("ID");
+		String idProdotto=request.getParameter("ID");
 		try {
-			prodotto=prodottomodel.doRetrieveById(prodottoCart);
+			prodotto=prodottomodel.doRetrieveById(idProdotto);
+			prodotticarrello.add(prodotto);
 			
-			request.getSession().setAttribute("Carrello", prodotto);
+			request.getSession().setAttribute("Carrello", prodotticarrello);
 			
 		}catch(SQLException e){
 			System.out.println("Errore"+ e.getMessage());

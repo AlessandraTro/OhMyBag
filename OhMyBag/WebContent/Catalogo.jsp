@@ -13,11 +13,12 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 <html>
 <head>
+<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Catalogo</title>
-<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/catalogo.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
@@ -90,5 +91,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 	</main>
 	<%@ include file="Footer.jsp"%>
+		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	
 </body>
 </html>

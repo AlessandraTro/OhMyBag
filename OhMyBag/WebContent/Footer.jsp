@@ -25,6 +25,10 @@ a {
 	padding: 50px 50px 0px 50px;
 }
 
+.float-end-custom{
+text-align: right;
+}
+
 </style>
 
 <body>
@@ -50,7 +54,9 @@ a {
 
 	<div class="footer-container">
 		<footer id="myFooter">
-			<div class="row"> <!-- padding superiore e inferiore di 4 unità di spazio -->
+			<p class="float-end-custom"><a href="#">Back to top</a></p>   <!-- DA SISTEMARE GRAFICAMNETE -->
+		
+			<div class="row">
 
 				<!-- Get Started -->
 				<div class="col-sm-2">
@@ -129,6 +135,7 @@ a {
 								width="24" height="24"> <use xlink:href="#facebook" /></svg></a></li>
 				</ul>
 			</div>
+			
 		</footer>
 	</div>
 

@@ -1,168 +1,156 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
+<%
+Collection <Prodotto> product= (Collection<Prodotto>) request.getAttribute("Carrello");
+Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("images");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-</head>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Carrello.css" rel="stylesheet" type="text/css">
+<link href="css/NavBar.css" rel="stylesheet" type="text/css">
+</head>
 
 <body>
-<%@ include file="Header.jsp"%>
+	<%@ include file="Header.jsp"%>
+
+	<div class="container-fluid">
+
+		<div class="container-fluid no-padding">
+
+			<div class="col-12">
+
+				<div class="card-body p-4">
+
+					<div class="row no-gutters">
 
 
-<section class="h-100 h-custom" style="background-color: #eee;">
-  <div class="container h-100 py-5">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card shopping-cart" style="border-radius: 15px;">
-          <div class="card-body text-black">
+						<div class="col-lg-7 " id="mySection">
 
-            <div class="row">
-              <div class="col-lg-6 px-5 py-4">
+							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your
+								products</h3>
+							<% for (Prodotto prodotto : product) {%>
+							<div class="d-flex align-items-center mb-5">
+								<div class="flex-shrink-0">
+								<%	
+								for (Immagine immagine : images) {
+									if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
+								%>
+									<img src="<%=immagine.getNome() %>" class="img-fluid"
+										style="width: 150px;" alt="Generic placeholder image">
+										<%} %>
+									<%} %>
+										
+								</div>
+								<div class="flex-grow-1 ms-3">
+									<a href="#!" class="float-end text-black"><i
+										class="fas fa-times"></i></a>
+									<h5 class="text-primary">prodotto.getNome()</h5>
+									<h6 style="color: #9e9e9e;">prodotto.getMarca()</h6>
+									<div class="d-flex align-items-center">
+										<p class="fw-bold mb-0 me-5 pe-3">prodotto.getPrezzo()+"€"</p>
+										<%} %>
 
-                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
+										<div class="def-number-input number-input safari_only">
+											<button
+												onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+												class="minus"></button>
+											<input class="quantity fw-bold text-black" min="0"
+												name="quantity" value="1" type="number">
+											<button
+												onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+												class="plus"></button>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                <div class="d-flex align-items-center mb-5">
-                  <div class="flex-shrink-0">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
-                    <h5 class="text-primary">Samsung Galaxy M11 64GB</h5>
-                    <h6 style="color: #9e9e9e;">Color: white</h6>
-                    <div class="d-flex align-items-center">
-                      <p class="fw-bold mb-0 me-5 pe-3">799$</p>
-                      <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          class="minus"></button>
-                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
-                          type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          class="plus"></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+						</div>
+						<div class="col-lg-5 px-5 py-4">
 
-                <div class="d-flex align-items-center mb-5">
-                  <div class="flex-shrink-0">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
-                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
-                    <h5 class="text-primary">Headphones Bose 35 II</h5>
-                    <h6 style="color: #9e9e9e;">Color: Red</h6>
-                    <div class="d-flex align-items-center">
-                      <p class="fw-bold mb-0 me-5 pe-3">239$</p>
-                      <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          class="minus"></button>
-                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
-                          type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          class="plus"></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">RIEPILOGO</h3>
 
-                <div class="d-flex align-items-center mb-5">
-                  <div class="flex-shrink-0">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
-                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
-                    <h5 class="text-primary">iPad 9.7 6-gen WiFi 32GB</h5>
-                    <h6 style="color: #9e9e9e;">Color: rose pink</h6>
-                    <div class="d-flex align-items-center">
-                      <p class="fw-bold mb-0 me-5 pe-3">659$</p>
-                      <div class="def-number-input number-input safari_only">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          class="minus"></button>
-                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="2"
-                          type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          class="plus"></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+							<div class="d-flex justify-content-between">
+								<p class="mb-2">Subtotale</p>
+								<p class="mb-2">$4798.00</p>
+							</div>
 
-                <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+							<div class="d-flex justify-content-between">
+								<p class="mb-2">Spedizione</p>
+								<p class="mb-2">$20.00</p>
+							</div>
 
-                <div class="d-flex justify-content-between px-x">
-                  <p class="fw-bold">Discount:</p>
-                  <p class="fw-bold">95$</p>
-                </div>
-                <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
-                  <h5 class="fw-bold mb-0">Total:</h5>
-                  <h5 class="fw-bold mb-0">2261$</h5>
-                </div>
+							<hr class="mb-4"
+								style="height: 2px; background-color: #1266f1; opacity: 1;">
 
-              </div>
-              <div class="col-lg-6 px-5 py-4">
+							<div class="d-flex justify-content-between p-2 mb-4"
+								style="background-color: #e1f5fe;">
+								<h5 class="fw-bold mb-2">Total:</h5>
+								<h5 class="fw-bold mb-0">2261$</h5>
+							</div>
+							<button type="button" data-mdb-button-init data-mdb-ripple-init
+								class="btn btn-primary btn-lg mx-auto d-block">Checkout</button>
 
-                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Payment</h3>
+							<div class="card mb-6 mb-lg-0 p-5"
+								style="margin-top: 60px; background-color: #dcdcdc;">
+								<div class="card-body">
+									<div class="text-center" style="margin-top: -50px;">
+										<p>
+											<strong>METODI DI PAGAMENTO ACCETTATI</strong>
+										</p>
+									</div>
+									<img class="me-2" width="35px"
+										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+										alt="Visa" /> <img class="me-2" width="45px"
+										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+										alt="American Express" /> <img class="me-2" width="45px"
+										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+										alt="Mastercard" /> <img class="me-2" width="45px"
+										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.svg"
+										alt="PayPal acceptance mark" />
+								</div>
 
-                <form class="mb-5">
+								<div class="d-flex justify-content-center">
+									<div class="text-center">
+										<p class="fw-bold mb-2">SPEDIZIONE</p>
+									</div>
+								</div>
 
-                  <div data-mdb-input-init class="form-outline mb-5">
-                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                      value="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                    <label class="form-label" for="typeText">Card Number</label>
-                  </div>
+								<div class="text-center">
+									<p class="fw-bold mb-3">Consegna entro 3-4 giorni
+										lavorativi</p>
+								</div>
+								<div class="d-flex justify-content-center">
+									<div class="text-center">
+										<p class="fw-bold mb-2">RESO GRATUITO</p>
+									</div>
+								</div>
+								<div class="text-center">
+									<p class="fw-bold mb-0">Garanzia di reso entro 14 giorni
+										dalla consegna</p>
+								</div>
+							</div>
 
-                  <div data-mdb-input-init class="form-outline mb-5">
-                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                      value="John Smith" />
-                    <label class="form-label" for="typeName">Name on card</label>
-                  </div>
+						</div>
+					</div>
 
-                  <div class="row">
-                    <div class="col-md-6 mb-5">
-                      <div data-mdb-input-init class="form-outline">
-                        <input type="text" id="typeExp" class="form-control form-control-lg" value="01/22"
-                          size="7" id="exp" minlength="7" maxlength="7" />
-                        <label class="form-label" for="typeExp">Expiration</label>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-5">
-                      <div data-mdb-input-init class="form-outline">
-                        <input type="password" id="typeText" class="form-control form-control-lg"
-                          value="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                        <label class="form-label" for="typeText">Cvv</label>
-                      </div>
-                    </div>
-                  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<h5 class="fw-bold mb-5">
+			<a href="CatalogoControl"><i class="fas fa-angle-left me-2"></i>Back
+				to shopping</a>
+		</h5>
+	</div>
 
-                  <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit <a
-                      href="#!">obcaecati sapiente</a>.</p>
-
-                  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block btn-lg">Buy now</button>
-
-                  <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
-                    <a href="#!"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
-                  </h5>
-
-                </form>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<%@ include file="Footer.jsp"%>
+	<%@ include file="Footer.jsp"%>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

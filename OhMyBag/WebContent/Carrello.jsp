@@ -19,7 +19,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 <body>
 	<%@ include file="Header.jsp"%>
 
-<div class="container-fluid">
+	<div class="container-fluid">
 
 		<div class="container-fluid no-padding">
 
@@ -32,20 +32,21 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 						<div class="col-lg-7 " id="mySection">
 
+							<%if (product!=null) {%>
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your
 								products</h3>
 							<% for (Prodotto prodotto : product) {%>
 							<div class="d-flex align-items-center mb-5">
 								<div class="flex-shrink-0">
-                                    <% for (Immagine immagine : images) {
+									<% for (Immagine immagine : images) {
                                         if (immagine != null && prodotto.getId().equals(immagine.getIdProdotto())&& immagine.isCopertina()) {
                                     %>
-                                        <img src="<%= immagine.getNome() %>" class="img-fluid"
-                                            style="width: 150px;" alt="Generic placeholder image">
-                                    <% } 
-                                        } %>                                        
-                                </div>
-                       
+									<img src="<%= immagine.getNome() %>" class="img-fluid"
+										style="width: 150px;" alt="Generic placeholder image">
+									<% } 
+                                        } %>
+								</div>
+
 								<div class="flex-grow-1 ms-3">
 									<a href="#!" class="float-end text-black"><i
 										class="fas fa-times"></i></a>
@@ -63,14 +64,20 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 												onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
 												class="plus"></button>
 										</div>
-																	
-										
+
+
 									</div>
 								</div>
 
 							</div>
-<% } %>
+							<% } 
+							}else{
+							%><h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
+								Nessun Prodotto nel carrello</h3>
+							<%} %>
+
 						</div>
+
 						<div class="col-lg-5 px-5 py-4">
 
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">RIEPILOGO</h3>

@@ -1,5 +1,13 @@
 USE OhMyBag;
 
+/*creazione utente di prova*/
+INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",
+"<ul>
+<li><b>Citta:</b> Roma</li>
+<li><b>Via:</b> Via Roma</li>
+<li><b>CAP:</b> 00100</li>
+<li><b>Provincia:</b> RM</li>
+</ul>");
 
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");

@@ -7,12 +7,12 @@ Username			varchar(100) Primary key,
 Cf					varchar(16)  not null,
 Email				varchar(100) not null,
 Password			varchar(100) not null,
-Telefono			int 		 not null,
+Telefono			varchar(10)	 not null,
 Nome 				varchar(100) not null,
 Cognome 			varchar(100) not null,
 Admin				boolean 	 not null,
 DataNascita			date 		 not null,
-IndirizzoSpedizione varchar(100) not null
+IndirizzoSpedizione varchar(500) not null
 );
 
 CREATE TABLE Carta(

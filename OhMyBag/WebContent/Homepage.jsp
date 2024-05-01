@@ -6,6 +6,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/catalogo.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
+<link href="css/Homepage.css" rel="stylesheet" type="text/css">
+
 <meta charset="UTF-8">
 <title>OhMyBag</title>
 </head>
@@ -16,7 +18,7 @@
 
 	<!--<p>Home del sito OhMyBag</p>-->
 	
-
+	<jsp:include page="Home2.jsp"/>
 	<!-- include del footer -->
 	<jsp:include page="Footer.jsp" />
 	

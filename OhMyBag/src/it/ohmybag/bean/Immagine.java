@@ -1,9 +1,9 @@
 package it.ohmybag.bean;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Immagine implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
 	
 	private String nome;
@@ -49,5 +49,22 @@ public class Immagine implements Serializable{
 	@Override
 	public String toString() {
 		return "Immagine [nome=" + nome + ", copertina=" + copertina + ", idProdotto=" + idProdotto + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(copertina, idProdotto, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Immagine other = (Immagine) obj;
+		return copertina == other.copertina && Objects.equals(idProdotto, other.idProdotto)
+				&& Objects.equals(nome, other.nome);
 	}
 }

@@ -2,8 +2,35 @@
 	pageEncoding="UTF-8"
 	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
 <%
-Collection <Prodotto> product= (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
+HashMap<Prodotto,Integer> prodotti=new HashMap<>();
+Collection<Prodotto> product= (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
+if(product!=null){
+	for (Prodotto prodotto:product){
+		if(prodotti.containsKey(prodotto)){
+			System.out.println("sono un doppione");
+			int quantita=(int)prodotti.get(prodotto);
+			prodotti.remove(prodotto);
+			prodotti.put(prodotto,quantita+1);
+		}else{
+			System.out.println("sono singolo");
+			prodotti.put(prodotto,1);
+		}
+	}
+}
+
 Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
+if(images != null){
+    Set<Immagine> uniqueImages = new HashSet<>();
+    Iterator<Immagine> iterator = images.iterator();
+    while(iterator.hasNext()){
+        Immagine immagine = iterator.next();
+        if(uniqueImages.contains(immagine)){
+            iterator.remove(); // Rimuovi l'immagine duplicata
+        } else {
+            uniqueImages.add(immagine); // Aggiungi l'immagine al set temporaneo
+        }
+    }
+}
 %>
 
 <!DOCTYPE html>
@@ -14,6 +41,15 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Carrello.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
+    <!-- Aggiungi lo script JavaScript per invalidare la sessione quando la finestra del browser viene chiusa -->
+    <script type="text/javascript">
+        window.onbeforeunload = function() {
+            // Effettua una chiamata AJAX per invalidare la sessione
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "InvalidateSession", false); // Assicurati di aggiungere un Servlet chiamato InvalidateSession per invalidare la sessione
+            xhr.send();
+        };
+    </script>
 </head>
 
 <body>
@@ -32,10 +68,10 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 						<div class="col-lg-7 " id="mySection">
 
-							<%if (product!=null) {%>
+							<%if (!prodotti.isEmpty()){%>
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your
 								products</h3>
-							<% for (Prodotto prodotto : product) {%>
+							<% for (Prodotto prodotto : prodotti.keySet()) {%>
 							<div class="d-flex align-items-center mb-5">
 								<div class="flex-shrink-0">
 									<% for (Immagine immagine : images) {
@@ -59,16 +95,13 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 												onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
 												class="minus"></button>
 											<input class="quantity fw-bold text-black" min="0"
-												name="quantity" value="1" type="number">
+												name="quantity" value="<%=prodotti.get(prodotto)%>" type="number">
 											<button
 												onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
 												class="plus"></button>
 										</div>
-
-
 									</div>
 								</div>
-
 							</div>
 							<% } 
 							%>

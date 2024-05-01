@@ -130,5 +130,16 @@ public class Prodotto implements Serializable {
 				+ annoCollezione + ", dataInserimento=" + dataInserimento + ", sconto=" + sconto + ", disponibilita="
 				+ disponibilita + "]";
 	}
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+	    Prodotto prodotto = (Prodotto) o;
+	    return id.equals(prodotto.id);
+	}
 
+	@Override
+	public int hashCode() {
+	    return Objects.hash(id);
+	}
 }

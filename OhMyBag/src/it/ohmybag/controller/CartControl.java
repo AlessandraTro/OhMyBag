@@ -38,7 +38,6 @@ public class CartControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
-
 	    String idProdotto = request.getParameter("ID");
 	    try {
 	        prodotto = prodottomodel.doRetrieveById(idProdotto);
@@ -57,24 +56,27 @@ public class CartControl extends HttpServlet {
 
 	            product.add(prodotto);
 	            images.add(immagine);
-	            
 
 	            request.getSession().setAttribute("Carrello", product);
 	            request.getSession().setAttribute("images", images);
 
 	        } else {
 	            System.out.println("Prodotto o immagine non trovati");
-	            // reindirizzando l'utente a una pagina di errore 
+	            // reindirizza l'utente a una pagina di errore 
+	            response.sendRedirect("pagina_errore.jsp");
+	            return; // Esce dal metodo dopo aver reindirizzato l'utente
 	        }
 
 	    } catch (SQLException e) {
 	        System.out.println("Errore SQL: " + e.getMessage());
-	        // Puoi gestire l'eccezione SQL, ad esempio reindirizzando l'utente a una pagina
-	        // di errore o stampando un messaggio di errore sulla stessa pagina.
+	        // Puoi gestire l'eccezione SQL, ad esempio reindirizzando l'utente a una pagina di errore
+	        response.sendRedirect("pagina_errore.jsp");
+	        return; // Esce dal metodo dopo aver reindirizzato l'utente
 	    }
-	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
-	    dispatcher.forward(request, response);
+	    // Reindirizza l'utente a un nuovo URL dopo aver gestito la richiesta con successo
+	    response.sendRedirect("Carrello.jsp");
 	}
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

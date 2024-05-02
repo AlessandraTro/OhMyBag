@@ -42,27 +42,12 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-.container {
-	text-align: center; /* Allinea il testo al centro */
-}
-
-.img-section {
-	display: flex; /* Utilizza Flexbox per il layout */
-	justify-content: space-around;
-	align-content: center;
-}
-
-.text {
-	margin-right: 20px; /* Aggiunge spazio tra il testo e l'immagine */
-	align-content: center;
-}
-
 .conteiner-img {
 	display: flex;
 	justify-content: flex-end;
 }
 
-body {
+main {
 	font-family: Times New Roman, Sans-Serif;
 }
 

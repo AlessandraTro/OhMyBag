@@ -1,0 +1,125 @@
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.card-img-top-custom {
+	max-width: 100%; /* Imposta la larghezza massima delle immagini */
+	min-height: 450px;
+	max-height: 450px; /* Imposta l'altezza massima delle immagini */
+	width: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	height: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	display: block; /* Per garantire che l'immagine sia un blocco */
+	margin: auto; /* Per allineare l'immagine al centro */
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+.container {
+	text-align: center; /* Allinea il testo al centro */
+}
+
+.img-section {
+	display: flex; /* Utilizza Flexbox per il layout */
+	justify-content: space-around;
+	align-content: center;
+}
+
+.text {
+	margin-right: 20px; /* Aggiunge spazio tra il testo e l'immagine */
+	align-content: center;
+}
+
+.conteiner-img {
+	display: flex;
+	justify-content: flex-end;
+}
+
+body {
+	font-family: Times New Roman, Sans-Serif;
+}
+
+/* Layout per schermi larghi (da 1000px in su) */
+@media ( min-width : 1101px) {
+	.col {
+		flex: 0 0 auto;
+		width: 50%; /*Dividiamo lo spazio a metà per due colonne */
+	}
+	.container-custom {
+		margin: 200px;
+	}
+	.card-img-top-custom {
+		margin-right: 0px;
+	}
+}
+
+/* Layout per schermi stretti (fino a 999px) */
+@media ( max-width : 1100px) {
+	.col {
+		flex: 0 0 auto;
+		width: 100%; /* Ogni colonna occupa l'intera larghezza */
+	}
+	.container-custom {
+		margin: 100px;
+	}
+}
+
+/*solo per uomo*/
+@media ( max-width : 1100px) {
+	#sezione-uomo
+	.row {
+		flex-direction: column-reverse;
+		/* Invertiamo l'ordine degli elementi nella riga */
+	}
+}
+
+@media ( max-width : 500px) {
+	.container-custom {
+		margin: 50px;
+	}
+}
+
+.text-costum {
+	text-align: center;
+}
+
+.col-lg-3 {
+	align-content: center;
+}
+
+/* rende responsive le immagini */
+.responsive {
+	width: 100%;
+	max-width: 1000px;
+	height: auto;
+}
+.row{
+	align-items:center;
+}

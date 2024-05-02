@@ -60,11 +60,6 @@ public class CartControl extends HttpServlet {
 	            request.getSession().setAttribute("Carrello", product);
 	            request.getSession().setAttribute("images", images);
 
-	        } else {
-	            System.out.println("Prodotto o immagine non trovati");
-	            // reindirizza l'utente a una pagina di errore 
-	            response.sendRedirect("pagina_errore.jsp");
-	            return; // Esce dal metodo dopo aver reindirizzato l'utente
 	        }
 
 	    } catch (SQLException e) {

@@ -121,18 +121,69 @@ background-color: #4285f4;
 
 
 @media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
+	.h-custom {
+	height: 100vh !important;
+	}
+	#mySection {
+	    font-size: 1.8rem; /* Modifica la dimensione del testo */
+	  }
+	.input-sm {
+	    width: 50px; /* Imposta la larghezza desiderata*/
+	}  
+	
+	.quantity-container {
+	    display: flex;
+	    align-items: center;
+	}
 }
-#mySection {
-    font-size: 1.8rem; /* Modifica la dimensione del testo */
-  }
-.input-sm {
-    width: 50px; /* Imposta la larghezza desiderata*/
-}  
+.checkbox {
+  width: 111.5px; /* Metà della larghezza attuale */
+  height: 30px; /* Metà dell'altezza attuale */
+  background-color: #d0d0d0;
+  border-radius: 15px; /* Metà del raggio attuale */
+  position: relative;
+  color: black;
+  overflow: hidden;
+}
 
-.quantity-container {
-    display: flex;
-    align-items: center;
+#checkbox_toggle {
+  display: none;
 }
- 
+.checkbox .toggle {
+  width: 50px; /* Metà della larghezza attuale */
+  height: 25px; /* Metà dell'altezza attuale */
+  position: absolute;
+  border-radius: 15px; /* Metà del raggio attuale */
+  left: 2.5px; /* Metà della posizione attuale */
+  cursor: pointer;
+  background: linear-gradient(40deg, #FF0080,#FF8C00 70%);
+  transition: 0.4s;
+  box-shadow: 0px 0px 1.5px rgb(255, 255, 20), 0px 0px 2.5px rgb(255, 255, 20); /* Metà dell'ombra attuale */
+}
+
+.checkbox .slide {
+  width: 115px; /* Metà della larghezza attuale */
+  height: 30px; /* Metà dell'altezza attuale */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.checkbox .slide .text {
+  font-size: 8px; /* Metà della dimensione del testo attuale */
+  font-weight: 700;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.check:checked + .checkbox .slide .toggle {
+  transform: translateX(56.5px); /* Metà della traslazione attuale */
+  background: linear-gradient(40deg, #8983F7, #A3DAFB 70%);
+  box-shadow: -0px -0px 5px #8983F7, -0px -0px 1.5px #8983F7; /* Metà dell'ombra attuale */
+}
+
+.check:checked + .checkbox .slide {
+  background-color: #0a1929;
+  color: #fff;
+}

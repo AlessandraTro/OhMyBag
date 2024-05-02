@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"
 	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
 <%
+float prezzo=0;
 HashMap<Prodotto,Integer> prodotti=new HashMap<>();
 Collection<Prodotto> product= (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
 if(product!=null){
@@ -49,6 +50,14 @@ if(images != null){
             xhr.open("GET", "InvalidateSession", false); // Assicurati di aggiungere un Servlet chiamato InvalidateSession per invalidare la sessione
             xhr.send();
         };
+        function removeProduct(productId) {
+            // Rimuovi l'elemento corrispondente all'ID del prodotto dalla sessione
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "RemoveProductFromCart?id=" + productId, false); // Assicurati di aggiungere una Servlet per rimuovere il prodotto dal carrello
+            xhr.send();
+            // Ricarica la pagina per visualizzare il carrello aggiornato
+            location.reload();
+        }
     </script>
 </head>
 
@@ -71,7 +80,8 @@ if(images != null){
 							<%if (!prodotti.isEmpty()){%>
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your
 								products</h3>
-							<% for (Prodotto prodotto : prodotti.keySet()) {%>
+							<%for (Prodotto prodotto : prodotti.keySet()) {
+								prezzo=(prodotti.get(prodotto)*prodotto.getPrezzo())+prezzo;%>
 							<div class="d-flex align-items-center mb-5">
 								<div class="flex-shrink-0">
 									<% for (Immagine immagine : images) {
@@ -84,7 +94,7 @@ if(images != null){
 								</div>
 
 								<div class="flex-grow-1 ms-3">
-									<a href="#!" class="float-end text-black"><i
+									<a href="RemoveProductControl?ID=<%=prodotto.getId()%>" class="float-end text-black"><i
 										class="fas fa-times"></i></a>
 									<h5 class="text-primary"><%= prodotto.getNome()%></h5>
 									<h6 style="color: #9e9e9e;"><%= prodotto.getMarca()%></h6>
@@ -114,12 +124,13 @@ if(images != null){
 
 							<div class="d-flex justify-content-between">
 								<p class="mb-2">Subtotale</p>
-								<p class="mb-2">$4798.00</p>
+								<p class="mb-2">€<%=prezzo %></p>
 							</div>
 
 							<div class="d-flex justify-content-between">
+							<%int spedizione=10; %>
 								<p class="mb-2">Spedizione</p>
-								<p class="mb-2">$20.00</p>
+								<p class="mb-2">€<%=spedizione %></p>
 							</div>
 
 							<hr class="mb-4"
@@ -128,12 +139,12 @@ if(images != null){
 							<div class="d-flex justify-content-between p-2 mb-4"
 								style="background-color: #e1f5fe;">
 								<h5 class="fw-bold mb-2">Total:</h5>
-								<h5 class="fw-bold mb-0">2261$</h5>
+								<h5 class="fw-bold mb-0"><%=prezzo+spedizione %>€</h5>
 							</div>
 							<button type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block">Checkout</button>
-<%}else{
-							%><h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
+							<%}else{%>
+							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
 								Nessun Prodotto nel carrello</h3>
 							<%} %>
 							<div class="card mb-6 mb-lg-0 p-5"
@@ -144,14 +155,14 @@ if(images != null){
 											<strong>METODI DI PAGAMENTO ACCETTATI</strong>
 										</p>
 									</div>
-									<img class="me-2" width="35px"
-										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-										alt="Visa" /> <img class="me-2" width="45px"
-										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-										alt="American Express" /> <img class="me-2" width="45px"
-										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-										alt="Mastercard" /> <img class="me-2" width="45px"
-										src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.svg"
+									<img class="me-2" 
+										src="img/metodiDiPagamento/cc-visa.svg" width=45px
+										alt="Visa" />
+									<img class="me-2" 
+										src="img/metodiDiPagamento/cc-mastercard.svg" width=45px
+										alt="Mastercard" />
+									<img class="me-2"
+										src="img/metodiDiPagamento/cc-paypal.svg" width=45px
 										alt="PayPal acceptance mark" />
 								</div>
 

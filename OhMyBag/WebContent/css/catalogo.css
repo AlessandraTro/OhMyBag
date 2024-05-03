@@ -49,9 +49,6 @@
 	margin: auto; /* Per allineare l'immagine al centro */
 }
 
-
-
-
 @media ( min-width : 1601px) {
 	.row-cols-md-3>* {
 		flex: 0 0 auto;
@@ -80,22 +77,29 @@
 	}
 }
 
-
 .add-to-cart-btn {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        color: black; /* Cambia il colore dell'icona */
-        font-size: 24px;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.2s;
-        z-index: 999; /* Assicura che l'icona del carrello sia sovrapposta all'immagine */
-    }
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: black; /* Cambia il colore dell'icona */
+	font-size: 24px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.2s;
+	z-index: 999;
+	/* Assicura che l'icona del carrello sia sovrapposta all'immagine */
+}
 
-    .card:hover .add-to-cart-btn {
-        visibility: visible;
-        opacity: 1;
-    }
+.card:hover .add-to-cart-btn {
+	visibility: visible;
+	opacity: 1;
+}
 
+.card-img-top-custom {
+	transition: transform 0.3s; /* Aggiunge una transizione fluida */
+}
 
+.card-img-top-custom:hover {
+	transform: scale(1.1);
+	/* Ingrandisce l'immagine del 10% quando il mouse passa sopra */
+}

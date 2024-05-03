@@ -56,25 +56,26 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 			<div class="container-fluid">
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					<%
-            for (Prodotto prodotto : products) {
-            %>
+					for (Prodotto prodotto : products) {
+					%>
 					<div class="col">
 						<div class="card shadow-sm h-100">
 							<a href="DettagliControl?ID=<%=prodotto.getId()%>"> <%
-                        for (Immagine immagine : images) {
-                            if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
-                        %>
+						 for (Immagine immagine : images) {
+						 	if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
+						 %>
 								<div class="position-relative">
 									<img src="<%=immagine.getNome()%>"
 										class="card-img-top card-img-top-custom"> <a
-										href="CartControl?ID=<%= prodotto.getId()%>"
+										href="CartControl?ID=<%=prodotto.getId()%>"
 										class="add-to-cart-btn"> <img
-										src="img/website/cart-shopping-solid.svg" width=20px></a>
+										src="img/website/cart-shopping-solid.svg" width=20px>
+									</a>
 								</div> <%
-                             }
-                            %> <%
-                        }
-                        %>
+							 }
+							 %> <%
+							 }
+							 %>
 							</a>
 							<div class="card-body d-flex flex-column">
 								<div class="card-text mb-auto">
@@ -89,16 +90,11 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 						</div>
 					</div>
 					<%
-            }
-            %>
+					}
+					%>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
 
 	</main>
 	<%@ include file="Footer.jsp"%>

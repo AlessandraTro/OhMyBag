@@ -1,20 +1,20 @@
 package it.ohmybag.bean;
 
-public class Carrello {
+public class Composizione {
 	private int idOrdine;
 	private String idProdotto;
 	private float prezzo;
 	private int quantita;
 	private float iva;
 	
-	public Carrello(int idOrdine, String idProdotto, float prezzo, int quantita, float iva) {
+	public Composizione(int idOrdine, String idProdotto, float prezzo, int quantita, float iva) {
 		this.idOrdine=idOrdine;
 		this.idProdotto=idProdotto;
 		this.prezzo=prezzo;
 		this.quantita=quantita;
 		this.iva=iva;
 	}
-	public Carrello() {
+	public Composizione() {
 		
 	}
 	

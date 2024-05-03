@@ -8,9 +8,9 @@ import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import it.ohmybag.bean.Carrello;
+import it.ohmybag.bean.Composizione;
 
-public class CartModel {
+public class ComposizioneModel {
 	private Connection getConnection() throws SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -21,7 +21,7 @@ public class CartModel {
 	}
 	
 	/*permette di creare una nuova composizione tra Ordine e Prodotto*/
-	public synchronized void saveComposizione(Carrello composizione)throws SQLException{
+	public synchronized void saveComposizione(Composizione composizione)throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
 		
@@ -52,11 +52,11 @@ public class CartModel {
 		}
 	}
 	/*ritorna il prodotto con un determinato id*/
-	public synchronized Collection<Carrello> doRetrieveById(String id) throws SQLException {
+	public synchronized Collection<Composizione> doRetrieveById(String id) throws SQLException {
 	    Connection conn = null;
 	    PreparedStatement statement = null;
-	    Collection<Carrello> elementi = new LinkedList<Carrello>();; // Inizializzo il bean come null inizialmente
-	    Carrello bean=null;
+	    Collection<Composizione> elementi = new LinkedList<Composizione>();; // Inizializzo il bean come null inizialmente
+	    Composizione bean=null;
 	    String querySQL = "SELECT * FROM Composizione WHERE IDOrdine=?";
 
 	    try {
@@ -67,7 +67,7 @@ public class CartModel {
 	        ResultSet rs = statement.executeQuery();
 
 	        while(rs.next()) { // Controlla se ci sono risultati nel ResultSet
-	        	bean=new Carrello();
+	        	bean=new Composizione();
 	            bean.setIdProdotto(rs.getString("IDOrdine"));
 	            bean.setIdOrdine(rs.getInt("IDProdotto"));
 	            bean.setIva(rs.getInt("IVA"));

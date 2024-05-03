@@ -1,61 +1,32 @@
 package it.ohmybag.bean;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Carrello {
-	private int idOrdine;
-	private String idProdotto;
-	private float prezzo;
-	private int quantita;
-	private float iva;
+	private ArrayList<Immagine> immagini;
+	private HashMap<Prodotto, Integer> prodotti;
 	
-	public Carrello(int idOrdine, String idProdotto, float prezzo, int quantita, float iva) {
-		this.idOrdine=idOrdine;
-		this.idProdotto=idProdotto;
-		this.prezzo=prezzo;
-		this.quantita=quantita;
-		this.iva=iva;
-	}
-	public Carrello() {
-		
-	}
-	
-	public int getIdOrdine() {
-		return idOrdine;
+	public Carrello(){
+		setImmagini(new ArrayList<Immagine>());
+		setProdotti(new HashMap<Prodotto, Integer> ());
+
 	}
 
-	public void setIdOrdine(int idOrdine) {
-		this.idOrdine = idOrdine;
+	public ArrayList<Immagine> getImmagini() {
+		return immagini;
 	}
 
-	public String getIdProdotto() {
-		return idProdotto;
+	public void setImmagini(ArrayList<Immagine> immagini) {
+		this.immagini = immagini;
 	}
 
-	public void setIdProdotto(String idProdotto) {
-		this.idProdotto = idProdotto;
+	public HashMap<Prodotto, Integer> getProdotti() {
+		return prodotti;
 	}
 
-	public float getPrezzo() {
-		return prezzo;
+	public void setProdotti(HashMap<Prodotto, Integer> prodotti) {
+		this.prodotti = prodotti;
 	}
 
-	public void setPrezzo(float prezzo) {
-		this.prezzo = prezzo;
-	}
-
-	public int getQuantita() {
-		return quantita;
-	}
-
-	public void setQuantita(int quantita) {
-		this.quantita = quantita;
-	}
-
-	public float getIva() {
-		return iva;
-	}
-
-	public void setIva(float iva) {
-		this.iva = iva;
-	}
-	
 }

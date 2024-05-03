@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,8 +27,11 @@ public class CartControl extends HttpServlet {
 	static Prodotto prodotto;
 	static Immagine immagine;
 	static ImmagineModel immagineModel;
+	static Carrello carrello;
 
 	static {
+		carrello=new Carrello();
+		immagine=new Immagine();
 		prodotto = new Prodotto();
 		prodottomodel = new ProdottoModel();
 		immagineModel = new ImmagineModel();
@@ -44,22 +51,41 @@ public class CartControl extends HttpServlet {
 	        immagine = (Immagine) immagineModel.retrieveCatalogImagesById(idProdotto);
 
 	        if (prodotto != null && immagine != null) {
-	            Collection<Prodotto> product = (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
-	            Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
+	        	Carrello carrello = (Carrello) request.getSession().getAttribute("Carrello");
+	        	if (carrello == null) {
+	        	    carrello = new Carrello();
+	        	    request.getSession().setAttribute("Carrello", carrello);
+	        	}
 
-	            if (product == null) {
-	                product = new ArrayList<>();
+	        	
+	        	HashMap<Prodotto,Integer> product = carrello.getProdotti();
+	        	ArrayList<Immagine> images = carrello.getImmagini();
+
+	            if(product.containsKey(prodotto)) {
+	            	
+	    			System.out.println("sono un doppione");
+	    			int quantita=(int)product.get(prodotto);
+	    			System.out.println("quantita="+quantita+"disponibilita= "+prodotto.getDisponibilita());
+	    			if(prodotto.getDisponibilita()>=quantita+1) {
+	    				
+		    			product.remove(prodotto);
+		    			product.put(prodotto,quantita+1);
+	    			}else {
+	    				
+	    				System.out.println("Quantità non disponibile"); /*da aggiornare con allert*/
+	    			}
+	            }else {
+	            	
+	            	if(prodotto.getDisponibilita()>=1) {
+	            		
+	            		product.put(prodotto, 1);
+	            		images.add(immagine);
+	            		carrello.setImmagini(images);
+	            	}
 	            }
-	            if (images == null) {
-	                images = new ArrayList<>();
-	            }
+	            carrello.setProdotti(product);
 
-	            product.add(prodotto);
-	            images.add(immagine);
-
-	            request.getSession().setAttribute("Carrello", product);
-	            request.getSession().setAttribute("images", images);
-
+	            request.getSession().setAttribute("Carrello", carrello);
 	        }
 
 	    } catch (SQLException e) {

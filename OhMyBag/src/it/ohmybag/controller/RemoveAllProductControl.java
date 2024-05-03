@@ -1,28 +1,26 @@
 package it.ohmybag.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.ohmybag.bean.*;
-import it.ohmybag.model.*;
+import it.ohmybag.bean.Carrello;
+import it.ohmybag.bean.Immagine;
+import it.ohmybag.bean.Prodotto;
 
-@WebServlet("/RemoveProductControl")
-public class RemoveProductControl extends HttpServlet{
+@WebServlet("/RemoveAllProductControl")
+public class RemoveAllProductControl extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	public RemoveProductControl() {
+	public RemoveAllProductControl() {
 		super();
 
 	}
@@ -40,21 +38,14 @@ public class RemoveProductControl extends HttpServlet{
 	            Map.Entry<Prodotto,Integer> entry = iterator.next();
 	            Prodotto prodotto = entry.getKey();
 	            if(prodotto.getId().equals(idProdotto)) {
-	                int quantita = entry.getValue();
-	                if(quantita ==1) {
-	                    System.out.println("tolgo tutto");
-	                    iterator.remove(); // Rimuovi l'elemento utilizzando l'iteratore
-	                    Iterator<Immagine> iteratorImage = images.iterator();
-	                    while(iteratorImage.hasNext()) {
-	                        Immagine immagine = iteratorImage.next();
-	                        if(immagine.getIdProdotto().equals(idProdotto)) {
-	                        	iteratorImage.remove();
-	                        }
+	            	System.out.println("tolgo tutto");
+	            	iterator.remove(); // Rimuovi l'elemento utilizzando l'iteratore
+	            	Iterator<Immagine> iteratorImage = images.iterator();
+	                while(iteratorImage.hasNext()) {
+	                	Immagine immagine = iteratorImage.next();
+	                    if(immagine.getIdProdotto().equals(idProdotto)) {
+	                        iteratorImage.remove();
 	                    }
-
-	                } else {
-	                    System.out.println("sottraggo");
-	                    entry.setValue(quantita - 1); // Aggiorna il valore della quantità
 	                }
 	            }
 	        }

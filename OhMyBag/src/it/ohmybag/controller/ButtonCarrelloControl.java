@@ -22,10 +22,10 @@ public class ButtonCarrelloControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Carrello cart = (Carrello) request.getSession().getAttribute("cart");
+		Carrello cart = (Carrello) request.getSession().getAttribute("Carrello");
 		if (cart == null) {
 			cart = new Carrello();
-			request.getSession().setAttribute("cart", cart);
+			request.getSession().setAttribute("Carrello", cart);
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");

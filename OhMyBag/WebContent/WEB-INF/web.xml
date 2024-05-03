@@ -37,6 +37,14 @@
 		<servlet-name>RemoveProductControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.RemoveProductControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ButtonCarrelloControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonCarrelloControl</servlet-class>
+	</servlet>
+		<servlet>
+		<servlet-name>RemoveAllProductControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.RemoveAllProductControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

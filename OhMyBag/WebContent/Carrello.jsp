@@ -1,37 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
+	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.*,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
 <%
 float prezzo=0;
-HashMap<Prodotto,Integer> prodotti=new HashMap<>();
-Collection<Prodotto> product= (Collection<Prodotto>) request.getSession().getAttribute("Carrello");
-if(product!=null){
-	for (Prodotto prodotto:product){
-		if(prodotti.containsKey(prodotto)){
-			System.out.println("sono un doppione");
-			int quantita=(int)prodotti.get(prodotto);
-			prodotti.remove(prodotto);
-			prodotti.put(prodotto,quantita+1);
-		}else{
-			System.out.println("sono singolo");
-			prodotti.put(prodotto,1);
-		}
-	}
-}
-
-Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
-if(images != null){
-    Set<Immagine> uniqueImages = new HashSet<>();
-    Iterator<Immagine> iterator = images.iterator();
-    while(iterator.hasNext()){
-        Immagine immagine = iterator.next();
-        if(uniqueImages.contains(immagine)){
-            iterator.remove(); // Rimuovi l'immagine duplicata
-        } else {
-            uniqueImages.add(immagine); // Aggiungi l'immagine al set temporaneo
-        }
-    }
-}
+Carrello prodotti=new Carrello();
+prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 %>
 
 <!DOCTYPE html>
@@ -59,14 +32,14 @@ if(images != null){
 
 						<div class="col-lg-7 " id="mySection">
 
-							<%if (!prodotti.isEmpty()){%>
+							<%if (!prodotti.getProdotti().isEmpty()){%>
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your
 								products</h3>
-							<%for (Prodotto prodotto : prodotti.keySet()) {
-								prezzo=(prodotti.get(prodotto)*prodotto.getPrezzo())+prezzo;%>
+							<%for (Prodotto prodotto : prodotti.getProdotti().keySet()) {
+								prezzo=(prodotti.getProdotti().get(prodotto)*prodotto.getPrezzo())+prezzo;%>
 							<div class="d-flex align-items-center mb-5">
 								<div class="flex-shrink-0">
-									<% for (Immagine immagine : images) {
+									<% for (Immagine immagine : prodotti.getImmagini()) {
                                         if (immagine != null && prodotto.getId().equals(immagine.getIdProdotto())&& immagine.isCopertina()) {
                                     %>
 									<img src="<%= immagine.getNome() %>" class="img-fluid"
@@ -76,21 +49,21 @@ if(images != null){
 								</div>
 
 								<div class="flex-grow-1 ms-3">
-									<a href="RemoveProductControl?ID=<%=prodotto.getId()%>" class="float-end text-black"><i
+									<a href="RemoveAllProductControl?ID=<%=prodotto.getId()%>" class="float-end text-black"><i
 										class="fas fa-times"></i></a>
 									<h5 class="text-primary"><%= prodotto.getNome()%></h5>
 									<h6 style="color: #9e9e9e;"><%= prodotto.getMarca()%></h6>
 									<div class="d-flex align-items-center">
 										<p class="fw-bold mb-0 me-5 pe-3"><%=prodotto.getPrezzo()+"€"%></p>
 										<div class="def-number-input number-input safari_only">
-											<button
-												onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-												class="minus"></button>
+											<a
+												href="RemoveProductControl?ID=<%=prodotto.getId()%>"
+												class="minus">-</a>
 											<input class="quantity fw-bold text-black" min="0"
-												name="quantity" value="<%=prodotti.get(prodotto)%>" type="number">
-											<button
-												onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-												class="plus"></button>
+												name="quantity" value="<%=prodotti.getProdotti().get(prodotto)%>" type="number">
+											<a
+												href="CartControl?ID=<%=prodotto.getId()%>"
+												class="plus">+</a>
 										</div>
 									</div>
 								</div>

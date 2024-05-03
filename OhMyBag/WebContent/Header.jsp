@@ -9,7 +9,8 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+	<nav class="navbar navbar-expand-lg bg-custom">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/OhMyBag">OhMyBag</a>
 			<button class="navbar-toggler" type="button"
@@ -78,7 +79,6 @@
 			</div>
 		</div>
 	</nav>
-
 
 </body>
 

@@ -50,6 +50,17 @@
 main {
 	font-family: Times New Roman, Sans-Serif;
 }
+div.col h2{
+    font-weight: bold; /* Aggiungi il grassetto */
+    font-size: 50px; /* Imposta la grandezza desiderata */
+    text-align:center;
+
+}
+
+.lead{
+	font-size: 30px; /* Imposta la grandezza desiderata */
+    text-align:center;
+}
 
 /* Layout per schermi larghi (da 1000px in su) */
 @media ( min-width : 1101px) {

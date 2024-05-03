@@ -17,7 +17,6 @@ a {
 
 .footer-container{
     background-color: #d6ccc2; /* Colore di sfondo */
-    ali
    
 }
 
@@ -28,6 +27,17 @@ a {
 .float-end-custom{
 text-align: right;
 }
+
+footer{
+font-family: Times New Roman, Sans-Serif;
+
+}
+
+h5{
+    font-weight: bold; /* Aggiungi il grassetto */
+
+}
+
 
 </style>
 
@@ -54,7 +64,7 @@ text-align: right;
 
 	<div class="footer-container">
 		<footer id="myFooter">
-			<p class="float-end-custom"><a href="#">Back to top</a></p>   <!-- DA SISTEMARE GRAFICAMNETE -->
+			<p class="float-end-custom"><a href="#">Back to top</a></p> 
 		
 			<div class="row">
 

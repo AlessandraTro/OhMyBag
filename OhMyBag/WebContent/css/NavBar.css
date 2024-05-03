@@ -15,3 +15,12 @@
 		margin-left: 20px;
 	}
 }
+
+.bg-custom {
+    background-color: #d6ccc2;
+    height:80px;
+}
+
+nav{
+	font-family: Times New Roman, Sans-Serif;
+}

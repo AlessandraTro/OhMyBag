@@ -103,3 +103,6 @@
 	transform: scale(1.1);
 	/* Ingrandisce l'immagine del 10% quando il mouse passa sopra */
 }
+main{
+	font-family: Times New Roman, Sans-Serif;
+}

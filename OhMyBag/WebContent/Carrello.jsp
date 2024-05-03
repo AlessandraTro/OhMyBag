@@ -42,25 +42,7 @@ if(images != null){
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Carrello.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
-    <!-- Aggiungi lo script JavaScript per invalidare la sessione quando la finestra del browser viene chiusa -->
-    <script type="text/javascript">
-        window.onbeforeunload = function() {
-            // Effettua una chiamata AJAX per invalidare la sessione
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "InvalidateSession", false); // Assicurati di aggiungere un Servlet chiamato InvalidateSession per invalidare la sessione
-            xhr.send();
-        };
-        function removeProduct(productId) {
-            // Rimuovi l'elemento corrispondente all'ID del prodotto dalla sessione
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "RemoveProductFromCart?id=" + productId, false); // Assicurati di aggiungere una Servlet per rimuovere il prodotto dal carrello
-            xhr.send();
-            // Ricarica la pagina per visualizzare il carrello aggiornato
-            location.reload();
-        }
-    </script>
 </head>
-
 <body>
 	<%@ include file="Header.jsp"%>
 
@@ -126,11 +108,19 @@ if(images != null){
 								<p class="mb-2">Subtotale</p>
 								<p class="mb-2">€<%=prezzo %></p>
 							</div>
-
+							
 							<div class="d-flex justify-content-between">
-							<%int spedizione=10; %>
-								<p class="mb-2">Spedizione</p>
-								<p class="mb-2">€<%=spedizione %></p>
+								<%int spedizione=0; %>
+								<input id="checkbox_toggle" type="checkbox" class="check">
+								<div class="checkbox">
+								  <label class="slide" for="checkbox_toggle">
+								    <label class="toggle" for="checkbox_toggle"></label>
+								    <label class="text" for="checkbox_toggle">Standard</label>
+								    <label class="text" for="checkbox_toggle">Premium</label>
+								  </label>
+								</div>
+								
+								<p id="spedizione_value" class="mb-2">€<%=spedizione %></p> <!-- Aggiunto id per il valore della spedizione -->
 							</div>
 
 							<hr class="mb-4"
@@ -139,13 +129,16 @@ if(images != null){
 							<div class="d-flex justify-content-between p-2 mb-4"
 								style="background-color: #e1f5fe;">
 								<h5 class="fw-bold mb-2">Total:</h5>
-								<h5 class="fw-bold mb-0"><%=prezzo+spedizione %>€</h5>
+								<h5 id="prezzo_value"class="fw-bold mb-0"><%=prezzo+spedizione %>€</h5>
 							</div>
 							<button type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block">Checkout</button>
 							<%}else{%>
-							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
-								Nessun Prodotto nel carrello</h3>
+							<div style="display:flex; flex-direction:column; align-items:center;">
+								<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
+									Nessun Prodotto nel carrello</h3>
+								<img alt="immagine non trovata" src="img/website/mascotte.JPG" style="width:300px;">
+							</div>
 							<%} %>
 							<div class="card mb-6 mb-lg-0 p-5"
 								style="margin-top: 60px; background-color: #dcdcdc;">
@@ -203,6 +196,40 @@ if(images != null){
 
 	<%@ include file="Footer.jsp"%>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	    <!-- Aggiungi lo script JavaScript per invalidare la sessione quando la finestra del browser viene chiusa -->
+	<script type="text/javascript">
+	    var prezzo = <%= prezzo %>;
+	    
+	    document.addEventListener('DOMContentLoaded', function() {
+	        var checkbox = document.getElementById('checkbox_toggle');
+	        var spedizioneParagraph = document.getElementById('spedizione_value');
+	        var prezzoValue = document.getElementById('prezzo_value');
+	        
+	        // Funzione per calcolare il totale
+	        function calcolaTotale() {
+	            var spedizione = 0;
+	            var totale = prezzo; // Utilizza il valore di prezzo definito sopra
+	            
+	            if (checkbox.checked) {
+	                spedizione = 10;
+	                totale += spedizione;
+	            }
+	            
+	            // Aggiorna il valore della spedizione nel paragrafo
+	            spedizioneParagraph.innerText = '€' + spedizione;
+	            // Aggiorna il valore del prezzo totale nel paragrafo
+	            prezzoValue.innerText = '€' + totale;
+	        }
+	        
+	        // Aggiungi un ascoltatore per l'evento change dello switch
+	        checkbox.addEventListener('change', function() {
+	            // Richiama la funzione per calcolare il totale
+	            calcolaTotale();
+	        });
+	        
+	        // Chiama la funzione per calcolare il totale all'avvio della pagina
+	        calcolaTotale();
+	    });
+	</script>
 </body>
 </html>
-

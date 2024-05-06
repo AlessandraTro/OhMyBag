@@ -58,4 +58,89 @@ public class OrdineModel {
 			}
 		}
 	}
+	/*permette di creare un nuovo ordine da modificare successivamente*/
+	public synchronized void saveOrdineEmpty(String username)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		/*Sringa con Query*/
+		String insertSQL="INSERT INTO Ordine (PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, ConfezioneRegalo, NumeroCarta, Username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		try {
+			conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(insertSQL);/*creo lo statement per poter comunicare con il database*/
+			
+			statement.setFloat(1, 0);
+			statement.setString(2,"");
+			statement.setString(3,"");
+			statement.setString(4,"");
+			statement.setString(5,"");
+			statement.setString(6,"");
+			statement.setString(7,"");
+			
+			java.sql.Date data= new java.sql.Date(0);
+			statement.setDate(8, data);
+			
+			statement.setString(9, "");
+			statement.setBoolean(10, false);
+			statement.setString(11, "");
+			statement.setString(12,username);
+			
+			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+	
+	/*permette di modificare gli attributi di un determinato ordine*/
+	public synchronized void UpdateOrdine(int Id, Ordine ordine)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		/*Sringa con Query*/
+		String insertSQL="update Ordine set PrezzoTotale=?, Destinatario=?, MetodoDiPagamento=?, IndirizzoDiSpedizione=?, NoteCorriere=?, MetodoDiSpedizione=?, NumeroTracking=?, Data=?, Circuito=?, ConfezioneRegalo=?, NumeroCarta=? where Id=? && Username=?";
+		
+		try {
+			conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(insertSQL);/*creo lo statement per poter comunicare con il database*/
+			
+			statement.setFloat(1, ordine.getPrezzoTotale());
+			statement.setString(2,ordine.getDestinatario());
+			statement.setString(3,ordine.getMetodoDiPagamento());
+			statement.setString(4,ordine.getIndirizzoSpedizione());
+			statement.setString(5, ordine.getNoteCorriere());
+			statement.setString(6,ordine.getMetodoDiSpedizione());
+			statement.setString(7,ordine.getNumeroTracking());
+			
+			java.sql.Date data= new java.sql.Date(ordine.getData().getTimeInMillis());
+			statement.setDate(8, data);
+			
+			statement.setString(9, ordine.getCircuito());
+			statement.setBoolean(10, ordine.isConfezioneRegalo());
+			statement.setString(11, ordine.getNumeroCarta());
+			statement.setInt(12, ordine.getId());
+			statement.setString(13,ordine.getUsername());
+			
+			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+	
 }

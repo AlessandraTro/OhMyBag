@@ -1,26 +1,27 @@
-.custom-container{
-	display:flex;
+.custom-container {
+	display: flex;
 	flex-direction: row;
-
 }
 
-.cart-section { 
-	display:flex;
+.cart-section {
+	display: flex;
 	flex-direction: row;
 	justify-content: end;
-	width:20%;
+	width: 20%;
 	align-items: center;
-	
-	a{
-		margin-left: 20px;
-	}
+	margin-left: 15px;
+}
+
+.cart-section a {
+	margin-left: 20px;
 }
 
 .bg-custom {
-    background-color: #d6ccc2;
-    height:80px;
+	background-color: #d6ccc2;
+	padding: 15px
 }
 
-nav{
+nav {
 	font-family: Times New Roman, Sans-Serif;
+	font-size: 20px; 
 }

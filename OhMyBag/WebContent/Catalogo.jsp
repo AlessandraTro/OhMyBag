@@ -26,6 +26,8 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 
 <body>
 	<%@ include file="Header.jsp"%>
+	
+	
 	<!-- Immagini carousel -->
 	<div id="carouselCatalogo" class="carousel slide w-100 mx-auto"
 		data-bs-ride="carousel">

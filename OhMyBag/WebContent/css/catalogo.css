@@ -37,6 +37,10 @@
 	margin: 80px 50px;
 }
 
+.carousel-item{
+	margin-top:20px;
+}
+
 .card-img-top-custom {
 	max-width: 100%; /* Imposta la larghezza massima delle immagini */
 	min-height: 450px;

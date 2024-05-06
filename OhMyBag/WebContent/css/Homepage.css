@@ -23,7 +23,9 @@
 	display: block; /* Per garantire che l'immagine sia un blocco */
 	margin: auto; /* Per allineare l'immagine al centro */
 }
-
+.carousel-item{
+	margin-top:20px;
+}
 .nav-scroller {
 	position: relative;
 	z-index: 2;

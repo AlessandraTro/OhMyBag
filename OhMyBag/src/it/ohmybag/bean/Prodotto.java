@@ -18,8 +18,9 @@ public class Prodotto implements Serializable {
 	private GregorianCalendar dataInserimento;
 	private int sconto;
 	private int disponibilita;
+	private int Iva;
 
-	public Prodotto(String id, String marca, String nome, float prezzo, String tipologia, int idcategoria, String descrizione, int annoCollezione){
+	public Prodotto(String id, String marca, String nome, float prezzo, String tipologia, int idcategoria, String descrizione, int annoCollezione, int Iva){
 		this.id=id;
 		this.marca=marca;
 		this.nome=nome;
@@ -31,6 +32,7 @@ public class Prodotto implements Serializable {
 		this.dataInserimento=new GregorianCalendar();
 		this.sconto=0;
 		this.disponibilita=0;
+		this.Iva=Iva;
 	}
 	public Prodotto() {
 		
@@ -123,12 +125,19 @@ public class Prodotto implements Serializable {
 		this.disponibilita = disponibilita;
 	}
 
+	public int getIva() {
+		return Iva;
+	}
+	public void setIva(int iva) {
+		Iva = iva;
+	}
+	
 	@Override
 	public String toString() {
 		return "Prodotto [id=" + id + ", marca=" + marca + ", nome=" + nome + ", prezzo=" + prezzo + ", tipologia="
 				+ tipologia + ", idCategoria=" + idCategoria + ", descrizione=" + descrizione + ", annoCollezione="
 				+ annoCollezione + ", dataInserimento=" + dataInserimento + ", sconto=" + sconto + ", disponibilita="
-				+ disponibilita + "]";
+				+ disponibilita + ", Iva=" + Iva + "]";
 	}
 	@Override
 	public boolean equals(Object o) {
@@ -142,4 +151,5 @@ public class Prodotto implements Serializable {
 	public int hashCode() {
 	    return Objects.hash(id);
 	}
+	
 }

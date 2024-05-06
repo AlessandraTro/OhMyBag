@@ -23,7 +23,7 @@ public class ProdottoModel{
 		PreparedStatement statement=null;
 		
 		/*Sringa con Query*/
-		String insertSQL="INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		String insertSQL="INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			conn=getConnection();/*creo la connessione con il database*/
@@ -42,7 +42,9 @@ public class ProdottoModel{
 			statement.setDate(9, data);
 			
 			statement.setInt(10, prodotto.getSconto());
-			statement.setInt(2, prodotto.getDisponibilita());
+			statement.setInt(11, prodotto.getDisponibilita());
+			statement.setInt(12, prodotto.getIva());
+
 			
 			statement.executeUpdate();
 		}finally {
@@ -318,6 +320,7 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
 				
 				prodotti.add(bean);
 			}
@@ -369,7 +372,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
-				
+				bean.setIva(rs.getInt("Iva"));
+
 				prodotti.add(bean);
 			}
 		}finally {
@@ -421,6 +425,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -473,6 +479,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -525,6 +533,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -578,6 +588,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -631,6 +643,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -683,6 +697,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -734,6 +750,8 @@ public class ProdottoModel{
 				
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 				
 				prodotti.add(bean);
 			}
@@ -784,6 +802,8 @@ public class ProdottoModel{
 
 	            bean.setSconto(rs.getInt("Sconto"));
 	            bean.setDisponibilita(rs.getInt("Disponibilita"));
+				bean.setIva(rs.getInt("Iva"));
+
 	        }
 	    } finally {
 	        try {

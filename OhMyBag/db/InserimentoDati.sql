@@ -21,7 +21,7 @@ INSERT INTO Categoria (ID, Nome) VALUES (03, "Viaggi");
 
 /* GUCCI DIANA */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("678842 FACPO 5743", "GUCCI", "BORSA SHOPPING GUCCI DIANA MISURA MEDIA", 4500.00, "Borsa", 01, 
 "La collezione Cruise 24 trae ispirazione dai motivi iconici della Maison, reinterpretando simboli ed elementi inconfondibili in modi sempre nuovi. Stagione dopo stagione, l’heritage Gucci caratterizza design, materiali e modelli contemporanei.<br>
 <ul>
@@ -38,12 +38,12 @@ VALUES ("678842 FACPO 5743", "GUCCI", "BORSA SHOPPING GUCCI DIANA MISURA MEDIA",
   <li><b>Fabbricato in Italia</b></li>
   <li>Può contenere iPhone Pro Max/Plus, Airpods, portafoglio piccolo e rossetto</li>
 </ul>", 
-2024, '2024-04-13', 0, 10);
+2024, '2024-04-13', 0, 10, 22);
 
 
 /* VERSACE MEDUSA '95 */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES("1013169-1A10795_DTU_UNICA_1B00V__", "VERSACE", "SHOPPER PICCOLA MEDUSA '95", 1700.00, "Borsa", 01,
 "Shopper orizzontale con dettaglio cintura caratterizzata dalla personalizzazione Medusa '95, l'iconico codice della Maison visto per la prima volta nelle collezioni del 1995. Il design del manico superiore è realizzato in pelle liscia a grana piatta con chiusura magnetica e presenta una tracolla rimovibile.<br>
 <ul>
@@ -61,12 +61,12 @@ VALUES("1013169-1A10795_DTU_UNICA_1B00V__", "VERSACE", "SHOPPER PICCOLA MEDUSA '
   <li><b>Peso approssimativo:</b> 0,5 kg</li>
   <li>L 23 x L 8 x A 14 cm</li>
 </ul>", 
-2024, '2024-04-13', 0, 10);
+2024, '2024-04-13', 0, 10, 22);
 
 
 /*CARPISA BORSA SHOPPING - ATHENA*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES("BSB99201444", "CARPISA", "Borsa Shopping - Athena", 49.95, "Borsa", 01,
 "Shopping della linea Athena by Carpisa in similpelle granato sfoderata. Il modello è dotato di chiusura con zip, una tasca interna, due ampi manici e una tracolla regolabile e removibile in similpelle liscia in tinta. La shopping è pratica, capiente e comoda.<br>
 <ul>
@@ -77,12 +77,12 @@ VALUES("BSB99201444", "CARPISA", "Borsa Shopping - Athena", 49.95, "Borsa", 01,
   <li><b>Collezione:</b> Primavera/Estate 2024</li>
   <li><b>Dimensioni (cm):</b> 35.5 x 28.5 x 14</li>
 </ul>", 
-2024, '2024-04-13', 0, 10);
+2024, '2024-04-13', 0, 10, 22);
 
 
 /* ARMANI Borsa hobo a spalla in pelle stampa cervo */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES("Y3E205Y497O180100", "ARMANI", "Borsa hobo a spalla in pelle stampa cervo", 550.00, "Borsa", 01,
 "Linee pulite super minimal con piccoli tocchi di metallo. L’ispirazione di queste borse dal tipico design hobo, nasce dal trend delle borse sottospalla, dai volumi decisi e dalla silhouette particolarmente geometrica. Borsa a spalla realizzata in pelle con finish stampa cervo e provvista di chiusura con linguetta di pelle che viene inserita all’interno di un passante di metallo logato.<br>
 <ul>
@@ -96,12 +96,12 @@ VALUES("Y3E205Y497O180100", "ARMANI", "Borsa hobo a spalla in pelle stampa cervo
   <li><b>Interno foderato</b></li>
   <li><b>Tasca interna con zip</b></li>
 </ul>", 
-2024, '2024-04-13', 0, 10);
+2024, '2024-04-13', 0, 10, 22);
 
 
 /* PADRA Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("1BH218_R064_F0594_V_OOO", "PRADA", "Borsa a tracolla Prada Re-Edition 1978 mini in Re-Nylon e Saffiano", 1900.00, "Borsa", 01,
 "Re-Edition di un design d’archivio, questa borsa a tracolla dal fascino senza tempo sintetizza i codici Prada in una silhouette pragmatica e sofisticata. Il modello essenziale dalle geometrie pulite è realizzato in Re-Nylon, tessuto innovativo in nylon rigenerato, evoluzione sostenibile di un materiale distintivo del marchio. Dotato di una tasca esterna con zip e impreziosito da eleganti dettagli in pelle Saffiano, l’accessorio è completato dall’iconico del logo triangolo in metallo smaltato.<br>
 <ul>
@@ -119,7 +119,7 @@ VALUES ("1BH218_R064_F0594_V_OOO", "PRADA", "Borsa a tracolla Prada Re-Edition 1
   <li><b>Materia:</b> Tessuto/Pelle</li>
 </ul>
 <i>Per una cura sostenibile del prodotto, per preservarne le caratteristiche e per ridurre la dispersione di microfibre, si consiglia di non lavare il prodotto troppo spesso, di far prendere aria dopo ogni utilizzo e affidare il lavaggio a secco ad una tintoria specializzata ed ecologica.</i>", 
-2024, '2024-04-13', 0, 10);
+2024, '2024-04-13', 0, 10, 22);
 
 
 
@@ -127,8 +127,8 @@ VALUES ("1BH218_R064_F0594_V_OOO", "PRADA", "Borsa a tracolla Prada Re-Edition 1
 
 /* CALVIN KLEIN ZAINO ROTONDO */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES("0000PH0700010", "CALVIN KLEIN", "Zaino Rotondo", 76.00, "Zaino", 01, 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES("0000PH0700010", "CALVIN KLEIN", "Zaino Rotondo", 84.90, "Zaino", 01, 
 "L'esterno dello zaino è realizzato al 100% in poliestere riciclato, escluse le finiture. Il poliestere riciclato di questo prodotto è stato ottenuto dalla rielaborazione di materiali esistenti.<br>
 <ul>
   <li><b>Esterno in poliestere riciclato resistente all'acqua</b></li>
@@ -143,10 +143,10 @@ VALUES("0000PH0700010", "CALVIN KLEIN", "Zaino Rotondo", 76.00, "Zaino", 01,
   <li>100% poliestere riciclato</li>
   <li>Paese d'origine: Cina</li>
 </ul>", 
-2023, '2024-04-16', 10, 10);
+2023, '2024-04-16', 10, 10, 22);
 
 /* GUCCI ZAINO OPHIDIA DOPPIA GG */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("547965 9U8BT 8994", "GUCCI", "Zaino Ophidia In Gg Supreme Misura Piccola", 1490.00, "Zaino", 01, "Lo zaino si conferma un accessorio essenziale delle collezioni Gucci e ogni stagione è riproposto in nuove varianti e dimensioni. Parte della linea Ophidia, questo modello è realizzato in tessuto GG Supreme, profilato da pelle marrone a contrasto. Il nastro Web verde e rosso e la Doppia G rendono omaggio alla tradizione della Maison.<br>
 <ul>
   <li><b>Tessuto GG Supreme beige ed ebano, materiale a ridotto impatto ambientale, con finiture in pelle marrone</b></li>
@@ -164,17 +164,17 @@ VALUES ("547965 9U8BT 8994", "GUCCI", "Zaino Ophidia In Gg Supreme Misura Piccol
   <li><b>Fabbricato in Italia</b></li>
   <li>La modella è alta 180cm</li>
   <li><b>Fodera </b> in cotone e lino</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* ZAINO CHANEL 22 */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("AS3859 B16652 NY077", "CHANELL", "Zaino Chanel 22", 5800.00, "Zaino", 01, "Pelle effetto lucido, pelle & metallo effetto dorato Bianco & nero.<br>
 <ul>
   <li><b>Dimensioni:</b> 34 × 29 × 8 cm ( in )</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* PRADA Zaino small in Re-Nylon */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("1BZ677_RV44_F0076_V_OOO", "PRADA", "Zaino small in Re-Nylon", 1750.00, "Zaino", 01, "Parte dell'heritage di Prada fin dagli anni '80, lo zaino in nylon riflette le caratteristiche principali del marchio: l'innovazione dei materiali, l’approccio utilitaristico al lusso e la reinterpretazione dei classici. Questo modello dal design minimalista e moderno è riproposto in Re-Nylon, ottenuto dal riciclo e dalla purificazione delle materie plastiche raccolte negli oceani.<br>
 <ul>
   <li>Dettagli in Saffiano</li>
@@ -190,11 +190,11 @@ VALUES ("1BZ677_RV44_F0076_V_OOO", "PRADA", "Zaino small in Re-Nylon", 1750.00, 
   <li><b>Materiale:</b> Tessuto</li>
   <li><b>Colore:</b> Celeste</li>
 </ul>
-<i> Per una cura sostenibile del prodotto, per preservarne le caratteristiche e per ridurre la dispersione di microfibre, si consiglia di non lavare il prodotto troppo spesso, di far prendere aria dopo ogni utilizzo e affidare il lavaggio a secco ad una tintoria specializzata ed ecologica.</i>", 2024, '2024-04-16', 0, 10);
+<i> Per una cura sostenibile del prodotto, per preservarne le caratteristiche e per ridurre la dispersione di microfibre, si consiglia di non lavare il prodotto troppo spesso, di far prendere aria dopo ogni utilizzo e affidare il lavaggio a secco ad una tintoria specializzata ed ecologica.</i>", 2024, '2024-04-16', 0, 10, 22);
 
 /* CARPISA Zaino - New Mandy V2 */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES ("BSB05007942", "Carpisa", "Zaino - New Mandy V2", 39.95, "Zaino", 01, "Zaino da donna della linea New Mandy V2 by Carpisa pratico e resistente. Il modello si contraddistingue per la sua ampiezza e capienza che la rendono adatto per portare con te tutto ciò che ti serve in ufficio ma anche nelle trasferte di lavoro.<br>
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES ("BSB05007942", "Carpisa", "Zaino - New Mandy V2", 69.95, "Zaino", 01, "Zaino da donna della linea New Mandy V2 by Carpisa pratico e resistente. Il modello si contraddistingue per la sua ampiezza e capienza che la rendono adatto per portare con te tutto ciò che ti serve in ufficio ma anche nelle trasferte di lavoro.<br>
 <ul>
   <li><b>Ampio scomparto interno </b>con chiusura a zip</li>
   <li><b>Spallacci </b>in nastro regolabili</li>
@@ -208,7 +208,7 @@ VALUES ("BSB05007942", "Carpisa", "Zaino - New Mandy V2", 39.95, "Zaino", 01, "Z
   <li><b>Collezione:</b> Continuativo 2022</li>
   <li><b>Dimensioni (cm):</b> 30 x 39 x 12.5</li>
   <li><b>Colore:</b> Indaco</li>",
-2023, '2024-04-16', 43, 10);
+2023, '2024-04-16', 43, 10, 22);
 
 
 
@@ -217,8 +217,8 @@ VALUES ("BSB05007942", "Carpisa", "Zaino - New Mandy V2", 39.95, "Zaino", 01, "Z
 
 /* TOMMY HILFIGER CINTURA TH MONOGRAM IN PELLE */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES ("AW0AW15763AES", "TOMMY HILFIGER", "CINTURA TH MONOGRAM IN PELLE", 45.00, "Cintura", 01, 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES ("AW0AW15763AES", "TOMMY HILFIGER", "CINTURA TH MONOGRAM IN PELLE", 64.90, "Cintura", 01, 
 "Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un'icona inconfondibile del brand. L'elegante cintura in pelle aggiunge una nota di lusso al tuo look, grazie al brillante monogramma TH in metallo sul passante.<br>
 <ul>
   <li><b>Finitura liscia</b></li>
@@ -229,19 +229,19 @@ VALUES ("AW0AW15763AES", "TOMMY HILFIGER", "CINTURA TH MONOGRAM IN PELLE", 45.00
   <li><b>Larghezza:</b> 2,5 cm</li>
   <li><b>Materiale:</b> 100% pelle</li>
 </ul>", 
-2023, '2024-04-16', 30, 10);
+2023, '2024-04-16', 30, 10, 22);
 
 /* CHANEL Cintura*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("AAA105 B16750 NY272", "CHANEL", "Cintura", 1210.00, "Cintura", 01, "Capretto effetto scamosciato, pelle di agnello & metallo.<br>
 <ul>
   <li><b>Colore:</b> Nero & oro</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 
 /*GUCCI Cintura Sottile GG Marmont */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("409417 0AAA5 1000", "GUCCI", "CINTURA SOTTILE GG MARMONT", 350.00, "Cintura", 01, "Nell'ultima collezione, i motivi più emblematici della Maison sono rappresentati come simboli senza tempo ma in continua evoluzione. L'iconica Doppia G color oro definisce questo accessorio con il suo stile inconfondibile.<br>
 <ul>
   <li><b>Pelle nera</b></li>
@@ -251,21 +251,21 @@ VALUES ("409417 0AAA5 1000", "GUCCI", "CINTURA SOTTILE GG MARMONT", 350.00, "Cin
   <li><b>Altezza cintura:</b> 2 cm</li>
   <li><b>Larghezza:</b> 2 cm</li>
   <li><b>Fabbricato in Italia</b></li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* VERSACE Cintura con catena */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("1007687-1A00620_DTU_UNICA_3P010__", "VERSACE", "CINTURA CON CATENA GRECA GODDESS", 790.00, "Cintura", 01, "Questa cintura con catena è realizzata con iconiche maglie con Greca, un simbolo del brand, reso con un'unica linea ininterrotta. Tutti i gioielli firmati Versace sono privi di piombo e nichel. Tutti i materiali sono ipoallergenici.<br>
 <ul>
   <li><b>Elementi in metallo con Greca</b></li>
   <li><b>Chiusura con moschettone</b></li>
   <li><b>Materiale:</b> 100% metallo</li>
   <li><b>Colore:</b> Metallico</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* CARPISA Cintura - Liv */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("ACC08305444", "Carpisa", "Cintura - Liv", 9.95, "Cintura", 01, "Cintura da donna della linea Liv by Carpisa in simil pelle effetto granato. Un accessorio in stile classico, sempre di moda, che vi permetterà facili abbinamenti.<br>
 <ul>
   <li><b>Linea:</b> LIV</li>
@@ -274,14 +274,14 @@ VALUES ("ACC08305444", "Carpisa", "Cintura - Liv", 9.95, "Cintura", 01, "Cintura
   <li><b>Made in:</b> Cina</li>
   <li><b>Collezione:</b> Primavera/Estate 2024</li>
   <li><b>Dimensioni (cm):</b> 115 x 2 x 0</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 
 
 /* INSERIMENTO PORTAFOGLI */
 
 /* LOUIS VUITTON PORTAFOGLIO SARAH*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES("M60531", "LOUIS VUITTON", "Portafoglio Sarah", 530.00, "Portafoglio", 01, 
 "Il portafoglio Sarah, grande classico di Louis Vuitton, combina la tela Monogram con una fodera in pelle martellata. Il raffinato accessorio, con apertura a busta, rivela due spaziosi scomparti, pratiche tasche e fessure per carte di credito. La creazione si distingue per il design elegante e funzionale, perfetto per contenere l'essenziale.<br>
 <ul>
@@ -298,10 +298,10 @@ VALUES("M60531", "LOUIS VUITTON", "Portafoglio Sarah", 530.00, "Portafoglio", 01
   <li>Tasca piatta interna</li>
 </ul>
 L'articolo può essere prodotto in Francia, Spagna, Italia o negli Stati Uniti.", 
-2024, '2024-04-17', 0, 10);
+2024, '2024-04-17', 0, 10, 22);
 
 /* CARPISA Piccolo - Alma */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("PDC01308444", "Carpisa", "Portafoglio Piccolo - Alma", 15.95, "Portafoglio", 01, "Portafoglio piccolo della linea Alma by Carpisa realizzato in similpelle effetto struzzo.
 Dotato di chiusura con cerniera all round, tasca interna portamonete e otto slot portacarte.<br>
 <ul>
@@ -311,11 +311,11 @@ Dotato di chiusura con cerniera all round, tasca interna portamonete e otto slot
   <li><b>Made in:</b> Cina</li>
   <li><b>Collezione:</b> Primavera/Estate 2024</li>
   <li><b>Dimensioni (cm):</b> 11.5 x 8 x 2</li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* GUCCI Portacarte GG Marmont */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES ("466492 DTDHT 1712", "GUCCI", "PORTACARTE GG MARMONT", 385, "Portafoglio", 01, "La collezione GG Marmont è definita dall'emblematico dettaglio Doppia G, una versione contemporanea di una fibbia per cintura degli archivi Gucci degli anni '70 diventata un elemento distintivo della Maison. Questo portacarte è realizzato con la stessa pelle matelassé delle borse della collezione.<br>
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES ("466492 DTDHT 1712", "GUCCI", "PORTACARTE GG MARMONT", 385.00, "Portafoglio", 01, "La collezione GG Marmont è definita dall'emblematico dettaglio Doppia G, una versione contemporanea di una fibbia per cintura degli archivi Gucci degli anni '70 diventata un elemento distintivo della Maison. Questo portacarte è realizzato con la stessa pelle matelassé delle borse della collezione.<br>
 <ul>
   <li><b>Pelle chevron matelassé grigio chiaro</b></li>
   <li><b>Finiture color oro</b></li>
@@ -329,11 +329,11 @@ VALUES ("466492 DTDHT 1712", "GUCCI", "PORTACARTE GG MARMONT", 385, "Portafoglio
   <li><b>Chiuso:</b> L 11 cm x A 8,5 cm x P 3 cm</li>
   <li><b>Aperto:</b> L 11 cm x A 17,5 cm</li>
   <li><b>Fabbricato in Italia</b></li>
-</ul>", 2024, '2024-04-16', 0, 10);
+</ul>", 2024, '2024-04-16', 0, 10, 22);
 
 /* VERSACE Medusa '95 */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES ("1014689-1A10795_DTU_UNICA_1KD7V__", "VERSACE", "PORTAFOGLIO MEDUSA '95", 550, "Portafoglio", 01, "Un portafoglio realizzato in pelle liscia dettagliato da una personalizzazione con cintura Medusa '95 sul davanti e dotato di diversi scomparti interni per carte e banconote e un portamonete. Il piccolo accessorio è completato da una taschina posteriore con logo in rilievo.<br>
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES ("1014689-1A10795_DTU_UNICA_1KD7V__", "VERSACE", "PORTAFOGLIO MEDUSA '95", 550.00, "Portafoglio", 01, "Un portafoglio realizzato in pelle liscia dettagliato da una personalizzazione con cintura Medusa '95 sul davanti e dotato di diversi scomparti interni per carte e banconote e un portamonete. Il piccolo accessorio è completato da una taschina posteriore con logo in rilievo.<br>
 <ul>
   <li><b>Personalizzazione Medusa '95</b></li>
   <li><b>Logo Versace</b></li>
@@ -346,11 +346,11 @@ VALUES ("1014689-1A10795_DTU_UNICA_1KD7V__", "VERSACE", "PORTAFOGLIO MEDUSA '95"
   <li><b>Composizione esterno:</b> 100% pelle di vitello</li>
   <li><b>Fodera:</b> 60% cotone, 40% viscosa</li>
   <li><b>Finiture:</b> 100% pelle di agnello</li>
-</ul>", 2024, '2024-04-17', 0, 10);
+</ul>", 2024, '2024-04-17', 0, 10, 22);
 
 /* Tommy Hilfiger PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
-VALUES ("AW0AW15743BDS", "TOMMY HILFIGER", "PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI", 55, "Portafoglio", 01, "Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un'icona inconfondibile del brand. La stampa di monogrammi TH all over e la pratica chiusura con zip sono le caratteristiche distintive del grintoso portafogli, abbastanza spazioso da contenere tutto l'essenziale.<br>
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+VALUES ("AW0AW15743BDS", "TOMMY HILFIGER", "PORTAFOGLI ICONIC GRANDE CON MONOGRAMMI", 79.90, "Portafoglio", 01, "Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un'icona inconfondibile del brand. La stampa di monogrammi TH all over e la pratica chiusura con zip sono le caratteristiche distintive del grintoso portafogli, abbastanza spazioso da contenere tutto l'essenziale.<br>
 <ul>
   <li><b>Finitura liscia</b></li>
   <li><b>Stampa di monogrammi TH all over</b></li>
@@ -361,14 +361,14 @@ VALUES ("AW0AW15743BDS", "TOMMY HILFIGER", "PORTAFOGLI ICONIC GRANDE CON MONOGRA
   <li><b>Branding Tommy Hilfiger</b></li>
   <li><b>Dimensioni:</b> 11 x 20 x 3 cm</li>
   <li><b>100% poliuretano</b></li>
-</ul>", 2023, '2024-04-17', 30, 10);
+</ul>", 2023, '2024-04-17', 30, 10, 22);
 
 
 /* INSERIMENTO SCIARPE E CAPPELLI */
 
 /* LOUIS VUITTON SCIARPA THE ULTIMATE */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("M76382","LOUIS VUITTON","Sciarpa The Ultimate", 890.00, "Sciarpe e cappelli", 01, 
 "La sciarpa The Ultimate è decorata con il motivo Monogram oversize in colori a contrasto, dallo stile decisamente originale. L'accessorio, dalle dimensioni generose, è realizzato in pregiato misto cachemire e lana. La maestria artigianale della Maison è messa in risalto dall'abile uso della tecnica jacquard, che crea il particolare gioco cromatico del raffinato modello.<br>
 <ul>
@@ -381,14 +381,14 @@ VALUES ("M76382","LOUIS VUITTON","Sciarpa The Ultimate", 890.00, "Sciarpe e capp
   <li>Firma Louis Vuitton</li>
   <li> Solo lavaggio a secco</li>
 </ul>",
-2024, '2024-04-17', 0, 10);
+2024, '2024-04-17', 0, 10, 22);
 
 
 /* INSERIMENTO ACCESSORI */
 
 /* CARPISA PORTACELLULARE*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES("AAC06204444", "CARPISA", "Portacellulare - Vanity Spring", 19.95, "Accessori", 01, 
 "Portacellulare della linea Vanity Spring by Carpisa realizzato in similpelle effetto lucertolina.
 Dotato di chiusura principale con cerniera, due taschine esterne, tira lampo in metallo logato e tracolla in nastro regolabile e removibile. Il modello è disponibile in vari colori pastello che ricordano la primavera.<br>
@@ -400,7 +400,7 @@ Dotato di chiusura principale con cerniera, due taschine esterne, tira lampo in 
   <li><b>Collezione:</b> Primavera/Estate 2024</li>
   <li><b>Dimensioni (cm):</b> 10 x 17 x 2</li>
 </ul>", 
-2024, '2024-04-18', 0, 10);
+2024, '2024-04-18', 0, 10, 22);
 
 
 
@@ -589,7 +589,8 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/donna/ac
 
 /*TUCANO*/
 use OhMyBag;
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) values ("003AAA", "Tucano",  "Luna Gravity", 200.00, "Zaino",  02, "Zaino per laptop 15.6 e MacBook 16 dotato di sistema anti-gravity, una sospensione elastica degli spallacci concepita per ridurre il carico sulle spalle e sulla schiena quando il corpo è in movimento. La funzione anti gravity system, oltre a migliorare la postura e a ridurre lo sforzo muscolare, attenua in modo specifico la rigidità dei muscoli del dorso e del collo distribuendo in modo equilibrato il peso dello zaino tra le spalle e il bacino. Realizzato in materiale tecnico ad alta densità, Luna Gravity ha un'ottima organizzazione delle tasche. Il vano interno, è dotato di una tasca protettiva per laptop mentre il lato anteriore presenta tasche con differenti altezze chiuse da cerniere. La parte posteriore ha uno schienale ergonomico, spallacci imbottiti con sistema di sospensione, fascia per trolley e tasca di sicurezza. Una rain cover estraibile, nascosta all'interno della base, permette di proteggere lo zaino durante la pioggia.
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
+values ("003AAA", "Tucano",  "Luna Gravity", 200.00, "Zaino",  02, "Zaino per laptop 15.6 e MacBook 16 dotato di sistema anti-gravity, una sospensione elastica degli spallacci concepita per ridurre il carico sulle spalle e sulla schiena quando il corpo è in movimento. La funzione anti gravity system, oltre a migliorare la postura e a ridurre lo sforzo muscolare, attenua in modo specifico la rigidità dei muscoli del dorso e del collo distribuendo in modo equilibrato il peso dello zaino tra le spalle e il bacino. Realizzato in materiale tecnico ad alta densità, Luna Gravity ha un'ottima organizzazione delle tasche. Il vano interno, è dotato di una tasca protettiva per laptop mentre il lato anteriore presenta tasche con differenti altezze chiuse da cerniere. La parte posteriore ha uno schienale ergonomico, spallacci imbottiti con sistema di sospensione, fascia per trolley e tasca di sicurezza. Una rain cover estraibile, nascosta all'interno della base, permette di proteggere lo zaino durante la pioggia.
 <ul>
 <li>Colore Nero</li>
   <li>
@@ -603,34 +604,34 @@ INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizio
   <li>Schienale ergonomico</li>
   <li>Rain cover estraibile</li>
   <li>Nastri con stampa all over</li>
-</ul>", 2023, "2024-04-16", 0, 10);
+</ul>", 2023, "2024-04-16", 0, 10, 22);
 
 /*SPRAYGROUND*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '002AAA',
-    'Sprayground',
-    'ZAINO SPRAYGROUND TEAR IT UP CAMO BACKPACK MARRONE',
-    119.00,
-    'Zaino',
-    02,
-    'Esterno<ul><li>Dimensioni: 46cm x 15cm x 29cm</li><li>Tasca frontale con cerniera</li><li>Tasche laterali</li><li>Tasca nascosta con cerniera</li><li>Imbottitura posteriore ergonomica in rete</li><li>Cinghie regolabili per taglie personalizzate</li><li>Cerniere in nylon con hardware in metallo</li><li>Badge "Sprayground Authentic" in metallo</li><li>Manicotto posteriore scorrevole si collega al bagaglio a mano per liberare le mani</li></ul>Interno<ul><li>Scomparto separato per laptop</li><li>Scomparto separato per occhiali da sole in velour</li><li>Tasca organizer in rete</li></ul>Tessuto Eco-Pelle resistente e durevole',
-    2024,
-    '2024-04-16',
-    0,
-    10
-);
+    '002AAA', 'Sprayground', 'ZAINO SPRAYGROUND TEAR IT UP CAMO BACKPACK MARRONE', 119.00, 'Zaino', 02,
+    'Esterno<ul>
+    <li>Dimensioni: 46cm x 15cm x 29cm</li>
+    <li>Tasca frontale con cerniera</li>
+    <li>Tasche laterali</li>
+    <li>Tasca nascosta con cerniera</li>
+    <li>Imbottitura posteriore ergonomica in rete</li>
+    <li>Cinghie regolabili per taglie personalizzate</li>
+    <li>Cerniere in nylon con hardware in metallo</li>
+    <li>Badge "Sprayground Authentic" in metallo</li>
+    <li>Manicotto posteriore scorrevole si collega al bagaglio a mano per liberare le mani</li>
+    </ul>Interno<ul>
+    <li>Scomparto separato per laptop</li>
+    <li>Scomparto separato per occhiali da sole in velour</li>
+    <li>Tasca organizer in rete</li>
+    </ul>Tessuto Eco-Pelle resistente e durevole',
+    2024, '2024-04-16', 0, 10, 22);
 
 /*PIQUADRO*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '001AAA',
-    'Piquadro',
-    'Zaino piccolo per computer 14’’ ed ipad',
-    365.00,
-    'Zaino',
-    02,
+    '001AAA', 'Piquadro', 'Zaino piccolo per computer 14’’ ed ipad', 365.00, 'Zaino', 02,
     'Zaino piccolo porta computer con scomparto per iPad®, tasche porta bottiglia e porta ombrello
     <ul>
       <li>Numero comparti: 2</li>
@@ -645,39 +646,49 @@ VALUES (
       <li>Dimensioni: 27.5 X 39.0 X 15.0 (cm)</li>
       <li>Peso: 838 gr</li>
     </ul>',
-    2022,
-    '2024-04-16',
-    0,
-    10
-);
+    2022, '2024-04-16', 0, 10, 22);
 
 /*MOLESKINE*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '000AAA',
-    'Moleskine',
-    'Precious & Ethical',
-    318.00,
-    'Zaino',
-    02,
-    'Esterne<ul><li>Zaino in materiale nuovo con effetto pitone (lesterno è 100% VEGEA®)</li><li>Logo serigrafato metallizzato</li><li>Apertura principale con cerniera lampo in metallo</li><li>Tracolla regolabile in fettuccia in tonalità</li><li>Schienale in air-mesh traspirante</li><li>Cinghia per bagagli</li><li>Piedini in metallo sul fondo</li><li>Accessori in metallo</li><li>Maniglia in fettuccia sulla parte superiore</li><li>Anello da personalizzare con charms</li></ul>Interne<ul><li>Tasca porta taccuino pocket My Moleskine per mettere via le idee</li><li>Scomparto per dispositivi: 22x33cm</li><li>Tasca interna con zip e porta biglietti da visita</li><li>Tasca per occhiali foderata in microfibra</li><li>Pochette separata foderata dello stesso tessuto dello zaino con una seconda pochette in mesh all\'interno</li><li>Custodia per riporre il sacchetto antipolvere</li><li>Clip portachiavi per ritrovare sempre le chiavi</li></ul>Dimensione e volumeDimensioni: 26 x 37 x 9 cmVolume: 8LVi presentiamo uno zaino lussuoso che unisce design, manifattura artigianale e attenzione ai dettagli. L\'esterno tattile e particolare è realizzato da VEGEA®, un marchio all avanguardia che utilizza gli scarti organici dell industria vinicola italiana e li trasforma in materiali innovativi*. All interno dello zaino si trovano tre pochette, una dust bag e scomparti foderati per un dispositivo digitale (dimensioni dello scomparto: 22x33 cm), occhiali e altri oggetti indispensabili. La sacca antipolvere ripiegabile è contenuta in un elegante custodia. Sono inoltre presenti una pochette con cerniera dello stesso materiale dello zaino e una custodia in mesh per racchiudere e proteggere i propri effetti personali quando si è in movimento. Questo zaino è dotato anche di una clip portachiavi attaccata ad una lunga cinghia interna, per poter usare le chiavi senza doverle tirare fuori completamente dallo zaino e quindi senza mai perderle. Gli spallacci regolabili e lo schienale in air-mesh traspirante contribuiscono alla confortevolezza durante la giornata, mentre una cinghia per bagaglio mantiene lo zaino saldamente attaccato alla valigia nei viaggi più lunghi.</li>',
-    2024,
-    '2024-04-16',
-    0,
-    10
-);
+    '000AAA', 'Moleskine', 'Precious & Ethical', 318.00, 'Zaino', 02,
+    'Esterne<ul>
+    <li>Zaino in materiale nuovo con effetto pitone (lesterno è 100% VEGEA®)</li>
+    <li>Logo serigrafato metallizzato</li>
+    <li>Apertura principale con cerniera lampo in metallo</li>
+    <li>Tracolla regolabile in fettuccia in tonalità</li>
+    <li>Schienale in air-mesh traspirante</li>
+    <li>Cinghia per bagagli</li>
+    <li>Piedini in metallo sul fondo</li>
+    <li>Accessori in metallo</li>
+    <li>Maniglia in fettuccia sulla parte superiore</li>
+    <li>Anello da personalizzare con charms</li></ul>
+    Interne<ul>
+    <li>Tasca porta taccuino pocket My Moleskine per mettere via le idee</li>
+    <li>Scomparto per dispositivi: 22x33cm</li>
+    <li>Tasca interna con zip e porta biglietti da visita</li>
+    <li>Tasca per occhiali foderata in microfibra</li>
+    <li>Pochette separata foderata dello stesso tessuto dello zaino con una seconda pochette in mesh all\'interno</li>
+    <li>Custodia per riporre il sacchetto antipolvere</li><li>Clip portachiavi per ritrovare sempre le chiavi</li>
+    </ul>Dimensione e volume <br> 
+    Dimensioni: 26 x 37 x 9 cm; <br> 
+    Volume: 8L; <br>
+    Vi presentiamo uno zaino lussuoso che unisce design, manifattura artigianale e attenzione ai dettagli. L\'esterno tattile e particolare è realizzato da VEGEA®, 
+    un marchio all avanguardia che utilizza gli scarti organici dell industria vinicola italiana e li trasforma in materiali innovativi. 
+    All interno dello zaino si trovano tre pochette, una dust bag e scomparti foderati per un dispositivo digitale (dimensioni dello scomparto: 22x33 cm), 
+    occhiali e altri oggetti indispensabili. La sacca antipolvere ripiegabile è contenuta in un elegante custodia. Sono inoltre presenti una pochette con 
+    cerniera dello stesso materiale dello zaino e una custodia in mesh per racchiudere e proteggere i propri effetti personali quando si è in movimento. 
+    Questo zaino è dotato anche di una clip portachiavi attaccata ad una lunga cinghia interna, per poter usare le chiavi senza doverle tirare fuori 
+    completamente dallo zaino e quindi senza mai perderle. Gli spallacci regolabili e lo schienale in air-mesh traspirante contribuiscono alla confortevolezza 
+    durante la giornata, mentre una cinghia per bagaglio mantiene lo zaino saldamente attaccato alla valigia nei viaggi più lunghi.</li>',
+    2024, '2024-04-16', 0, 10, 22);
 
 /*EASTPAK*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '004AAA',
-    'Eastpak',
-    'Padded Pak’R',
-    55.00,
-    'Zaino',
-    02,
+    '004AAA', 'Eastpak', 'Padded Pak’R', 55.00, 'Zaino', 02,
     'L iconico zaino Padded Pak’r nella nostra classica tonalità Black: stile tradizionale, struttura comoda
     <ul>
       <li>Altezza: 40 cm</li>
@@ -689,23 +700,14 @@ VALUES (
       <li>Occasion: Studio | Lavoro | Gite fuori porta</li>
       <li>Volume Size: M</li>
     </ul>',
-    2020,
-    '2024-04-16',
-    0,
-    10
-);
+    2020, '2024-04-16', 0, 10, 22);
 
 /*Sciarpe e cappelli*/
 
 /*GUCCI*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '002AAB',
-    'Gucci',
-    'SCIARPA IN LANA CASHMERE CON INCROCIO GG',
-    430.00,
-    'Sciarpa',
-    02,
+    '002AAB', 'Gucci', 'SCIARPA IN LANA CASHMERE CON INCROCIO GG', 430.00, 'Sciarpa', 02,
     'I motivi storici della Maison risplendono su nuove stampe accattivanti. Questa sciarpa in cashmere presenta il dettaglio Incrocio GG jacquard, che propone l innovazione dei codici d archivio di Gucci.
 <ul>
     <li>Lana cashmere nera e grigio chiaro</li>
@@ -715,21 +717,12 @@ VALUES (
     <li>Fabbricato in Italia</li>
     <li>85% lana, 15% cashmere</li>
 </ul>',
-    2024,
-    '2024-04-17',
-    0,
-    10
-);
+    2024, '2024-04-17', 0,10, 22);
 
 /*TOMMY HILFIGER-CAPPELLO*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '000AAB',
-    'Tommy Hilfiger',
-    'CAPPELLO DA BASEBALL CON BANDIERINA',
-    39.99,
-    'Cappello',
-    02,
+    '000AAB', 'Tommy Hilfiger', 'CAPPELLO DA BASEBALL CON BANDIERINA', 39.99, 'Cappello', 02,
     'Completa gli outfit per la bella stagione grazie al classico cappello da baseball con sei sezioni e visiera a contrasto, rifinito dallesclusiva bandierina ricamata.<br>
 <ul>
     <li>Puro cotone biologico</li>
@@ -753,21 +746,12 @@ Composizione e lavaggio<br>
 <ul>
     <li>100% cotone biologico</li>
 </ul>',
-2020,
-'2024-04-16',
-0,
-10
-);
+2020, '2024-04-16', 0, 10, 22);
 
 /*TOMMY HILFIGER-SCIARPA*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita) 
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES (
-    '001AAB',
-    'Tommy Hilfiger',
-    'SCIARPA HILFIGER MONOTYPE',
-    79.90,
-    'Sciarpa',
-    02,
+    '001AAB', 'Tommy Hilfiger', 'SCIARPA HILFIGER MONOTYPE', 79.90, 'Sciarpa', 02,
     'Il nuovo segno distintivo unisce con genialità tradizione e innovazione. Il monogramma rivisita in chiave moderna un icona inconfondibile del brand. La sciarpa in maglia misto viscosa, cotone e lana, abbellita dal logo Hilfiger monotipo, è l alleata perfetta per esprimere tutto il tuo stile.
 Caratteristiche principali
 <ul>
@@ -781,11 +765,7 @@ Composizione e lavaggio
 <ul>
     <li>50% bambù, 30% cotone, 20% lana</li>
 </ul>',
-    2023,
-    '2024-04-16',
-    0,
-    10
-);
+    2023, '2024-04-16', 0, 10, 22);
 
 /*IMMAGINI*/
 
@@ -870,16 +850,16 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/uomo/sci
 /*INSERIMENTO ACCESSORI DA VIAGGIO*/
 
 /*POCHETTE DIORTRAVEL CON CERNIERA*/
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('S5440UTEU_M928', 'DIOR', 'Pochette DiorTravel con cerniera', 530.00, 'Accessori Da Viaggio', 03,
 'Questa pochette DiorTravel è un accessorio pratico e minimalista. Realizzata in tessuto tecnico blu, presenta il motivo Toile de Jouy Reverse, una rivisitazione a colori invertiti della classica fantasia Dior. Impreziosita dalla firma Christian Dior Paris, è abbastanza capiente da poter custodire tutto l’indispensabile. Può essere portata a mano o riposta in una borsa, ed è perfetta da abbinare alle altre creazioni Toile de Jouy Reverse. Firma Christian Dior Paris sul davanti.Made in Italy <br>
 <ul>
   <li><b> Dimensioni:</b> 27,5 x 21,5 cm (lunghezza x altezza)</li>
 </ul>',
-2024, '2024-04-16', 0, 10);
+2024, '2024-04-16', 0, 10, 22);
 
 /* MONO SILVER WASHBAG UNISEX - Accessorio da viaggio */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('C1854H03O-Q11', 'CALVIN KLEIN JEANS', 'MONO SILVER WASHBAG UNISEX - Accessorio da viaggio', 59.90, 'Accessori Da Viaggio', 03,
 '<ul>
   <li><b>Materiale: </b> Poliestere</li>
@@ -887,11 +867,11 @@ VALUES ('C1854H03O-Q11', 'CALVIN KLEIN JEANS', 'MONO SILVER WASHBAG UNISEX - Acc
   <li><b>Fodera:</b> Poliestere</li>
   <li><b>Materiale:</b> Tessuto</li>
 </ul>',
-2024, '2024-04-20', 0, 5);
+2024, '2024-04-20', 0, 5, 22);
 
 /* HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('TOB54H06R-Q11', 'TOMMY JEANS', 'HERITAGE ROUND DUFFLE UNISEX - Accessorio da viaggio', 117.00, 'Accessori da Viaggio', 03,
 '<ul>
     <li><b>Materiale esterno:</b> Poliestere</li>
@@ -909,11 +889,11 @@ VALUES ('TOB54H06R-Q11', 'TOMMY JEANS', 'HERITAGE ROUND DUFFLE UNISEX - Accessor
     <li><b>Materiale riciclato</b></li>
     <li><b>Materiale esterno:</b> 100% materiale riciclato</li>
 </ul>',
-2024, '2024-04-16', 10, 10);
+2024, '2024-04-16', 10, 10, 22);
 
 /*BEAUTY-GOTECH GREEN BEAUTY*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessori da Viaggio', 03,
 'Beauty Gotech® è realizzato con materiale ultra resistente progettato dal centro R&S CARPISA e dotato di superficie anti-graffio. Dispone di una tracolla staccabile. <br>
 <ul>
@@ -922,14 +902,14 @@ VALUES ('VVA65601942', 'CARPISA', 'BEAUTY-GOTECH GREEN BEAUTY', 49.95, 'Accessor
     <li><b> Made in: </b> Cina</li>
     <li><b> Dimensioni (cm):</b> 32.5 x 26 x 18 </li>
 </ul>',
-2022, '2024-04-16', 0, 10);
+2022, '2024-04-16', 0, 10, 22);
 
 
 /* INSERIMENTO ZAINI */
 
 /*ZAINO – JUMP GP*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viaggio', 03,
 'Borsone-Zaino della linea Jump Go by Carpisa realizzato in materiali performanti e tecnici con contrasti materici e dettagli in contrasto di colore. Il modello, dal design forte e deciso sfrutta al meglio tutti gli spazi e scomparti, l’interno è strutturato con cinghie ferma abiti, vano per pc o tablet fino a 17’, numerose tasche esterne, schienale con rivestimento in rete per conferire una maggiore traspirabilità, fascia per aggancio a trolley e spallacci imbottiti regolabili e removibili. Ultraccessoriato con divisorio regolabile e necessaire staccabile. Zaino perfetto per viaggiare in totale comfort.<br>
 <ul>
@@ -939,13 +919,13 @@ VALUES ('VBC04402444', 'CARPISA', 'ZAINO – JUMP GP GO', 99.95, 'Zaini da Viagg
     <li><b> Made in: </b> Cina</li>
     <li><b> Dimensioni (cm):</b> 32 x 50 x 18 </li>
 </ul>',
-2024, '2024-04-16', 0, 10);
+2024, '2024-04-16', 0, 10, 22);
 
 
 
 /*URBAN TRACK -ZAINO 14*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('147626-A029', 'AMERICAN TOURISTER', 'URBAN TRACK -ZAINO 14', 79.90, 'Zaini da viaggio', 03,
 '<ul>
 <li><b>Garanzia:</b> Garanzia legale</li>
@@ -968,11 +948,11 @@ VALUES ('147626-A029', 'AMERICAN TOURISTER', 'URBAN TRACK -ZAINO 14', 79.90, 'Za
 <li><b>Dimensioni dello schermo:</b> 14</li>
 <li><b>Organizzazione interna:</b> Sì</li>
 </ul>',
- 2024, '2024-04-13', 0, 10);
+ 2024, '2024-04-13', 0, 10, 22);
 
 /*SOJOURN PORTER 65L*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('O8D2401', 'OSPREY', 'SOJOURN PORTER 65L', 220.00, 'Zaini da Viaggio', 03,
 'Ideale per le escursioni più lunghe e le avventure di tutti i tipi, il Sojourn Porter 65 offre una maggiore capienza e un’organizzazione pratica per permetterti di accedere al contenuto quando sei in movimento. Lo schienale AirScape™ ti mantiene al fresco e all’asciutto durante tutto il viaggio. Le pareti laterali imbottite proteggono il contenuto durante i viaggi in aereo, in treno o in automobile. Le cinghie StraightJacket comprimono l’interno per massimizzare lo spazio e migliorare l’ergonomia. Puoi estrarre l’imbracatura e la cintura in vita a scomparsa per trasportarlo come uno zaino, o riporle per proteggerle. Realizzato con tessuti durevoli, così potrai contare sulla longevità di questo zaino per anni. <br>
 <ul>
@@ -983,11 +963,11 @@ VALUES ('O8D2401', 'OSPREY', 'SOJOURN PORTER 65L', 220.00, 'Zaini da Viaggio', 0
 <li><b>Peso:</b> 1.85 KG</li>
 <li><b>Tessuto principale: </b> Approvato bluesign®, 100% poliestere riciclato 200D, trattamento DWR senza PFAS</li>
 <li><b>Tessuto in basso</b>100% poliestere balistico riciclato 1680D, trattamento DWR senza PFAS</li>
-</ul>', 2024, '2024-04-16', 0, 10);
+</ul>', 2024, '2024-04-16', 0, 10, 22);
 
 /* BOREALIS CLASSIC – ZAINO DA VIAGGIO*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('TH344E013-Q11', 'THE NORTH FACE', 'BOREALIS CLASSIC - Zaino da viaggio', 105.99, 'Zaini da viaggio', 03,
 '<ul>
     <li><b>Composizione e istruzioni di lavaggio</b></li>
@@ -1006,10 +986,10 @@ VALUES ('TH344E013-Q11', 'THE NORTH FACE', 'BOREALIS CLASSIC - Zaino da viaggio'
     <li><b>Lunghezza:</b> 34.5 cm nella taglia One Size</li>
     <li><b>Lunghezza schienale:</b> Corto (40-49 cm)</li>
     <li><b>Ampiezza:</b> 22 cm nella taglia One Size</li>
-</ul>', 2024, '2024-04-16', 0, 10);
+</ul>', 2024, '2024-04-16', 0, 10, 22);
 
 /* PRO-DLX 6 */
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('151779-1090', 'SAMSONITE', 'PRO-DLX 6', 280.00, 'Zaini da viaggio', 03,
 '<ul>
     <li><b>Porta USB:</b> Sì</li>
@@ -1043,13 +1023,13 @@ VALUES ('151779-1090', 'SAMSONITE', 'PRO-DLX 6', 280.00, 'Zaini da viaggio', 03,
     <li><b>Sistema Easy Pass:</b> Sì</li>
     <li><b>Organizzazione interna:</b> Sì</li>
     <li><b>Cinghie elastiche fermabiti:</b> Sì</li>
-</ul>', 2024, '2024-04-16', 0, 10);
+</ul>', 2024, '2024-04-16', 0, 10, 22);
 
 /* INSERIMENTO VALIGIE */
 
 /* SOUNDBOX TROLLEY – Trolley*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('AT851H00K-I11', 'AMERICAN TOURISTER', 'SOUNDBOX TROLLEY - Trolley', 155.00, 'Valigie', 03,  
 '<ul>
     <li><b>Colore:</b> lilla</li>
@@ -1062,12 +1042,12 @@ VALUES ('AT851H00K-I11', 'AMERICAN TOURISTER', 'SOUNDBOX TROLLEY - Trolley', 155
     <li><b>Altezza:</b> 77 cm nella taglia One Size</li>
     <li><b>Lunghezza:</b> 51.5 cm nella taglia One Size</li>
     <li><b>Ampiezza:</b> 32.5 cm nella taglia One Size</li>
-</ul>', 2024, '2024-04-16', 0, 10); 
+</ul>', 2024, '2024-04-16', 0, 10, 22); 
 
 
 /* GOTECH GREEN PLUS */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('VAA505MN942', 'CARPISA', 'GOTECH GREEN PLUS', 149.95, 'Valigie', 03,  
 'La linea vanta un upgrade di qualità e sposa a pieno la filosofia GREEN ORIENTED.
 Carpisa Gotech Green è realizzata con materiale ultra resistente e composto da un mix all’80% di materiali provenienti da riciclo. La fodera interna è in 100% materiale riciclato.
@@ -1090,13 +1070,13 @@ Chiusura con lucchetto TSA. <br>
     <li><b>Dimensioni senza ruote e carrello (cm):</b> 40.5 x 60.5 x 26</li>
     <li><b>Dimensioni con ruote e carrello (cm):</b> 44 x 68 x 26</li>
     <li><b>Peso (kg):</b> 3.7</li>
-</ul>', 2024, '2024-04-16', 0, 10); 
+</ul>', 2024, '2024-04-16', 0, 10, 22); 
 
 /* INSERIMENTO BORSONI DA VIAGGIO */
 
 /* BORSONE-LUCKY TRAVEL BAGS */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('BSC21402444', 'CARPISA', 'BORSONE-LUCKY TRAVEL BAGS', 59.95, 'Valigie', 03,  
 'Borsone della linea Lucky Travel Bags by Carpisa realizzato in similpelle con stampa all over.Il modello è dotato di chiusura con zip, ampi manici e una tracollina regolabile e removibile. Pratico, capiente e leggero è ideale per viaggiare. <br> 
 <ul>
@@ -1105,11 +1085,11 @@ VALUES ('BSC21402444', 'CARPISA', 'BORSONE-LUCKY TRAVEL BAGS', 59.95, 'Valigie',
     <li><b>Materiale:</b> Sintetico</li>
     <li><b>Made in:</b> Cina</li>
     <li><b>Collezione:</b> Primavera/Estate 2024</li>
-</ul>', 2024, '2024-04-17', 0, 10); 	
+</ul>', 2024, '2024-04-17', 0, 10, 22); 	
 
 /* ESSENTIAL DUFFLE UNISEX - Borsa da viaggio*/
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('C1854H024-Q11', 'CALVIN KLEIN JEANS', 'ESSENTIAL DUFFLE UNISEX - Borsa da viaggio', 71.92, 'Borsoni da Viaggio', 03,  
 '<ul>
     <li><b>Colore :</b> Colore: black</li>
@@ -1121,13 +1101,13 @@ VALUES ('C1854H024-Q11', 'CALVIN KLEIN JEANS', 'ESSENTIAL DUFFLE UNISEX - Borsa 
     <li><b>Lunghezza:</b> 46 cm nella taglia One Size</li>
     <li><b>Ampiezza:</b> 17 cm nella taglia One Size</li>
     <li><b>Manico:</b> 19 cm nella taglia One Size</li>
-</ul>', 2024, '2024-04-17', 20, 10); 	
+</ul>', 2024, '2024-04-17', 20, 10, 22); 	
 
 /* INSERIMENTO BAGAGLI A MANO */
 
 /* LUSTRE - Bagaglio a mano */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('GU151H448-A11', 'GUESS', 'LUSTRE - Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
 '<ul>
     <li><b>Colore:</b> bianco</li>
@@ -1140,11 +1120,11 @@ VALUES ('GU151H448-A11', 'GUESS', 'LUSTRE - Bagaglio a mano', 136.00, 'Bagagli a
     <li><b>Lunghezza:</b> 31.75 cm nella taglia One Size</li>
     <li><b>Ampiezza:</b> 24.13 cm nella taglia One Size</li>
 </ul>', 
-2024, '2024-04-19', 15, 10); 	
+2024, '2024-04-19', 15, 10, 22); 	
 
 /* BUGATTI – Bagaglio a mano */
 
-INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita)  
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ('BU154H03T-Q11', 'BUGATTI', 'BUGATTI – Bagaglio a mano', 136.00, 'Bagagli a mano', 03,  
 '<ul>
     <li><b>Colore:</b> Nero</li>
@@ -1157,7 +1137,7 @@ VALUES ('BU154H03T-Q11', 'BUGATTI', 'BUGATTI – Bagaglio a mano', 136.00, 'Baga
     <li><b>Lunghezza:</b> 44 cm nella taglia One Size</li>
     <li><b>Ampiezza:</b> 29 cm nella taglia One Size</li>
 </ul>',
-2024, '2024-04-19', 15, 10); 	
+2024, '2024-04-19', 15, 10, 22); 	
 
 /*IMMAGINI*/
 /*POCHETTE DIORTRAVEL CON CERNIERA*/

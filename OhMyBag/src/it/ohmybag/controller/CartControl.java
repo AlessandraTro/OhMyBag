@@ -3,15 +3,10 @@ package it.ohmybag.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,10 +22,8 @@ public class CartControl extends HttpServlet {
 	static Prodotto prodotto;
 	static Immagine immagine;
 	static ImmagineModel immagineModel;
-	static Carrello carrello;
 
 	static {
-		carrello=new Carrello();
 		immagine=new Immagine();
 		prodotto = new Prodotto();
 		prodottomodel = new ProdottoModel();

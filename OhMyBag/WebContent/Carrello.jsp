@@ -11,7 +11,7 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> Carrello </title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Carrello.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
@@ -54,7 +54,7 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 									<h5 class="text-primary"><%= prodotto.getNome()%></h5>
 									<h6 style="color: #9e9e9e;"><%= prodotto.getMarca()%></h6>
 									<div class="d-flex align-items-center">
-										<p class="fw-bold mb-0 me-5 pe-3"><%=prodotto.getPrezzo()+"€"%></p>
+										<p class="fw-bold mb-0 me-5 pe-3"><%=prodotto.getPrezzo()+" €"%></p>
 										<div class="def-number-input number-input safari_only">
 											<a
 												href="RemoveProductControl?ID=<%=prodotto.getId()%>"
@@ -79,7 +79,7 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 
 							<div class="d-flex justify-content-between">
 								<p class="mb-2">Subtotale</p>
-								<p class="mb-2">€<%=prezzo %></p>
+								<p class="mb-2"><%=prezzo +" €"%> </p>
 							</div>
 							
 							<div class="d-flex justify-content-between">
@@ -93,7 +93,7 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 								  </label>
 								</div>
 								
-								<p id="spedizione_value" class="mb-2">€<%=spedizione %></p> <!-- Aggiunto id per il valore della spedizione -->
+								<p id="spedizione_value" class="mb-2"><%=spedizione +" €"%></p> <!-- Aggiunto id per il valore della spedizione -->
 							</div>
 
 							<hr class="mb-4"
@@ -102,10 +102,10 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 							<div class="d-flex justify-content-between p-2 mb-4"
 								style="background-color: #e1f5fe;">
 								<h5 class="fw-bold mb-2">Total:</h5>
-								<h5 id="prezzo_value"class="fw-bold mb-0"><%=prezzo+spedizione %>€</h5>
+								<h5 id="prezzo_value"class="fw-bold mb-0"><%=prezzo+spedizione +" €"%></h5>
 							</div>
 							<button type="button" data-mdb-button-init data-mdb-ripple-init
-								class="btn btn-primary btn-lg mx-auto d-block">Checkout</button>
+								class="btn btn-primary btn-lg mx-auto d-block" href="ButtonPagamentoControl">Checkout</button>
 							<%}else{%>
 							<div style="display:flex; flex-direction:column; align-items:center;">
 								<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
@@ -189,9 +189,9 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 	            }
 	            
 	            // Aggiorna il valore della spedizione nel paragrafo
-	            spedizioneParagraph.innerText = '€' + spedizione;
+	            spedizioneParagraph.innerText = spedizione + ' €';
 	            // Aggiorna il valore del prezzo totale nel paragrafo
-	            prezzoValue.innerText = '€' + totale;
+	            prezzoValue.innerText = totale + ' €';
 	        }
 	        
 	        // Aggiungi un ascoltatore per l'evento change dello switch

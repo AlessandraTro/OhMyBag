@@ -39,6 +39,7 @@ public class Carrello {
 
 	public void svuotaCarrello() {
 		prodotti = new HashMap<Prodotto, Integer>();
+		immagini = new ArrayList<Immagine>();
 	}
 	
 

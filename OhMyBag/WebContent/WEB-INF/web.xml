@@ -41,9 +41,13 @@
 		<servlet-name>ButtonCarrelloControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.ButtonCarrelloControl</servlet-class>
 	</servlet>
-		<servlet>
+	<servlet>
 		<servlet-name>RemoveAllProductControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.RemoveAllProductControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonPagamentoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonPagamentoControl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>

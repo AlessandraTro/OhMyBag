@@ -71,7 +71,7 @@ div.col h2{
 		width: 50%; /*Dividiamo lo spazio a metà per due colonne */
 	}
 	.container-custom {
-		margin: 200px;
+		margin: 100px 200px;
 	}
 	.card-img-top-custom {
 		margin-right: 0px;

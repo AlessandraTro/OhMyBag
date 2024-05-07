@@ -71,8 +71,10 @@
 
 					</form>
 					<div class="cart-section">
-						<a class="nav-link" href="AdminControl"><i class="fas fa-user"></i></a> <a
-							class="nav-link" href="ButtonCarrelloControl"><i class="fas fa-shopping-cart"></i></a>
+						<a class="nav-link" href="AdminControl"><img id="immagine-user"
+										src="img/website/user-solid.svg" ></a> <a
+							class="nav-link" href="ButtonCarrelloControl"><img id="immagine-cart"
+										src="img/website/cart-shopping-solid.svg" ></a>
 					</div>
 				</div>
 

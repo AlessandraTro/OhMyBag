@@ -12,6 +12,14 @@
 	margin-left: 15px;
 }
 
+#immagine-user{
+	width: 22px;
+}
+
+#immagine-cart{
+	width:25px;
+}
+
 .cart-section a {
 	margin-left: 20px;
 }

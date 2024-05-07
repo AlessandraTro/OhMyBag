@@ -1,4 +1,25 @@
 USE OhMyBag;
+/*creazione di una composizione*/
+insert into Composizione(IDOrdine, IDProdotto, Prezzo, Quantita, IVA) values(null, "678842 FACPO 5743", 10.00, 2, 24);
+
+/*creazione di un'ordine fatto dall'utente otineb*/
+INSERT INTO Ordine 
+    (PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, 
+    NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, 
+    ConfezioneRegalo, NumeroCarta, Username) 
+VALUES 
+    (100.50, 
+    'Nome Destinatario', 
+    'Carta di Credito', 
+    'Indirizzo di Spedizione', 
+    'Note per il corriere', 
+    'Standard', 
+    '123456789', 
+    '2024-05-05', 
+    'Circuito di pagamento', 
+    true, 
+    '1234 5678 9012 3456', 
+    'otineb');
 
 /*creazione utente di prova*/
 INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",

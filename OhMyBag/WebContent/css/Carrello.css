@@ -45,7 +45,6 @@ text-align: center;
 
 .number-input.number-input {
 border: 1px solid #ced4da;
-width: 11rem;
 border-radius: .25rem;
 }
 
@@ -125,7 +124,7 @@ background-color: #4285f4;
 	height: 100vh !important;
 	}
 	#mySection {
-	    font-size: 1.8rem; /* Modifica la dimensione del testo */
+	    font-size: 1.2rem; /* Modifica la dimensione del testo */
 	  }
 	.input-sm {
 	    width: 50px; /* Imposta la larghezza desiderata*/

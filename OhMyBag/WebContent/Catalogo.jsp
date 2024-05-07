@@ -19,7 +19,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Catalogo</title>
-<link href="css/Catalogo.css" rel="stylesheet" type="text/css">
+<link href="css/Catalogo2.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
 </head>

@@ -42,8 +42,8 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 									<% for (Immagine immagine : prodotti.getImmagini()) {
                                         if (immagine != null && prodotto.getId().equals(immagine.getIdProdotto())&& immagine.isCopertina()) {
                                     %>
-									<img src="<%= immagine.getNome() %>" class="img-fluid"
-										style="width: 150px;" alt="Generic placeholder image">
+									<a href="DettagliControl?ID=<%=prodotto.getId() %>"><img src="<%= immagine.getNome() %>" class="img-fluid"
+										style="width: 150px;" alt="Generic placeholder image"></a>
 									<% } 
                                         } %>
 								</div>
@@ -51,7 +51,7 @@ prodotti=(Carrello) request.getSession().getAttribute("Carrello");
 								<div class="flex-grow-1 ms-3">
 									<a href="RemoveAllProductControl?ID=<%=prodotto.getId()%>" class="float-end text-black"><i
 										class="fas fa-times"></i></a>
-									<h5 class="text-primary"><%= prodotto.getNome()%></h5>
+									<a href="DettagliControl?ID=<%=prodotto.getId() %>"><h5 class="text-primary"><%= prodotto.getNome()%></h5></a>
 									<h6 style="color: #9e9e9e;"><%= prodotto.getMarca()%></h6>
 									<div class="d-flex align-items-center">
 										<p class="fw-bold mb-0 me-5 pe-3"><%=prodotto.getPrezzo()+" €"%></p>

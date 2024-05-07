@@ -57,7 +57,7 @@ CREATE TABLE Prodotto(
     Descrizione 	varchar(3000) not null,
     AnnoCollezione  int 		  check(AnnoCollezione>=1900)not null,
     DataInserimento Date 		  not null,
-    Sconto 			int 		  check(Sconto>=0 && Sconto<100),
+    Sconto 			int 		  check(Sconto>=0 AND Sconto<100),
     Disponibilita 	int 		  check(Disponibilita>=0),
     Iva             int           not null,
     foreign key (IDCategoria) references Categoria(ID)

@@ -5,7 +5,8 @@ body {
 }
 
 .container {
-	margin: 30px;
+	max-width: 92%;
+	margin-top: 30px;
 }
 
 .product-images{
@@ -23,32 +24,41 @@ img {
 .product-info {
 	flex: 1;
 	align-items: flex-start;
+	margin-left: 80px;
+	font-family: Times New Roman, sans-serif;
+	justify-content:center;
 }
 
 .product-name {
-	font-size: 24px;
+	font-size: 36px;
 	font-weight: bold;
 	margin-bottom: 15px;
+	margin-top: 10px;
 }
 
 .product-price {
-	font-size: 20px;
-	margin-bottom: 70px;
+	font-size: 25px;
+	margin-bottom: 80px;
 }
 
 .add-to-cart {
-	background-color: #007bff;
+	background-color: #6b6565;
 	color: #fff;
-	padding: 10px 100px;
+	padding: 10px 120px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
+	
+}
+.add-to-cart:hover{
+	background-color: #827b7b;
 }
 
 .description, .shipping-returns {
 	display: none;
 	margin-top: 0px;
+	font-size: 20px;
 }
 
 .toggle-button {
@@ -56,9 +66,11 @@ img {
 	border: none;
 	cursor: pointer;
 	text-decoration: underline;
-	color: #007bff;
+	color: #6b6565;
 	margin-bottom: 10px;
+	margin-top: 15px;
 	display: block;
+	font-size: 20px;
 }
 
 .description:target, .shipping-returns:target {
@@ -68,11 +80,24 @@ img {
 .carousel-control-prev, .carousel-control-next {
 	font-size: 24px; /* Imposta la dimensione desiderata */
 	width: 50px;
-	height: 500px;
+	height: auto;
 }
 
-.carousel {
-	max-width: 400px;
+#carouselExampleIndicators {
+    width: 100%; /* Imposta la larghezza al 100% del contenitore genitore */
+    max-width: 600px; /* Imposta una larghezza massima per il carousel */
+    margin: 0 auto; /* Centra il carousel orizzontalmente */
+    margin-bottom: 20px;
+}
+
+.carousel-inner {
+    width: 100%; /* Imposta la larghezza al 100% del carousel */
+    height: auto; /* Imposta l'altezza automaticamente */
+}
+
+.carousel-item img {
+    width: 100%; /* Imposta la larghezza al 100% del carousel */
+    height: auto; /* Imposta l'altezza automaticamente */
 }
 
 /* Stili CSS per il menu */
@@ -89,7 +114,7 @@ input[type="checkbox"] {
 .toggle-button, .toggle-description, .toggle-shipping {
 	color: black;
 	cursor: pointer;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 #toggle-description:checked ~ #description-content {
@@ -98,4 +123,51 @@ input[type="checkbox"] {
 
 #toggle-shipping:checked ~ #shipping-content {
 	display: block;
+}
+
+.fas{
+  float: right;
+  margin-right: 10px;
+  font-size: 25px;
+  transition: transform 0.3s ease; 
+}
+
+#toggle-description:checked ~ .toggle-button-description .fas {
+    transform: rotate(180deg); /* Ruota l'icona verso l'alto */
+}
+
+#toggle-description:not(:checked) ~ .description-details {
+    display: none;
+}
+
+#toggle-shipping:checked ~ .toggle-button-shipping .fas {
+    transform: rotate(180deg); /* Ruota l'icona verso l'alto */
+}
+
+#toggle-shipping:not(:checked) ~ .shipping-details {
+    display: none;
+}
+
+
+/* Stili predefiniti per l'immagine e le informazioni del prodotto */
+.product-images,
+.product-info {
+    flex: 1;
+}
+
+
+
+/* Stili per la modalità mobile */
+@media only screen and (max-width: 600px) {
+    .product-images,
+    .product-info {
+        width: 100%; /* Imposta la larghezza al 100% per adattarsi allo schermo */
+        margin: 0; /* Rimuove eventuali margini per evitare spazi vuoti */
+     
+    }
+
+    .product-info {
+    	margin-left: 0;
+        margin-top: 20px; /* Aggiunge margine superiore per separare dall'immagine */
+    }
 }

@@ -28,20 +28,32 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 		<div class="product-images">
 			<div id="carouselExampleIndicators" class="carousel slide">
 				<div class="carousel-indicators">
-					<% for (int i = 0; i < images.size(); i++) { %>
+					<%
+					for (int i = 0; i < images.size(); i++) {
+					%>
 					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="<%= i %>" <% if (i == 0) { %> class="active"
-						<% } %> aria-label="Slide <%= i + 1 %>"></button>
-					<% } %>
+						data-bs-slide-to="<%=i%>" <%if (i == 0) {%> class="active" <%}%>
+						aria-label="Slide <%=i + 1%>"></button>
+					<%
+					}
+					%>
 				</div>
 				<div class="carousel-inner">
-					<% int index = 0; %>
-					<% for (Immagine immagine : images) { %>
-					<div class="carousel-item <% if (index == 0) { %>active<% } %>">
-						<img src="<%= immagine.getNome() %>" class="d-block" alt="...">
+					<%
+					int index = 0;
+					%>
+					<%
+					for (Immagine immagine : images) {
+					%>
+					<div class="carousel-item <%if (index == 0) {%>active<%}%>">
+						<img src="<%=immagine.getNome()%>" class="d-block" alt="...">
 					</div>
-					<% index++; %>
-					<% } %>
+					<%
+					index++;
+					%>
+					<%
+					}
+					%>
 				</div>
 				<button class="carousel-control-prev" type="button"
 					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -57,28 +69,33 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 
 
 			<div class="product-info">
-				<div class="product-name"><%= product.getNome() %></div>
+				<div class="product-name"><%=product.getNome()%></div>
 				<div class="product-price">
-					Prezzo: €<%= product.getPrezzo() %></div>
-					<a href="CartControl?ID=<%= product.getId()%>">
-						<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
-					</a>
-				<input type="checkbox" id="toggle-description">
-
+					Prezzo:
+					<%=product.getPrezzo()%>
+					€
+				</div>
+				<a href="CartControl?ID=<%=product.getId()%>">
+					<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
+				</a> <input type="checkbox" id="toggle-description">
+				<hr class="hr hr-blurry" />
 				<!-- Label per il checkbox (il link toggle) -->
-				<label for="toggle-description" class="toggle-button">Descrizione
-					Prodotto</label>
+				<label for="toggle-description"
+					class="toggle-button toggle-button-description">Descrizione
+					Prodotto <i class="fas fa-angle-down"> </i>
+				</label>
 
 				<div class="shipping-returns" id="description-content">
 					<!-- Contenuto del dropdown-menu -->
-					<p><%= product.getDescrizione()%></p>
+					<p><%=product.getDescrizione()%></p>
 				</div>
-
-
+				<hr class="hr hr-blurry" />
 				<input type="checkbox" id="toggle-shipping">
 				<!-- Label per il checkbox (il link toggle) -->
-				<label for="toggle-shipping" class="toggle-button">Spedizione
-					e Resi</label>
+				<label for="toggle-shipping"
+					class="toggle-button  toggle-button-shipping">Spedizione e
+					Resi <i class="fas fa-angle-down"> </i>
+				</label>
 
 				<!-- Contenuto del menu -->
 				<div class="shipping-returns" id="shipping-content">
@@ -98,6 +115,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 					<p>Forniamo un servizio gratuito di ritiro dei resi o dei
 						cambi: puoi richiederlo entro 14 giorni dalla consegna.</p>
 				</div>
+				<hr class="hr hr-blurry" />
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,17 @@
 USE OhMyBag;
+
+SELECT * FROM Ordine WHERE Username="otineb" AND id=(SELECT MAX(Id) AS MaxId FROM Ordine WHERE Username="otineb");
 /*creazione di una composizione*/
-insert into Composizione(IDOrdine, IDProdotto, Prezzo, Quantita, IVA) values(null, "678842 FACPO 5743", 10.00, 2, 24);
+/*insert into Composizione(IDOrdine, IDProdotto, Prezzo, Quantita, IVA) values(null, "678842 FACPO 5743", 10.00, 2, 24);
+
+/*creazione utente di prova*/
+INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",
+"<ul>
+<li><b>Citta:</b> Roma</li>
+<li><b>Via:</b> Via Roma</li>
+<li><b>CAP:</b> 00100</li>
+<li><b>Provincia:</b> RM</li>
+</ul>");
 
 /*creazione di un'ordine fatto dall'utente otineb*/
 INSERT INTO Ordine 
@@ -20,15 +31,6 @@ VALUES
     true, 
     '1234 5678 9012 3456', 
     'otineb');
-
-/*creazione utente di prova*/
-INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",
-"<ul>
-<li><b>Citta:</b> Roma</li>
-<li><b>Via:</b> Via Roma</li>
-<li><b>CAP:</b> 00100</li>
-<li><b>Provincia:</b> RM</li>
-</ul>");
 
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");

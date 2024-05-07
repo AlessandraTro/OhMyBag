@@ -26,7 +26,7 @@ foreign key (Username) references Utente(Username)
 );
 
 CREATE TABLE Ordine(
-Id 						int 		 	Primary key,
+Id 						int 		 	Primary key auto_increment,
 PrezzoTotale			float		 	check(PrezzoTotale>=0)not null,
 Destinatario			varchar(100) 	not null,
 MetodoDiPagamento		varchar(100) 	not null,

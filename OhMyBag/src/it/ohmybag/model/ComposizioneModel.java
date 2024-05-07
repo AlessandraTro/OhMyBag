@@ -52,7 +52,7 @@ public class ComposizioneModel {
 		}
 	}
 	/*ritorna il prodotto con un determinato id*/
-	public synchronized Collection<Composizione> doRetrieveById(String id) throws SQLException {
+	public synchronized Collection<Composizione> doRetrieveById(int id) throws SQLException {
 	    Connection conn = null;
 	    PreparedStatement statement = null;
 	    Collection<Composizione> elementi = new LinkedList<Composizione>();; // Inizializzo il bean come null inizialmente
@@ -62,7 +62,7 @@ public class ComposizioneModel {
 	    try {
 	        conn = getConnection();
 	        statement = conn.prepareStatement(querySQL);
-	        statement.setString(1, id);
+	        statement.setInt(1, id);
 
 	        ResultSet rs = statement.executeQuery();
 

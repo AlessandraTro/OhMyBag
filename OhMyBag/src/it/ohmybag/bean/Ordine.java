@@ -40,6 +40,9 @@ public class Ordine implements Serializable{
 			this.username = username; 
 		
 	}
+	public Ordine() {
+		
+	}
 
 
 	public int getId() {

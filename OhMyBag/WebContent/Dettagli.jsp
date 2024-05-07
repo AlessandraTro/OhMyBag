@@ -95,8 +95,8 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 				<label for="toggle-shipping"
 					class="toggle-button  toggle-button-shipping">Spedizione e
 					Resi <i class="fas fa-angle-down"> </i>
-				</label>
-
+				</label> 
+  
 				<!-- Contenuto del menu -->
 				<div class="shipping-returns" id="shipping-content">
 					<!-- Informazioni sulla spedizione e resi -->

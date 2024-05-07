@@ -36,7 +36,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 						aria-label="Slide <%=i + 1%>"></button>
 					<%
 					}
-					%>
+					%> 
 				</div>
 				<div class="carousel-inner">
 					<%

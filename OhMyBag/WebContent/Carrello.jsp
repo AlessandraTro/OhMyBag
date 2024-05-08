@@ -28,7 +28,7 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 
 				<div class="card-body p-4">
 
-					<div class="row no-gutters">
+					<div class="row">
 
 
 						<div class="col-lg-7 mb-4">

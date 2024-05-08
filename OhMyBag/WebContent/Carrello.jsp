@@ -184,7 +184,7 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 		</div>
 
 		<%@ include file="Footer.jsp"%>
-		<script type="text/javascript">
+		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	    var prezzo = <%= prezzo %>;
 	    
 	    document.addEventListener('DOMContentLoaded', function() {

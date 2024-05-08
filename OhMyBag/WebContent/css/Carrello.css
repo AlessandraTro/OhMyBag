@@ -1,0 +1,238 @@
+@media only screen and (max-width: 768px) {
+	.card-body {
+		width: 100%;
+	}
+	.col-lg-7, .col-lg-5 {
+		width: 100%; /* Imposta la larghezza al 100% per dispositivi mobili */
+		margin-bottom: 20px; /* Spazio tra le colonne */
+	}
+	.checkbox {
+		width: 100%; /* Imposta la larghezza al 100% per dispositivi mobili */
+	}
+}
+
+.card {
+	border: none;
+}
+
+.cont-img {
+	max-width: 100%; /* Imposta la larghezza massima del contenitore */
+	height: auto;
+	/* Imposta l'altezza automatica per mantenere le proporzioni */
+	overflow: hidden;
+	/* Nasconde eventuali parti dell'immagine che superano il contenitore */
+}
+
+.cont-img img {
+	max-width: 100%; /* Imposta la larghezza massima delle immagini */
+	min-height: 320px;
+	max-height: 350px; /* Imposta l'altezza massima delle immagini */
+	width: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	height: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	display: block; /* Per garantire che l'immagine sia un blocco */
+	margin: auto; /* Per allineare l'immagine al centro */
+}
+
+.container-fluid {
+	font-family: Times New Roman, sans-serif;
+}
+
+.number-input input[type="number"] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+	.number-input input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+.number-input button {
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: none;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	margin: 0;
+	position: relative;
+}
+
+.number-input button:before, .number-input button:after {
+	display: inline-block;
+	position: absolute;
+	content: '';
+	height: 2px;
+	transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+	transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+	text-align: center;
+}
+
+.number-input.number-input {
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+}
+
+.number-input.number-input button {
+	width: 2.6rem;
+	height: .7rem;
+}
+
+.number-input.number-input button.minus {
+	padding-left: 10px;
+}
+
+.number-input.number-input button:before, .number-input.number-input button:after
+	{
+	width: .7rem;
+	background-color: #495057;
+}
+
+.number-input.number-input input[type=number] {
+	max-width: 4rem;
+	padding: .5rem;
+	border: 1px solid #ced4da;
+	border-width: 0 1px;
+	font-size: 1rem;
+	height: 2rem;
+	color: #495057;
+}
+
+.shopping-cart .def-number-input.number-input {
+	border: none;
+}
+
+.shopping-cart .def-number-input.number-input input[type=number] {
+	max-width: 2rem;
+	border: none;
+}
+
+.shopping-cart .def-number-input.number-input input[type=number].black-text,
+	.shopping-cart .def-number-input.number-input input.btn.btn-link[type=number],
+	.shopping-cart .def-number-input.number-input input.md-toast-close-button[type=number]:hover,
+	.shopping-cart .def-number-input.number-input input.md-toast-close-button[type=number]:focus
+	{
+	color: #212529 !important;
+}
+
+.shopping-cart .def-number-input.number-input button {
+	width: 1rem;
+}
+
+.shopping-cart .def-number-input.number-input button:before,
+	.shopping-cart .def-number-input.number-input button:after {
+	width: .5rem;
+}
+
+.shopping-cart .def-number-input.number-input button.minus:before,
+	.shopping-cart .def-number-input.number-input button.minus:after {
+	background-color: #9e9e9e;
+}
+
+.shopping-cart .def-number-input.number-input button.plus:before,
+	.shopping-cart .def-number-input.number-input button.plus:after {
+	background-color: #4285f4;
+}
+
+@media ( min-width : 1025px) {
+	.h-custom {
+		height: 100vh !important;
+	}
+	#mySection {
+		font-size: 1.2rem; /* Modifica la dimensione del testo */
+	}
+	.input-sm {
+		width: 50px; /* Imposta la larghezza desiderata*/
+	}
+	.quantity-container {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.checkbox {
+	width: 111.5px; /* Metà della larghezza attuale */
+	height: 30px; /* Metà dell'altezza attuale */
+	background-color: #d0d0d0;
+	border-radius: 15px; /* Metà del raggio attuale */
+	position: relative;
+	color: black;
+	overflow: hidden;
+}
+
+#checkbox_toggle {
+	display: none;
+}
+
+.checkbox .toggle {
+	width: 50px; /* Metà della larghezza attuale */
+	height: 25px; /* Metà dell'altezza attuale */
+	position: absolute;
+	border-radius: 15px; /* Metà del raggio attuale */
+	left: 2.5px; /* Metà della posizione attuale */
+	cursor: pointer;
+	background: linear-gradient(40deg, #FF0080, #FF8C00 70%);
+	transition: 0.4s;
+	box-shadow: 0px 0px 1.5px rgb(255, 255, 20), 0px 0px 2.5px
+		rgb(255, 255, 20); /* Metà dell'ombra attuale */
+}
+
+.checkbox .slide {
+	width: 115px; /* Metà della larghezza attuale */
+	height: 30px; /* Metà dell'altezza attuale */
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	cursor: pointer;
+}
+
+.checkbox .slide .text {
+	font-size: 8px; /* Metà della dimensione del testo attuale */
+	font-weight: 700;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.check:checked+.checkbox .slide .toggle {
+	transform: translateX(56.5px); /* Metà della traslazione attuale */
+	background: linear-gradient(40deg, #8983F7, #A3DAFB 70%);
+	box-shadow: -0px -0px 5px #8983F7, -0px -0px 1.5px #8983F7;
+	/* Metà dell'ombra attuale */
+}
+
+.check:checked+.checkbox .slide {
+	background-color: #0a1929;
+	color: #fff;
+}
+
+.btn-primary {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #6b6565;
+	--bs-btn-border-color: #6b6565;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: #6b6565;
+	--bs-btn-hover-border-color: #827b7b;
+}
+
+.btn-primary:hover {
+	background-color: #827b7b;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	font-family: Times New Roman, sans-serif;
+}
+
+.text-primary {
+	color: #000000 !important;
+}

@@ -1,0 +1,35 @@
+.custom-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.cart-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	width: 20%;
+	align-items: center;
+	margin-left: 15px;
+}
+
+#immagine-user{
+	width: 22px;
+}
+
+#immagine-cart{
+	width:25px;
+}
+
+.cart-section a {
+	margin-left: 20px;
+}
+
+.bg-custom {
+	background-color: #d6ccc2;
+	padding: 15px
+}
+
+nav {
+	font-family: Times New Roman, Sans-Serif;
+	font-size: 20px; 
+}

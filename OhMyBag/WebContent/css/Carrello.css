@@ -1,8 +1,40 @@
-@media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
+@media only screen and (max-width: 768px) {
+ 	.card-body{
+ 	width: 100%;
+ 	}
+
+    .col-lg-7, .col-lg-5 {
+        width: 100%; /* Imposta la larghezza al 100% per dispositivi mobili */
+        margin-bottom: 20px; /* Spazio tra le colonne */
+    }
+    .checkbox {
+        width: 100%; /* Imposta la larghezza al 100% per dispositivi mobili */
+    }
 }
+.card{
+	border: none;
 }
+
+.cont-img {
+    max-width: 100%; /* Imposta la larghezza massima del contenitore */
+    height: auto; /* Imposta l'altezza automatica per mantenere le proporzioni */
+    overflow: hidden; /* Nasconde eventuali parti dell'immagine che superano il contenitore */
+}
+
+.cont-img img {
+  	max-width: 100%; /* Imposta la larghezza massima delle immagini */
+	min-height: 320px;
+	max-height: 350px; /* Imposta l'altezza massima delle immagini */
+	width: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	height: auto;
+	/* Per garantire che le immagini si ridimensionino proporzionalmente */
+	display: block; /* Per garantire che l'immagine sia un blocco */
+	margin: auto; /* Per allineare l'immagine al centro */
+}
+.container-fluid{
+	font-family: Times New Roman, sans-serif;
+    }
 
 .number-input input[type="number"] {
 -webkit-appearance: textfield;
@@ -73,15 +105,6 @@ height: 2rem;
 color: #495057;
 }
 
-@media not all and (min-resolution:.001dpcm) {
-@supports (-webkit-appearance: none) and (stroke-color:transparent) {
-
-.number-input.def-number-input.safari_only button:before,
-.number-input.def-number-input.safari_only button:after {
-margin-top: -.3rem;
-}
-}
-}
 
 .shopping-cart .def-number-input.number-input {
 border: none;
@@ -185,4 +208,26 @@ background-color: #4285f4;
 .check:checked + .checkbox .slide {
   background-color: #0a1929;
   color: #fff;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #6b6565;
+    --bs-btn-border-color: #6b6565;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #6b6565;
+    --bs-btn-hover-border-color: #827b7b;  
+}
+
+.btn-primary:hover{
+	 background-color: #827b7b;
+}
+
+.row{
+	justufy-content: center;
+	font-family: Times New Roman,sans-serif;
+}
+
+.text-primary{
+	color: #000000 !important;
 }

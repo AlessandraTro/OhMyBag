@@ -1,9 +1,5 @@
 USE OhMyBag;
 
-SELECT * FROM Ordine WHERE Username="otineb" AND id=(SELECT MAX(Id) AS MaxId FROM Ordine WHERE Username="otineb");
-/*creazione di una composizione*/
-/*insert into Composizione(IDOrdine, IDProdotto, Prezzo, Quantita, IVA) values(null, "678842 FACPO 5743", 10.00, 2, 24);*/
-
 /*creazione utente di prova*/
 INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",
 "<ul>

@@ -2,9 +2,12 @@ package it.ohmybag.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.GregorianCalendar;
 
 import it.ohmybag.bean.Ordine;
+import it.ohmybag.bean.Prodotto;
 
 public class OrdineModel {
 	private Connection getConnection() throws SQLException {
@@ -141,6 +144,54 @@ public class OrdineModel {
 				}
 			}
 		}
+	}
+	/*ritorna l'ID con valore massimo in ordine*/
+	public Ordine maxIdUser(String username) throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    Ordine bean = null;
+
+	    String querySQL = "SELECT * FROM Ordine WHERE Username=? AND id=(SELECT MAX(Id) AS MaxId FROM Ordine WHERE Username=?)";
+
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        statement.setString(1, username);
+	        statement.setString(2, username);
+
+	        ResultSet rs = statement.executeQuery();
+	        if (rs.next()) {
+	            bean = new Ordine(); // Crea un nuovo oggetto solo se ci sono risultati nel ResultSet
+	            bean.setId(rs.getInt("Id"));
+	            bean.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
+	            bean.setDestinatario(rs.getString("Destinatario"));
+	            bean.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
+	            bean.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
+	            bean.setNoteCorriere(rs.getString("NoteCorriere"));
+	            bean.setNumeroTracking(rs.getString("NumeroTracking"));
+
+	            java.sql.Date dataInserimentoSQL = rs.getDate("Data");
+	            GregorianCalendar dataInserimento = new GregorianCalendar();
+	            dataInserimento.setTime(dataInserimentoSQL);
+	            bean.setData(dataInserimento);
+
+	            bean.setCircuito(rs.getString("Circuito"));
+	            bean.setConfezioneRegalo(rs.getBoolean("ConfezioneRegalo"));
+	            bean.setNumeroCarta(rs.getString("NumeroCarta"));
+	            bean.setUsername(rs.getString("Username"));
+	        }
+	    } finally {
+	        try {
+	            if (statement != null) {
+	                statement.close();
+	            }
+	        } finally {
+	            if (conn != null) {
+	                conn.close();
+	            }
+	        }
+	    }
+	    return bean;
 	}
 	
 }

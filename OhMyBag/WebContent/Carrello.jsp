@@ -127,7 +127,7 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 							<a type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block"
 								href="ButtonPagamentoControl">Checkout</a>
-							<%
+							<% 
 							} else {
 							%>
 							<div

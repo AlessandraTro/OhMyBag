@@ -124,9 +124,9 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 								<h5 class="fw-bold mb-2">Totale:</h5>
 								<h5 id="prezzo_value" class="fw-bold mb-0"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) +" €"%></h5>
 							</div>
-							<button type="button" data-mdb-button-init data-mdb-ripple-init
+							<a type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block"
-								href="ButtonPagamentoControl">Checkout</button>
+								href="ButtonPagamentoControl">Checkout</a>
 							<%
 							} else {
 							%>

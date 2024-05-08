@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-import="java.sql.SQLException,java.math.BigDecimal,java.util.*,it.ohmybag.bean.*,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
+	import="java.sql.SQLException,java.math.BigDecimal,java.util.*,it.ohmybag.bean.*,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
 <%
 BigDecimal prezzo = BigDecimal.ZERO;
 Carrello prodotti = new Carrello();
@@ -35,12 +35,14 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 							<%
 							if (!prodotti.getProdotti().isEmpty()) {
 							%>
-							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">I TUOI PRODOTTI</h3>
-							<%for (Prodotto prodotto : prodotti.getProdotti().keySet()) {
+							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">I
+								TUOI PRODOTTI</h3>
+							<%
+							for (Prodotto prodotto : prodotti.getProdotti().keySet()) {
 								BigDecimal quantita = new BigDecimal(prodotti.getProdotti().get(prodotto));
-                                BigDecimal prezzoProdotto = new BigDecimal(prodotto.getPrezzo());
-                                prezzo = prezzo.add(quantita.multiply(prezzoProdotto));
-                             %>
+								BigDecimal prezzoProdotto = new BigDecimal(prodotto.getPrezzo());
+								prezzo = prezzo.add(quantita.multiply(prezzoProdotto));
+							%>
 							<div class="card mb-3">
 								<div class="row g-0">
 									<div class="col-md-4">
@@ -66,7 +68,7 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 													class="card-title text-primary"><%=prodotto.getNome()%></h5></a>
 											<h6 class="card-text" style="color: #9e9e9e;"><%=prodotto.getMarca()%></h6>
 											<div class="d-flex align-items-center">
-												<p class="fw-bold mb-0 me-5 pe-3"><%=String.format("%.2f", prodotto.getPrezzo()) +" €"%></p>
+												<p class="fw-bold mb-0 me-5 pe-3"><%=String.format("%.2f", prodotto.getPrezzo()) + " €"%></p>
 												<div class="def-number-input number-input safari_only">
 													<a href="RemoveProductControl?ID=<%=prodotto.getId()%>"
 														class="minus">-</a> <input
@@ -93,11 +95,11 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 							<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">RIEPILOGO</h3>
 
 							<div class="d-flex justify-content-between">
-								<p class="mb-2" style="font-weight: bold"> Subtotale</p>
-								<p class="mb-2"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) +" €"%>
+								<p class="mb-2" style="font-weight: bold">Subtotale</p>
+								<p class="mb-2"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) + " €"%>
 								</p>
 							</div>
-							<p class="mb-2" style="font-weight: bold"> Spedizione: </p>
+							<p class="mb-2" style="font-weight: bold">Spedizione:</p>
 
 							<div class="d-flex justify-content-between">
 								<%
@@ -122,19 +124,20 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 							<div class="d-flex justify-content-between p-2 mb-4"
 								style="background-color: #ede4db;">
 								<h5 class="fw-bold mb-2">Totale:</h5>
-								<h5 id="prezzo_value" class="fw-bold mb-0"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) +" €"%></h5>
+								<h5 id="prezzo_value" class="fw-bold mb-0"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) + " €"%></h5>
 							</div>
 							<a type="button" data-mdb-button-init data-mdb-ripple-init
 								class="btn btn-primary btn-lg mx-auto d-block"
 								href="ButtonPagamentoControl">Checkout</a>
-							<% 
+							<%
 							} else {
 							%>
 							<div
 								style="display: flex; flex-direction: column; align-items: center;">
 								<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">
 									Nessun Prodotto nel carrello</h3>
-								<img alt="immagine non trovata" src="img/website/mascotteCarrelloVuoto.jpg"
+								<img alt="immagine non trovata"
+									src="img/website/mascotteCarrelloVuoto.jpg"
 									style="width: 300px;">
 							</div>
 							<%
@@ -148,83 +151,82 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 											<strong>METODI DI PAGAMENTO ACCETTATI</strong>
 										</p>
 									</div>
-									
-										<div class="d-flex justify-content-center">
-											<img class="me-2" src="img/metodiDiPagamento/cc-visa.svg"
-												width="45px" alt="Visa"> <img class="me-2"
-												src="img/metodiDiPagamento/cc-mastercard.svg" width="45px"
-												alt="Mastercard"> <img class="me-2"
-												src="img/metodiDiPagamento/cc-paypal.svg" width="45px"
-												alt="PayPal acceptance mark">
-										</div>
-										<div class="text-center mt-4">
-											<p class="fw-bold mb-2">SPEDIZIONE</p>
-											<p class="fw mb-3"><strong> Spedizione Standard: </strong> Consegna entro 6-7 giorni lavorativi (Gratis)<br>
-											<strong>Spedizione Premium: </strong> Consegna entro 1-2 giorni lavorativi (+ 6,90 €)</p></p>
-											<p class="fw-bold mb-2">RESO GRATUITO</p>
-											<p class="fw mb-0">Garanzia di reso entro 14 giorni
-												dalla consegna</p>
-										</div>
+
+									<div class="d-flex justify-content-center">
+										<img class="me-2" src="img/metodiDiPagamento/cc-visa.svg"
+											width="45px" alt="Visa"> <img class="me-2"
+											src="img/metodiDiPagamento/cc-mastercard.svg" width="45px"
+											alt="Mastercard"> <img class="me-2"
+											src="img/metodiDiPagamento/cc-paypal.svg" width="45px"
+											alt="PayPal acceptance mark">
+									</div>
+									<div class="text-center mt-4">
+										<p class="fw-bold mb-2">SPEDIZIONE</p>
+										<p class="fw mb-3">
+											<strong> Spedizione Standard: </strong> Consegna entro 6-7
+											giorni lavorativi (Gratis)<br> <strong>Spedizione
+												Premium: </strong> Consegna entro 1-2 giorni lavorativi (+ 6,90 €)
+										</p>
+										</p>
+										<p class="fw-bold mb-2">RESO GRATUITO</p>
+										<p class="fw mb-0">Garanzia di reso entro 14 giorni dalla
+											consegna</p>
 									</div>
 								</div>
-
-
 							</div>
-						</div>
 
+
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
-		<div class="text-center">
-			<h5 class="fw-bold mb-5">
-				<a href="CatalogoControl"><i class="fas fa-angle-left me-2"></i>Back
-					to shopping</a>
-			</h5>
-		</div>
+	</div>
+	<div class="text-center">
+		<h5 class="fw-bold mb-5">
+			<a href="CatalogoControl"><i class="fas fa-angle-left me-2"></i>Back
+				to shopping</a>
+		</h5>
+	</div>
 
-		<%@ include file="Footer.jsp"%>
-		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-		<script>
-	    var prezzo = <%= prezzo %>;
-	    
-	    document.addEventListener('DOMContentLoaded', function() {
-	        var checkbox = document.getElementById('checkbox_toggle');
-	        var spedizioneParagraph = document.getElementById('spedizione_value');
-	        var prezzoValue = document.getElementById('prezzo_value');
-	        
-	        // Funzione per calcolare il totale
-	        function calcolaTotale() {
-	            var spedizione = 0;
-	            var totale = parseFloat(prezzo.toFixed(2)); // Converte prezzo in un numero con due cifre decimali
+	<%@ include file="Footer.jsp"%>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<script>
+		var prezzo = <%=prezzo%>;
 
-	         // ...
+		document.addEventListener('DOMContentLoaded', function() {
+			var checkbox = document.getElementById('checkbox_toggle');
+			var spedizioneParagraph = document
+					.getElementById('spedizione_value');
+			var prezzoValue = document.getElementById('prezzo_value');
 
-	         if (checkbox.checked) {
-	             spedizione = 6.90;
-	             totale += spedizione;
-	         }
-	            
-	            if (checkbox.checked) {
-	                spedizione = 6.90;
-	                totale += spedizione;
-	            }
-	            
-	            // Aggiorna il valore della spedizione nel paragrafo
-	            spedizioneParagraph.innerText = spedizione.toFixed(2) + ' €';
-	            // Aggiorna il valore del prezzo totale nel paragrafo
-	            prezzoValue.innerText = totale.toFixed(2) + ' €';
-	        }
-	        
-	        // Aggiungi un ascoltatore per l'evento change dello switch
-	        checkbox.addEventListener('change', function() {
-	            // Richiama la funzione per calcolare il totale
-	            calcolaTotale();
-	        });
-	        
-	        // Chiama la funzione per calcolare il totale all'avvio della pagina
-	        calcolaTotale();
-	    });
+			// Funzione per calcolare il totale
+			function calcolaTotale() {
+				var spedizione = 0;
+				var totale = parseFloat(prezzo.toFixed(2)); // Converte prezzo in un numero con due cifre decimali
+
+
+				if (checkbox.checked) {
+					spedizione = 6.90;
+					totale += spedizione;
+				}
+
+				// Aggiorna il valore della spedizione nel paragrafo
+				spedizioneParagraph.innerText = spedizione.toFixed(2) + ' €';
+				// Aggiorna il valore del prezzo totale nel paragrafo
+				prezzoValue.innerText = totale.toFixed(2) + ' €';
+			}
+
+			// Aggiungi un ascoltatore per l'evento change dello switch
+			checkbox.addEventListener('change', function() {
+				// Richiama la funzione per calcolare il totale
+				calcolaTotale();
+			});
+
+			// Chiama la funzione per calcolare il totale all'avvio della pagina
+			calcolaTotale();
+		});
 	</script>
 </body>
 </html>

@@ -86,7 +86,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 								<div
 									class="mt-auto d-flex justify-content-between align-items-center">
 									<div class="text-start"><%=prodotto.getMarca()%></div>
-									<div class="text-end"><%=prodotto.getPrezzo() + " €"%></div>
+									<div class="text-end"><%=String.format("%.2f", prodotto.getPrezzo()) + " €"%></div>
 								</div>
 							</div>
 						</div>

@@ -72,8 +72,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 				<div class="product-name"><%=product.getNome()%></div>
 				<div class="product-price">
 					Prezzo:
-					<%=product.getPrezzo()%>
-					€
+					<%=String.format("%.2f", product.getPrezzo()) + " €"%>
 				</div>
 				<a href="CartControl?ID=<%=product.getId()%>">
 					<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
@@ -101,15 +100,10 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 				<div class="shipping-returns" id="shipping-content">
 					<!-- Informazioni sulla spedizione e resi -->
 					<strong>Spedizione Standard</strong>
-					<p>Consegna entro 3-4 giorni lavorativi (Gratis)</p>
+					<p>Consegna entro 6-7 giorni lavorativi (Gratis)</p>
 
 					<strong>Spedizione Premium</strong>
-					<p>Consegna entro 1-2 giorni lavorativi (+6,90)</p>
-
-					<p>Gli articoli personalizzati sono spediti entro 30 giorni
-						dalla conferma dell'ordine. Per suddetti prodotti non è prevista
-						possibilità di reso, fatta eccezione per quelli non conformi al
-						modello selezionato in fase di personalizzazione.</p>
+					<p>Consegna entro 1-2 giorni lavorativi (+ 6,90 €)</p>
 
 					<strong>Reso facile</strong>
 					<p>Forniamo un servizio gratuito di ritiro dei resi o dei

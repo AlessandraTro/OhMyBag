@@ -62,17 +62,17 @@
                 <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Cerca</button>
             </form>
-            <%if(utente!=null && utente.isAdmin()){%>
-            	<a href="AdminControl"><button class="btn btn-outline-success" style="margin-left:15px;">Admin Zone</button></a>
-            <%}%>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left:15px; margin-right:15px;">
                     <img id="immagine-user" src="img/website/user-solid.svg" >
                 </a>
                 <%if(utente!=null){%>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li class="dropdown-item">Username: <%=utente.getUsername()%></li>
+                    <li class="dropdown-item">Ciao: <%=utente.getNome()%></li>
                     <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <%if(utente.isAdmin()){%>
+                    <li><a class="dropdown-item" href="AdminControl">Admin Zone</a></li>
+                    <%}%>
                 </ul>
 
                 <%}else{ %>

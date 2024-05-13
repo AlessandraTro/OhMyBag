@@ -6,8 +6,7 @@ import java.util.GregorianCalendar;
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String username, password, nome, cognome, cf, email, indirizzoSpedizione; 
-	private int telefono;
+	private String username, password, nome, cognome, cf, email, indirizzoSpedizione,telefono; 
 	private boolean admin;
 	private GregorianCalendar dataNascita;
 
@@ -21,7 +20,7 @@ public class Utente implements Serializable {
 	
 	//costruttore
 	public Utente(String username, String password, String nome, String cognome, String cf, String email,
-			String indirizzoSpedizione, int telefono,GregorianCalendar dataNascita, boolean admin) {
+			String indirizzoSpedizione, String telefono,GregorianCalendar dataNascita, boolean admin) {
 		super();
 		this.setUsername(username);
 		this.setPassword(password);
@@ -75,11 +74,11 @@ public class Utente implements Serializable {
 		this.indirizzoSpedizione = indirizzoSpedizione;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

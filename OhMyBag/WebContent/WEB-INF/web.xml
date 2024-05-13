@@ -53,6 +53,10 @@
 		<servlet-name>LoginControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.LoginControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>PagamentoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.PagamentoControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

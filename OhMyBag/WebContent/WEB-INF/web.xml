@@ -65,6 +65,10 @@
 		<servlet-name>RegistrazioneControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.RegistrazioneControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ButtonRegistrazioneControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonRegistrazioneControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

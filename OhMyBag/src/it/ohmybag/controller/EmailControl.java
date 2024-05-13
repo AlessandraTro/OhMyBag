@@ -32,11 +32,8 @@ public class EmailControl extends HttpServlet {
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 
-		System.out.print(email);
 		try {
-			boolean emailCheck = false;
-			emailCheck = (boolean) utenteModel.checkIfEmailExists(email);
-			System.out.print(emailCheck);
+			boolean emailCheck = (boolean) utenteModel.checkIfEmailExists(email);
 			response.getWriter().print(emailCheck);
 			
 		} catch (SQLException e) {

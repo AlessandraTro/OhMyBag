@@ -78,7 +78,7 @@
                 <%}else{ %>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="LoginControl">Login</a></li>
-                    <li><a class="dropdown-item" href="PaginaRegistrazione.jsp">Registrati</a></li>
+                    <li><a class="dropdown-item" href="ButtonRegistrazioneControl">Registrati</a></li>
                 </ul>
                 <%}%>
             </div>

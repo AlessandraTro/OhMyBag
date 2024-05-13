@@ -105,4 +105,34 @@ public class UtenteModel {
 		}
 		return bean;
 	}
+	
+	public synchronized boolean checkIfEmailExists(String email)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		ResultSet resultSet = null;
+	    boolean emailExists = false;
+
+		String QuerySQL="SELECT * FROM Utente WHERE Email=?";
+
+	    try {
+	    	conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(QuerySQL);/*creo lo statement per poter comunicare con il database*/
+	        statement.setString(1, email);
+	        resultSet = statement.executeQuery();
+	        emailExists = resultSet.next(); // Se il resultSet ha almeno una riga, significa che l'email esiste già
+	    } finally {
+	        // Chiudi tutte le risorse aperte
+	        if (resultSet != null) {
+	            resultSet.close();
+	        }
+	        if (statement != null) {
+	            statement.close();
+	        }
+	        if (conn != null) {
+	            conn.close();
+	        }
+	    }
+
+	    return emailExists;
+	}
 }

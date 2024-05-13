@@ -57,6 +57,14 @@
 		<servlet-name>PagamentoControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.PagamentoControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>EmailControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.EmailControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegistrazioneControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.RegistrazioneControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

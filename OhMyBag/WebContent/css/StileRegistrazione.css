@@ -1,0 +1,102 @@
+#demo1 {
+	color: red;
+	font-size: x-small;
+}
+
+#demo2 {
+	color: red;
+	font-size: x-small;
+}
+
+#demo3 {
+	color: red;
+	font-size: x-small;
+}
+
+#demo4 {
+	color: red;
+	font-size: x-small;
+}
+
+#demo5 {
+	color: red;
+	font-size: x-small;
+}
+
+.divider-text {
+	position: relative;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.divider-text span {
+	padding: 7px;
+	font-size: 12px;
+	position: relative;
+	z-index: 2;
+}
+
+.form-group-costum {
+	display: flex;
+	align-items: center; /* Allinea verticalmente gli elementi */
+}
+
+.divider-text:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	top: 55%;
+	left: 0;
+	z-index: 1;
+}
+
+.container{
+	margin-top:50px;
+}
+
+.btn-login {
+	background-color: #42AEEC;
+	color: #fff;
+}
+
+.bg-light {
+	background-color: #f8f9fa !important;
+}
+
+label {
+	cursor: pointer;
+	filter: grayscale(100%);
+}
+
+.immagine-reg {
+	width: 25px;
+	margin-right: 10px;
+	/* Aggiunto margine per separare l'immagine dagli input */
+}
+
+.login {
+	display: flex;
+	justify-content: space-around;
+}
+
+.form-group {
+	display: flex;
+	justify-content: space-around;
+}
+
+label:hover {
+	filter: grayscale(0);
+}
+
+input[type="radio"]:checked+label {
+	filter: grayscale(0);
+	width: "10px";
+}
+
+.error{
+	color: red;
+	display: flex;
+    justify-content: center;
+}

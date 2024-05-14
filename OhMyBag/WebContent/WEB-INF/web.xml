@@ -69,6 +69,14 @@
 		<servlet-name>ButtonRegistrazioneControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.ButtonRegistrazioneControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ForgotPassControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ForgotPassControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.LogoutControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

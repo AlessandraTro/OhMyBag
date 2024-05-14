@@ -57,7 +57,35 @@ public class UtenteModel {
 			}
 		}
 	}
-	
+	/*permette di modificare la password di un determinato utente*/
+	public synchronized void UpdatePassword(String username,String password)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String updateSQL="update Utente set Password=? where Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(updateSQL);
+			
+			statement.setString(1, password);
+			statement.setString(2, username);
+			
+			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+	/*permette di prendere un utente in base alla email e alla password*/
+	/*c'è anche la password per verificare direttamente se è corretta oppure no*/
 	public synchronized Utente RetriveByEmailPassword(String email, String password)throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -106,6 +134,7 @@ public class UtenteModel {
 		return bean;
 	}
 	
+	/*permette di verificare se un'email esiste già nel database*/
 	public synchronized boolean checkIfEmailExists(String email)throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;

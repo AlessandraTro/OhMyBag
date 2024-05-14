@@ -26,7 +26,13 @@
         <div class="container-login">
             <form action="LoginControl" method="post">
                 <input type="hidden" name="action" value="login">
-
+                
+                <%if(request.getAttribute("newPassword") != null){ %>
+					<div class="new-password">
+						<h5 style="color:#60ff60; padding-bottom:30px;">Password aggiornata con successo</h5>
+					</div>
+				<%} %>
+				
                 <div class="login-box">
                     <input type="email" name="email" id="email" class="input-field">
                     <label for="email" class="label">E-mail</label>
@@ -40,19 +46,19 @@
                 
                 <% if (request.getAttribute("loginError") != null) { %>
 					<div class="login-error">
-					    <p style="color:red ">E-mail o password errata</p>
+					    <p style="color:#970000 ">E-mail o password errata</p>
 					</div>
 				<% } %>
                 
                 <div class="forgot">
-                    <a href="#">Forgot password</a>
+                    <a href="ForgotPassControl">Forgot password</a>
                 </div>
                 <div class="login-box">
                     <input type="submit" value="Submit" class="input-submit" autocomplete="off">
                 </div>
                 <div class="register">
                     <span>Don't have an account?
-                    <a href="#">Register</a></span>
+                    <a href="RegistrazioneControl">Register</a></span>
                 </div>
             </form>
         </div>
@@ -60,7 +66,6 @@
     
     <%@ include file="Footer.jsp"%>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script src="form.js"></script>
     
 </body>
 </html>

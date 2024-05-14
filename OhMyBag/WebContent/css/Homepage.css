@@ -102,6 +102,15 @@ div.col h2{
 	.container-custom {
 		margin: 50px;
 	}
+	.card-img-top-custom{
+		min-height:250px;
+	}
+	div.col h2{
+		font-size:30px;
+	}
+	.lead{
+		font-size:20px;
+	}
 }
 
 .text-costum {

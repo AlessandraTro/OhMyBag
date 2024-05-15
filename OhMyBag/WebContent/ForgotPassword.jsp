@@ -41,7 +41,12 @@
                     <i class="bx bx-lock-alt icon" id="show-password"></i>
                     <p id="passwordValError" class="error" style="color:ffffff"></p>
                 </div>
-                
+                <%if(request.getAttribute("oldPassword")!=null){ %>
+					<div class="login-error">
+					    <p style="color:#970000 ">Inserire una password diversa dalla precedente</p>
+					</div>
+				<%}%>
+					
                 
                 <div class="login-box">
                     <input type="submit" value="Submit" class="input-submit" autocomplete="off">

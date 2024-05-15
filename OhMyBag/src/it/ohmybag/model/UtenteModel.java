@@ -164,4 +164,86 @@ public class UtenteModel {
 
 	    return emailExists;
 	}
+	
+	/*permette di verificare se un'email esiste già nel database*/
+	public synchronized String RetrievePassword(String username)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		ResultSet resultSet = null;
+	    String password = "";
+
+		String QuerySQL="SELECT Password FROM Utente WHERE Username=?";
+
+	    try {
+	    	conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(QuerySQL);/*creo lo statement per poter comunicare con il database*/
+	        statement.setString(1, username);
+	        resultSet = statement.executeQuery();
+	        while(resultSet.next()) {
+	        	password = (String) resultSet.getString("Password"); // Se il resultSet ha almeno una riga, significa che l'email esiste già
+	        }
+	        } finally {
+	        // Chiudi tutte le risorse aperte
+	        if (resultSet != null) {
+	            resultSet.close();
+	        }
+	        if (statement != null) {
+	            statement.close();
+	        }
+	        if (conn != null) {
+	            conn.close();
+	        }
+	    }
+
+	    return password;
+	}
+	/*permette di prendere un utente in base alla email e alla password
+	c'è anche la password per verificare direttamente se è corretta oppure no*/
+	public synchronized Utente RetriveByEmailPassword(String email)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		Utente bean=new Utente();
+		
+		String query= "SELECT * FROM Utente WHERE Email=?";
+		
+		try{
+			conn=getConnection();/*creo la connessione con il database*/
+			statement= conn.prepareStatement(query);/*creo lo statement per poter comunicare con il database*/
+			
+			statement.setString(1, email);
+			
+			ResultSet rs = statement.executeQuery();
+
+			while (rs.next()) {
+				bean.setUsername(rs.getString("Username"));
+				bean.setAdmin(rs.getBoolean("Admin"));
+				bean.setCodiceFiscale(rs.getString("Cf"));
+				bean.setCognome(rs.getString("Cognome"));
+				
+		        java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		        GregorianCalendar dataInserimento = new GregorianCalendar();
+		        dataInserimento.setTime(dataInserimentoSQL);
+				bean.setDataDiNascita(dataInserimento);
+				
+				bean.setEmail(rs.getString("Email"));
+				bean.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+				bean.setNome(rs.getString("Nome"));
+				bean.setPassword(rs.getString("Password"));
+				bean.setTelefono(rs.getString("Telefono"));
+			}
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return bean;
+	}
 }
+

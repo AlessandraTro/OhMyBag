@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.ohmybag.bean.*;
 import it.ohmybag.model.*;
+import it.ohmybag.utility.CriptoPassword;
 
 @WebServlet("/ForgotPassControl")
 public class ForgotPassControl extends HttpServlet{
@@ -32,14 +33,26 @@ public class ForgotPassControl extends HttpServlet{
 	    if(newPassword!=null && newPassword!="") {
 	        String email = request.getParameter("email");
 	        String password = request.getParameter("password");
+	        String hashPassword=CriptoPassword.toHash(password);
+	        
 	    	try {
-	    		utenteModel.UpdatePassword(email, password);
-	    		request.setAttribute("newPassword", true);
+	    		if(utenteModel.RetrievePassword(email).equals(hashPassword)) {
+	    			request.setAttribute("oldPassword", true);
+	    			
+		            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ForgotPassword.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+	    		}else {
+		    		utenteModel.UpdatePassword(email, hashPassword);
+		    		request.setAttribute("newPassword", true);
+	    		}
+	    		
+	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+	            dispatcher.forward(request, response);
 	    	}catch(Exception e){
 	    		System.out.println("Error: "+e.getMessage());
 	    	}
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
-            dispatcher.forward(request, response);
+
 	    }else {
 	    	response.sendRedirect("ForgotPassword.jsp");
 	    }

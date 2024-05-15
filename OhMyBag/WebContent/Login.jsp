@@ -52,7 +52,7 @@
 					<div class="login-error">
 					    <p style="color:#970000 ">E-mail o password errata</p>
 					</div>
-				<% } %>
+				<% }%>
                 
                 <div class="forgot">
                     <a href="ForgotPassControl">Forgot password</a>

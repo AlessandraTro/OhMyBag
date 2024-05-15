@@ -62,7 +62,7 @@
                 </div>
                 <div class="register">
                     <span>Don't have an account?
-                    <a href="RegistrazioneControl">Register</a></span>
+                    <a href="ButtonRegistrazioneControl">Register</a></span>
                 </div>
             </form>
         </div>

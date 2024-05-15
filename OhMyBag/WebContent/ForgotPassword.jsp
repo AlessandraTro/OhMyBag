@@ -92,7 +92,7 @@
 		
 	    // Validità Password
 	    function passwordValidator(password) {
-			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\d\s:]).{6,}$/;
+			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_])[a-zA-Z0-9\W_]{6,}$/;
 			if (password.value.match(passw)) {
 				$("#pass").css({"border-color":"#00fd00"});
 				$("#passwordError").text("");

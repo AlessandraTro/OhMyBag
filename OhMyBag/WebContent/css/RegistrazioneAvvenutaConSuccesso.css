@@ -1,0 +1,107 @@
+
+:root {
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff;
+    --black-color: #000000;
+}
+
+.Log-text{
+	font-weight: bolder;
+	font-size:20px;
+	display: flex;
+    justify-content: space-around;
+    margin-bottom:0px;
+}
+
+.Log-prosegui{
+	font-size:20px;
+	display: flex;
+    justify-content: space-around;
+}
+
+.login {
+	display: flex;
+	justify-content: space-around;
+}
+
+.btn-login {
+	background-color: #d6ccc2;
+	color: #fff;
+	font-size: 22px; /* Aumenta la dimensione del testo */
+    padding: 10px 50px; /* Aumenta il padding per allargare il pulsante */
+    position: absolute;
+}
+
+
+
+.container-all {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 95vh;
+	background-color: rgb(0, 0, 0, 0.2);
+}
+
+.container-form {
+	position: relative;
+	width: 450px;
+	backdrop-filter: blur(25px);
+	border: 2px solid var(--primary-color);
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	padding: 3.5em 2.5em 4.5em 2.5em;
+	color: var(--second-color);
+	margin: 20px 0px;	
+}
+
+body {
+	background-image: url("../img/website/backgroundPaginaLogin.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	font-family: Times New Roman, Sans-Serif;
+}
+
+.container-text {
+    margin-right: 25px;
+}
+
+.container-text p{
+	color:#f9ceb8;
+	font-size:x-large;
+}
+
+.container-text h1{
+	color:var(--second-color);
+}
+
+@media only screen and (max-width: 900px) {
+    .container-all{
+        flex-direction: column;
+        align-items: center; /* Centra verticalmente i contenuti */
+        text-align: center; /* Centra il testo */
+    }
+    .container-text {
+        margin-bottom: 20px;
+    }
+}
+/* Regole CSS per schermi con larghezza massima di 768px */
+@media only screen and (max-width: 1100px) {
+    .container-all{
+        padding: 2em;
+    }
+}
+
+/* Regole CSS per schermi con larghezza massima di 564px (già definito) */
+
+/* Regole CSS per schermi con larghezza massima di 320px */
+@media only screen and (max-width: 450px) {
+    .container-all{
+        padding: 1em;
+    }
+    .container-text {
+        font-size: 14px;
+    }
+}

@@ -37,6 +37,14 @@
 	z-index: 2;
 }
 
+.card-title-costum {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin-bottom: 20px;
+	font-weight: bolder;
+}
+
 .form-group-costum {
 	display: flex;
 	align-items: center; /* Allinea verticalmente gli elementi */
@@ -52,12 +60,43 @@
 	z-index: 1;
 }
 
-.container{
-	margin-top:50px;
+.container-form {
+	position: relative;
+	width: 450px;
+	backdrop-filter: blur(25px);
+	border: 2px solid var(--primary-color);
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	padding: 3.5em 2.5em 3.5em 2.5em;
+	color: var(--second-color);
+	margin: 20px 0px;
+}
+
+.container-all {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 95vh;
+	background-color: rgb(0, 0, 0, 0.2);
+}
+
+body {
+	background-image: url("../img/website/backgroundPaginaLogin.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	font-family: Times New Roman, Sans-Serif;
 }
 
 .btn-login {
-	background-color: #42AEEC;
+	background-color: #d6ccc2;
+	color: #fff;
+}
+
+.btn-block {
+	background-color: #d6ccc2;
 	color: #fff;
 }
 
@@ -74,6 +113,11 @@ label {
 	width: 25px;
 	margin-right: 10px;
 	/* Aggiunto margine per separare l'immagine dagli input */
+}
+
+.form-group-costum:not(:last-child :first-child) {
+	margin-bottom: 15px;
+	/* Aggiunge uno spazio inferiore tra i diversi gruppi di campi, eccetto l'ultimo */
 }
 
 .login {
@@ -95,8 +139,8 @@ input[type="radio"]:checked+label {
 	width: "10px";
 }
 
-.error{
+.error {
 	color: red;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }

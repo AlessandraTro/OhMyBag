@@ -35,6 +35,7 @@ public class RegistrazioneControl extends HttpServlet {
 
 	}
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -66,7 +67,7 @@ public class RegistrazioneControl extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("Homepage.jsp");  //nuova pagina con avviso registrazione avvenuta con successo
+		response.sendRedirect("RegistrazioneAvvenutaConSuccesso.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

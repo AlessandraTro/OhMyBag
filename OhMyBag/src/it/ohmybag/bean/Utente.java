@@ -3,27 +3,27 @@ package it.ohmybag.bean;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+import it.ohmybag.utility.CriptoPassword;
+
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String username, password, nome, cognome, cf, email, indirizzoSpedizione,telefono; 
+	private String username, password, nome, cognome, cf, email, indirizzoSpedizione, telefono;
 	private boolean admin;
 	private GregorianCalendar dataNascita;
 
-	
-	//costruttore
+	// costruttore
 	public Utente() {
 		this.setAdmin(false);
 
 	}
-	
-	
-	//costruttore
+
+	// costruttore
 	public Utente(String username, String password, String nome, String cognome, String cf, String email,
-			String indirizzoSpedizione, String telefono,GregorianCalendar dataNascita, boolean admin) {
+			String indirizzoSpedizione, String telefono, GregorianCalendar dataNascita, boolean admin) {
 		super();
 		this.setUsername(username);
-		this.setPassword(password);
+		this.setPasswordCripto(password);
 		this.nome = nome;
 		this.cognome = cognome;
 		this.cf = cf;
@@ -32,7 +32,6 @@ public class Utente implements Serializable {
 		this.telefono = telefono;
 		this.dataNascita = dataNascita;
 	}
-
 
 	public String getNome() {
 		return nome;
@@ -105,6 +104,11 @@ public class Utente implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public void setPasswordCripto(String password) {
+		this.password = CriptoPassword.toHash(password);
+	}
+
 
 	public boolean isAdmin() {
 		return admin;

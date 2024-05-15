@@ -20,8 +20,12 @@
     	
         <div class="container-text">
             <h1>Benvenuti nella pagina di login</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>Minus deleniti, temporibus corporis excepturi molestias sequi<br>
-                exercitationem sed facilis non fugiat ducimus corrupti<br> repudiandae unde. Reiciendis deserunt dolorum blanditiis accusamus tempora.</p>
+            <p>Sei alla ricerca dell'accessorio perfetto che ti faccia sentire sicuro e alla moda in ogni occasione? <br>
+            Presso OhMyBag, abbiamo esattamente ciò di cui hai bisogno!<br> 
+            Guarda le nostre meravigliose collezioni e trova ciò che fa per te. <br>
+            Qui da noi, su OhMyBag, trasformiamo i tuoi desideri in realtà. <br>
+            Non aspettare oltre, fai tuo quel pezzo di stile che ti distinguerà dalla massa.<br>
+            Entra nel mondo di OhMyBag e vivi la tua moda con stile!</p>
         </div>
         <div class="container-login">
             <form action="LoginControl" method="post">

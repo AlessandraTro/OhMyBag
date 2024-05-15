@@ -89,4 +89,33 @@ public class ComposizioneModel {
 	    }
 	    return elementi; // Restituisce il bean, che potrebbe essere null se non ci sono risultati nel ResultSet
 	}
+	
+	public synchronized boolean deleteComp(String idProdotto, int idOrdine) throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		int result=0;
+		
+		String deleteSQL="delete from composizione where IDOrdine=? AND IDProdotto=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(deleteSQL);
+			
+			statement.setInt(1,idOrdine);
+			statement.setString(2, idProdotto);
+			
+			result=statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return result!=0;
+	}
 }

@@ -75,7 +75,7 @@ h5{
 						<li><a href="HomeControl">Home</a></li>
 						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>
 						<!-- Da fare -->
-						<li><a href="ButtonLoginControl">Login</a></li>
+						<li><a href="LoginControl">Login</a></li>
 						<!-- Da fare -->
 					</ul>
 				</div>

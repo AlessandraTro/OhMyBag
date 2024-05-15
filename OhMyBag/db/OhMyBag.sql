@@ -6,7 +6,7 @@ CREATE TABLE Utente(
 Username			varchar(100) Primary key,
 Cf					varchar(16)  not null,
 Email				varchar(100) not null,
-Password			varchar(100) not null,
+Password			varchar(1000) not null,
 Telefono			varchar(10)	 not null,
 Nome 				varchar(100) not null,
 Cognome 			varchar(100) not null,

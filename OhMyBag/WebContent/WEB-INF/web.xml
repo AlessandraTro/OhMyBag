@@ -49,6 +49,34 @@
 		<servlet-name>ButtonPagamentoControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.ButtonPagamentoControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LoginControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.LoginControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PagamentoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.PagamentoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EmailControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.EmailControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegistrazioneControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.RegistrazioneControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonRegistrazioneControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonRegistrazioneControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ForgotPassControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ForgotPassControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.LogoutControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

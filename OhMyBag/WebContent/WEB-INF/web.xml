@@ -77,6 +77,22 @@
 		<servlet-name>LogoutControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.LogoutControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ButtonModificaProdottoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonModificaProdottoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminModificaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminModificaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonDeleteImage</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonDeleteImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonAddImage</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonAddImage</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

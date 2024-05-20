@@ -93,6 +93,10 @@
 		<servlet-name>ButtonAddImage</servlet-name>
 		<servlet-class>it.ohmybag.controller.ButtonAddImage</servlet-class>
 	</servlet>
+		<servlet>
+		<servlet-name>CheckoutControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CheckoutControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

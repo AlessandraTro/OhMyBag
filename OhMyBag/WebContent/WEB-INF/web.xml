@@ -97,6 +97,10 @@
 		<servlet-name>CheckoutControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.CheckoutControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AdminAddProdottoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminAddProdottoControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

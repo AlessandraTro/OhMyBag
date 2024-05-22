@@ -287,6 +287,39 @@ public class ProdottoModel{
 		}
 	}
 
+	/*permette di aggiornare i prezzo, lo sconto, la quantità, iva e la descrizione di un determinato prodotto*/
+	public synchronized void updateProduct(String id, String descrizione, int disponibilita, int sconto, float prezzo, int iva) throws SQLException {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String updateSQL="update Prodotto set Descrizione=?, Prezzo=?, Disponibilita=?, Iva=?, Sconto=? where ID=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(updateSQL);
+			
+			statement.setString(1, descrizione);
+			statement.setFloat(2, prezzo);
+			statement.setInt(3, disponibilita);
+			statement.setInt(4, iva);
+			statement.setInt(5, sconto);
+			statement.setString(6, id);
+			
+			statement.executeUpdate();
+			//System.out.println("sono nella query id:"+id+"descrizione: "+descrizione);
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+
 	/*ritorna tutti i prodotti che si trovano all'interno del database*/
 	public synchronized Collection<Prodotto> allProduct() throws SQLException{
 		Connection conn=null;

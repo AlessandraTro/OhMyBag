@@ -25,28 +25,27 @@ public class OrdineModel {
 		PreparedStatement statement=null;
 		
 		/*Sringa con Query*/
-		String insertSQL="INSERT INTO Ordine (Id, PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, ConfezioneRegalo, NumeroCarta, Username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String insertSQL="INSERT INTO Ordine (PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, ConfezioneRegalo, NumeroCarta, Username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			conn=getConnection();/*creo la connessione con il database*/
 			statement= conn.prepareStatement(insertSQL);/*creo lo statement per poter comunicare con il database*/
 			
-			statement.setInt(1, ordine.getId());
-			statement.setFloat(2, ordine.getPrezzoTotale());
-			statement.setString(3,ordine.getDestinatario());
-			statement.setString(4,ordine.getMetodoDiPagamento());
-			statement.setString(5,ordine.getIndirizzoSpedizione());
-			statement.setString(6, ordine.getNoteCorriere());
-			statement.setString(7,ordine.getMetodoDiSpedizione());
-			statement.setString(8,ordine.getNumeroTracking());
+			statement.setFloat(1, ordine.getPrezzoTotale());
+			statement.setString(2,ordine.getDestinatario());
+			statement.setString(3,ordine.getMetodoDiPagamento());
+			statement.setString(4,ordine.getIndirizzoSpedizione());
+			statement.setString(5, ordine.getNoteCorriere());
+			statement.setString(6,ordine.getMetodoDiSpedizione());
+			statement.setString(7,ordine.getNumeroTracking());
 			
 			java.sql.Date data= new java.sql.Date(ordine.getData().getTimeInMillis());
-			statement.setDate(9, data);
+			statement.setDate(8, data);
 			
-			statement.setString(10, ordine.getCircuito());
-			statement.setBoolean(11, ordine.isConfezioneRegalo());
-			statement.setString(12, ordine.getNumeroCarta());
-			statement.setString(13,ordine.getUsername());
+			statement.setString(9, ordine.getCircuito());
+			statement.setBoolean(10, ordine.isConfezioneRegalo());
+			statement.setString(11, ordine.getNumeroCarta());
+			statement.setString(12,ordine.getUsername());
 			
 			statement.executeUpdate();
 		}finally {

@@ -2,6 +2,7 @@ package it.ohmybag.bean;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 public class Ordine implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -20,19 +21,18 @@ public class Ordine implements Serializable{
 	private String numeroCarta;
 	private String username;
 	
-	public Ordine(int id,float prezzoTotale,String destinatario,String metodoDiPagamento,
-			String indirizzoSpedizione,String noteCorriere,String metodoDiSpedizione,
-			String numeroTracking,GregorianCalendar data,String circuito,boolean confezioneRegalo,
+	public Ordine(float prezzoTotale,String destinatario,String metodoDiPagamento,
+			String indirizzoSpedizione,String noteCorriere,String metodoDiSpedizione,GregorianCalendar data,String circuito,boolean confezioneRegalo,
 			String numeroCarta,String username) {
 			super();
-			
-			this.id = id;
+			setId(id);
+			this.destinatario=destinatario;
 			this.prezzoTotale = prezzoTotale;
 			this.metodoDiPagamento = metodoDiPagamento;
 			this.indirizzoSpedizione = indirizzoSpedizione;
 			this.noteCorriere = noteCorriere;
 			this.metodoDiSpedizione = metodoDiSpedizione;
-			this.numeroTracking = numeroTracking;
+			setNumeroTracking();
 			this.data = new GregorianCalendar();
 			this.circuito = circuito; 
 			this.confezioneRegalo = confezioneRegalo;
@@ -90,8 +90,13 @@ public class Ordine implements Serializable{
 	public String getNumeroTracking() {
 		return numeroTracking;
 	}
+	public void setNumeroTracking() {
+		Random rand= new Random();
+		int random =rand.nextInt((999999-10000)+1)+10000;
+		this.numeroTracking=String.valueOf(random);
+	}
 	public void setNumeroTracking(String numeroTracking) {
-		this.numeroTracking = numeroTracking;
+		this.numeroTracking=numeroTracking;
 	}
 	public GregorianCalendar getData() {
 		return data;

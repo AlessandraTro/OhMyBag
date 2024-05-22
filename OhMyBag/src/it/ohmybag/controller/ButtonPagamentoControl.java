@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ohmybag.bean.Carrello;
+import it.ohmybag.bean.Carta;
 import it.ohmybag.bean.Composizione;
 import it.ohmybag.bean.Ordine;
 import it.ohmybag.bean.Prodotto;
+import it.ohmybag.bean.Utente;
 import it.ohmybag.model.*;
 
 @WebServlet("/ButtonPagamentoControl")
@@ -37,11 +39,15 @@ public class ButtonPagamentoControl extends HttpServlet {
 		System.out.println("sono fuori1");
 		try {
 			Carrello carrello = (Carrello) request.getSession().getAttribute("Carrello");
+			Utente utente = (Utente) request.getSession().getAttribute("utente");
+			//Ordine ordine = (Ordine) request.getSession().getAttribute("ordine");
+			//Carta carta = (Carta) request.getSession().getAttribute("carta");
 			
-			Ordine ordine = ordineModel.maxIdUser("otineb");
-			if (ordine != null) {
+			
+			//Ordine ordine = ordineModel.maxIdUser(utente.getUsername());
+			/*if (ordine != null) {
 			    System.out.println("Id ordine= " + ordine.getId());
-			    int idOrdine = ordine.getId();
+			    int idOrdine = ordine.getId();*/
 			    HashMap<Prodotto, Integer> prodotti = carrello.getProdotti();
 				float prezzo=0;
 				System.out.println("sono fuori");
@@ -61,17 +67,22 @@ public class ButtonPagamentoControl extends HttpServlet {
 						}else {
 							prezzo = (prodotto.getPrezzo()+(prodotto.getPrezzo()/100*Iva))*quantita; // prezzo a cui applico solo l'iva e moltiplico per la quantità
 						}
-						Composizione comp=new Composizione(idOrdine, idProdotto, prezzo, quantita, Iva);
+						System.out.println(utente.getNome()); //prova
+						Ordine ordineFit= new Ordine(prezzo,utente.getNome(), "Mastercad", utente.getIndirizzoSpedizione(),"dd","Standard", utente.getDataDiNascita(),"Mastercad",false,"dadada",utente.getUsername());
+						ordineModel.saveOrdine(ordineFit);
+						ordineFit.setId(ordineModel.maxIdUser(utente.getUsername()).getId());
+						Composizione comp=new Composizione(ordineFit.getId(), idProdotto, prezzo, quantita, Iva);
+						System.out.println(ordineFit.getId());  //prova
 						composizioneModel.saveComposizione(comp);
 						prodottoModel.updateQuantity(prodotto.getDisponibilita()-quantita, idProdotto);
 					}
 					carrello.svuotaCarrello();
 				}
 
-			} else {
+			/*} else {
 			    // Gestisci il caso in cui ordine è null
 			    System.out.println("Nessun ordine trovato per l'utente 'otineb'");
-			}
+			}*/
 			
 			
 		} catch (SQLException e) {

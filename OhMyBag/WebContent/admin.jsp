@@ -34,7 +34,7 @@ Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getA
 					<!--<td><%=bean.getDescrizione()%></td>-->
 					<td><a href="AdminControl?action=delete&ID=<%=bean.getId()%>">Delete</a><br>
 					<!-- aggiungere Alert per conferma di eliminazione --> <a
-						href="AdminControl?action=detail&ID=<%=bean.getId()%>">Details</a><br>
+						href="ButtonModificaProdottoControl?ID=<%=bean.getId()%>">Details</a><br>
 					</td>
 				</tr>
 				<%

@@ -696,59 +696,71 @@ public class ProdottoModel{
 	}
 
 	/*ritorna tutti i prodotti di una determinata tipologia in una determinata categoria es. Zaini in donna, cinture in uomo, ecc.*/
-	public synchronized Collection<Prodotto> allTypologyProduct(int categoria, String tipologia) throws SQLException{
-		Connection conn=null;
-		PreparedStatement statement=null;
-		
-		Collection <Prodotto> prodotti =new LinkedList<Prodotto>();
-		
-		String QuerySQL="SELECT * FROM Prodotto WHERE Tipologia=? && IDCategoria=?";
-		
-		try {
-			conn=getConnection();
-			statement=conn.prepareStatement(QuerySQL);
-			statement.setString(1, tipologia);
-			statement.setInt(2,categoria);
-			
-			ResultSet rs= statement.executeQuery();
-			while(rs.next()){
-				Prodotto bean=new Prodotto();
-				
-				bean.setId(rs.getString("ID"));
-				bean.setMarca(rs.getString("Marca"));
-				bean.setNome(rs.getString("Nome"));
-				bean.setPrezzo(rs.getFloat("Prezzo"));
-				bean.setTipologia(rs.getString("Tipologia"));
-				bean.setIdCategoria(rs.getInt("IDCategoria"));
-				bean.setDescrizione(rs.getString("Descrizione"));
-				bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
-				
-		        java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
-		        GregorianCalendar dataInserimento = new GregorianCalendar();
-		        dataInserimento.setTime(dataInserimentoSQL);
-				bean.setDataInserimento(dataInserimento);
-				
-				bean.setSconto(rs.getInt("Sconto"));
-				bean.setDisponibilita(rs.getInt("Disponibilita"));
-				bean.setIva(rs.getInt("Iva"));
+	public synchronized Collection<Prodotto> allTypologyProduct(int categoria, String tipologia) throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    ResultSet rs = null;
+	    
+	    Collection<Prodotto> prodotti = new LinkedList<>();
 
-				
-				prodotti.add(bean);
-			}
-		}finally {
-			try {
-				if(statement!= null) {
-					statement.close();
-				}
-			}finally {
-				if(conn!=null) {
-					conn.close();
-				}
-			}
-		}
-		return prodotti;
+	    String querySQL = "SELECT * FROM Prodotto WHERE Tipologia = ? AND IDCategoria = ?";
+
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        statement.setString(1, tipologia);
+	        statement.setInt(2, categoria);
+
+	        rs = statement.executeQuery();
+	        while (rs.next()) {
+	            Prodotto bean = new Prodotto();
+
+	            bean.setId(rs.getString("ID"));
+	            bean.setMarca(rs.getString("Marca"));
+	            bean.setNome(rs.getString("Nome"));
+	            bean.setPrezzo(rs.getFloat("Prezzo"));
+	            bean.setTipologia(rs.getString("Tipologia"));
+	            bean.setIdCategoria(rs.getInt("IDCategoria"));
+	            bean.setDescrizione(rs.getString("Descrizione"));
+	            bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+
+	            java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+	            GregorianCalendar dataInserimento = new GregorianCalendar();
+	            dataInserimento.setTime(dataInserimentoSQL);
+	            bean.setDataInserimento(dataInserimento);
+
+	            bean.setSconto(rs.getInt("Sconto"));
+	            bean.setDisponibilita(rs.getInt("Disponibilita"));
+	            bean.setIva(rs.getInt("Iva"));
+
+	            prodotti.add(bean);
+	        }
+	    } finally {
+	        // Chiusura delle risorse in ordine inverso di apertura
+	        if (rs != null) {
+	            try {
+	                rs.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    return prodotti;
 	}
-
 	/*ritorna tutti i prodotti che si trovano in sconto*/
 	public synchronized Collection<Prodotto> allDiscountProduct(int sconto) throws SQLException{
 		Connection conn=null;

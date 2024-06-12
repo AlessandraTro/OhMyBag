@@ -23,7 +23,19 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
+<%
+
+		Utente user = (Utente) request.getSession().getAttribute("utente");
+		if (user != null && user.isAdmin()) {
+	%>
+	<jsp:include page="HeaderAdmin.jsp" />
+	<%
+		} else {
+	%>
+	<jsp:include page="Header.jsp" />
+	<%
+		}
+	%>
 	<div class="container">
 		<div class="product-images">
 			<div id="carouselExampleIndicators" class="carousel slide">

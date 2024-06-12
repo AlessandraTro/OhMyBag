@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.Prodotto,it.ohmybag.model.ProdottoModel,it.ohmybag.bean.Utente,it.ohmybag.bean.Immagine,it.ohmybag.model.ImmagineModel"%>
+	import="java.sql.SQLException,java.util.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 
 <%
-Collection<Prodotto> products = (Collection<Prodotto>) request.getSession().getAttribute("products");
+Collection<Prodotto> products = (Collection<Prodotto>) request.getAttribute("products");
 
-Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("ImageList");
+Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("ImageList");
 %>
 
 
@@ -25,7 +25,19 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 </head>
 
 <body>
-	<%@ include file="Header.jsp"%>
+	<%
+
+		Utente user = (Utente) request.getSession().getAttribute("utente");
+		if (user != null && user.isAdmin()) {
+	%>
+	<jsp:include page="HeaderAdmin.jsp" />
+	<%
+		} else {
+	%>
+	<jsp:include page="Header.jsp" />
+	<%
+		}
+	%>
 	
 	
 	<!-- Immagini carousel -->

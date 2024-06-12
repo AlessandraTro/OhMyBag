@@ -10,7 +10,7 @@
     <title>OhMyBag</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    
 </head>
 <body>
 
@@ -58,10 +58,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="OrdiniAdminControl">Chi Siamo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contattaci</a>
+                    <a class="nav-link" href="OrdiniAdminControl">Ordini</a>
                 </li>
             </ul>
             
@@ -76,18 +73,11 @@
                         <img id="immagine-user" src="img/website/user-solid.svg" alt="User Icon">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <% if (utente != null) { %>
-                            <li class="dropdown-item">Ciao: <%= utente.getNome() %></li>
-                            <li><a class="dropdown-item" href="LogoutControl">Logout</a></li>
-                            <% if (!utente.isAdmin()) { %>
-                                <li><a class="dropdown-item" href="#">User Zone</a></li>
-                            <% } %>
-                        <% } else { %>
-                            <li><a class="dropdown-item" href="LoginControl">Login</a></li>
-                            <li><a class="dropdown-item" href="ButtonRegistrazioneControl">Registrati</a></li>
-                        <% } %>
-                    </ul>
-                </li>
+                            <li class="dropdown-item">Admin: <%= utente.getNome() %></li>
+                            <li><a class="dropdown-item" href="AdminControl">Admin Zone</a></li>
+							<li><a class="dropdown-item" href="LogoutControl">Logout</a></li>
+						</ul>
+					</li>
                 <li class="nav-item">
                     <a class="nav-link" href="ButtonCarrelloControl">
                         <img id="immagine-cart" src="img/website/cart-shopping-solid.svg" alt="Cart Icon">
@@ -97,6 +87,6 @@
         </div>
     </div>
 </nav>
-
 </body>
+
 </html>

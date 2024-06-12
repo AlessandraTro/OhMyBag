@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import it.ohmybag.bean.Utente;
@@ -245,5 +247,51 @@ public class UtenteModel {
 		}
 		return bean;
 	}
+	
+	public Collection<Utente> getAllUtenti() throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    ResultSet rs = null;
+	    Collection<Utente> utenti = new ArrayList<>();
+
+	    String querySQL = "SELECT * FROM Utente";
+
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        rs = statement.executeQuery();
+
+	        while (rs.next()) {
+	            Utente utente = new Utente();
+	            utente.setUsername(rs.getString("Username"));
+	            utente.setAdmin(rs.getBoolean("Admin"));
+	            utente.setNome(rs.getString("Nome"));
+	            utente.setCognome(rs.getString("Cognome"));
+	            utente.setEmail(rs.getString("Email"));
+	            utente.setCodiceFiscale(rs.getString("Cf"));
+	            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		        GregorianCalendar dataInserimento = new GregorianCalendar();
+		        dataInserimento.setTime(dataInserimentoSQL);
+		        utente.setDataDiNascita(dataInserimento);
+		        utente.setEmail(rs.getString("Email"));
+		        utente.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		        utente.setPassword(rs.getString("Password"));
+		        utente.setTelefono(rs.getString("Telefono"));
+
+	            utenti.add(utente);
+	        }
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (statement != null) statement.close();
+	            if (conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return utenti;
+	}
+
 }
 

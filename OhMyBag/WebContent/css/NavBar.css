@@ -12,12 +12,12 @@
 	margin-left: 15px;
 }
 
-#immagine-user{
+#immagine-user {
 	width: 22px;
 }
 
-#immagine-cart{
-	width:25px;
+#immagine-cart {
+	width: 25px;
 }
 
 .cart-section a {
@@ -31,5 +31,10 @@
 
 nav {
 	font-family: Times New Roman, Sans-Serif;
-	font-size: 20px; 
+	font-size: 20px;
+}
+
+.immagine-logo {
+	max-width: 50px;
+	max-height: 50px;
 }

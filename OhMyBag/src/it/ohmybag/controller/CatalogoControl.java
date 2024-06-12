@@ -36,11 +36,11 @@ public class CatalogoControl extends HttpServlet{
 			
 			
 			/* setta l'attributo products che conterrà tutti i prodotti contenuti nel DB */
-			request.getSession().setAttribute("products", prodottoModel.allProduct());
+			request.setAttribute("products", prodottoModel.allProduct());
 		    // Ottieni tutti i prodotti dal database
 			
 			/*setta l'attributo ImageList che conterrà tutte le immagini dei prodotti contenuti nel DB*/
-			request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll());
+			request.setAttribute("ImageList", immagineModel.doRetrieveAll());
 		  
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());

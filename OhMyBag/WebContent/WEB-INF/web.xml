@@ -93,13 +93,21 @@
 		<servlet-name>ButtonAddImage</servlet-name>
 		<servlet-class>it.ohmybag.controller.ButtonAddImage</servlet-class>
 	</servlet>
-		<servlet>
+	<servlet>
 		<servlet-name>CheckoutControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.CheckoutControl</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>OrdiniAdminControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OrdiniAdminControl</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>AdminAddProdottoControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.AdminAddProdottoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CategorieProdottiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CategorieProdottiControl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>

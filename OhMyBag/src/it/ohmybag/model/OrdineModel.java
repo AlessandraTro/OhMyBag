@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import it.ohmybag.bean.Ordine;
@@ -193,4 +195,157 @@ public class OrdineModel {
 	    return bean;
 	}
 	
+	 //prende tutti gli ordini
+	 public Collection<Ordine> getAllOrdini() throws SQLException {
+	        Connection conn = null;
+	        PreparedStatement statement = null;
+	        ResultSet rs = null;
+	        Collection<Ordine> ordini = new ArrayList<>();
+
+	        String querySQL = "SELECT * FROM Ordine";
+
+	        try {
+	            conn = getConnection();
+	            statement = conn.prepareStatement(querySQL);
+	            rs = statement.executeQuery();
+
+	            while (rs.next()) {
+	                Ordine ordine = new Ordine();
+	                ordine.setId(rs.getInt("Id"));
+	                ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
+	                ordine.setDestinatario(rs.getString("Destinatario"));
+	                ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
+	                ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
+	                ordine.setNoteCorriere(rs.getString("NoteCorriere"));
+	                ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));
+	                ordine.setNumeroTracking(rs.getString("NumeroTracking"));
+
+	                java.sql.Date dataInserimentoSQL = rs.getDate("Data");
+	                GregorianCalendar dataInserimento = new GregorianCalendar();
+	                dataInserimento.setTime(dataInserimentoSQL);
+	                ordine.setData(dataInserimento);
+
+	                ordine.setCircuito(rs.getString("Circuito"));
+	                ordine.setConfezioneRegalo(rs.getBoolean("ConfezioneRegalo"));
+	                ordine.setNumeroCarta(rs.getString("NumeroCarta"));
+	                ordine.setUsername(rs.getString("Username"));
+
+	                ordini.add(ordine);
+	            }
+	        } finally {
+	            try {
+	                if (rs != null) rs.close();
+	                if (statement != null) statement.close();
+	                if (conn != null) conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+
+	        return ordini;
+	    }
+
+	 //prende tutti gli ordini in base a due date
+	 public Collection<Ordine> getOrdiniByDateRange(java.util.Date startDate, java.util.Date endDate) throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Collection<Ordine> ordini = new ArrayList<>();
+
+		    String querySQL = "SELECT * FROM Ordine WHERE Data BETWEEN ? AND ?";
+
+		    try {
+		        conn = getConnection();
+		        statement = conn.prepareStatement(querySQL);
+		        statement.setDate(1, new java.sql.Date(startDate.getTime()));
+		        statement.setDate(2, new java.sql.Date(endDate.getTime()));
+		        rs = statement.executeQuery();
+
+		        while (rs.next()) {
+		            Ordine ordine = new Ordine();
+		            ordine.setId(rs.getInt("Id"));
+		            ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
+		            ordine.setDestinatario(rs.getString("Destinatario"));
+		            ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
+		            ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
+		            ordine.setNoteCorriere(rs.getString("NoteCorriere"));
+		            ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));
+		            ordine.setNumeroTracking(rs.getString("NumeroTracking"));
+
+		            java.sql.Date dataInserimentoSQL = rs.getDate("Data");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            ordine.setData(dataInserimento);
+
+		            ordine.setCircuito(rs.getString("Circuito"));
+		            ordine.setConfezioneRegalo(rs.getBoolean("ConfezioneRegalo"));
+		            ordine.setNumeroCarta(rs.getString("NumeroCarta"));
+		            ordine.setUsername(rs.getString("Username"));
+
+		            ordini.add(ordine);
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return ordini;
+		}
+
+	 //prende tutti gli ordini in base all'username
+	 public Collection<Ordine> getOrdiniByUsername(String username) throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Collection<Ordine> ordini = new ArrayList<>();
+
+		    String querySQL = "SELECT * FROM Ordine WHERE Username = ?";
+
+		    try {
+		        conn = getConnection();
+		        statement = conn.prepareStatement(querySQL);
+		        statement.setString(1, username);
+		        rs = statement.executeQuery();
+
+		        while (rs.next()) {
+		            Ordine ordine = new Ordine();
+		            ordine.setId(rs.getInt("Id"));
+		            ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
+		            ordine.setDestinatario(rs.getString("Destinatario"));
+		            ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
+		            ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
+		            ordine.setNoteCorriere(rs.getString("NoteCorriere"));
+		            ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));
+		            ordine.setNumeroTracking(rs.getString("NumeroTracking"));
+
+		            java.sql.Date dataInserimentoSQL = rs.getDate("Data");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            ordine.setData(dataInserimento);
+
+		            ordine.setCircuito(rs.getString("Circuito"));
+		            ordine.setConfezioneRegalo(rs.getBoolean("ConfezioneRegalo"));
+		            ordine.setNumeroCarta(rs.getString("NumeroCarta"));
+		            ordine.setUsername(rs.getString("Username"));
+
+		            ordini.add(ordine);
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return ordini;
+		}
+
 }

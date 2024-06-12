@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
+	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 
 <%
+//Controlla se l'utente è autenticato e se è un amministratore
+Utente admin = (Utente) request.getSession().getAttribute("utente");
+if (admin == null || !admin.isAdmin()) {
+//Reindirizza l'utente alla pagina di errore o a una pagina di accesso negato
+response.sendRedirect("404.jsp");
+return; // Esce dalla pagina corrente
+}
+
 Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
 Categoria categoria = (Categoria) request.getSession().getAttribute("categoria");
 Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
@@ -119,40 +127,46 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 		</div>
 	</form>
 
-  <!-- Delete Image Modal -->
-    <div class="modal fade" id="deleteImageModal" tabindex="-1" aria-labelledby="deleteImageModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteImageModalLabel">Elimina Immagini</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <jsp:include page="DeleteImage.jsp" flush="true">
-                        <jsp:param name="images" value="<%= images %>" />
-                    </jsp:include>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- Delete Image Modal -->
+	<div class="modal fade" id="deleteImageModal" tabindex="-1"
+		aria-labelledby="deleteImageModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteImageModalLabel">Elimina
+						Immagini</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<jsp:include page="DeleteImage.jsp" flush="true">
+						<jsp:param name="images" value="<%= images %>" />
+					</jsp:include>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-   <!-- Add Image Modal -->
-    <div class="modal fade" id="addImageModal" tabindex="-1" aria-labelledby="addImageModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addImageModalLabel">Aggiungi Immagini</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <jsp:include page="AddImage.jsp" flush="true">
-                        <jsp:param name="images" value="<%= images %>" />
-                    </jsp:include>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- Add Image Modal -->
+	<div class="modal fade" id="addImageModal" tabindex="-1"
+		aria-labelledby="addImageModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addImageModalLabel">Aggiungi
+						Immagini</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<jsp:include page="AddImage.jsp" flush="true">
+						<jsp:param name="images" value="<%= images %>" />
+					</jsp:include>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- SCRIPT -->
 	<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>

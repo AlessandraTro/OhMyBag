@@ -70,7 +70,8 @@ CREATE TABLE Composizione(
     Quantita 	int 			check(Quantita>=0)not null,
     IVA 		float 			check(IVA>=0)not null,
     foreign key (IDOrdine) references Ordine(ID),
-    foreign key (IDProdotto) references Prodotto(ID)
+    foreign key (IDProdotto) references Prodotto(ID),
+    primary KEY(IDOrdine,IDProdotto)
 );
 
 CREATE TABLE Immagine(

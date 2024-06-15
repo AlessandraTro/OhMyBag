@@ -57,8 +57,13 @@
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Viaggi&tipo=Accessori Da Viaggio">Accessori da Viaggio</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="OrdiniAdminControl">Ordini</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Admin Zone </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="OrdiniAdminControl">Ordini</a></li>
+                        <li><a class="dropdown-item" href="AdminControl?pulsante=Add">Aggiunta Prodotto</a></li>
+                        <li><a class="dropdown-item" href="AdminControl?pulsante=Catalogo">Catalogo</a></li>
+                    </ul>
                 </li>
             </ul>
             
@@ -70,11 +75,10 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img id="immagine-user" src="img/website/user-solid.svg" alt="User Icon">
+                        <img id="immagine-user" src="img/website/user-secret-solid.svg" alt="User Icon">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                             <li class="dropdown-item">Admin: <%= utente.getNome() %></li>
-                            <li><a class="dropdown-item" href="AdminControl">Admin Zone</a></li>
 							<li><a class="dropdown-item" href="LogoutControl">Logout</a></li>
 						</ul>
 					</li>

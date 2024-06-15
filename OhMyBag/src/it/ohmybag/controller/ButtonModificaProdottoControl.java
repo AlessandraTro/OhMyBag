@@ -41,7 +41,7 @@ public class ButtonModificaProdottoControl extends HttpServlet {
 		try {
 			Prodotto prodotto = prodottoModel.doRetrieveById(productId);
 			request.getSession().setAttribute("ProdottoDaModificare",prodotto); // Carica solo il prodotto richiesto tramite l'ID
-            request.getSession().setAttribute("images", immagineModel.doRetrieveByProductId(productId)); // Carica solo le immagini del prodotto richiesto
+            request.getSession().setAttribute("productImages", immagineModel.doRetrieveByProductId(productId)); // Carica solo le immagini del prodotto richiesto
             request.getSession().setAttribute("categoria", categoriaModel.getCategoria(prodotto.getIdCategoria()));// Carica solo la categoria del prodotto richiesto
     		System.out.println("SONO NEL BOTTONE: " + prodotto.getDescrizione());
 

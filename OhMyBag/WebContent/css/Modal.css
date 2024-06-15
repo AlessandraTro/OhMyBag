@@ -1,0 +1,27 @@
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.thumbnail {
+	display: block;
+	padding: 4px;
+	margin-bottom: 20px;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	width: 100px;
+}
+
+.list-group.gallery {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-check {
+	margin-bottom: 15px;
+}

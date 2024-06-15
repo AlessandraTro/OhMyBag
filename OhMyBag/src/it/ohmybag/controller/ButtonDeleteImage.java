@@ -16,109 +16,6 @@ import it.ohmybag.bean.Immagine;
 import it.ohmybag.bean.Prodotto;
 import it.ohmybag.model.ImmagineModel;
 
-
-/*@WebServlet("/ButtonDeleteImage")
-public class ButtonDeleteImage extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	static ImmagineModel immagineModel;
-
-
-
-	static {
-		immagineModel = new ImmagineModel();
-
-	}
-
-	public ButtonDeleteImage() {
-		super();
-
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
-
-        String[] imageIds = request.getParameterValues("imagePath"); //Nella jsp deleteImage prende un array di stringhe che sono i path delle immagini
-
-		try {
-			for (String imageId : imageIds) {
-                boolean risultatoEliminazioneImg=immagineModel.deleteImage(imageId);
-                System.out.println("Immagini eliminate con esito"+ risultatoEliminazioneImg);
-                request.getSession().setAttribute("images", immagineModel.doRetrieveByProductId(product.getId())); // Carica solo le immagini del prodotto richiesto
-
-            }
-            
-            } catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-        response.sendRedirect("AdminModificaProdotto.jsp");  // Redirigi alla pagina di modifica del prodotto
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
-}*/
-
-//PROVA
-/*@WebServlet("/ButtonDeleteImage")
-public class ButtonDeleteImage extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    static ImmagineModel immagineModel;
-
-    static {
-        immagineModel = new ImmagineModel();
-    }
-
-    public ButtonDeleteImage() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
-        String[] imagePaths = request.getParameterValues("imagePath"); //Nella jsp deleteImage prende un array di stringhe che sono i path delle immagini
-
-        try {
-            for (String imagePath : imagePaths) {
-                // Elimina il file fisicamente
-                String realImagePath = getServletContext().getRealPath(imagePath);
-                File imageFile = new File(realImagePath);
-                
-                if (imageFile.exists() && imageFile.isFile()) {
-                    boolean fileDeleted = imageFile.delete();
-                    if (fileDeleted) {
-                        System.out.println("Immagine eliminata con successo: " + imagePath);
-                    } else {
-                        System.out.println("Errore durante l'eliminazione dell'immagine: " + imagePath);
-                    }
-                } else {
-                    System.out.println("Immagine non trovata: " + imagePath);
-                }
-
-                // Elimina il riferimento dal database
-                boolean risultatoEliminazioneImg = immagineModel.deleteImage(imagePath);
-                System.out.println("Risultato eliminazione immagine dal database: " + risultatoEliminazioneImg);
-            }
-            
-            request.getSession().setAttribute("images", immagineModel.doRetrieveByProductId(product.getId())); // Carica solo le immagini del prodotto richiesto
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        response.sendRedirect("AdminModificaProdotto.jsp"); // Redirigi alla pagina di modifica del prodotto
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
-    }
-}*/
 @WebServlet("/ButtonDeleteImage")
 public class ButtonDeleteImage extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -164,7 +61,8 @@ public class ButtonDeleteImage extends HttpServlet {
                 System.out.println("Risultato eliminazione immagine dal database: " + risultatoEliminazioneImg);
             }
 
-            request.getSession().setAttribute("images", immagineModel.doRetrieveByProductId(product.getId())); // Carica solo le immagini del prodotto richiesto
+            Collection<Immagine> updatedImages = immagineModel.doRetrieveByProductId(product.getId());
+            request.getSession().setAttribute("productImages", updatedImages);// Carica solo le immagini del prodotto richiesto
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -279,5 +279,44 @@ public class ImmagineModel {
 
 	    return images;
 	}
+	
+	  /**
+     * Imposta un'immagine come copertina
+     * 
+     * @param String idProdotto L'ID del prodotto a cui appartiene l'immagine
+     * @param String nomeImmagine Il nome dell'immagine da impostare come copertina
+     * @throws SQLException In caso di errore di accesso al database
+     */
+    public void setCoverImage(String idProdotto, String nomeImmagine) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
+        String updateSQL = "UPDATE Immagine SET Copertina = ? WHERE IDProdotto = ?";
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(updateSQL);
+            preparedStatement.setBoolean(1, false); // Imposta tutte le immagini come non copertina
+            preparedStatement.setString(2, idProdotto);
+            preparedStatement.executeUpdate();
+
+            // Imposta l'immagine selezionata come copertina
+            updateSQL = "UPDATE Immagine SET Copertina = ? WHERE IDProdotto = ? AND Nome = ?";
+            preparedStatement = connection.prepareStatement(updateSQL);
+            preparedStatement.setBoolean(1, true);
+            preparedStatement.setString(2, idProdotto);
+            preparedStatement.setString(3, nomeImmagine);
+            preparedStatement.executeUpdate();
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+    }
 }
+
+

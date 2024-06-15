@@ -13,167 +13,137 @@ return; // Esce dalla pagina corrente
 
 Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
 Categoria categoria = (Categoria) request.getSession().getAttribute("categoria");
-Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modifica Prodotto</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="./css/AdminModificaProdotto.css" rel="stylesheet"
-	type="text/css">
-<!-- Da cambiare css admin -->
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
+<link href="./css/ModificaProdotto.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-	<%@ include file="Header.jsp"%>
-	<form action="AdminModificaControl" method="post"
-		onsubmit="return validate(this)">
-		<div class="container-dettagli">
-			<table class="table-costum">
-				<thead>
-					<th>Dettagli prodotto</th>
-				</thead>
+    <%@ include file="HeaderAdmin.jsp"%>
+	<form class="formAdmin" action="AdminModificaControl" method="post" onsubmit="return validate(this)">
+        <div class="container-dettagli">
+        <h2 class="titolo">Dettagli Prodotto</h2> 
+                <div class="campi">
+        
+            <!-- Campi che non si modificano -->
+            <div class="login-box">
+                <label for="productId" class="label">ID Prodotto: </label>
+                <input type="text" name="productId" id="productId" class="input-field" value="<%=product.getId()%>" readonly>
+            </div>
 
-				<tbody>
-					<!-- Campi che non si modificano -->
-					<tr>
-						<td>ID:</td>
-						<td><%= product.getId()%></td>
-					</tr>
-					<tr>
-						<td>Nome:</td>
-						<td><%= product.getNome()%></td>
-					</tr>
-					<tr>
-						<td>Marca:</td>
-						<td><%= product.getMarca()%></td>
-					</tr>
-					<tr>
-						<td>Tipologia:</td>
-						<td><%= product.getTipologia()%></td>
-					</tr>
-					<tr>
-						<td>Categoria:</td>
-						<td><%= categoria.getNome()%></td>
-					</tr>
-					<tr>
-						<td>Anno Collezione:</td>
-						<td><%= product.getAnnoCollezione()%></td>
-					</tr>
-					<tr>
-						<td>Data Inserimento:</td>
-						<!-- Formattata la data -->
-						<%
-						    GregorianCalendar calendar = product.getDataInserimento();
-						    LocalDateTime dateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
-						    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-						    String formattedDate = dateTime.format(formatter);
-						%>
-						<td><%= formattedDate%></td>
-					</tr>
+            <div class="login-box">
+                <label for="productName" class="label">Nome: </label>
+                <input type="text" name="productName" id="productName" class="input-field" value="<%=product.getNome()%>" readonly>
+            </div>
 
-					<!-- Campi che si modificano -->
-					<tr>
-						<td>Prezzo:</td>
-						<td><input type="text" class="form-control"
-							name="inputPrezzo" id="inputPrezzo"
-							placeholder="<%=String.format("%.2f", product.getPrezzo())%> €">
-							<p id="inputPrezzoError" class="error"></p></td>
-					</tr>
-					<tr>
-						<td>Sconto:</td>
-						<td><input type="number" class="form-control"
-							name="inputSconto" id="inputSconto" min=0 max=99
-							placeholder="<%=product.getSconto()%> %">
-							<p id="inputScontoError" class="error"></p></td>
-					</tr>
-					<tr>
-						<td>Quantità:</td>
-						<td><input type="number" class="form-control"
-							name="inputQuantity" id="inputQuantity" min=1 max=100
-							placeholder="<%=product.getDisponibilita()%>">
-							<p id="inputQuantityError" class="error"></p></td>
+            <div class="login-box">
+                <label for="productBrand" class="label">Marca: </label>
+                <input type="text" name="productBrand" id="productBrand" class="input-field" value="<%=product.getMarca()%>" readonly>
+            </div>
 
-					</tr>
-					<tr>
-						<td>Iva:</td>
-						<td><input type="number" class="form-control" name="inputIva"
-							id="inputIva" min=1 max=100 placeholder="<%=product.getIva()%> %">
-							<p id="inputIvaError" class="error"></p></td>
-					</tr>
-					<tr>
-						<td>Descrizione:</td>
-						<td><textarea rows="3" cols="3" class="form-control"
-								name="inputDescrizione" id="inputDescrizione"> <%=product.getDescrizione()%></textarea>
-							<p id="inputDescrizioneError" class="error"></p></td>
-					</tr>
-					<tr>
-						<td>Immagine:</td>
-						<td><button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#deleteImageModal">Elimina
-								Immagini</button>
-							<button type="button" class="btn btn-primary"
-								data-bs-toggle="modal" data-bs-target="#addImageModal">Aggiungi
-								Immagini</button></td>
-					</tr>
-					<tr>
-						<td><button type="submit" class="btn btn-primary">Modifica</button></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</form>
+            <div class="login-box">
+                <label for="productType" class="label">Tipologia: </label>
+                <input type="text" name="productType" id="productType" class="input-field" value="<%=product.getTipologia()%>" readonly>
+            </div>
 
-	<!-- Delete Image Modal -->
-	<div class="modal fade" id="deleteImageModal" tabindex="-1"
-		aria-labelledby="deleteImageModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="deleteImageModalLabel">Elimina
-						Immagini</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<jsp:include page="DeleteImage.jsp" flush="true">
-						<jsp:param name="images" value="<%= images %>" />
-					</jsp:include>
-				</div>
+            <div class="login-box">
+                <label for="categoryName" class="label">Categoria: </label>
+                <input type="text" name="categoryName" id="categoryName" class="input-field" value="<%=categoria.getNome()%>" readonly>
+            </div>
+
+            <div class="login-box">
+                <label for="collectionYear" class="label">Anno Collezione: </label>
+                <input type="text" name="collectionYear" id="collectionYear" class="input-field" value="<%=product.getAnnoCollezione()%>" readonly>
+            </div>
+
+            <div class="login-box">
+            <!-- Formattata la data -->
+			<%
+			GregorianCalendar calendar = product.getDataInserimento();
+			LocalDateTime dateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			String formattedDate = dateTime.format(formatter);
+			%>
+                <label for="dateInserted" class="label">Data Inserimento: </label>
+                <input type="text" name="dateInserted" id="dateInserted" class="input-field" value="<%= formattedDate %>" readonly>
+            </div>
+
+            <!-- Campi che si modificano -->
+            <div class="login-box">
+                <label for="inputPrezzo" class="label">Prezzo: </label>
+                <input type="text" class="input-field" name="inputPrezzo" id="inputPrezzo" placeholder="<%=String.format("%.2f", product.getPrezzo())%> €">
+                <p id="inputPrezzoError" class="error"></p>
+            </div>
+
+            <div class="login-box">
+                <label for="inputSconto" class="label">Sconto: </label>
+                <input type="number" class="input-field" name="inputSconto" id="inputSconto" min="0" max="99" placeholder="<%=product.getSconto()%> %">
+                <p id="inputScontoError" class="error"></p>
+            </div>
+
+            <div class="login-box">
+                <label for="inputQuantity" class="label">Quantità: </label>
+                <input type="number" class="input-field" name="inputQuantity" id="inputQuantity" min="1" max="100" placeholder="<%=product.getDisponibilita()%>">
+                <p id="inputQuantityError" class="error"></p>
+            </div>
+
+            <div class="login-box">
+                <label for="inputIva" class="label">IVA: </label>
+                <input type="number" class="input-field" name="inputIva" id="inputIva" min="1" max="100" placeholder="<%=product.getIva()%> %">
+                <p id="inputIvaError" class="error"></p>
+            </div>
 			</div>
-		</div>
-	</div>
-
-
-	<!-- Add Image Modal -->
-	<div class="modal fade" id="addImageModal" tabindex="-1"
-		aria-labelledby="addImageModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="addImageModalLabel">Aggiungi
-						Immagini</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<jsp:include page="AddImage.jsp" flush="true">
-						<jsp:param name="images" value="<%= images %>" />
-					</jsp:include>
-				</div>
-			</div>
-		</div>
-	</div>
+			<div class="descrizione-immagini">
+			<div class="descrizione">
+            <div class="login-box">
+                <label for="inputDescrizione" class="label-Descrizone">Descrizione: </label>
+                <textarea rows="3" cols="3" class="input-field" name="inputDescrizione" id="inputDescrizione"><%=product.getDescrizione()%></textarea>
+                <p id="inputDescrizioneError" class="error"></p>
+            </div>
+            </div>
+            <div class="img-change">
+        	<div class="immagine-prodotto">
+            	<label for="inputImmagine" class="label-Immigine">Immagini: </label>
+        	</div>
+        	<div class="buttons-container">
+            	<button type="button" class="pulsante" onclick="openModal('Delete')">Elimina Immagini</button>
+            	<button type="button" class="pulsante" onclick="openModal('Add')">Aggiungi Immagini</button>
+            	<button type="button" class="pulsante" onclick="openModal('Copertina')">Modifica Copertina</button>
+        	</div>
+        	<div class="buttonBig">
+        	     <button type="submit" class="pulsanteBig ">Modifica</button>
+        	</div>        	
+           	</div>
+    		</div>
+    	</div>
+    </form>
+    <!-- MODALI -->
+	<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Gestione Immagini</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Il contenuto del modale sarà caricato dinamicamente -->
+            </div>
+        </div>
+    </div>
+</div>
 
 	<!-- SCRIPT -->
 	<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 	<!-- script preso online per includere CKEditor dal CDN -->
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-
 	<script>
 	// Script per trasformare la textarea in CKEditor
     CKEDITOR.replace('inputDescrizione');
@@ -338,21 +308,14 @@ Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAtt
 				return false;
 			}
 		}
+		
+		// Funzione per aprire il modale
+		function openModal(modalType) {
+			let url = "ButtonModal?Pulsante=" + modalType;
+			$("#modal-body").load(url, function() {
+				$("#modal").modal("show");
+			});
+		}
 	</script>
 </body>
 </html>
-
-
-<!--  
-
-<form action="AdminControl" method="POST">
-		<input type="hidden" name="action" value="modDesc"> 
-		<input type="hidden" name="ID" value="<%=request.getParameter("ID")%>">
-
-		<label for="modDescrizione">Modifica Descrizione:</label><br>
-		<textarea name="modDescrizione" type="text" maxlength="3000" rows="3" required placeholder="enter Descrizione" style="height: 400px;">
-		<%=request.getAttribute("descrizione")%>
-		</textarea><br>
-		<input type="submit" value="apply">
-		<input type="reset" value="Reset">
-	</form> -->

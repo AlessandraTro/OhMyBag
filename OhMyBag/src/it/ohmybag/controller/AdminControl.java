@@ -29,8 +29,16 @@ public class AdminControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
-		dispatcher.forward(request, response);
+		String pulsante= (String) request.getParameter("pulsante");
+		if(pulsante.equals("Catalogo")) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminAddProdotto.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

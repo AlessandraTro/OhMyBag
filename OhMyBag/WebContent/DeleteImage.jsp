@@ -2,66 +2,38 @@
 	pageEncoding="UTF-8"
 	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 
-<% Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("images");
+<% 
+Collection<Immagine> img = (Collection<Immagine>) request.getSession().getAttribute("productImages");
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Image View</title>
+<title>Elimina Immagini</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<style>
-.gallery {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-}
+<link href="css/Modal.css" rel="stylesheet" type="text/css">
 
-.thumbnail {
-	display: block;
-	padding: 4px;
-	margin-bottom: 20px;
-}
-
-.img-responsive {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
-.list-group gallery {
-	display: contents;
-}
-
-.form-check {
-	margin-bottom: 15px;
-}
-</style>
-<script>
-        function confirmDeletion(event) {
-            const confirmed = confirm("Sei sicuro di voler eliminare le immagini selezionate?");
-             if (!confirmed) {                 event.preventDefault();
-            }
-       }
-     </script>
 </head>
 <body>
 	<div class="container">
-		<form action="ButtonDeleteImage" method="post"
-			onsubmit="confirmDeletion(event)">
+		<form id="deleteForm" action="ButtonDeleteImage" method="post">
 			<div class="list-group gallery">
-				<% if (images != null && !images.isEmpty()) { %>
-				<% for (Immagine immagine : images) { %>
-				<p><%= immagine.getNome()%></p>
+				<% if (img != null && !img.isEmpty()) { %>
+				<% for (Immagine immagine : img) { %>
 				<div class="form-check">
+					<% if (immagine.isCopertina()) { %>
+					<p>Immagine di Copertina</p>
+					<img src="<%= immagine.getNome() %>" alt="Image"
+						class="img-responsive">
+					<% } else { %>
 					<input class="form-check-input" type="checkbox" name="imagePath"
 						value="<%= immagine.getNome() %>"
 						id="image<%= immagine.getNome() %>"> <label
 						class="form-check-label" for="image<%= immagine.getNome() %>">
-						<img src="<%= immagine.getNome()%>" alt="Image"
-						class="img-responsive" style="width: 100px;">
+						<img src="<%= immagine.getNome() %>" alt="Image"
+						class="img-responsive">
 					</label>
+					<% } %>
 				</div>
 				<% } %>
 				<% } else { %>
@@ -74,5 +46,37 @@
 	</div>
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<script>
+	$(document).ready(function() {
+        $('#deleteForm').on('submit', function(event) {
+            event.preventDefault();
+            
+         	// Verifica se almeno una checkbox è stata selezionata
+            var checkboxesChecked = $("input[name='imagePath']:checked").length;
+            if (checkboxesChecked === 0) {
+                alert("Nessuna immagine selezionata");
+                return; // Esce dalla funzione senza proseguire
+            }
+            
+            
+            if (confirm("Sei sicuro di voler eliminare le immagini selezionate?")) {
+                $.ajax({
+                    url: 'ButtonDeleteImage',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert('Immagini eliminate con successo');
+                        // Ricarica il contenuto del modale
+                        $("#modal-body").load("ButtonModal?Pulsante=Delete");
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Si è verificato un errore: ' + error);
+                    }
+                });
+            }
+        });
+    });
+    </script>
 </body>
 </html>
+

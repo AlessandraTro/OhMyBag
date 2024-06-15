@@ -53,13 +53,13 @@ public class ButtonAddImage extends HttpServlet {
 							+ product.getTipologia() + File.separator + product.getMarca() + File.separator
 							+ product.getNome() + File.separator + fileName;
 
-					// Create directories if they do not exist
+					//Crea directory se non esistono
 					File file = new File(filePath);
 					file.getParentFile().mkdirs();
 
 					part.write(filePath);
 
-					// Save the image information in the database
+					//Salva le informazioni dell'immagini nel database
 					Immagine newImage = new Immagine();
 					newImage.setNome("img/prodotti" + "/" + categoria.getNome() + "/" + product.getTipologia() + "/"
 							+ product.getMarca() + "/" + product.getNome() + "/" + fileName);
@@ -81,7 +81,7 @@ public class ButtonAddImage extends HttpServlet {
 				}
 			}
 
-			request.getSession().setAttribute("images", immagineModel.doRetrieveByProductId(product.getId())); 
+			request.getSession().setAttribute("productImages", immagineModel.doRetrieveByProductId(product.getId())); 
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ButtonAddImage extends HttpServlet {
 			return;
 		}
 
-		response.sendRedirect("AdminModificaProdotto.jsp"); // Redirect to the product modification page
+		response.sendRedirect("AdminModificaProdotto.jsp"); // Ridireziona alla pagina AdminModificaProdotto.jsp
 	}
 
 	private String extractFileName(Part part) {

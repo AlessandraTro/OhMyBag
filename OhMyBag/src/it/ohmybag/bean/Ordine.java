@@ -10,7 +10,7 @@ public class Ordine implements Serializable{
 	private int id;
 	private float prezzoTotale;
 	private String destinatario;
-	private String metodoDiPagamento; 
+
 	private String indirizzoSpedizione;
 	private String noteCorriere;
 	private String metodoDiSpedizione;
@@ -21,14 +21,13 @@ public class Ordine implements Serializable{
 	private String numeroCarta;
 	private String username;
 	
-	public Ordine(float prezzoTotale,String destinatario,String metodoDiPagamento,
+	public Ordine(float prezzoTotale,String destinatario,
 			String indirizzoSpedizione,String noteCorriere,String metodoDiSpedizione,GregorianCalendar data,String circuito,boolean confezioneRegalo,
 			String numeroCarta,String username) {
 			super();
 			setId(id);
 			this.destinatario=destinatario;
 			this.prezzoTotale = prezzoTotale;
-			this.metodoDiPagamento = metodoDiPagamento;
 			this.indirizzoSpedizione = indirizzoSpedizione;
 			this.noteCorriere = noteCorriere;
 			this.metodoDiSpedizione = metodoDiSpedizione;
@@ -62,12 +61,6 @@ public class Ordine implements Serializable{
 	}
 	public void setDestinatario(String destinatario) {
 		this.destinatario = destinatario;
-	}
-	public String getMetodoDiPagamento() {
-		return metodoDiPagamento;
-	}
-	public void setMetodoDiPagamento(String metodoDiPagamento) {
-		this.metodoDiPagamento = metodoDiPagamento;
 	}
 	public String getIndirizzoSpedizione() {
 		return indirizzoSpedizione;
@@ -132,7 +125,7 @@ public class Ordine implements Serializable{
 	@Override
 	public String toString() {
 		return "Ordine [id=" + id + ", prezzoTotale=" + prezzoTotale + ", destinatario=" + destinatario
-				+ ", metodoDiPagamento=" + metodoDiPagamento + ", indirizzoSpedizione=" + indirizzoSpedizione
+				+ ", metodoDiPagamento=" + ", indirizzoSpedizione=" + indirizzoSpedizione
 				+ ", noteCorriere=" + noteCorriere + ", metodoDiSpedizione=" + metodoDiSpedizione + ", numeroTracking="
 				+ numeroTracking + ", data=" + data + ", circuito=" + circuito + ", confezioneRegalo="
 				+ confezioneRegalo + ", numeroCarta=" + numeroCarta + ", username=" + username + "]";

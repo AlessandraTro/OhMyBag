@@ -16,30 +16,29 @@ IndirizzoSpedizione varchar(500) not null
 );
 
 CREATE TABLE Carta(
-Id 				int 		 Primary key,
+Id 				int 		 Primary key auto_increment,
 Username		varchar(100) not null,
 CVV				int			 check(CVV>=0)not null,
 Circuito		varchar(100) not null,
 DataScadenza	date 		 not null,
 NumeroCarta 	varchar(25)  not null,
-foreign key (Username) references Utente(Username)
+foreign key (Username) references Utente(Username) on delete cascade
 );
 
 CREATE TABLE Ordine(
 Id 						int 		 	Primary key auto_increment,
 PrezzoTotale			float		 	check(PrezzoTotale>=0)not null,
 Destinatario			varchar(100) 	not null,
-MetodoDiPagamento		varchar(100) 	not null,
 IndirizzoDiSpedizione	varchar(100) 	not null,
 NoteCorriere			varchar(1000)	not null,
 MetodoDiSPedizione		varchar(20) 	check(MetodoDiSpedizione IN ("Standard", "Premium"))not null,
 NumeroTracking			varchar(100) 	not null,
 Data					date 		 	not null,
-Circuito				varchar(100) 	not null,
+Circuito				varchar(100) 	check(Circuito IN ("Mastercard", "Visa"))not null,
 ConfezioneRegalo		boolean 	 	not null,
 NumeroCarta				varchar(25) 	not null,
 Username				varchar(100) 	not null,
-foreign key (Username) references Utente(Username)
+foreign key (Username) references Utente(Username) on delete cascade
 );
 
 CREATE TABLE Categoria(
@@ -69,7 +68,7 @@ CREATE TABLE Composizione(
     Prezzo 		float 			check(Prezzo>=0)not null,
     Quantita 	int 			check(Quantita>=0)not null,
     IVA 		float 			check(IVA>=0)not null,
-    foreign key (IDOrdine) references Ordine(ID),
+    foreign key (IDOrdine) references Ordine(ID) on delete cascade,
     foreign key (IDProdotto) references Prodotto(ID),
     primary KEY(IDOrdine,IDProdotto)
 );

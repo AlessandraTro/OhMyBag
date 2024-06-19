@@ -27,7 +27,7 @@ public class OrdineModel {
 		PreparedStatement statement=null;
 		
 		/*Sringa con Query*/
-		String insertSQL="INSERT INTO Ordine (PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, ConfezioneRegalo, NumeroCarta, Username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+		String insertSQL="INSERT INTO Ordine (PrezzoTotale, Destinatario,  IndirizzoDiSpedizione, NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, ConfezioneRegalo, NumeroCarta, Username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			conn=getConnection();/*creo la connessione con il database*/
@@ -35,19 +35,18 @@ public class OrdineModel {
 			
 			statement.setFloat(1, ordine.getPrezzoTotale());
 			statement.setString(2,ordine.getDestinatario());
-			statement.setString(3,ordine.getMetodoDiPagamento());
-			statement.setString(4,ordine.getIndirizzoSpedizione());
-			statement.setString(5, ordine.getNoteCorriere());
-			statement.setString(6,ordine.getMetodoDiSpedizione());
-			statement.setString(7,ordine.getNumeroTracking());
+			statement.setString(3,ordine.getIndirizzoSpedizione());
+			statement.setString(4, ordine.getNoteCorriere());
+			statement.setString(5,ordine.getMetodoDiSpedizione());
+			statement.setString(6,ordine.getNumeroTracking());
 			
 			java.sql.Date data= new java.sql.Date(ordine.getData().getTimeInMillis());
-			statement.setDate(8, data);
+			statement.setDate(7, data);
 			
-			statement.setString(9, ordine.getCircuito());
-			statement.setBoolean(10, ordine.isConfezioneRegalo());
-			statement.setString(11, ordine.getNumeroCarta());
-			statement.setString(12,ordine.getUsername());
+			statement.setString(8, ordine.getCircuito());
+			statement.setBoolean(9, ordine.isConfezioneRegalo());
+			statement.setString(10, ordine.getNumeroCarta());
+			statement.setString(11,ordine.getUsername());
 			
 			statement.executeUpdate();
 		}finally {
@@ -110,7 +109,7 @@ public class OrdineModel {
 		PreparedStatement statement=null;
 		
 		/*Sringa con Query*/
-		String insertSQL="update Ordine set PrezzoTotale=?, Destinatario=?, MetodoDiPagamento=?, IndirizzoDiSpedizione=?, NoteCorriere=?, MetodoDiSpedizione=?, NumeroTracking=?, Data=?, Circuito=?, ConfezioneRegalo=?, NumeroCarta=? where Id=? && Username=?";
+		String insertSQL="update Ordine set PrezzoTotale=?, Destinatario=?, IndirizzoDiSpedizione=?, NoteCorriere=?, MetodoDiSpedizione=?, NumeroTracking=?, Data=?, Circuito=?, ConfezioneRegalo=?, NumeroCarta=? where Id=? && Username=?";
 		
 		try {
 			conn=getConnection();/*creo la connessione con il database*/
@@ -118,11 +117,10 @@ public class OrdineModel {
 			
 			statement.setFloat(1, ordine.getPrezzoTotale());
 			statement.setString(2,ordine.getDestinatario());
-			statement.setString(3,ordine.getMetodoDiPagamento());
-			statement.setString(4,ordine.getIndirizzoSpedizione());
-			statement.setString(5, ordine.getNoteCorriere());
-			statement.setString(6,ordine.getMetodoDiSpedizione());
-			statement.setString(7,ordine.getNumeroTracking());
+			statement.setString(3,ordine.getIndirizzoSpedizione());
+			statement.setString(4, ordine.getNoteCorriere());
+			statement.setString(5,ordine.getMetodoDiSpedizione());
+			statement.setString(6,ordine.getNumeroTracking());
 			
 			java.sql.Date data= new java.sql.Date(ordine.getData().getTimeInMillis());
 			statement.setDate(8, data);
@@ -166,7 +164,6 @@ public class OrdineModel {
 	            bean.setId(rs.getInt("Id"));
 	            bean.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
 	            bean.setDestinatario(rs.getString("Destinatario"));
-	            bean.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
 	            bean.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
 	            bean.setNoteCorriere(rs.getString("NoteCorriere"));
 	            bean.setNumeroTracking(rs.getString("NumeroTracking"));
@@ -214,7 +211,6 @@ public class OrdineModel {
 	                ordine.setId(rs.getInt("Id"));
 	                ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
 	                ordine.setDestinatario(rs.getString("Destinatario"));
-	                ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
 	                ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
 	                ordine.setNoteCorriere(rs.getString("NoteCorriere"));
 	                ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));
@@ -266,7 +262,6 @@ public class OrdineModel {
 		            ordine.setId(rs.getInt("Id"));
 		            ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
 		            ordine.setDestinatario(rs.getString("Destinatario"));
-		            ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
 		            ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
 		            ordine.setNoteCorriere(rs.getString("NoteCorriere"));
 		            ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));
@@ -317,7 +312,6 @@ public class OrdineModel {
 		            ordine.setId(rs.getInt("Id"));
 		            ordine.setPrezzoTotale(rs.getFloat("PrezzoTotale"));
 		            ordine.setDestinatario(rs.getString("Destinatario"));
-		            ordine.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
 		            ordine.setIndirizzoSpedizione(rs.getString("IndirizzoDiSpedizione"));
 		            ordine.setNoteCorriere(rs.getString("NoteCorriere"));
 		            ordine.setMetodoDiSpedizione(rs.getString("MetodoDiSpedizione"));

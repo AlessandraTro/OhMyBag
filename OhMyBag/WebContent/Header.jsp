@@ -58,7 +58,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="OrdiniAdminControl">Chi Siamo</a>
+                    <a class="nav-link info" href="OrdiniAdminControl">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contattaci</a>
@@ -73,15 +73,19 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img id="immagine-user" src="img/website/user-solid.svg" alt="User Icon">
+                    	<%if (utente != null){%> <!-- utente loggato -->
+                        	<img id="immagine-user" src="img/website/circle-user-solid.svg" alt="User Icon" style="width:30px">
+                        <%}else{ %> <!-- utente non loggato -->
+                        	<img id="immagine-user" src="img/website/user-solid.svg" alt="User Icon">
+                        <%} %>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <% if (utente != null) { %>
                             <li class="dropdown-item">Ciao: <%= utente.getNome() %></li>
-                            <li><a class="dropdown-item" href="LogoutControl">Logout</a></li>
                             <% if (!utente.isAdmin()) { %>
-                                <li><a class="dropdown-item" href="#">User Zone</a></li>
+                                <li><a class="dropdown-item" href="OrdiniUtenteControl">User Zone</a></li>
                             <% } %>
+                            <li><a class="dropdown-item" href="LogoutControl">Logout</a></li>
                         <% } else { %>
                             <li><a class="dropdown-item" href="LoginControl">Login</a></li>
                             <li><a class="dropdown-item" href="ButtonRegistrazioneControl">Registrati</a></li>

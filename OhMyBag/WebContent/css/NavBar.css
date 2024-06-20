@@ -38,3 +38,8 @@ nav {
 	max-width: 50px;
 	max-height: 50px;
 }
+@media (max-width:1090px){
+	.info{
+		min-width:101px;
+	}
+}

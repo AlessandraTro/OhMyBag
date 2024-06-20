@@ -2,9 +2,14 @@ package it.ohmybag.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import it.ohmybag.bean.Carta;
+import it.ohmybag.bean.Prodotto;
 
 public class CartaModel {
 	private Connection getConnection() throws SQLException {
@@ -49,6 +54,36 @@ public class CartaModel {
 			}
 		}
 	}
-	
+	/*ritorna tutti i prodotti di una determinata categoria es. uomo, donna, viaggi*/
+	public boolean checkCardExists(String numeroCarta, String username) throws Exception {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		boolean exists=false;
+		
+		String QuerySQL="SELECT 1 FROM Carta WHERE NumeroCarta=? and Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(QuerySQL);
+			statement.setString(1,numeroCarta);
+			statement.setString(2,username);
+			
+			ResultSet rs= statement.executeQuery();
+			
+			exists = rs.next();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return exists;
+	}
 	
 }

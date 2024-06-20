@@ -123,13 +123,8 @@ public class LoginControl extends HttpServlet{
 	            return;
 	        } else {
 	        	
-	        	System.out.println("password data base: " + utente.getPassword());
-	        	
 	        	String hashPassword=CriptoPassword.toHash(password);
-	        	System.out.println("password inviata criptografata: " + hashPassword);
-
 	        	
-	        	System.out.println(utente.getPassword().equals(hashPassword));
 	        	if (utente.getPassword().equals(hashPassword)) {
                     // Le password corrispondono, l'utente può accedere
                     request.getSession().setAttribute("utente", utente);

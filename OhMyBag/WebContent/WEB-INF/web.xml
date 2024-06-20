@@ -109,6 +109,30 @@
 		<servlet-name>CategorieProdottiControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.CategorieProdottiControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>OrdiniUtenteControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OrdiniUtenteControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteAccountControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.DeleteAccountControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificaDatiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ModificaDatiControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddCreditCardControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AddCreditCardControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>VerificaVecchiaPasswordControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.VerificaVecchiaPasswordControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CambiaPasswordControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CambiaPasswordControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

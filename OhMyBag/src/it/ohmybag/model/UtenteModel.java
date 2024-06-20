@@ -59,6 +59,65 @@ public class UtenteModel {
 			}
 		}
 	}
+	/*Permette di eliminare dal database l'utente con un determinato username*/
+	public synchronized boolean deleteUser(String username) throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		int result=0;
+		
+		String deleteSQL="DELETE FROM Utente WHERE Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(deleteSQL);
+			
+			statement.setString(1, username);
+			
+			result=statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return result!=0;
+	}
+	/*permette di modificare la password di un determinato utente*/
+	public synchronized void UpdateUtente(Utente utente)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String updateSQL="update Utente set Nome=?, Cognome=?, Email=?, Telefono=?, IndirizzoSpedizione=? where Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(updateSQL);
+			
+			statement.setString(1, utente.getNome());
+			statement.setString(2, utente.getCognome());
+			statement.setString(3, utente.getEmail());
+			statement.setString(4, utente.getTelefono());
+			statement.setString(5, utente.getIndirizzoSpedizione());
+			statement.setString(6, utente.getUsername());
+			
+			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
 	/*permette di modificare la password di un determinato utente*/
 	public synchronized void UpdatePassword(String username,String password)throws SQLException{
 		Connection conn=null;

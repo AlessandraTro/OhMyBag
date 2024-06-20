@@ -1,0 +1,116 @@
+
+:root {
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff;
+    --brown-color: #d6ccc2;
+    --black-color: #000000;
+}
+.container{
+	display:flex;
+	flex-direction:row;
+	margin-top:20px;
+	margin-bottom:20px;
+	align-items:center;
+	
+	border-right: 2px solid var(--primary-color);
+    box-shadow: 0px 0px 10px 4px var(--brown-color);
+    padding: 30px 5px 30px 0px;
+    color: var(--black-color);
+}
+.container-menu{
+	display:flex;
+	justify-content:space-between;
+	flex-direction:column;
+	
+	border-right: 2px solid var(--primary-color);
+    box-shadow: 6px 0px 10px 1px var(--brown-color);
+    padding: 10px 15px 15px 5px;
+    color: var(--black-color);
+    height:280px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+}
+.container-insert{
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
+	margin-left:35%;
+}
+.menu-down{
+	display:flex;
+	flex-direction:column;
+}
+.content{
+	margin-bottom:8px;
+}
+.button{
+	display:flex;
+}
+.reset{
+	margin-left:8px;
+}
+table, th, td {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px;
+}
+.content img{
+	width:35px;
+	display:none;
+}
+
+.input-field {
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--black-color);
+    padding-inline: 20px 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+}
+.login-box{
+	margin-bottom:8px;
+	max-width:400px;
+}
+
+@media (max-width: 770px) {
+	.setting{
+		margin-bottom:5px;
+	}
+	.container{
+		flex-direction:column;
+		padding-top:15px;
+		border:0px;
+	}
+	.container-menu {
+        position: fixed;
+        top: 0;
+        left: -65%;
+        width: 60%;
+        height: 100%;
+        background-color: var(--second-color);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        box-shadow: 6px 0px 10px 1px var(--brown-color);
+    }
+
+    .container-menu.open {
+        left: 0;
+    }
+    .container-insert{
+    	margin-left:15%;
+    	margin-right:15%;
+    }
+
+    .settings-icon {
+    	padding-left:15px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}

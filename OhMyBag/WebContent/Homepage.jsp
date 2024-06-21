@@ -58,7 +58,7 @@
 		<div class="container-custom">
 
 			<div class="container-heading">
-				<div class="row">
+				<div class="row home">
 					<div class="col-lg-3 ">
 						<h1 class="d-none d-lg-block">NUOVI ARRIVI</h1>
 					</div>
@@ -164,7 +164,7 @@
 			<hr class="featurette-divider">
 
 			<div class="container">
-				<div id="sezione-donna" class="row">
+				<div id="sezione-donna" class="row home">
 					<div class="col">
 						<a href="CategorieProdottiControl?categoria=Donna&tipo=">
 							<h2 class="featurette">DONNA</h2>
@@ -184,7 +184,7 @@
 			<hr class="featurette-divider">
 
 			<div id="sezione-uomo" class="container">
-				<div class="row">
+				<div class="row home">
 					<div class="col">
 						<a href="CategorieProdottiControl?categoria=Uomo&tipo="> <img
 							src="img/website/featurettes/prada.jpg"
@@ -205,7 +205,7 @@
 			<hr class="featurette-divider">
 
 			<div id="sezione-viaggi" class="container">
-				<div class="row">
+				<div class="row home">
 					<div class="col">
 						<a href="CategorieProdottiControl?categoria=Viaggi&tipo=">
 

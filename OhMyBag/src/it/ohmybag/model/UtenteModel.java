@@ -351,6 +351,31 @@ public class UtenteModel {
 
 	    return utenti;
 	}
+	
+	public synchronized void updateIndirizzo(Utente utente) throws SQLException {
+        Connection conn = null;
+        PreparedStatement statement = null;
+
+        String updateSQL = "UPDATE Utente SET IndirizzoSpedizione = ? WHERE Username = ?";
+
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(updateSQL);
+            statement.setString(1, utente.getIndirizzoSpedizione());
+            statement.setString(2, utente.getUsername());
+            statement.executeUpdate();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } finally {
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+    }
 
 }
 

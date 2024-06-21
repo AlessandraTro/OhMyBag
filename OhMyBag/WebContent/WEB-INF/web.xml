@@ -133,6 +133,10 @@
 		<servlet-name>CambiaPasswordControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.CambiaPasswordControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>OttieniCartaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OttieniCartaControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

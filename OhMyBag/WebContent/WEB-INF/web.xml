@@ -137,6 +137,18 @@
 		<servlet-name>OttieniCartaControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.OttieniCartaControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ButtonSetCover</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonSetCover</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonModal</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonModal</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DettagliOrdiniAdmin</servlet-name>
+		<servlet-class>it.ohmybag.controller.DettagliOrdiniAdmin</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

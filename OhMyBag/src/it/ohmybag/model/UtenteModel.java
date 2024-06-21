@@ -59,6 +59,7 @@ public class UtenteModel {
 			}
 		}
 	}
+	
 	/*Permette di eliminare dal database l'utente con un determinato username*/
 	public synchronized boolean deleteUser(String username) throws SQLException{
 		Connection conn=null;
@@ -87,6 +88,7 @@ public class UtenteModel {
 		}
 		return result!=0;
 	}
+	
 	/*permette di modificare la password di un determinato utente*/
 	public synchronized void UpdateUtente(Utente utente)throws SQLException{
 		Connection conn=null;
@@ -118,6 +120,7 @@ public class UtenteModel {
 			}
 		}
 	}
+	
 	/*permette di modificare la password di un determinato utente*/
 	public synchronized void UpdatePassword(String username,String password)throws SQLException{
 		Connection conn=null;
@@ -145,6 +148,7 @@ public class UtenteModel {
 			}
 		}
 	}
+	
 	/*permette di prendere un utente in base alla email e alla password*/
 	/*c'è anche la password per verificare direttamente se è corretta oppure no*/
 	public synchronized Utente RetriveByEmailPassword(String email, String password)throws SQLException{
@@ -258,6 +262,7 @@ public class UtenteModel {
 
 	    return password;
 	}
+	
 	/*permette di prendere un utente in base alla email e alla password
 	c'è anche la password per verificare direttamente se è corretta oppure no*/
 	public synchronized Utente RetriveByEmailPassword(String email)throws SQLException{
@@ -307,6 +312,7 @@ public class UtenteModel {
 		return bean;
 	}
 	
+	//prende tutti gli utenti
 	public Collection<Utente> getAllUtenti() throws SQLException {
 	    Connection conn = null;
 	    PreparedStatement statement = null;
@@ -352,6 +358,7 @@ public class UtenteModel {
 	    return utenti;
 	}
 	
+	//Aggiorna le informazioni dell'indirizzo di un determinato utente
 	public synchronized void updateIndirizzo(Utente utente) throws SQLException {
         Connection conn = null;
         PreparedStatement statement = null;
@@ -377,5 +384,53 @@ public class UtenteModel {
         }
     }
 
+	//prende tutti gli utenti tranne quelli admin
+		public Collection<Utente> getAllUtentiNoAdmin() throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Collection<Utente> utenti = new ArrayList<>();
+
+		    String querySQL = "SELECT * FROM Utente WHERE Admin = false"; // Query modificata
+
+		    try {
+		        conn = getConnection();
+		        statement = conn.prepareStatement(querySQL);
+		        rs = statement.executeQuery();
+
+		        while (rs.next()) {
+		            Utente utente = new Utente();
+		            utente.setUsername(rs.getString("Username"));
+		            utente.setAdmin(rs.getBoolean("Admin"));
+		            utente.setNome(rs.getString("Nome"));
+		            utente.setCognome(rs.getString("Cognome"));
+		            utente.setEmail(rs.getString("Email"));
+		            utente.setCodiceFiscale(rs.getString("Cf"));
+
+		            // Impostazione della data di nascita
+		            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            utente.setDataDiNascita(dataInserimento);
+
+		            utente.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		            utente.setPassword(rs.getString("Password"));
+		            utente.setTelefono(rs.getString("Telefono"));
+
+		            utenti.add(utente);
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return utenti;
+		}
+		
 }
 

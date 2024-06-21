@@ -26,7 +26,7 @@
 				La tua registrazione ci permette di offrirti un'esperienza di shopping personalizzata <br> 
 				e di tenerti aggiornato sulle nostre ultime collezioni e offerte esclusive. <br>
 				Siamo qui per rendere la tua esperienza di shopping online semplice, conveniente e piena di stile. <br>
-				Grazie ancora per aver scelto OhMyBag. Speriamo che tu possa trovare esattamente ciò che stai cercando <br>
+				Grazie ancora per aver scelto OhMyBag. Speriamo che tu possa trovare esattamente ciÃ² che stai cercando <br>
 				e che ti innamori di tutti i nostri fantastici accessori tanto quanto noi! <br>
 				E ricorda il nostro motto: <strong><i> I see it, I like it, I want it, I got it!!!</i></strong><br>
 				Buono shopping!

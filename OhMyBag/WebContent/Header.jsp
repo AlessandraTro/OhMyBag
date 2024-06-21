@@ -39,11 +39,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Uomo </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Marsupi e Borselli</a></li>
+                        <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Marsupi e Borselli">Marsupi e Borselli</a></li>
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Zaino">Zaini</a></li>
-                        <li><a class="dropdown-item" href="#">Cinture</a></li>
-                        <li><a class="dropdown-item" href="#">Portafogli</a></li>
-                        <li><a class="dropdown-item" href="#">Accessori</a></li>
+                        <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Cintura">Cinture</a></li>
+                        <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Portafoglio">Portafogli</a></li>
+                        <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Accessori">Accessori</a></li>
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Sciarpe e Cappelli">Sciarpe e Cappelli</a></li>
                     </ul>
                 </li>

@@ -39,7 +39,6 @@ INSERT INTO Categoria (ID, Nome) VALUES (03, "Viaggi");
 /* INSERIMENTO BORSE */
 
 /* GUCCI DIANA */
-
 INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita, Iva) 
 VALUES ("678842 FACPO 5743", "Gucci", "Borsa Shopping Gucci Diana Misura Media", 4500.00, "Borsa", 01, 
 "La collezione Cruise 24 trae ispirazione dai motivi iconici della Maison, reinterpretando simboli ed elementi inconfondibili in modi sempre nuovi. Stagione dopo stagione, l’heritage Gucci caratterizza design, materiali e modelli contemporanei.<br>
@@ -785,6 +784,124 @@ Composizione e lavaggio
     <li>50% bambù, 30% cotone, 20% lana</li>
 </ul>',
     2023, '2024-04-16', 0, 10, 22);
+/*PORTAFOGLIO*/
+
+/*PIQUADRO*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
+VALUES ('003AAC','Piquadro','Portafoglio uomo tascabile con porta monete',99.00,'Portafoglio',02,
+    'Portafoglio uomo tascabile con porta monete posteriore, carte di credito e protezione anti frode RFID
+<ul>
+    <li>Numero comparti: 1</li>
+    <li>Materiale: pelle</li>
+    <li>Fodera interna: 100% Poliestere</li>
+    <li>Fessure per carte di credito: 6</li>
+    <li>Porta monete: sì</li>
+    <li>Dimensioni: 8.0 X 10.0 X 2.0 (cm)</li>
+    <li>Peso: 60 gr</li>
+</ul>',
+2022,'2024-04-17',0,10,22);
+
+/*Borselli e Marsupi*/
+
+/*ARMANI*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
+values ("003AAF", "Armani",  "Borsa a spalla in lino intrecciato e pelle", 1900.00,"Marsupi e Borselli", 02 ,
+"Linee morbide e destrutturate per questa borsa a mano realizzata in morbido lino intrecciato, impreziosita da inserti in pelle a contrasto. Il modello, dalla particolare forma a mezzaluna, vanta un interno capiente per contenere tutto il necessario per gli impegni quotidiani. La personalizzazione con logo Giorgio Armani ricamato completa l'accessorio.",
+2024, '2024-04-17', 0, 10,22);
+
+/*Calvin Klein*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
+values ("004AAD", "Calvin Klein",  "Borsa Reporter A Tracolla Con Logo",69.90,"Marsupi e Borselli", 02,
+"<table>
+  <tr>
+    <th>Caratteristica</th>
+    <th>Descrizione</th>
+  </tr>
+  <tr>
+    <td>Materiale esterno</td>
+    <td>Morbida ecopelle liscia</td>
+  </tr>
+  <tr>
+    <td>Tracolla</td>
+    <td>Incrociata regolabile</td>
+  </tr>
+  <tr>
+    <td>Lunghezza tracolla</td>
+    <td>34 cm - 65 cm</td>
+  </tr>
+  <tr>
+    <td>Chiusura</td>
+    <td>Con zip integrale</td>
+  </tr>
+  <tr>
+    <td>Tasca esterna</td>
+    <td>Sul davanti</td>
+  </tr>
+  <tr>
+    <td>Tasca interna</td>
+    <td>Con scomparto</td>
+  </tr>
+  <tr>
+    <td>Fodera</td>
+    <td>Morbido poliestere riciclato</td>
+  </tr>
+  <tr>
+    <td>Sostegno</td>
+    <td>Imbottito in rete</td>
+  </tr>
+  <tr>
+    <td>Logo</td>
+    <td>Distintivo Calvin Klein goffrato sul davanti</td>
+  </tr>
+  <tr>
+    <td>Composizione</td>
+    <td>100% poliuretano</td>
+  </tr>
+</table>
+",
+2022, '2024-04-17', 0, 10,22);
+
+/*CINTURE*/
+
+/*GUCCI*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
+values ("000AAE", "Gucci",  "CINTURA REVERSIBILE GG MARMONT", 470.00, "Cintura", 02 , 
+"Evolvendosi stagione dopo stagione, il design inconfondibile delle GG Marmont mescola l'hardware GG proveniente dagli anni '70 insieme a stili contemporanei.
+Questa cintura in tessuto GG Supreme grigia e nera è reversibile e sull'altro lato presenta un'elegante pelle grigia offrendo così un look alternativo.", 
+2023, '2024-04-17', 0, 10,22);
+
+/*ACCESSORI*/
+
+/*CARPISA*/
+INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
+values ("000AAG", "Carpisa",  "Portachiavi - Portachiavi New", 9.95, "Accessori", 02 , 
+"<table>
+  <tr>
+    <th>Caratteristica</th>
+    <th>Descrizione</th>
+  </tr>
+  <tr>
+    <td>Linea</td>
+    <td>PORTACHIAVI NEW</td>
+  </tr>
+  <tr>
+    <td>Materiale</td>
+    <td>Pelle</td>
+  </tr>
+  <tr>
+    <td>Made in</td>
+    <td>Cina</td>
+  </tr>
+  <tr>
+    <td>Collezione</td>
+    <td>Continuativo 2023</td>
+  </tr>
+  <tr>
+    <td>Dimensioni (cm)</td>
+    <td>1.5 x 10 x 2</td>
+  </tr>
+</table>", 
+2024, '2024-04-17', 0, 10,22);
 
 /*IMMAGINI*/
 
@@ -864,7 +981,38 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Sci
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Sciarpe e Cappelli/Tommy Hilfiger/Sciarpa Hilfiger Monotype/1.jpg", 1, "001AAB");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Sciarpe e Cappelli/Tommy Hilfiger/Sciarpa Hilfiger Monotype/2.jpg", 0, "001AAB");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Sciarpe e Cappelli/Tommy Hilfiger/Sciarpa Hilfiger Monotype/3.jpg", 0, "001AAB");
+/*PORTAFOGLIO*/
 
+/*PIQUADRO*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Portafoglio/Piquadro/Portafoglio uomo tascabile con porta monete/1.jpg", 0, "003AAC");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Portafoglio/Piquadro/Portafoglio uomo tascabile con porta monete/2.jpg", 1, "003AAC");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Portafoglio/Piquadro/Portafoglio uomo tascabile con porta monete/3.jpg", 0, "003AAC");
+/*Borselli e Marsupi*/
+
+/*Calvin Klein*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Calvin Klein/Borsa Reporter A Tracolla Con Logo/1.jpg", 1, "004AAD");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Calvin Klein/Borsa Reporter A Tracolla Con Logo/2.jpg", 0, "004AAD");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Calvin Klein/Borsa Reporter A Tracolla Con Logo/3.jpg", 0, "004AAD");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Calvin Klein/Borsa Reporter A Tracolla Con Logo/4.jpg", 0, "004AAD");
+/*CINTURE*/
+
+/*GUCCI*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Cintura/Gucci/CINTURA REVERSIBILE GG MARMONT/1.jpg", 1, "000AAE");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Cintura/Gucci/CINTURA REVERSIBILE GG MARMONT/2.jpg", 0, "000AAE");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Cintura/Gucci/CINTURA REVERSIBILE GG MARMONT/3.jpg", 0, "000AAE");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Cintura/Gucci/CINTURA REVERSIBILE GG MARMONT/4.jpg", 0, "000AAE");
+/*BORSE*/
+
+/*ARMANI*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Armani/Borsa a spalla in lino intrecciato e pelle/1.jpg", 1, "003AAF");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Armani/Borsa a spalla in lino intrecciato e pelle/2.jpg", 0, "003AAF");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Armani/Borsa a spalla in lino intrecciato e pelle/3.jpg", 0, "003AAF");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Armani/Borsa a spalla in lino intrecciato e pelle/4.jpg", 0, "003AAF");
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Marsupi e Borselli/Armani/Borsa a spalla in lino intrecciato e pelle/5.jpg", 0, "003AAF");
+/*ACCESSORI*/
+
+/*CARPISA*/
+INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Uomo/Accessori/Carpisa/Portachiavi - Portachiavi New/1.jpg", 1, "000AAG");
 /*VIAGGI*/
 /*INSERIMENTO ACCESSORI DA VIAGGIO*/
 

@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const menuLinks = containerMenu.querySelectorAll("a");
 
         function updateIconVisibility() {
-            if (window.innerWidth > 770) {
+            if (window.innerWidth > 1000) {
                 settingsIcon.style.display = "none";
                 containerMenu.classList.remove("open");
             } else {

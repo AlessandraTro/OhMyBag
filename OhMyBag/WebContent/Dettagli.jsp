@@ -38,7 +38,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 	%>
 	<div class="container">
 		<div class="product-images">
-			<div id="carouselExampleIndicators" class="carousel slide">
+			<div id="carouselExampleIndicators" class="carousel carousel-dark slide">
 				<div class="carousel-indicators">
 					<%
 					for (int i = 0; i < images.size(); i++) {

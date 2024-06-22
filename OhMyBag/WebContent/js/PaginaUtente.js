@@ -171,7 +171,7 @@ function checkCardExists(cardNumber) {//utilizzo di ajax per controllare il data
 			const response = JSON.parse(xhr.responseText);
 			if (response.exists) {
 				errorSubmit.disabled = true;
-				alert('La carta di credito e gia stata inserita nel database.');
+				alert('La carta di credito e già stata inserita nel database.');
 			}
 		}
 	};
@@ -301,4 +301,65 @@ document.getElementById('cambia-indirizzo-btn').addEventListener('click', functi
 	document.getElementById('button-group').style.display = 'flex';
 	// Nascondi il pulsante "Modifica i campi"
 	this.style.display = 'none';
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+        const settingsIcon = document.getElementById("settings-icon");
+        const containerMenu = document.querySelector(".container-menu");
+        const menuLinks = containerMenu.querySelectorAll("a");
+
+        function updateIconVisibility() {
+            if (window.innerWidth > 770) {
+                settingsIcon.style.display = "none";
+                containerMenu.classList.remove("open");
+            } else {
+                settingsIcon.style.display = "block";
+            }
+        }
+
+        settingsIcon.addEventListener("click", function(event) {
+            event.stopPropagation();
+            containerMenu.classList.toggle("open");
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!containerMenu.contains(event.target) && !settingsIcon.contains(event.target)) {
+                containerMenu.classList.remove("open");
+            }
+        });
+
+        menuLinks.forEach(function(link) {
+            link.addEventListener("click", function() {
+                containerMenu.classList.remove("open");
+            });
+        });
+
+        window.addEventListener("resize", updateIconVisibility);
+
+        updateIconVisibility();
+    });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var detailsLinks = document.querySelectorAll('.details-link');
+    
+    detailsLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            var orderId = event.target.getAttribute('data-order-id');
+            
+            // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
+            fetch('DettagliOrdiniAdmin?Codice=' + orderId, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                // Aggiorna il corpo della modale con i dettagli ricevuti
+                document.querySelector('#ordiniModal .modal-body').innerHTML = html;
+                
+                // Mostra la modale
+                $('#ordiniModal').modal('show');
+            });
+        });
+    });
 });

@@ -1,44 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
+	pageEncoding="UTF-8"
+	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 
 <%
 Collection<Immagine> images = (Collection<Immagine>) request.getSession().getAttribute("productImages");
+Immagine copertina = null;
+List<Immagine> altreImmagini = new ArrayList<>();
+if (images != null && !images.isEmpty()) {
+	for (Immagine immagine : images) {
+		if (immagine.isCopertina()) {
+	copertina = immagine;
+		} else {
+	altreImmagini.add(immagine);
+		}
+	}
+}
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Aggiungi Immagini</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<link href="css/Modal.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<title>Aggiungi Immagini</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/Modal.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-    <div class="container">
-        <form id="addImageForm" onsubmit="return validateFiles(event)" action="ButtonAddImage" method="post" enctype="multipart/form-data">
-            <div class="list-group gallery">
-                <% if (images != null && !images.isEmpty()) { %>
-                    <% for (Immagine immagine : images) { %>
-                        <div class="form-check">
-                            <img src="<%= request.getContextPath() + "/" + immagine.getNome() %>" alt="Product Image" class="img-responsive">
-                        </div>
-                    <% } %>
-                <% } else { %>
-                    <p>No images found.</p>
-                <% } %>
-            </div>
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Seleziona Immagini</label>
-                <input class="form-control" type="file" id="formFile" name="images" accept="image/*" multiple>
-            </div>
-            <button type="submit" class="btn btn-primary">Aggiungi Immagini</button>
-        </form>
-    </div>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script>
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<form id="addImageForm" onsubmit="return validateFiles(event)"
+					action="ButtonAddImage" method="post" enctype="multipart/form-data">
+					<div class="list-group gallery">
+						<% if (images != null && !images.isEmpty()) { %>
+						<% if (copertina != null) { %>
+						<div class="form-check copertina">
+						<p class="text-copertina">Immagine di Copertina</p>
+							<img
+								src="<%= request.getContextPath() + "/" + copertina.getNome() %>"
+								alt="Product Image" class="img-responsive">
+						</div>
+						<% } %>
+						<% for (Immagine immagine : altreImmagini) { %>
+						<div class="form-check">
+							<img
+								src="<%= request.getContextPath() + "/" + immagine.getNome() %>"
+								alt="Product Image" class="img-responsive">
+						</div>
+						<% } %>
+						<% } else { %>
+						<p>No images found.</p>
+						<% } %>
+					</div>
+
+					<hr class="featurette-divider">
+					<div class="mb-3">
+						<label for="formFile" class="form-label">Seleziona
+							Immagini</label> <input class="form-control" type="file" id="formFile"
+							name="images" accept="image/*" multiple>
+					</div>
+					<div class="bottoneModal">
+						<button type="submit" class="pulsanteBigAdd">Aggiungi
+							Immagini</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<script>
         $(document).ready(function() {
             $('#addImageForm').on('submit', function(event) {
                 event.preventDefault();

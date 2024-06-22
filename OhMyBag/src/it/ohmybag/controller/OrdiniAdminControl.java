@@ -44,11 +44,17 @@ public class OrdiniAdminControl extends HttpServlet {
         Collection<Utente> utenti = null;
 
         try {
-            utenti = utenteModel.getAllUtenti();
+            utenti = utenteModel.getAllUtentiNoAdmin();
 
             if (username != null && !username.isEmpty()) {
-                ordini = ordineModel.getOrdiniByUsername(username);
-            } else if (startDateStr != null && endDateStr != null) {
+                if (startDateStr != null && !startDateStr.isEmpty() && endDateStr != null && !endDateStr.isEmpty()) {
+                    java.util.Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
+                    java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
+                    ordini = ordineModel.getOrdiniByUsernameAndDateRange(username, startDate, endDate);
+                } else {
+                    ordini = ordineModel.getOrdiniByUsername(username);
+                }
+            } else if (startDateStr != null && !startDateStr.isEmpty() && endDateStr != null && !endDateStr.isEmpty()) {
                 java.util.Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
                 java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
                 ordini = ordineModel.getOrdiniByDateRange(startDate, endDate);
@@ -56,11 +62,17 @@ public class OrdiniAdminControl extends HttpServlet {
                 ordini = ordineModel.getAllOrdini();
             }
 
-            request.setAttribute("utenti", utenti);
-            request.setAttribute("ordini", ordini);
+            request.getSession().setAttribute("utenti", utenti);
+            request.getSession().setAttribute("ordini", ordini);
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("OrdiniAdmin.jsp").forward(request, response);
+        response.sendRedirect("OrdiniAdmin.jsp");
     }
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doGet(request, response);
+	}
 }

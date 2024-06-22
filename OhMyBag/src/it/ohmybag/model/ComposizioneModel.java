@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 import it.ohmybag.bean.Composizione;
@@ -68,8 +67,8 @@ public class ComposizioneModel {
 
 	        while(rs.next()) { // Controlla se ci sono risultati nel ResultSet
 	        	bean=new Composizione();
-	            bean.setIdProdotto(rs.getString("IDOrdine"));
-	            bean.setIdOrdine(rs.getInt("IDProdotto"));
+	            bean.setIdProdotto(rs.getString("IDProdotto"));
+	            bean.setIdOrdine(rs.getInt("IDOrdine"));
 	            bean.setIva(rs.getInt("IVA"));
 	            bean.setPrezzo(rs.getFloat("Prezzo"));
 	            bean.setQuantita(rs.getInt("Quantita"));

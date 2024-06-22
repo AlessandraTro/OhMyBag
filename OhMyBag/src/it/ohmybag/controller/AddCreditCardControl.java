@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.ohmybag.bean.*;
 import it.ohmybag.model.*;
+import it.ohmybag.utility.CriptoCard;
 
 @WebServlet("/AddCreditCardControl")
 public class AddCreditCardControl extends HttpServlet {
@@ -72,11 +73,15 @@ public class AddCreditCardControl extends HttpServlet {
             return;
         }
 
+     // Crittografa solo le prime 12 cifre del numero di carta usando la nuova classe CriptoCard
+        String numeroCartaCriptato = CriptoCard.encryptFirstNDigits(numerocarta, 15);
+        
         Carta carta = new Carta();
         carta.setCircuito(circuito);
         carta.setCvv(cvv);
         carta.setDataScadenza(dataScadenza);
-        carta.setNumeroCarta(numerocarta);
+        //carta.setNumeroCarta(numerocarta);
+        carta.setNumeroCarta(numeroCartaCriptato + numerocarta.substring(15)); // Salva le prime 12 cifre crittografate + ultime 4 in chiaro
         carta.setUsername(utente.getUsername());
 
         try {
@@ -94,15 +99,17 @@ public class AddCreditCardControl extends HttpServlet {
             throws ServletException, IOException {
         String numerocarta = request.getParameter("NumeroCarta");
         Utente utente = (Utente) request.getSession().getAttribute("utente");
+        
 
         if (utente == null) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "User not logged in");
             return;
         }
-
+     // Crittografa solo le prime 12 cifre del numero di carta usando la nuova classe CriptoCard
+        String numeroCartaCriptato = CriptoCard.encryptFirstNDigits(numerocarta, 15);
         boolean cardExists = false;
         try {
-            cardExists = cartaModel.checkCardExists(numerocarta, utente.getUsername());
+            cardExists = cartaModel.checkCardExists(numeroCartaCriptato+ numerocarta.substring(15), utente.getUsername());
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error checking credit card");
             return;

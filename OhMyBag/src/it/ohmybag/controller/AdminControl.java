@@ -2,6 +2,9 @@ package it.ohmybag.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +24,14 @@ public class AdminControl extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	static UtenteModel utenteModel;
+	static OrdineModel ordineModel;
+
+	static {
+		utenteModel = new UtenteModel();
+		ordineModel = new OrdineModel();
+	}
+
 	public AdminControl() {
 		super();
 
@@ -29,16 +40,39 @@ public class AdminControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String pulsante= (String) request.getParameter("pulsante");
-		if(pulsante.equals("Catalogo")) {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
-			dispatcher.forward(request, response);
-		}
-		else {
+		String pulsante = (String) request.getParameter("pulsante");
+
+		if (pulsante.equals("Add")) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminAddProdotto.jsp");
 			dispatcher.forward(request, response);
+			return; // Termina qui per evitare ulteriori forward
+
+		} else if (pulsante.equals("Ordini")) {
+			try {
+				Collection<Utente> utenti = utenteModel.getAllUtentiNoAdmin();
+				Collection<Ordine> ordini = ordineModel.getAllOrdini();
+				request.getSession().setAttribute("utenti", utenti);
+				request.getSession().setAttribute("ordini", ordini);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniAdmin.jsp");
+			dispatcher.forward(request, response);
+			return; // Termina qui per evitare ulteriori forward
+		} else if (pulsante.equals("Utenti")) {
+			try {
+				Collection<Utente> utenti = utenteModel.getAllUtentiNoAdmin();
+				request.getSession().setAttribute("utenti", utenti);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/UtentiAdmin.jsp");
+			dispatcher.forward(request, response);
+			return; // Termina qui per evitare ulteriori forward
 		}
-		
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

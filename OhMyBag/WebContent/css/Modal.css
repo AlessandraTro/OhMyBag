@@ -20,8 +20,141 @@
 .list-group.gallery {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	s
 }
 
 .form-check {
-	margin-bottom: 15px;
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.copertina {
+	display: flex;
+	align-items: center;
+	border: 2px solid #d6ccc2;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+.form-check-input {
+	align-items: center;
+}
+
+.text-copertina {
+	color: #d6ccc2;
+	font-weight: bold;
+}
+
+.pulsanteBigElimina, .pulsanteBigAdd, .pulsanteBigCover {
+	background-color: #d6ccc2;
+	color: #fff;
+	padding: 10px 20%;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 1%;
+}
+
+.pulsanteBigElimina:hover {
+	background-color: #827b7b;
+}
+
+.pulsanteBigAdd:hover {
+	background-color: #827b7b;
+}
+
+.pulsanteBigCover:hover {
+	background-color: #827b7b;
+}
+
+.bottoneModal {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1%;
+}
+
+.form-label {
+	color: #d6ccc2;
+	font-weight: bold;
+}
+
+.changeCover {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.CoverImg {
+	display: flex;
+	align-items: center;
+	border: 2px solid #d6ccc2;
+	padding: 10px;
+	border-radius: 8px;
+	flex-direction: column-reverse;
+}
+
+.bottoneModal {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1%;
+}
+
+/* Stile della checkbox */
+input[type="checkbox"] {
+	-webkit-appearance: none; /* Nasconde lo stile di default del browser */
+	-moz-appearance: none;
+	appearance: none;
+	width: 20px; /* Dimensioni della checkbox */
+	height: 20px;
+	border: 2px solid #d6ccc2; /* Colore del bordo */
+	border-radius: 4px; /* Forma della checkbox */
+	outline: none; /* Rimuove l'outline di default */
+	transition: all 0.3s ease;
+	/* Transizione per animare il cambio di stato */
+}
+
+/* Stile della checkbox quando è selezionata */
+input[type="checkbox"]:checked {
+	background-color: #d6ccc2; /* Colore di sfondo quando è selezionata */
+	border-color: #d6ccc2;
+	/* Cambia il colore del bordo quando è selezionata */
+}
+
+/* Stile della checkbox quando è disabilitata */
+input[type="checkbox"]:disabled {
+	opacity: 0.5; /* Opacità ridotta per indicare che è disabilitata */
+}
+
+/* Stile della checkbox quando è in focus */
+input[type="checkbox"]:focus {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	/* Cambia il colore dell'ombra quando è in focus */
+}
+
+/* Stile del radio button */
+input[type="radio"] {
+	-webkit-appearance: none; /* Nasconde lo stile di default del browser */
+	-moz-appearance: none;
+	appearance: none;
+	width: 20px; /* Dimensioni del radio button */
+	height: 20px;
+	border-radius: 50%; /* Forma del radio button (circolare) */
+	border: 2px solid #d6ccc2; /* Colore del bordo */
+	outline: none; /* Rimuove l'outline di default */
+	transition: all 0.3s ease;
+	/* Transizione per animare il cambio di stato */
+}
+
+/* Stile del radio button quando è selezionato */
+input[type="radio"]:checked {
+	background-color: #d6ccc2; /* Colore di sfondo quando è selezionato */
+}
+
+/* Stile del radio button quando è disabilitato */
+input[type="radio"]:disabled {
+	opacity: 0.5; /* Opacità ridotta per indicare che è disabilitato */
 }

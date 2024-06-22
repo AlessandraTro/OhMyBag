@@ -1,0 +1,189 @@
+:root {
+	--primary-color: #c6c3c3;
+	--second-color: #ffffff;
+	--black-color: #000000;
+	--input-focus-color: #d6ccc2;
+}
+
+.container-table {
+	position: relative;
+	width: 90%;
+	backdrop-filter: blur(25px);
+	border: 2px solid var(--primary-color);
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	padding: 4.5em 2.5em 4em 2.5em;
+	color: var(--black-color);
+	display: flex;
+	flex-direction: column;
+	font-family: Times New Roman, Sans-Serif;
+}
+
+.modal-title {
+	color: #827b7b;
+}
+
+.modal-xl {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.titoloOrder {
+	font-weight: bold;
+}
+
+.formOrdini {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin-bottom: 1%;
+}
+
+.Sel-utente, .data {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1em;
+}
+
+.text-inputs {
+	font-weight: bold;
+	color: #827b7b;
+}
+
+.div-bottoni {
+	display: flex;
+	flex-direction: column;
+}
+
+.tavola {
+	width: 100%;
+	border-collapse: separate; /* permette bordi arrotondati */
+	border-spacing: 0; /* Rimuove lo spazio tra le celle */
+	border: 1px solid #827b7b;
+	border-radius: 15px; /* Bordi arrotondati per l'intera tabella */
+	overflow: hidden; /* Assicura che i bordi arrotondati siano visibili */
+}
+
+.tendina {
+	text-align: center;
+}
+
+.riga, .colonna {
+	text-align: center;
+	border: 1px solid #827b7b;
+}
+
+.riga {
+	color: #827b7b;
+}
+
+.colonna {
+	padding: 5px;
+}
+
+.buttonsFilter {
+	background-color: #d6ccc2;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 3%;
+}
+
+.buttonsFilter:hover {
+	background-color: #827b7b;
+}
+
+.tutto {
+	display: flex;
+	justify-content: center;
+	margin: 5% 0;
+}
+
+.barraRicerca {
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+}
+/* Stile per gli input quando sono selezionati */
+input:focus, select:focus {
+	border-color: var(--input-focus-color);
+	outline: none; /* Rimuove l'outline di default */
+}
+
+input:active, select:active {
+	border-color: var(--input-focus-color);
+}
+
+/* Media query per schermi piccoli */
+@media screen and (max-width: 503px) {
+	.container-table {
+		padding: 2.5em 1.5em; /* Riduci il padding per schermi più piccoli */
+	}
+	.tavola {
+		font-size: 12px; /* Riduci la dimensione del testo per la tabella */
+	}
+}
+
+/* Media query per schermi piccoli */
+@media screen and (max-width: 750px) {
+	.formOrdini {
+		flex-direction: column;
+		align-items: center;
+	}
+	.Sel-utente, .data, .div-bottoni {
+		width: 100%;
+		max-width: 100%;
+	}
+	.buttonsFilter {
+		width: 100%;
+	}
+	.Sel-utente select, .data input {
+		width: 100%;
+	}
+	.modal-xl {
+		max-width: 100%; /* Imposta la larghezza al 100% per schermi piccoli */
+		/* Aggiungi margine per evitare che la modale tocchi i bordi */
+		align-items: center; /* Centratura verticale */
+	}
+}
+
+/* Media query per schermi grandi */
+@media screen and (min-width: 751px) {
+	.formOrdini {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.Sel-utente, .data {
+		align-items: center;
+		width: auto;
+		margin-bottom: 0;
+		flex-grow: 1;
+	}
+	.div-bottoni {
+		flex-direction: row;
+		align-items: center;
+		width: auto;
+		margin-top: 1%;
+		flex-grow: 1;
+	}
+	.Sel-utente, .data, .div-bottoni>* {
+		margin-right: 1em;
+	}
+	.Sel-utente select, .data input {
+		width: 100%;
+		flex-grow: 1;
+	}
+	.buttonsFilter {
+		width: auto;
+		margin-bottom: 0;
+		flex-basis: 20%;
+		flex-grow: 1;
+	}
+	.div-bottoni {
+		justify-content: space-between;
+		width: auto;
+	}
+}

@@ -124,7 +124,9 @@
 					<th><%=new SimpleDateFormat("dd/MM/yyyy").format(ordine.getData().getTime())%></th>
 					<th>
 					<a href="#">Fattura</a><br>
-					<a href="#">Dettagli</a>
+					<a href="#" class="details-link"
+						data-bs-toggle="modal" data-bs-target="#ordiniModal"
+						data-order-id="<%=ordine.getId()%>">Dettagli</a>
 					</th>
 				</tr>
 				<%} %>
@@ -132,6 +134,21 @@
 			</table>
 		</div>
 		
+		<!-- Dettagli Ordine Image Modal -->
+		<div class="modal fade" id="ordiniModal" tabindex="-1" role="dialog"
+			aria-labelledby="ordiniModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-xl" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="ordiniModalLabel">Dettagli Ordine</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body"></div>
+				</div>
+			</div>
+		</div>
+
 		<div id="aggiungi-carta" class="container-insert Aggiungi-carta" style="display:none;">
         <form action="AddCreditCardControl" method="POST">
             <div class="container-form">
@@ -239,43 +256,6 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/PaginaUtente.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const settingsIcon = document.getElementById("settings-icon");
-        const containerMenu = document.querySelector(".container-menu");
-        const menuLinks = containerMenu.querySelectorAll("a");
-
-        function updateIconVisibility() {
-            if (window.innerWidth > 770) {
-                settingsIcon.style.display = "none";
-                containerMenu.classList.remove("open");
-            } else {
-                settingsIcon.style.display = "block";
-            }
-        }
-
-        settingsIcon.addEventListener("click", function(event) {
-            event.stopPropagation();
-            containerMenu.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function(event) {
-            if (!containerMenu.contains(event.target) && !settingsIcon.contains(event.target)) {
-                containerMenu.classList.remove("open");
-            }
-        });
-
-        menuLinks.forEach(function(link) {
-            link.addEventListener("click", function() {
-                containerMenu.classList.remove("open");
-            });
-        });
-
-        window.addEventListener("resize", updateIconVisibility);
-
-        updateIconVisibility();
-    });
-</script>
 
 </body>
 </html>

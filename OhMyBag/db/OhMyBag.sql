@@ -21,7 +21,7 @@ Username		varchar(100) not null,
 CVV				int			 check(CVV>=0)not null,
 Circuito		varchar(100) not null,
 DataScadenza	date 		 not null,
-NumeroCarta 	varchar(25)  not null,
+NumeroCarta 	varchar(1000)  not null,
 foreign key (Username) references Utente(Username) on delete cascade
 );
 
@@ -36,7 +36,7 @@ NumeroTracking			varchar(100) 	not null,
 Data					date 		 	not null,
 Circuito				varchar(100) 	check(Circuito IN ("Mastercard", "Visa"))not null,
 ConfezioneRegalo		boolean 	 	not null,
-NumeroCarta				varchar(25) 	not null,
+NumeroCarta				varchar(1000) 	not null,
 Username				varchar(100) 	not null,
 foreign key (Username) references Utente(Username) on delete cascade
 );

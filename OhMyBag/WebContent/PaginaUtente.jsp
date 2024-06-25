@@ -34,7 +34,7 @@
 	<div class="wrapper">
 		<jsp:include page="Header.jsp" />
 		<div class="containerAll">
-			<div class="container">
+			
 				<div class="container-menu">
 					<div class="menu-up">
 						<div>
@@ -55,18 +55,19 @@
 					</div>
 					<div class="menu-down">
 						<div>
-							<a href="DeleteAccountControl">Cancella account</a>
+							<a href="DeleteAccountControl" id="deleteAccount"><b>Cancella account</b></a>
 						</div>
 						<div>
-							<a href="LogoutControl">Log-Out</a>
+							<a href="LogoutControl"><b>Log-Out</b></a>
 						</div>
 					</div>
 				</div>
+			<div class="container">
 				<div class="setting">
 					<i id="settings-icon" class="settings-icon fas fa-cog"></i>
 				</div>
 				<div id="dati-anagrafici" class="container-insert Dati-anagrafici">
-		
+					<h2>Dati Anagrafici</h2>
 					<form id="modificaDatiForm" action="ModificaDatiControl" method="POST" onsubmit="return handleFormSubmit(event)">
 						<div class="container-form">
 							<div class="content">
@@ -103,14 +104,15 @@
 									<input type="reset" value="Reset" class="input-reset">
 								</div>
 							</div>
-							<div class="content">
-								<button type="button" id="modifica-campi">Modifica i campi</button>
+							<div class="content button">
+								<input type="button" id="modifica-campi" value="Modifica i campi">
 							</div>
 						</div>
 					</form>
 				</div>
 				
 				<div id="ordini" class="container-insert Ordini" style="display:none;">
+					<h2 style="margin-bottom:10px">Ordini effettuati</h2>
 					<table border="1">
 					<tr>
 						<th>Numero ordine</th>
@@ -152,6 +154,7 @@
 				</div>
 		
 				<div id="aggiungi-carta" class="container-insert Aggiungi-carta" style="display:none;">
+				<h2 style="margin-bottom:10px">Aggiungi Carta</h2>
 		        <form action="AddCreditCardControl" method="POST">
 		            <div class="container-form">
 		                <div class="content">
@@ -184,6 +187,7 @@
 				</div>
 				
 				<div id="cambia-indirizzo" class="container-insert Cambia-indirizzo" style="display:none;">
+				<h2 style="margin-bottom:10px">Cambia indirizzo</h2>
 				    <form action="CambiaIndirizzoControl" method="POST" onsubmit="return ConfermaIndirizzo(event)">
 				        <div class="container-form">
 				            <div class="content">
@@ -211,13 +215,14 @@
 				                    <input type="reset" value="Reset" class="input-reset">
 				                </div>
 				            </div>
-				            <div class="content">
+				            <div class="content button">
 				                <input type="button" value="Modifica i campi" id="cambia-indirizzo-btn">
 				            </div>
 				        </div>
 				    </form>
 				</div>
 				<div id="cambia-password" class="container-insert Cambia-password" style="display:none;">
+				<h2 style="margin-bottom:10px">Cambia password</h2>
 			        <form action="CambiaPasswordControl" method="POST" onsubmit="return validate(this)">
 			            <div class="container-form">
 				            <div class="content">

@@ -363,3 +363,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+        document.getElementById('deleteAccount').addEventListener('click', function(event) {
+            var confirmation = confirm('Sei sicuro di voler cancellare il tuo account? Questa azione non puo essere annullata.');
+            if (!confirmation) {
+                event.preventDefault(); // Annulla l'azione di cancellazione se l'utente non conferma
+            }
+        });

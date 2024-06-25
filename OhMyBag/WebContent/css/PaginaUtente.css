@@ -62,8 +62,7 @@ body{
 }
 .container-insert{
 	display:flex;
-	justify-content:center;
-	flex-direction:column;
+	justify-content:center;)
 }
 .menu-down{
 	display:flex;
@@ -80,7 +79,7 @@ body{
 }
 table, th, td {
 	text-align: center;
-	border: 1px solid black;
+	border: 2px solid var(--primary-color);
 	border-collapse: collapse;
 }
 

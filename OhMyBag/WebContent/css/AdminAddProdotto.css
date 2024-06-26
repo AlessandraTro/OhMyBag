@@ -8,22 +8,37 @@
 :root {
     --primary-color: #c6c3c3;
     --second-color: #ffffff;
+    --brown-color: #d6ccc2;
     --black-color: #000000;
 }
-h2{
-	text-align:center;
+
+.insert-form {
+    padding: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 4px var(--brown-color);
+    border-radius: 30px;
+    margin: 20px auto;
+    max-width: 1100px;
 }
-.label-field{
-	padding-left:4%;
+
+h2 {
+    text-align: center;
 }
-.container{
-	display:flex;
-	justify-content:space-evenly;
+
+.label-field {
+    padding-left: 4%;
 }
-.container-inserimento{
-	display:flex;
-	flex-direction:column;
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
 }
+
+.container-inserimento {
+    display: flex;
+    flex-direction: column;
+}
+
 .categoria {
     display: flex;
     flex-direction: column;
@@ -36,22 +51,22 @@ h2{
 }
 
 .option label {
-    flex: 1; /* Questo assicura che le label abbiano la stessa larghezza */
+    flex: 1;
 }
 
 .option input {
     margin-left: 10px;
 }
 
-.contentImg{
-	display:flex;
+.contentImg {
+    display: flex;
 }
 
 form input[type=text], form input[type=number], form input[type=password],
-	form input[type=date], form input[type=range], form input[type=email],
-	form input[type=url], form input[type=time], form input[list] {
-	width: 500px;
-	font-size: 1em;
+form input[type=date], form input[type=range], form input[type=email],
+form input[type=url], form input[type=time], form input[list] {
+    width: 500px;
+    font-size: 1em;
 }
 
 .input-field {
@@ -65,55 +80,71 @@ form input[type=text], form input[type=number], form input[type=password],
     border-radius: 30px;
     outline: none;
 }
-.content{
-	position: relative;
+
+.content {
+    position: relative;
     display: flex;
     flex-direction: column;
-    display:inline-flex;
-	margin:5px;
-	width:500px;
-	max-width:500px;
+    display: inline-flex;
+    margin: 5px;
+    width: 100%;
+    max-width: 500px;
 }
+
 .submit,
-.reset{
-	width:200px;
+.reset {
+    width: 200px;
 }
+
 input[type=file]::file-selector-button {
-  margin-bottom:10px;
-  margin-right: 20px;
-  border: none;
-  background: #c0c0c0;
-  padding: 7px 14px;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-  transition: background .2s ease-in-out;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    border: none;
+    background: var(--brown-color);
+    padding: 7px 14px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
 }
 
 input[type=file]::file-selector-button:hover {
-  background: rgb(214 204 194);
+    background: #c0c0c0;
 }
-@media ( min-width : 0px) and (max-width:1100px){
-	.container{
-		display:flex;
-		flex-direction:column;
-	}
-	form input[type=text], form input[type=number], form input[type=password],
-		form input[type=date], form input[type=range], form input[type=email],
-		form input[type=url], form input[type=time], form input[list] {
-		width: 100%;
-		font-size: 1em;
-	}
-	.container-insert input{
-		width:100%;
-	}
-	.submit,
-	.reset{
-		width:70%;
-		margin-left:15%;
-	}
-	.content{
-		width:100%;
-	}
 
+.button input {
+    background-color: var(--brown-color);
+    color: #fff;
+    padding: 7px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button input:hover {
+    background-color: #c0c0c0;
+}
+
+@media (min-width: 0px) and (max-width: 1100px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    form input[type=text], form input[type=number], form input[type=password],
+    form input[type=date], form input[type=range], form input[type=email],
+    form input[type=url], form input[type=time], form input[list] {
+        width: 100%;
+        font-size: 1em;
+    }
+    .container-insert input {
+        width: 100%;
+    }
+    .submit,
+    .reset {
+        width: 70%;
+        margin-left: 15%;
+    }
+    .content {
+        width: 100%;
+    }
 }

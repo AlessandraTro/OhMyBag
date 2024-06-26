@@ -92,14 +92,14 @@
 							</div>
 					</div>
 				</div>
-				<div class="container">
-					<div class="content submit">
-						<input type="submit" value="Submit" class="input-submit">
-					</div>
-					<div class="content reset">
-						<input type="reset" value="Reset" class="input-reset">
-					</div>
-				</div>
+				<div class="container button">
+		            <div class="content submit">
+		                 <input type="submit" value="Aggiungi Prodotto" class="input-submit">
+		            </div>
+		            <div class="content reset">
+		                 <input type="reset" value="Resetta campi" class="input-reset">
+		            </div>
+		        </div>
 			</form>
 		</div>
 	</div>
@@ -205,8 +205,21 @@ document.getElementById('productForm').addEventListener('reset', function() {
             });
         }
     }
-    
-    
+</script>
+<script>
+document.getElementById('productForm').addEventListener('submit', function(event) {
+    // Mostra il messaggio di conferma
+    const confirmSubmit = window.confirm('Vuoi confermare l\'aggiunta del prodotto?');
+
+    if (confirmSubmit) {
+    	// Se l'utente conferma, mostra un messaggio di avvenuta aggiunta del prodotto
+        alert('Prodotto aggiunto con successo!');
+    } else {
+        // Se l'utente annulla, non fare nulla
+        event.preventDefault();
+        alert('Aggiunta del prodotto annullata.');
+    }
+});
 </script>
 </body>
 </html>

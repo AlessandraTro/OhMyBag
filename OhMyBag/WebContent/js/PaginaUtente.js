@@ -1,3 +1,4 @@
+//verifico quale menu viene scelto dall'utente
 document.addEventListener('DOMContentLoaded', function() {
 	// Mappa dei link e delle sezioni corrispondenti
 	const menuLinks = {
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+//inizia la parte in cui vengono modificati e verificati i dati anagrafici
 let initialFormData = {};
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -96,6 +98,8 @@ function handleFormSubmit(event) {
 		event.preventDefault();
 	}
 }
+
+//inizia la parte in cui vengono modificate e verificate le carte che si vogliono inserire
 document.getElementById('NumeroCarta').addEventListener('input', function() {
 	let cardNumber = this.value.replace(/\D/g, ''); // Remove non-numeric characters
 	const mastercardImage = document.getElementById('Mastercard');
@@ -160,7 +164,7 @@ document.getElementById('NumeroCarta').addEventListener('input', function() {
 		checkCardExists(cardNumber);
 	}
 });
-
+//verifico se la carta è gia presente per quel determinato utente
 function checkCardExists(cardNumber) {//utilizzo di ajax per controllare il database senza dover ricaricare la pagina
 	const errorSubmit = document.getElementById('input-submitCarta');
 	const xhr = new XMLHttpRequest();
@@ -177,6 +181,8 @@ function checkCardExists(cardNumber) {//utilizzo di ajax per controllare il data
 	};
 	xhr.send('action=checkCard&NumeroCarta=' + encodeURIComponent(cardNumber));
 }
+
+//inizia la parte di modifica e verifica della password
 var passwordCorrect = false;
 var passwordValCorrect = false;
 
@@ -266,6 +272,7 @@ function matchPassword() {
 	xhr.send('PasswordVecchia=' + encodeURIComponent(oldPassword));
 }
 
+//inizia la parte di verifica dell'indirizzo di spedizione
 document.getElementById('cambia-indirizzo-btn').addEventListener('click', function() {
 	// Abilita tutti i campi di input
 	document.querySelectorAll('#cambia-indirizzo input[type="text"], #cambia-indirizzo input[type="number"]').forEach(function(input) {
@@ -277,6 +284,7 @@ document.getElementById('cambia-indirizzo-btn').addEventListener('click', functi
 	this.style.display = 'none';
 });
 
+//permetto di visualizzare l'icona delle impostazioni solo sui dispositivi mobile
 document.addEventListener("DOMContentLoaded", function() {
 	const settingsIcon = document.getElementById("settings-icon");
 	const containerMenu = document.querySelector(".container-menu");
@@ -313,6 +321,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	updateIconVisibility();
 });
 
+//modale per visualizzare i vari ordini
 document.addEventListener('DOMContentLoaded', function() {
 	var detailsLinks = document.querySelectorAll('.details-link');
 
@@ -337,6 +346,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 });
+
+//permetto di visualizzare un pulsante di conferma per la cancellazione dell'account
 document.getElementById('deleteAccount').addEventListener('click', function(event) {
 	var confirmation = confirm('Sei sicuro di voler cancellare il tuo account? Questa azione non puo essere annullata.');
 	if (!confirmation) {

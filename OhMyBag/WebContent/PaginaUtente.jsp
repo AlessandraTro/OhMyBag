@@ -187,40 +187,39 @@
 				</div>
 				
 				<div id="cambia-indirizzo" class="container-insert Cambia-indirizzo" style="display:none;">
-				<h2 style="margin-bottom:10px">Cambia indirizzo</h2>
-				    <form action="CambiaIndirizzoControl" method="POST" onsubmit="return ConfermaIndirizzo(event)">
-				        <div class="container-form">
-				            <div class="content">
-				                <label for="Citta">Città</label>
-				                <input class="input-field" type="text" name="Citta" value="<%=citta%>" required disabled>
-				            </div>
-				            <div class="content">
-				                <label for="Provincia">Provincia</label>
-				                <input class="input-field" type="text" name="Provincia" value="<%=provincia%>" required disabled>
-				            </div>
-				            <div class="content">
-				                <label for="Via">Via</label>
-				                <input class="input-field" type="text" name="Via" value="<%=via%>" required disabled>
-				            </div>
-				            <div class="content">
-				                <label for="CAP">CAP</label>
-				                <input class="input-field" type="number" name="CAP" value="<%=cap%>" required disabled>
-				            </div>
-		
-				            <div class="content button" id="button-group" style="display:none;">
-				                <div class="content submit">
-				                    <input type="submit" value="Cambia indirizzo" class="input-submit" id="input-submit">
-				                </div>
-				                <div class="content reset">
-				                    <input type="reset" value="Reset" class="input-reset">
-				                </div>
-				            </div>
-				            <div class="content button">
-				                <input type="button" value="Modifica i campi" id="cambia-indirizzo-btn">
-				            </div>
-				        </div>
-				    </form>
-				</div>
+		        <h2 style="margin-bottom:10px">Cambia indirizzo</h2>
+		        <form action="CambiaIndirizzoControl" method="POST" onsubmit="return ConfermaIndirizzo(event)">
+		            <div class="container-form">
+		                <div class="content">
+		                    <label for="Citta">Città</label>
+		                    <input class="input-field" type="text" name="Citta" value="<%=citta%>" required disabled>
+		                </div>
+		                <div class="content">
+		                    <label for="Provincia">Provincia</label>
+		                    <input class="input-field" type="text" name="Provincia" value="<%=provincia%>" required disabled>
+		                </div>
+		                <div class="content">
+		                    <label for="Via">Via</label>
+		                    <input class="input-field" type="text" name="Via" value="<%=via%>" required disabled>
+		                </div>
+		                <div class="content">
+		                    <label for="CAP">CAP</label>
+		                    <input class="input-field" type="number" name="CAP" value="<%=cap%>" required disabled>
+		                </div>
+		                <div class="content button" id="button-group" style="display:none;">
+		                    <div class="content submit">
+		                        <input type="submit" value="Cambia indirizzo" class="input-submit" id="input-submit">
+		                    </div>
+		                    <div class="content reset">
+		                        <input type="reset" value="Reset" class="input-reset">
+		                    </div>
+		                </div>
+		                <div class="content button">
+		                    <input type="button" value="Modifica i campi" id="cambia-indirizzo-btn">
+		                </div>
+		            </div>
+		        </form>
+		    </div>
 				<div id="cambia-password" class="container-insert Cambia-password" style="display:none;">
 				<h2 style="margin-bottom:10px">Cambia password</h2>
 			        <form action="CambiaPasswordControl" method="POST" onsubmit="return validate(this)">
@@ -265,5 +264,45 @@
 		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 		<script type="text/javascript" src="js/PaginaUtente.js"></script>
 	</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const editButton = document.getElementById("cambia-indirizzo-btn");
+            const submitButton = document.getElementById("input-submit");
+            const formFields = document.querySelectorAll(".input-field");
+            const buttonGroup = document.getElementById("button-group");
+
+            // Store the initial values of the fields
+            const initialValues = Array.from(formFields).map(field => field.value);
+
+            // Function to enable form fields for editing
+            function enableFields() {
+                formFields.forEach(field => field.disabled = false);
+                buttonGroup.style.display = "flex";
+            }
+
+            // Function to check if any field is modified
+            function isFormModified() {
+                return Array.from(formFields).some((field, index) => {
+                    return field.value !== initialValues[index];
+                });
+            }
+
+            // Event listener for the edit button
+            editButton.addEventListener("click", function() {
+                enableFields();
+            });
+
+            // Form submission handler
+            window.ConfermaIndirizzo = function(event) {
+                if (isFormModified()) {
+                    return confirm("Confermi di voler modificare l'indirizzo?");
+                } else {
+                    alert("Non hai modificato nessun campo.");
+                    location.reload();
+                    return false;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

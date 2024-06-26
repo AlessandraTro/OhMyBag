@@ -262,35 +262,9 @@ function matchPassword() {
 		}
 	};
 
-const oldPassword = document.getElementById('PasswordVecchia').value;
+	const oldPassword = document.getElementById('PasswordVecchia').value;
 	xhr.send('PasswordVecchia=' + encodeURIComponent(oldPassword));
 }
-function confirmModification(){
-	const fields = document.querySelectorAll('#cambia-indirizzo input[type="text"], #cambia-indirizzo input[type="number"]');
-	let isModified = false;
-	fields.forEach(field => {
-		if (field.value !== initialFormData[field.name]) {
-			isModified = true;
-		}
-	});
-
-	if (!isModified) {
-		alert('Nessuna modifica rilevata.');
-		document.querySelectorAll('#cambia-indirizzo input[type="text"], #cambia-indirizzo input[type="number"]').forEach(function(input) {
-			input.disabled = true;
-		});
-		location.reload();
-		return false;
-	}
-}
-
-function ConfermaIndirizzo(form) {
-	if (!confirmModifications()) {
-		return;
-	}
-	return confirm("Sei sicuro di voler applicare le modifiche cambiando l'indirizzo?");
-}
-
 
 document.getElementById('cambia-indirizzo-btn').addEventListener('click', function() {
 	// Abilita tutti i campi di input
@@ -304,68 +278,68 @@ document.getElementById('cambia-indirizzo-btn').addEventListener('click', functi
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-        const settingsIcon = document.getElementById("settings-icon");
-        const containerMenu = document.querySelector(".container-menu");
-        const menuLinks = containerMenu.querySelectorAll("a");
+	const settingsIcon = document.getElementById("settings-icon");
+	const containerMenu = document.querySelector(".container-menu");
+	const menuLinks = containerMenu.querySelectorAll("a");
 
-        function updateIconVisibility() {
-            if (window.innerWidth > 1000) {
-                settingsIcon.style.display = "none";
-                containerMenu.classList.remove("open");
-            } else {
-                settingsIcon.style.display = "block";
-            }
-        }
+	function updateIconVisibility() {
+		if (window.innerWidth > 1000) {
+			settingsIcon.style.display = "none";
+			containerMenu.classList.remove("open");
+		} else {
+			settingsIcon.style.display = "block";
+		}
+	}
 
-        settingsIcon.addEventListener("click", function(event) {
-            event.stopPropagation();
-            containerMenu.classList.toggle("open");
-        });
+	settingsIcon.addEventListener("click", function(event) {
+		event.stopPropagation();
+		containerMenu.classList.toggle("open");
+	});
 
-        document.addEventListener("click", function(event) {
-            if (!containerMenu.contains(event.target) && !settingsIcon.contains(event.target)) {
-                containerMenu.classList.remove("open");
-            }
-        });
+	document.addEventListener("click", function(event) {
+		if (!containerMenu.contains(event.target) && !settingsIcon.contains(event.target)) {
+			containerMenu.classList.remove("open");
+		}
+	});
 
-        menuLinks.forEach(function(link) {
-            link.addEventListener("click", function() {
-                containerMenu.classList.remove("open");
-            });
-        });
+	menuLinks.forEach(function(link) {
+		link.addEventListener("click", function() {
+			containerMenu.classList.remove("open");
+		});
+	});
 
-        window.addEventListener("resize", updateIconVisibility);
+	window.addEventListener("resize", updateIconVisibility);
 
-        updateIconVisibility();
-    });
-
-document.addEventListener('DOMContentLoaded', function () {
-    var detailsLinks = document.querySelectorAll('.details-link');
-    
-    detailsLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            var orderId = event.target.getAttribute('data-order-id');
-            
-            // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
-            fetch('DettagliOrdiniAdmin?Codice=' + orderId, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => response.text())
-            .then(html => {
-                // Aggiorna il corpo della modale con i dettagli ricevuti
-                document.querySelector('#ordiniModal .modal-body').innerHTML = html;
-                
-                // Mostra la modale
-                $('#ordiniModal').modal('show');
-            });
-        });
-    });
+	updateIconVisibility();
 });
-        document.getElementById('deleteAccount').addEventListener('click', function(event) {
-            var confirmation = confirm('Sei sicuro di voler cancellare il tuo account? Questa azione non puo essere annullata.');
-            if (!confirmation) {
-                event.preventDefault(); // Annulla l'azione di cancellazione se l'utente non conferma
-            }
-        });
+
+document.addEventListener('DOMContentLoaded', function() {
+	var detailsLinks = document.querySelectorAll('.details-link');
+
+	detailsLinks.forEach(function(link) {
+		link.addEventListener('click', function(event) {
+			var orderId = event.target.getAttribute('data-order-id');
+
+			// Fai una chiamata AJAX per ottenere i dettagli dell'ordine
+			fetch('DettagliOrdiniAdmin?Codice=' + orderId, {
+				headers: {
+					'X-Requested-With': 'XMLHttpRequest'
+				}
+			})
+				.then(response => response.text())
+				.then(html => {
+					// Aggiorna il corpo della modale con i dettagli ricevuti
+					document.querySelector('#ordiniModal .modal-body').innerHTML = html;
+
+					// Mostra la modale
+					$('#ordiniModal').modal('show');
+				});
+		});
+	});
+});
+document.getElementById('deleteAccount').addEventListener('click', function(event) {
+	var confirmation = confirm('Sei sicuro di voler cancellare il tuo account? Questa azione non puo essere annullata.');
+	if (!confirmation) {
+		event.preventDefault(); // Annulla l'azione di cancellazione se l'utente non conferma
+	}
+});

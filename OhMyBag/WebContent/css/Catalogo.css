@@ -31,7 +31,29 @@
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch;
 }
+/* Personalizzazione della paginazione */
+.pagination {
+	--bs-pagination-color: none !important;
+	--bs-pagination-focus-color: none !important;
+	--bs-pagination-active-border-color: none !important;
+	--bs-pagination-hover-color: none !important;
+	--bs-pagination-active-bg: none !important;
+}
 
+.page-link {
+	color: #958971 !important; /* Colore dei link della paginazione */
+}
+
+.page-link:hover {
+	background-color: #958971 !important; /* Colore di sfondo al passaggio del mouse */
+	color: white !important; /* Colore del testo al passaggio del mouse */
+}
+
+.active>.page-link {
+	background-color: #958971 !important; /* Colore di sfondo della pagina attiva */
+	border-color: #958971 !important; /* Colore del bordo della pagina attiva */
+	color: white !important; /* Colore del testo della pagina attiva */
+}
 .album {
 	margin: 80px 50px;
 }

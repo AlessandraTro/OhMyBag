@@ -149,6 +149,14 @@
 		<servlet-name>DettagliOrdiniAdmin</servlet-name>
 		<servlet-class>it.ohmybag.controller.DettagliOrdiniAdmin</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>BarraDiRicerca</servlet-name>
+		<servlet-class>it.ohmybag.controller.BarraDiRicerca</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ProdottiRicercaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ProdottiRicercaControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

@@ -3,7 +3,10 @@ package it.ohmybag.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,48 +24,94 @@ public class CategorieProdottiControl extends HttpServlet {
 
     static ProdottoModel prodottoModel;
     static ImmagineModel immagineModel;
+
     static {
-		prodottoModel = new ProdottoModel();
-		immagineModel = new ImmagineModel();
+        prodottoModel = new ProdottoModel();
+        immagineModel = new ImmagineModel();
+    }
 
-	}
+    public CategorieProdottiControl() {
+        super();
+    }
 
-	public CategorieProdottiControl() {
-		super();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
-	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Ottenere i parametri dalla richiesta che indicano la categoria e il tipo di prodotto
         String categoria = request.getParameter("categoria");
         String tipo = request.getParameter("tipo");
-        int idCategoria=0;
+        int idCategoria = 0;
 
-        // Se la categoria e il tipo sono nulli, reindirizza alla pagina di errore
         if (categoria == null || tipo == null) {
             response.sendRedirect("404.jsp");
             return;
         }
-        if(categoria.equals("Donna")) {
-        	idCategoria=01;
-        }else if(categoria.equals("Uomo")) {
-        	idCategoria=02;
-        }else {
-        	idCategoria=03;
+
+        switch (categoria) {
+            case "Donna":
+                idCategoria = 1;
+                break;
+            case "Uomo":
+                idCategoria = 2;
+                break;
+            default:
+                idCategoria = 3;
+                break;
         }
 
-        // Passare i prodotti selezionati alla pagina JSP per la visualizzazione
         try {
-        	if(categoria!=null && tipo.equals("")) {
-        		request.setAttribute("products", prodottoModel.allCategoryProduct(idCategoria));
-        	}else {
-    			request.setAttribute("products", prodottoModel.allTypologyProduct(idCategoria, tipo));
-        	}
-			request.setAttribute("ImageList", immagineModel.doRetrieveAll());
+            Collection<Prodotto> products;
+            if (!categoria.isEmpty() && tipo.isEmpty()) {
+                products = prodottoModel.allCategoryProduct(idCategoria);
+            } else {
+                products = prodottoModel.allTypologyProduct(idCategoria, tipo);
+            }
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        request.getRequestDispatcher("Catalogo.jsp").forward(request, response);
+            Collection<Immagine> images = immagineModel.doRetrieveAll();
+
+            int productsPerPage = 8;
+            int totalProducts = products.size();
+            int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage);
+
+            int currentPage = 1;
+            String pageParam = request.getParameter("page");
+            if (pageParam != null) {
+                try {
+                    currentPage = Integer.parseInt(pageParam);
+                    if (currentPage < 1 || currentPage > totalPages) {
+                        currentPage = 1;
+                    }
+                } catch (NumberFormatException e) {
+                    currentPage = 1;
+                }
+            }
+
+            int startIndex = (currentPage - 1) * productsPerPage;
+            List<Prodotto> productsForPage = products.stream()
+                    .skip(startIndex)
+                    .limit(productsPerPage)
+                    .collect(Collectors.toList());
+
+            request.setAttribute("products", productsForPage);
+            request.setAttribute("ImageList", images);
+            request.setAttribute("totalPages", totalPages);
+            request.setAttribute("currentPage", currentPage);
+
+            if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProdottiCatalogo.jsp");
+                dispatcher.include(request, response);
+            } else {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Catalogo.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

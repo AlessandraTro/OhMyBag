@@ -51,6 +51,8 @@ public class CatalogoControl extends HttpServlet{
 
 	        int currentPage = 1; // Pagina di default
 	        String pageParam = request.getParameter("page");
+		    System.out.println("PAGE catalog" +pageParam);
+
 	        if (pageParam != null) {
 	            try {
 	                currentPage = Integer.parseInt(pageParam);
@@ -68,10 +70,10 @@ public class CatalogoControl extends HttpServlet{
 	                .limit(productsPerPage)
 	                .collect(Collectors.toList());
 
-	        request.setAttribute("products", productsForPage);
+	        request.setAttribute("productPage", productsForPage);
 	        request.setAttribute("ImageList", images);
 	        request.setAttribute("totalPages", totalPages);
-	        request.setAttribute("currentPage", currentPage);
+	        request.getSession().setAttribute("currentPage", currentPage);
 
 	        if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
 	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProdottiCatalogo.jsp");

@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var orderId = event.target.getAttribute('data-order-id');
             
             // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
-            fetch('DettagliOrdiniAdmin?Codice=' + orderId, {
+            fetch('DettagliOrdiniAdmin?Fattura=No&Codice=' + orderId, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 }

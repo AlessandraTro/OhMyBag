@@ -26,6 +26,8 @@ public class ButtonCarrelloControl extends HttpServlet {
 		if (cart == null) {
 			cart = new Carrello();
 			request.getSession().setAttribute("Carrello", cart);
+//			request.getSession().setAttribute("pagina", 1);
+			request.getSession().setAttribute("carts", 1);
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");

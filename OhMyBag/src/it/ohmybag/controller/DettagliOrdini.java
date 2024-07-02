@@ -56,6 +56,7 @@ public class DettagliOrdini extends HttpServlet {
 			throws ServletException, IOException {
 
 		int codice = Integer.parseInt(request.getParameter("Codice"));
+		String fattura = request.getParameter("Fattura");
 
 		try {
 			Ordine ordine = ordineModel.getOrdineById(codice);
@@ -90,10 +91,15 @@ public class DettagliOrdini extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	    // Inoltra la richiesta alla pagina JSP corretta
-	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DettagliOrdine.jsp");
-	    dispatcher.forward(request, response);
+
+		if ("Si".equals(fattura)) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Fattura.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			// Inoltra la richiesta alla pagina JSP corretta
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DettagliOrdine.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

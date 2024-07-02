@@ -10,11 +10,11 @@
     <title>OhMyBag</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+	<link href="css/NavBar.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-custom">
+<nav class="navbar navbar-expand-lg bg-custom fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/OhMyBag"><img class="immagine-logo" src="img/website/logo.png" alt="OhMyBag"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,17 +58,22 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link info" href="OrdiniAdminControl">Chi Siamo</a>
+                    <a class="nav-link info" href="ChiSiamoContattaciControl?page=ChiSiamo">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contattaci</a>
+                    <a class="nav-link" href="ChiSiamoContattaciControl?page=Contattaci">Contattaci</a>
                 </li>
             </ul>
             
-			<form class="d-flex" role="search" style="margin-right:10px;">
-			    <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
-			    <button class="btn btn-outline-success" type="submit">Cerca</button>
-			</form>
+			 <!-- Search form -->
+            <form class="d-flex" role="search" id="searchForm" style="position: relative; margin-right:10px;">
+                <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" id="searchInput" onkeyup="showSuggestions(this.value)">
+                <button class="btn btn-outline-success" type="submit">Cerca</button>
+                <div id="suggestions" class="autocomplete-suggestions"></div>
+            </form>
+            
+            
+
             
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
@@ -101,6 +106,9 @@
         </div>
     </div>
 </nav>
+<!-- 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> -->
+
+<script src="js/header.js"></script>
 
 </body>
 </html>

@@ -24,7 +24,7 @@
 	margin: auto; /* Per allineare l'immagine al centro */
 }
 .carousel-item{
-	margin-top:20px;
+	margin-top:5%;
 }
 .nav-scroller {
 	position: relative;

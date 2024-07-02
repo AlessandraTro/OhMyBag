@@ -24,6 +24,7 @@ if (image != null && !image.isEmpty()) {
 <title>Set Cover Image</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Modal.css" rel="stylesheet" type="text/css">
+<link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>

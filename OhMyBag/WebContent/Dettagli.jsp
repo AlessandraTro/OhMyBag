@@ -86,7 +86,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 					Prezzo:
 					<%=String.format("%.2f", product.getPrezzo()) + " €"%>
 				</div>
-				<a href="CartControl?ID=<%=product.getId()%>">
+				<a href="CartControl?carts=1&ID=<%=product.getId()%>">
 					<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
 				</a> <input type="checkbox" id="toggle-description">
 				<hr class="hr hr-blurry" />

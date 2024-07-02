@@ -23,6 +23,7 @@ if (img != null && !img.isEmpty()) {
 <title>Elimina Immagini</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Modal.css" rel="stylesheet" type="text/css">
+<link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -79,7 +80,7 @@ if (img != null && !img.isEmpty()) {
 	</div>
 
 	<script src="js/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> 
 	<script>
 		$(document)
 				.ready(

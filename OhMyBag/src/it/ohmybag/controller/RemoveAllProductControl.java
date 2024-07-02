@@ -29,8 +29,15 @@ public class RemoveAllProductControl extends HttpServlet{
 	        throws ServletException, IOException {
 	    String idProdotto = request.getParameter("ID");
 	    Carrello carrello = (Carrello) request.getSession().getAttribute("Carrello");
+	    String cartStr = request.getParameter("carts");
+		// Verifica se il parametro cart è presente e convertibile in intero
+		int cart = 0;
+		if (cartStr != null) {
+			cart = Integer.parseInt(cartStr);
+		}
 	    HashMap<Prodotto,Integer> prodotti = carrello.getProdotti();
 	    ArrayList<Immagine> images = carrello.getImmagini();
+	    
 	    
 	    if(!prodotti.isEmpty()) {
 	        Iterator<Map.Entry<Prodotto,Integer>> iterator = prodotti.entrySet().iterator();
@@ -52,7 +59,12 @@ public class RemoveAllProductControl extends HttpServlet{
 	    }
 	    
 	    request.getSession().setAttribute("Carrello", carrello);
+	    if (cart == 1) {
+			response.sendRedirect("CartControl?carts=1");
+			return;
+		}
 	    response.sendRedirect("CartControl");
+	    return;
 	}
 
 

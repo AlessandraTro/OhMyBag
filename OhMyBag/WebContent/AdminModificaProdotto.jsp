@@ -23,6 +23,7 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 <link href="./css/ModificaProdotto.css" rel="stylesheet" type="text/css">
+<link href="css/Modal.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -118,9 +119,10 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
             	<label for="inputImmagine" class="label-Immigine">Immagini: </label>
         	</div>
         	<div class="buttons-container">
-            	<button type="button" class="pulsante" onclick="openModal('Delete')">Elimina Immagini</button>
-            	<button type="button" class="pulsante" onclick="openModal('Add')">Aggiungi Immagini</button>
-            	<button type="button" class="pulsante" onclick="openModal('Copertina')">Modifica Copertina</button>
+            	<button type="button" class="pulsante" onclick="openModal('Delete')" data-bs-toggle="modal" data-bs-target="#modalDelete">Elimina Immagini</button>
+				<button type="button" class="pulsante" onclick="openModal('Add')" data-bs-toggle="modal" data-bs-target="#modalAdd">Aggiungi Immagini</button>
+				<button type="button" class="pulsante" onclick="openModal('Copertina')" data-bs-toggle="modal" data-bs-target="#modalCopertina">Modifica Copertina</button>
+
         	</div>
         	        	<hr class="featurette-divider">
         	

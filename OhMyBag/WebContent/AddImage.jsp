@@ -24,6 +24,7 @@ if (images != null && !images.isEmpty()) {
 <title>Aggiungi Immagini</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/Modal.css" rel="stylesheet" type="text/css">
+<link href="css/NavBar.css" rel="stylesheet" type="text/css">
 
 </head>
 

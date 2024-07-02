@@ -8,9 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Catalogo</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
 	<link href="css/Catalogo.css" rel="stylesheet" type="text/css">
-	<link href="css/NavBar.css" rel="stylesheet" type="text/css">
+
+
+
 </head>
 <body>
 	<%
@@ -52,7 +54,9 @@
 
 
 <%@ include file="Footer.jsp"%>
-	<script src="js/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<!-- 	<script src="js/jquery-3.7.1.min.js"></script> -->
+
+<!-- <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>  -->
+	
 </body>
 </html>

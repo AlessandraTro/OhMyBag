@@ -3,7 +3,9 @@ package it.ohmybag.controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ public class AddCreditCardControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
     static CartaModel cartaModel;
     static Utente utente;
+    static LinkedList<Carta> carte;
 
     public AddCreditCardControl() {
         cartaModel = new CartaModel();
@@ -86,13 +89,15 @@ public class AddCreditCardControl extends HttpServlet {
 
         try {
             cartaModel.saveCreditCard(carta);
+            carte=(LinkedList<Carta>)cartaModel.retriveCardByUsername(utente.getUsername());
+            request.getSession().setAttribute("Carte", carte);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error saving credit card");
             return;
         }
 
-        response.sendRedirect("PaginaUtente.jsp");
+        response.sendRedirect("PaginaUtente.jsp#aggiungi-carta");
     }
 
     private void checkCardExists(HttpServletRequest request, HttpServletResponse response)

@@ -1,49 +1,54 @@
 //verifico quale menu viene scelto dall'utente
-document.addEventListener('DOMContentLoaded', function() {
-	// Mappa dei link e delle sezioni corrispondenti
-	const menuLinks = {
-		'dati-anagrafici-link': 'dati-anagrafici',
-		'ordini-link': 'ordini',
-		'aggiungi-carta-link': 'aggiungi-carta',
-		'cambia-indirizzo-link': 'cambia-indirizzo',
-		'cambia-password-link': 'cambia-password'
-	};
+document.addEventListener("DOMContentLoaded", function() {
+	// Ottieni tutti i link del menu
+	const menuLinks = document.querySelectorAll(".menu-up a");
 
-	// Aggiungi gli event listener ai link
-	for (let linkId in menuLinks) {
-		document.getElementById(linkId).addEventListener('click', function(event) {
-			event.preventDefault();
-			showSection(menuLinks[linkId]);
-		});
-	}
+	// Ottieni tutte le sezioni della pagina utente
+	const sections = document.querySelectorAll(".container-insert");
 
+	// Funzione per mostrare una specifica sezione e nascondere le altre
 	function showSection(sectionId) {
-		// Nascondi tutte le sezioni
-		for (let linkId in menuLinks) {
-			document.getElementById(menuLinks[linkId]).style.display = 'none';
-		}
-		// Mostra la sezione selezionata
-		document.getElementById(sectionId).style.display = 'block';
-	}
-
-	// Mostra la prima sezione di default
-	showSection('dati-anagrafici');
-
-	// Gestione pulsante "Modifica i campi"
-	document.getElementById('modifica-campi').addEventListener('click', function() {
-		const fields = document.querySelectorAll('#dati-anagrafici input[type="text"]');
-		fields.forEach(field => {
-			if (field.name !== 'CF' && field.name !== 'DataDiNascita') {
-				field.disabled = false;
+		sections.forEach(section => {
+			if (section.id === sectionId) {
+				section.style.display = "block";
+			} else {
+				section.style.display = "none";
 			}
 		});
-		document.getElementById('modifica-bottoni').style.display = 'flex';
-		this.style.display = 'none';
+	}
+
+	// Gestisci il click su ciascun link del menu
+	menuLinks.forEach(link => {
+		link.addEventListener("click", function(event) {
+			event.preventDefault(); // Evita il comportamento di default del link
+			const sectionId = this.getAttribute("id").replace("-link", "");
+			showSection(sectionId);
+		});
 	});
+
+	// Controlla se c'è un hash nella URL per mostrare la sezione corretta all'avvio
+	const hash = window.location.hash.substring(1); // Ottieni l'hash senza #
+	if (hash && document.getElementById(hash)) {
+		showSection(hash);
+	} else {
+		// Se non c'è un hash valido, mostra la prima sezione di default
+		showSection("dati-anagrafici"); // Modifica "dati-anagrafici" con l'ID della sezione predefinita
+	}
 });
 
 //inizia la parte in cui vengono modificati e verificati i dati anagrafici
 let initialFormData = {};
+
+document.getElementById('modifica-campi').addEventListener('click', function() {
+	// Abilita tutti i campi di input
+	document.querySelectorAll('#dati-anagrafici input[type="text"], #dati-anagrafici input[type="number"]').forEach(function(input) {
+		input.disabled = false;
+	});
+	// Mostra i pulsanti submit e reset
+	document.getElementById('modifica-bottoni').style.display = 'flex';
+	// Nascondi il pulsante "Modifica i campi"
+	this.style.display = 'none';
+});
 
 document.addEventListener('DOMContentLoaded', function() {
 	// Save the initial form data
@@ -76,8 +81,9 @@ function confirmModifications() {
 	});
 
 	if (!isModified) {
-		alert('Nessuna modifica rilevata.');
-		location.reload();
+		newalert('Nessuna modifica rilevata.');
+		setTimeout(function(){location.reload();},1000);
+		
 		return false;
 	}
 
@@ -165,7 +171,7 @@ document.getElementById('NumeroCarta').addEventListener('input', function() {
 	}
 });
 //verifico se la carta è gia presente per quel determinato utente
-function checkCardExists(cardNumber) {//utilizzo di ajax per controllare il database senza dover ricaricare la pagina
+function checkCardExists(cardNumber) {
 	const errorSubmit = document.getElementById('input-submitCarta');
 	const xhr = new XMLHttpRequest();
 	xhr.open('POST', 'AddCreditCardControl', true);
@@ -175,13 +181,24 @@ function checkCardExists(cardNumber) {//utilizzo di ajax per controllare il data
 			const response = JSON.parse(xhr.responseText);
 			if (response.exists) {
 				errorSubmit.disabled = true;
-				alert('La carta di credito e già stata inserita nel database.');
+				newalert("La carta di credito e' gia' stata inserita nel database.");
 			}
 		}
 	};
 	xhr.send('action=checkCard&NumeroCarta=' + encodeURIComponent(cardNumber));
 }
 
+function newalert(message) {
+    var alertSuccess = document.getElementById("AlertInfo");
+    if (alertSuccess) {
+        alertSuccess.style.display = "block";
+        alertSuccess.innerHTML = message;
+        // Nasconde l'alert dopo 3 secondi
+        setTimeout(function() {
+            alertSuccess.style.display = 'none';
+        }, 3000);
+    }
+}
 //inizia la parte di modifica e verifica della password
 var passwordCorrect = false;
 var passwordValCorrect = false;
@@ -272,6 +289,8 @@ function matchPassword() {
 	xhr.send('PasswordVecchia=' + encodeURIComponent(oldPassword));
 }
 
+
+
 //inizia la parte di verifica dell'indirizzo di spedizione
 document.getElementById('cambia-indirizzo-btn').addEventListener('click', function() {
 	// Abilita tutti i campi di input
@@ -330,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			var orderId = event.target.getAttribute('data-order-id');
 
 			// Fai una chiamata AJAX per ottenere i dettagli dell'ordine
-			fetch('DettagliOrdiniAdmin?Codice=' + orderId, {
+			fetch('DettagliOrdiniAdmin?Fattura=No&Codice=' + orderId, {
 				headers: {
 					'X-Requested-With': 'XMLHttpRequest'
 				}

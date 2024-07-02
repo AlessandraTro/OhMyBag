@@ -157,6 +157,14 @@
 		<servlet-name>ProdottiRicercaControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.ProdottiRicercaControl</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CancellaCartaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CancellaCartaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ChiSiamoContattaciControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ChiSiamoContattaciControl</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

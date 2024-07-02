@@ -84,9 +84,9 @@ h5{
 				<div class="col-sm-2">
 					<h5>About us</h5>
 					<ul class="nav flex-column">
-						<li><a href="ButtonChiSiamoControl">Our Team</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our Team</a></li>
 						<!-- Da fare -->
-						<li><a href="ButtonContattaciControl">Contact us</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact us</a></li>
 						<!-- Da fare -->
 					</ul>
 				</div>

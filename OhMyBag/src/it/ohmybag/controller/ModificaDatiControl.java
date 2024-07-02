@@ -42,11 +42,12 @@ public class ModificaDatiControl extends HttpServlet {
 			utenteModel.UpdateUtente(utente);
 			request.getSession().invalidate();
 			request.getSession().setAttribute("utente", utente);
+			request.getSession().setAttribute("Alert", "Dati modificati con successo");
 		}catch(Exception e) {
 			System.out.println("Error:"+e.getMessage());
 		}
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaUtente.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniUtenteControl");
 		dispatcher.forward(request, response);
 	}
 

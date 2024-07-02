@@ -41,11 +41,12 @@ public class CambiaPasswordControl extends HttpServlet {
 			utente.setPassword(hashPassword);
 			request.getSession().invalidate();
 			request.getSession().setAttribute("utente", utente);
+			request.getSession().setAttribute("Alert", "Password cambiata con successo");
 		}catch(Exception e) {
 			System.out.println("Errore:"+e.getMessage());
 		}
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaUtente.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniUtenteControl");
 		dispatcher.forward(request, response);
 	}
 

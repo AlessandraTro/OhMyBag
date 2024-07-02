@@ -11,22 +11,21 @@ INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admi
 
 /*creazione di un'ordine fatto dall'utente otineb*/
 INSERT INTO Ordine 
-    (PrezzoTotale, Destinatario, MetodoDiPagamento, IndirizzoDiSpedizione, 
+    (PrezzoTotale, Destinatario, IndirizzoDiSpedizione, 
     NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, 
     ConfezioneRegalo, NumeroCarta, Username) 
 VALUES 
     (100.50, 
     'Nome Destinatario', 
-    'Carta di Credito', 
     'Indirizzo di Spedizione', 
     'Note per il corriere', 
     'Standard', 
     '123456789', 
     '2024-05-05', 
-    'Circuito di pagamento', 
+    'Visa', 
     true, 
     '1234 5678 9012 3456', 
-    'otineb');
+    'email@gmail.com');
 
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");
@@ -865,7 +864,7 @@ values ("004AAD", "Calvin Klein",  "Borsa Reporter A Tracolla Con Logo",69.90,"M
 
 /*GUCCI*/
 INSERT INTO Prodotto (ID, Marca, Nome, Prezzo, Tipologia, IDCategoria, Descrizione, AnnoCollezione, DataInserimento, Sconto, Disponibilita,Iva) 
-values ("000AAE", "Gucci",  "CINTURA REVERSIBILE GG MARMONT", 470.00, "Cintura", 02 , 
+values ("000AAE", "Gucci",  "Cintura Reversibile GG Marmont", 470.00, "Cintura", 02 , 
 "Evolvendosi stagione dopo stagione, il design inconfondibile delle GG Marmont mescola l'hardware GG proveniente dagli anni '70 insieme a stili contemporanei.
 Questa cintura in tessuto GG Supreme grigia e nera è reversibile e sull'altro lato presenta un'elegante pelle grigia offrendo così un look alternativo.", 
 2023, '2024-04-17', 0, 10,22);

@@ -29,15 +29,15 @@ body{
 	align-items:center;
 	flex:1;
 }
-.container{
+.containerPagina{
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
-	margin-top:20px;
-	margin-bottom:20px;
+	margin:20px auto;
 	align-items:center;
 	min-height:600px;
 	max-width:500px;
+	width:100%;
 	
 	border-radius: 30px;
 	backdrop-filter: blur(60px);
@@ -59,6 +59,7 @@ body{
     height:600px;
     border-top-right-radius:30px;
     border-bottom-right-radius:30px;
+    margin-top:5%;
 }
 .container-insert{
 	display:flex;
@@ -77,6 +78,7 @@ body{
 .reset{
 	margin-left:8px;
 }
+
 table, th, td {
 	text-align: center;
 	border: 2px solid var(--primary-color);
@@ -87,7 +89,8 @@ th, td {
 	padding: 5px;
 }
 .content img{
-	width:35px;
+	margin-left:8px;
+	width:45px;
 	display:none;
 }
 
@@ -119,15 +122,27 @@ th, td {
 	cursor: pointer;
 	
 }
+.alert{
+	position:absolute;
+	margin-bottom:570px;
+	margin-left:84%;
+	padding:12px;
+}
 .button input:hover{
 	background-color: #827b7b;
 }
-
+.password-container{
+	display:flex;
+	align-items:center;
+}
+.password-container i{
+	margin-left:8px;
+}
 @media (max-width: 1000px) {
 	.setting{
 		margin-bottom:5px;
 	}
-	.container{
+	.containerPagina{
 		flex-direction:column;
 		padding-top:15px;
 		border:0px;

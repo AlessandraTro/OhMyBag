@@ -44,11 +44,12 @@ public class CambiaIndirizzoControl extends HttpServlet {
 			utenteModel.UpdateUtente(utente);
 			request.getSession().invalidate();
 			request.getSession().setAttribute("utente", utente);
+			request.getSession().setAttribute("Alert", "Indirizzo cambiato con successo");
 		}catch(Exception e) {
 			System.out.println("Errore:"+e.getMessage());
 		}
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaUtente.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniUtenteControl");
 		dispatcher.forward(request, response);
 	}
 

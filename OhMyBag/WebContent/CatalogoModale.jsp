@@ -110,7 +110,7 @@ if (prodotti != null && !prodotti.getProdotti().isEmpty()) {
 			<div class="bottoni-custom">
 				
 				<a href="ButtonCarrelloControl" class="pulsanti">Vai al carrello</a>
-				<a href="url_della_pagina_di_pagamento" class="pulsanti">Procedi
+				<a href="CheckoutControl" class="pulsanti">Procedi
 					al pagamento</a>
 			</div>
 		</div>

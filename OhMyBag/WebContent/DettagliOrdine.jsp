@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.math.BigDecimal,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.bean.*,it.ohmybag.model.*"%>	
+	import="java.sql.SQLException,java.math.BigDecimal,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 
 <%
 Collection<Prodotto> prodottiOrdine = (Collection<Prodotto>) request.getSession().getAttribute("prodottiOrdine");
 Collection<Immagine> immaginiCopertina = (Collection<Immagine>) request.getSession().getAttribute("copertinaProdotto");
 Ordine ordine = (Ordine) request.getSession().getAttribute("ordineSingolo");
-Collection<Composizione> composizione = (Collection<Composizione>) request.getSession().getAttribute("composizioneOrdine");
+Collection<Composizione> composizione = (Collection<Composizione>) request.getSession()
+		.getAttribute("composizioneOrdine");
 BigDecimal prezzo = BigDecimal.ZERO;
 %>
 
@@ -113,7 +114,7 @@ BigDecimal prezzo = BigDecimal.ZERO;
 					String formattedDate = dateTime.format(formatter);
 					%>
 					<p class="text-recap">
-					
+
 						<%=formattedDate%></p>
 				</div>
 				<div class="text-All-Recap">
@@ -141,7 +142,7 @@ BigDecimal prezzo = BigDecimal.ZERO;
 					<p class="text-recap">
 						<%=ordine.getNumeroCarta()%></p>
 				</div>
-				
+
 				<hr>
 				<%
 				BigDecimal prezzoTotale = new BigDecimal(ordine.getPrezzoTotale());
@@ -155,7 +156,7 @@ BigDecimal prezzo = BigDecimal.ZERO;
 
 		<!-- #wrapper -->
 	</div>
-	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

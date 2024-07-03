@@ -206,20 +206,18 @@ function cfValidator(cf) {
 
 // Validità indirizzo
 function addressValidator(indirizzo) {
-	var ind = /^(([A-Z])([a-z]+)(\s))+(\d+)(,)(\s?)(([A-Z])([a-z]+)(\s?))+(,\s?\d{5})$/;
-	if (indirizzo.value.match(ind)) {
-		$("#indirizzo").css({ "border-color": "#00fd00" });
-		$("#indirizzoError").text("");
-		return true;
-	}
-	else {
-		$("#indirizzo").css({ "border-color": "red" });
-		$("#indirizzoError").text("L'indirizzo deve essere del formato es. 'Via Genova 24, Roma, 84033'");
-
-		return false;
-	}
-
+    var ind = /^(([A-Z][a-z]+)(\s))+(\d+)(,)(\s?)([A-Z][a-z]+)(,\s?)([A-Z]{2})(,\s?\d{5})$/;
+    if (indirizzo.value.match(ind)) {
+        $("#indirizzo").css({ "border-color": "#00fd00" });
+        $("#indirizzoError").text("");
+        return true;
+    } else {
+        $("#indirizzo").css({ "border-color": "red" });
+        $("#indirizzoError").text("L'indirizzo deve essere del formato es. 'Via Genova 24, Roma, RM, 84033'");
+        return false;
+    }
 }
+
 
 // Validità Password
 function passwordValidator(password) {

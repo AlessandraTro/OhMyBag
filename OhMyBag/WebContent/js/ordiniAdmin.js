@@ -50,3 +50,28 @@ window.onload = function() {
 	// Pulisce il localStorage dopo aver ripristinato i valori
 	localStorage.clear();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var detailsLinks = document.querySelectorAll('.details-link');
+    
+    detailsLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            var orderId = event.target.getAttribute('data-order-id');
+            
+            // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
+            fetch('DettagliOrdiniAdmin?Fattura=No&Codice=' + orderId, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                // Aggiorna il corpo della modale con i dettagli ricevuti
+                document.querySelector('#ordiniModal .modal-body').innerHTML = html;
+                
+                // Mostra la modale
+                $('#ordiniModal').modal('show');
+            });
+        });
+    });
+});

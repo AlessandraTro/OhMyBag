@@ -126,39 +126,13 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 								}
 								%>
 							</div>
-
-							<!-- 							
-							
-							<!-- SPEDIZIONE DA TOGLIERE -->
-							<!-- 							<p class="mb-2" style="font-weight: bold">Spedizione:</p> -->
-
-
-
-							<!-- 							<div class="d-flex justify-content-between"> -->
-							<%-- 								<% --%>
-							<%-- 								%> --%>
-							<!-- 								<input id="checkbox_toggle" type="checkbox" class="check"> -->
-							<!-- 								<div class="checkbox"> -->
-							<!-- 									<label class="slide" for="checkbox_toggle"> <label -->
-							<!-- 										class="toggle" for="checkbox_toggle"></label> <label -->
-							<!-- 										class="text" for="checkbox_toggle">Standard</label> <label -->
-							<!-- 										class="text" for="checkbox_toggle">Premium</label> -->
-							<!-- 									</label> -->
-							<!-- 								</div> -->
-
-							<%-- 								<p id="spedizione_value" class="mb-2"><%=spedizione + " €"%></p> --%>
-							<!-- 								Aggiunto id per il valore della spedizione -->
-							<!-- 							</div> -->
-
-
-
 							<div class="d-flex justify-content-between p-2"
 								style="background-color: #ede4db;">
 								<h5 class="fw-bold mb-2">Totale:</h5>
 								<h5 id="prezzo_value" class="fw-bold mb-0"><%=prezzo.setScale(2, BigDecimal.ROUND_HALF_UP) + " €"%></h5>
 							</div>
 							<div class="bottoni-custom">
-								<a class="pulsan" href="ButtonPagamentoControl">Checkout</a>
+								<a class="pulsan" href="CheckoutControl">Checkout</a>
 							</div>
 							<div class="card mb-6 mb-lg-0 p-5"
 								style="margin-top: 60px; background-color: #dcdcdc;">

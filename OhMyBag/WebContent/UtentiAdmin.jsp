@@ -65,7 +65,9 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
                         String formattedDate = dateTime.format(formatter);
                         %>
                         <td class="colonna"><%= formattedDate %></td>
-                        <td class="colonna"><a href="#">Dettagli</a><br></td>
+                        <td class="colonna"><a href="#" class="details-link"
+						data-bs-toggle="modal" data-bs-target="#utenteModal"
+						data-order-id="<%=utenteLoop.getEmail()%>">Dettagli</a><br></td>
                     </tr>
                     <% 
                         }
@@ -82,7 +84,52 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
         </div>
     </div>
     
+    	<!-- Dettagli Utente Modal -->
+	<div class="modal fade" id="utenteModal" tabindex="-1" role="dialog"
+		aria-labelledby="utenteModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="utenteModalLabel">Dettagli Utente</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close">
+					</button>
+				</div>
+				<div class="modal-body"></div>
+			</div>
+		</div>
+	</div>	
+	
+    	<script src="js/jquery-3.7.1.min.js"></script>
+    
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
      <script src="js/utentiAdmin.js"></script>
+
+	<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var detailsLinks = document.querySelectorAll('.details-link');
+    
+    detailsLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            var username = event.target.getAttribute('data-order-id');
+            
+            // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
+            fetch('DettagliUtenteAdmin?Username=' + username, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                // Aggiorna il corpo della modale con i dettagli ricevuti
+                document.querySelector('#utenteModal .modal-body').innerHTML = html;
+                
+                // Mostra la modale
+                $('#utenteModal').modal('show');
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>

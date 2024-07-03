@@ -432,5 +432,53 @@ public class UtenteModel {
 		    return utenti;
 		}
 		
+		/* permette di prendere un utente in base alla email */
+		public synchronized Utente getUserByUsername(String email) throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Utente bean = new Utente();
+		    
+		    String query = "SELECT * FROM Utente WHERE Email=?";
+		    
+		    try {
+		        conn = getConnection(); /* creo la connessione con il database */
+		        statement = conn.prepareStatement(query); /* creo lo statement per poter comunicare con il database */
+		        
+		        statement.setString(1, email);
+		        
+		        rs = statement.executeQuery();
+
+		        if (rs.next()) { // Utilizza if invece di while poiché ci aspettiamo solo un utente
+		            bean.setUsername(rs.getString("Username"));
+		            bean.setAdmin(rs.getBoolean("Admin"));
+		            bean.setCodiceFiscale(rs.getString("Cf"));
+		            bean.setCognome(rs.getString("Cognome"));
+		            
+		            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            bean.setDataDiNascita(dataInserimento);
+		            
+		            bean.setEmail(rs.getString("Email"));
+		            bean.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		            bean.setNome(rs.getString("Nome"));
+		            bean.setPassword(rs.getString("Password"));
+		            bean.setTelefono(rs.getString("Telefono"));
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return bean;
+		}
+
+		
+		
 }
 

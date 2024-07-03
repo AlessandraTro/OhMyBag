@@ -119,36 +119,9 @@ if (ordini == null) {
 	</div>	
 	
 
-
+	<script src="js/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/ordiniAdmin.js"></script>
-
-	<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var detailsLinks = document.querySelectorAll('.details-link');
-    
-    detailsLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            var orderId = event.target.getAttribute('data-order-id');
-            
-            // Fai una chiamata AJAX per ottenere i dettagli dell'ordine
-            fetch('DettagliOrdiniAdmin?Fattura=No&Codice=' + orderId, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => response.text())
-            .then(html => {
-                // Aggiorna il corpo della modale con i dettagli ricevuti
-                document.querySelector('#ordiniModal .modal-body').innerHTML = html;
-                
-                // Mostra la modale
-                $('#ordiniModal').modal('show');
-            });
-        });
-    });
-});
-</script>
 
 </body>
 </html>

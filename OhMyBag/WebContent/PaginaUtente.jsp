@@ -335,10 +335,8 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 									<label for="passRepeat" class="label">Repeat new
 										Password</label>
 									<div class="password-container">
-										<input type="password" name="repeat" id="passRepeat"
-											class="input-field" required> <i
-											class="fas fa-eye-slash toggle-password"
-											onclick="togglePasswordVisibility('passRepeat', this)"></i>
+										<input type="password" name="repeat" id="passRepeat" class="input-field" required>
+										<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('passRepeat', this)"></i>
 									</div>
 									<p id="passwordValError" class="error" style="color: red;"></p>
 								</div>

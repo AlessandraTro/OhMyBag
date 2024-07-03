@@ -45,7 +45,7 @@
                 <div class="login-box">
                     <input type="password" name="password" id="pass" class="input-field" required>
                     <label for="pass" class="label">Password</label>
-                    <i class="bx bx-lock-alt icon" id="show-password"></i>
+                    <i class="fas fa-eye-slash toggle-password icon" onclick="togglePasswordVisibility('pass', this)" id="show-password"></i>
                 </div>
                 
                 <% if (request.getAttribute("loginError") != null) { %>
@@ -70,6 +70,7 @@
     
     <%@ include file="Footer.jsp"%>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/ShowPassword.js"></script>
     
 </body>
 </html>

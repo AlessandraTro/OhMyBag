@@ -1,5 +1,7 @@
 package it.ohmybag.model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,7 +58,38 @@ public class CartaModel {
 			}
 		}
 	}
-	/*ritorna tutti i prodotti di una determinata categoria es. uomo, donna, viaggi*/
+
+	/*permette di cancellare una carta con un determinato id*/
+	public boolean cancellaCarta(String username,int id) throws Exception {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		int result=0;
+		
+		String deleteSQL="DELETE FROM Carta WHERE Username=? and Id=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(deleteSQL);
+			
+			statement.setString(1, username);
+			statement.setInt(2, id);
+			
+			result=statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return result!=0;
+		
+	}
+	/*ritorna la carta con un determinato numero di un determinato utente*/
 	public boolean checkCardExists(String numeroCarta, String username) throws Exception {
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -202,6 +235,49 @@ public class CartaModel {
         }
         return carta;
     }
+	/*Ritorna tutte le carte di un determinato user*/
+	public Collection<Carta> retriveCardByUsername(String username) throws Exception{
+		Collection<Carta> carte=new LinkedList<Carta>();
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String Query="SELECT * from Carta where Username=?";
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(Query);
+			statement.setString(1, username);
+			
+			ResultSet rs=statement.executeQuery();
+			while(rs.next()) {
+				Carta carta=new Carta();
+				
+				carta.setId(Integer.parseInt(rs.getString("ID")));
+				carta.setCircuito(rs.getString("Circuito"));
+				carta.setCvv(Integer.parseInt(rs.getString("CVV")));
+				carta.setNumeroCarta(rs.getString("NumeroCarta"));
+				carta.setUsername(rs.getString("Username"));
+				
+				java.sql.Date DataScadenzaSQL = rs.getDate("DataScadenza");
+		        GregorianCalendar DataScadenza = new GregorianCalendar();
+		        DataScadenza.setTime(DataScadenzaSQL);
+				carta.setDataScadenza(DataScadenza);
+				
+				carte.add(carta);
+			}
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		
+		return carte;
+	}
 
 }
 

@@ -53,7 +53,7 @@ public class CancellaCartaControl extends HttpServlet {
 		}
 		
 	    // Inoltra la richiesta alla pagina JSP corretta
-		response.sendRedirect("PaginaUtente.jsp#aggiungi-carta");
+		response.sendRedirect("PaginaUtente.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

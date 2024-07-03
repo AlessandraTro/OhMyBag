@@ -439,8 +439,8 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
                 if (isFormModified()) {
                     return confirm("Confermi di voler modificare l'indirizzo?");
                 } else {
-                    alert("Non hai modificato nessun campo.");
-                    location.reload();
+            		newalert('Nessuna modifica rilevata.');
+            		setTimeout(function() { location.reload(); }, 1000);
                     return false;
                 }
             }

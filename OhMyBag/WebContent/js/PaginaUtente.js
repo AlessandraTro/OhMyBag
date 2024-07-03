@@ -1,40 +1,111 @@
-//verifico quale menu viene scelto dall'utente
 document.addEventListener("DOMContentLoaded", function() {
-	// Ottieni tutti i link del menu
-	const menuLinks = document.querySelectorAll(".menu-up a");
-
-	// Ottieni tutte le sezioni della pagina utente
-	const sections = document.querySelectorAll(".container-insert");
-
-	// Funzione per mostrare una specifica sezione e nascondere le altre
-	function showSection(sectionId) {
-		sections.forEach(section => {
-			if (section.id === sectionId) {
-				section.style.display = "block";
-			} else {
-				section.style.display = "none";
-			}
-		});
-	}
-
-	// Gestisci il click su ciascun link del menu
-	menuLinks.forEach(link => {
-		link.addEventListener("click", function(event) {
-			event.preventDefault(); // Evita il comportamento di default del link
-			const sectionId = this.getAttribute("id").replace("-link", "");
-			showSection(sectionId);
+	// Aggiungi un evento click a tutti i link del menu
+	document.querySelectorAll('.menu-up a').forEach(link => {
+		link.addEventListener('click', function(event) {
+			event.preventDefault();
+			const menuId = event.target.id;
+			// Salva l'id del menu in localStorage
+			localStorage.setItem('lastMenu', menuId);
+			// Mostra il menu corrispondente
+			showMenu(menuId);
 		});
 	});
 
-	// Controlla se c'è un hash nella URL per mostrare la sezione corretta all'avvio
-	const hash = window.location.hash.substring(1); // Ottieni l'hash senza #
-	if (hash && document.getElementById(hash)) {
-		showSection(hash);
+	// Recupera l'ultimo menu salvato e mostralo
+	const lastMenu = localStorage.getItem('lastMenu');
+	if (lastMenu) {
+		showMenu(lastMenu);
 	} else {
-		// Se non c'è un hash valido, mostra la prima sezione di default
-		showSection("dati-anagrafici"); // Modifica "dati-anagrafici" con l'ID della sezione predefinita
+		// Mostra il menu predefinito se non c'è nessun menu salvato
+		showMenu('dati-anagrafici-link');
+	}
+
+	// Funzione per mostrare il menu corrispondente
+	function showMenu(menuId) {
+		// Nascondi tutti i container dei menu
+		document.querySelectorAll('.container-insert').forEach(container => {
+			container.style.display = 'none';
+		});
+
+		// Rimuovi la classe attiva da tutti i link del menu
+		document.querySelectorAll('.menu-up a').forEach(link => {
+			link.classList.remove('active');
+		});
+
+		// Mostra il container del menu selezionato
+		const selectedMenu = document.getElementById(menuId);
+		if (selectedMenu) {
+			selectedMenu.classList.add('active');
+		}
+
+		// Trova il container corrispondente e mostralo
+		const containerId = menuId.replace('-link', '');
+		const container = document.getElementById(containerId);
+		if (container) {
+			container.style.display = 'block';
+		}
 	}
 });
+document.addEventListener("DOMContentLoaded", function() {
+	// Codice per gestire l'alert
+	var alertSuccess = document.getElementById("AlertSuccess");
+	if (alertSuccess) {
+		setTimeout(function() {
+			alertSuccess.style.display = 'none';
+		}, 3000);
+	}
+
+	// Funzione per mostrare il menu corrispondente
+	function showMenu(menuId) {
+		// Nascondi tutti i container dei menu
+		document.querySelectorAll('.container-insert').forEach(container => {
+			container.style.display = 'none';
+		});
+
+		// Rimuovi la classe attiva da tutti i link del menu
+		document.querySelectorAll('.menu-up a').forEach(link => {
+			link.classList.remove('active');
+		});
+
+		// Mostra il container del menu selezionato
+		const selectedMenu = document.getElementById(menuId);
+		if (selectedMenu) {
+			selectedMenu.classList.add('active');
+		}
+
+		// Trova il container corrispondente e mostralo
+		const containerId = menuId.replace('-link', '');
+		const container = document.getElementById(containerId);
+		if (container) {
+			container.style.display = 'block';
+		}
+	}
+
+	// Aggiungi un evento click a tutti i link del menu
+	document.querySelectorAll('.menu-up a').forEach(link => {
+		link.addEventListener('click', function(event) {
+			event.preventDefault();
+			const menuId = event.target.id;
+			// Salva l'id del menu in localStorage
+			localStorage.setItem('lastMenu', menuId);
+			// Mostra il menu corrispondente
+			showMenu(menuId);
+		});
+	});
+
+	// Recupera l'ultimo menu salvato e mostralo
+	const lastMenu = localStorage.getItem('lastMenu');
+	if (lastMenu) {
+		showMenu(lastMenu);
+	} else {
+		// Mostra il menu predefinito se non c'è nessun menu salvato
+		showMenu('dati-anagrafici-link');
+	}
+});
+
+
+
+
 
 //inizia la parte in cui vengono modificati e verificati i dati anagrafici
 let initialFormData = {};
@@ -82,8 +153,8 @@ function confirmModifications() {
 
 	if (!isModified) {
 		newalert('Nessuna modifica rilevata.');
-		setTimeout(function(){location.reload();},1000);
-		
+		setTimeout(function() { location.reload(); }, 1000);
+
 		return false;
 	}
 
@@ -181,7 +252,7 @@ function checkCardExists(cardNumber) {
 			const response = JSON.parse(xhr.responseText);
 			if (response.exists) {
 				errorSubmit.disabled = true;
-				newalert("La carta di credito e' gia' stata inserita nel database.");
+				newalert("Questa carta di credito &#232; gi&#224; stata inserita nel database.");
 			}
 		}
 	};
@@ -189,15 +260,15 @@ function checkCardExists(cardNumber) {
 }
 
 function newalert(message) {
-    var alertSuccess = document.getElementById("AlertInfo");
-    if (alertSuccess) {
-        alertSuccess.style.display = "block";
-        alertSuccess.innerHTML = message;
-        // Nasconde l'alert dopo 3 secondi
-        setTimeout(function() {
-            alertSuccess.style.display = 'none';
-        }, 3000);
-    }
+	var alertSuccess = document.getElementById("AlertInfo");
+	if (alertSuccess) {
+		alertSuccess.style.display = "block";
+		alertSuccess.innerHTML = message;
+		// Nasconde l'alert dopo 3 secondi
+		setTimeout(function() {
+			alertSuccess.style.display = 'none';
+		}, 3000);
+	}
 }
 //inizia la parte di modifica e verifica della password
 var passwordCorrect = false;

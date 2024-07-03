@@ -97,7 +97,7 @@ public class AddCreditCardControl extends HttpServlet {
             return;
         }
 
-        response.sendRedirect("PaginaUtente.jsp#aggiungi-carta");
+        response.sendRedirect("PaginaUtente.jsp");
     }
 
     private void checkCardExists(HttpServletRequest request, HttpServletResponse response)

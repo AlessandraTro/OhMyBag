@@ -57,6 +57,8 @@ nav {
 	border-radius: 5px;
 	cursor: pointer;
 	margin-bottom: 1%;
+	--bs-btn-active-bg: #827b7b; 
+    --bs-btn-active-border-color: #827b7b;
 }
 
 .btn-outline-success:hover {
@@ -71,7 +73,7 @@ nav {
 
 .form-control input[type="search"] {
 	width: 100%;
-	padding-right: 38px; /* Larghezza dell'icona più padding destro */
+	padding-right: 38px; /* Larghezza dell'icona piï¿½ padding destro */
 }
 
 .form-control .search-icon {
@@ -108,7 +110,7 @@ nav {
 /*Grandezza della modal di ricerca per le varie grandezze*/
 @media ( min-width : 1046px) {
 	.autocomplete-suggestions {
-		width: 73%; /* Larghezza personalizzata per schermi più grandi */
+		width: 73%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 84%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -116,7 +118,7 @@ nav {
 
 @media ( min-width : 1030px) {
 	.autocomplete-suggestions {
-		width: 71%; /* Larghezza personalizzata per schermi più grandi */
+		width: 71%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 83%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -124,7 +126,7 @@ nav {
 
 @media ( max-width : 1029px) {
 	.autocomplete-suggestions {
-		width: 70%; /* Larghezza personalizzata per schermi più grandi */
+		width: 70%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 82%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -132,7 +134,7 @@ nav {
 
 @media ( max-width : 1010px) {
 	.autocomplete-suggestions {
-		width: 65%; /* Larghezza personalizzata per schermi più grandi */
+		width: 65%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 79%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -140,7 +142,7 @@ nav {
 /* Stili per schermi da 995px in su */
 @media ( max-width : 991px) {
 		.autocomplete-suggestions {
-		width: 91%; /* Larghezza personalizzata per schermi più grandi */
+		width: 91%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 94%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -148,7 +150,7 @@ nav {
 
 @media ( max-width : 816px) {
 		.autocomplete-suggestions {
-		width: 90%; /* Larghezza personalizzata per schermi più grandi */
+		width: 90%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 93%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -156,7 +158,7 @@ nav {
 
 @media ( max-width : 710px) {
 		.autocomplete-suggestions {
-		width: 89%; /* Larghezza personalizzata per schermi più grandi */
+		width: 89%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 92%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -164,7 +166,7 @@ nav {
 
 @media ( max-width : 616px) {
 		.autocomplete-suggestions {
-		width: 86%; /* Larghezza personalizzata per schermi più grandi */
+		width: 86%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 91%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -172,7 +174,7 @@ nav {
 
 @media ( max-width : 543px) {
 		.autocomplete-suggestions {
-		width: 85%; /* Larghezza personalizzata per schermi più grandi */
+		width: 85%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 90%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -180,7 +182,7 @@ nav {
 
 @media ( max-width : 493px) {
 		.autocomplete-suggestions {
-		width: 83%; /* Larghezza personalizzata per schermi più grandi */
+		width: 83%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 89%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -188,7 +190,7 @@ nav {
 
 @media ( max-width : 456px) {
 		.autocomplete-suggestions {
-		width: 81%; /* Larghezza personalizzata per schermi più grandi */
+		width: 81%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 88%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -196,7 +198,7 @@ nav {
 
 @media ( max-width : 404px) {
 		.autocomplete-suggestions {
-		width: 79%; /* Larghezza personalizzata per schermi più grandi */
+		width: 79%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 87%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -205,7 +207,7 @@ nav {
 
 @media ( max-width : 375px) {
 		.autocomplete-suggestions {
-		width: 77%; /* Larghezza personalizzata per schermi più grandi */
+		width: 77%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 86%);
 		/* Calcolo personalizzato per la posizione */
 	}
@@ -213,7 +215,7 @@ nav {
 
 @media ( max-width : 344px) {
 		.autocomplete-suggestions {
-		width: 75%; /* Larghezza personalizzata per schermi più grandi */
+		width: 75%; /* Larghezza personalizzata per schermi piï¿½ grandi */
 		margin-top: calc(100% - 85%);
 		/* Calcolo personalizzato per la posizione */
 	}

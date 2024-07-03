@@ -37,7 +37,17 @@ h5{
     font-weight: bold; /* Aggiungi il grassetto */
 
 }
-
+.btn-outline-success {
+	border-color: #827b7b;
+	cursor: pointer;
+	background-color: #827b7b;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 1%;
+	--bs-btn-active-bg: #827b7b; 
+    --bs-btn-active-border-color: #827b7b;
+}
 
 </style>
 
@@ -100,7 +110,7 @@ h5{
 							<label for="newsletter1" class="visually-hidden">Email
 								address</label> <input id="newsletter1" type="text" class="form-control"
 								placeholder="Email address">
-							<button class="btn btn-primary" type="button">Subscribe</button>
+							<button class="btn btn-outline-success" type="submit">Subscribe</button>
 						</div>
 					</form>
 				</div>

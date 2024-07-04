@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link href="../css/ErrorPage.css" rel="stylesheet" type="text/css">
+<title>Error 500</title>
 </head>
 <body>
-
+	<div class="container">
+		<div class="image">
+			<img src="../img/website/mascotteCarrelloVuoto.jpg" alt="immagine non disponibile">
+		</div>
+		<div class="error-info">
+			<h1> Errore: 500</h1>
+			<h2>Errore da parte del server</h2>
+		</div>
+		<div class="homepage">
+			<a href="/OhMyBag/home"> --Torna alla home page--</a>
+		</div>
+	</div>
 </body>
 </html>

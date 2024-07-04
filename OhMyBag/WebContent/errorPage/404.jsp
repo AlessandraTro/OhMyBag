@@ -1,12 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<link href="../css/ErrorPage.css" rel="stylesheet" type="text/css">
 <title>Error 404</title>
 </head>
 <body>
-ERRORE 404!
+	<div class="container">
+		<div class="image">
+			<img src="../img/website/mascotteCarrelloVuoto.jpg" alt="immagine non disponibile">
+		</div>
+		<div class="error-info">
+			<h1> Errore: 404</h1>
+			<h2>Pagina non trovata</h2>
+		</div>
+		<div class="homepage">
+			<a href="/OhMyBag/home"> --Torna alla home page--</a>
+		</div>
+	</div>
 </body>
 </html>

@@ -14,29 +14,26 @@ a {
 	/* Utilizza il colore ereditato dal testo circostante */
 }
 
-
-.footer-container{
-    background-color: #d6ccc2; /* Colore di sfondo */
-   
+.footer-container {
+	background-color: #d6ccc2; /* Colore di sfondo */
 }
 
-#myFooter{
+#myFooter {
 	padding: 50px 50px 0px 50px;
 }
 
-.float-end-custom{
-text-align: right;
+.float-end-custom {
+	text-align: right;
 }
 
-footer{
-font-family: Times New Roman, Sans-Serif;
-
+footer {
+	font-family: Times New Roman, Sans-Serif;
 }
 
-h5{
-    font-weight: bold; /* Aggiungi il grassetto */
-
+h5 {
+	font-weight: bold; /* Aggiungi il grassetto */
 }
+
 .btn-outline-success {
 	border-color: #827b7b;
 	cursor: pointer;
@@ -45,10 +42,9 @@ h5{
 	border-radius: 5px;
 	cursor: pointer;
 	margin-bottom: 1%;
-	--bs-btn-active-bg: #827b7b; 
-    --bs-btn-active-border-color: #827b7b;
+	--bs-btn-active-bg: #827b7b;
+	--bs-btn-active-border-color: #827b7b;
 }
-
 </style>
 
 <body>
@@ -74,8 +70,10 @@ h5{
 
 	<div class="footer-container">
 		<footer id="myFooter">
-			<p class="float-end-custom"><a href="#">Back to top</a></p> 
-		
+			<p class="float-end-custom">
+				<a href="#">Back to top</a>
+			</p>
+
 			<div class="row">
 
 				<!-- Get Started -->
@@ -94,23 +92,24 @@ h5{
 				<div class="col-sm-2">
 					<h5>About us</h5>
 					<ul class="nav flex-column">
-						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our Team</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our
+								Team</a></li>
 						<!-- Da fare -->
-						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact us</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact
+								us</a></li>
 						<!-- Da fare -->
 					</ul>
 				</div>
 
 				<!-- Newsletter -->
 				<div class="col-sm-3">
-					<form>
+					<form id="myForm">
 						<h5>Entra nel mondo di OhMyBag</h5>
 						<p>Resta aggiornato su eventi, collezioni e novità esclusive.</p>
 						<div class="d-flex flex-column flex-sm-row w-100 gap-2">
-							<label for="newsletter1" class="visually-hidden">Email
-								address</label> <input id="newsletter1" type="text" class="form-control"
-								placeholder="Email address">
-							<button class="btn btn-outline-success" type="submit">Subscribe</button>
+								<input class="form-control" type="email" id="email" name="email"
+									placeholder="Enter your email" required>
+								<button class="btn btn-outline-success" type="submit">Subscribe</button>
 						</div>
 					</form>
 				</div>
@@ -155,9 +154,40 @@ h5{
 								width="24" height="24"> <use xlink:href="#facebook" /></svg></a></li>
 				</ul>
 			</div>
-			
+
 		</footer>
 	</div>
+	<!-- Include EmailJS SDK -->
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
+	
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize EmailJS with your user ID
+            emailjs.init("HcMmT-E0CFrPuWtLE");
+
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var userEmail = document.getElementById('email').value;
+
+                // Define the template parameters
+                var templateParams = {
+                    user_email: userEmail
+                };
+
+                // Send email using EmailJS
+                emailjs.send("service_OhMyBag", "OhmyBag2024", templateParams)
+                    .then(function(response) {
+                        console.log('Email sent:', response);
+                        alert('Subscription successful! Check your email for confirmation.');
+                        document.getElementById('email').value = ''; // Clear the input field
+                    }, function(error) {
+                        console.error('Email sending failed:', error);
+                        alert('Subscription failed. Please try again later.');
+                    });
+            });
+        });
+    </script>
 </body>
 </html>

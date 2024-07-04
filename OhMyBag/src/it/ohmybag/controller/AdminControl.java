@@ -43,7 +43,7 @@ public class AdminControl extends HttpServlet {
 		String pulsante = (String) request.getParameter("pulsante");
 
 		if (pulsante.equals("Add")) {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminAddProdotto.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminAddProdotto.jsp");
 			dispatcher.forward(request, response);
 			return; // Termina qui per evitare ulteriori forward
 
@@ -56,7 +56,7 @@ public class AdminControl extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniAdmin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/OrdiniAdmin.jsp");
 			dispatcher.forward(request, response);
 			return; // Termina qui per evitare ulteriori forward
 		} else if (pulsante.equals("Utenti")) {
@@ -66,7 +66,7 @@ public class AdminControl extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/UtentiAdmin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/UtentiAdmin.jsp");
 			dispatcher.forward(request, response);
 			return; // Termina qui per evitare ulteriori forward
 		}

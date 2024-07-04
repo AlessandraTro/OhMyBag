@@ -3,14 +3,6 @@
 	import="java.sql.SQLException, java.util.*, java.time.*, java.time.format.DateTimeFormatter, it.ohmybag.bean.*, it.ohmybag.model.*"%>
 
 <%
-//Controlla se l'utente è autenticato e se è un amministratore
-Utente admin = (Utente) request.getSession().getAttribute("utente");
-if (admin == null || !admin.isAdmin()) {
-	//Reindirizza l'utente alla pagina di errore
-	response.sendRedirect("404.jsp");
-	return; // Esce dalla pagina corrente
-}
-
 Utente utenteSingolo = (Utente) request.getSession().getAttribute("UtenteSingolo");
 %>
 

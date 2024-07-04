@@ -36,7 +36,7 @@ public class DettagliUtenteAdmin extends HttpServlet {
 		} catch (SQLException e) {
             e.printStackTrace();
         }
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InformazioniUtentiAdmin.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/InformazioniUtentiAdmin.jsp");
 		dispatcher.forward(request, response);
 
 	}

@@ -28,7 +28,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 		Utente user = (Utente) request.getSession().getAttribute("utente");
 		if (user != null && user.isAdmin()) {
 	%>
-	<jsp:include page="HeaderAdmin.jsp" />
+	<jsp:include page="admin/HeaderAdmin.jsp" />
 	<%
 		} else {
 	%>

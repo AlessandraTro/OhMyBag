@@ -13,7 +13,12 @@ import it.ohmybag.bean.Immagine;
 public class ImmagineModel {
 
 	private Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ConnesioneDatabase.getConnection();
 	}
 
 	/**

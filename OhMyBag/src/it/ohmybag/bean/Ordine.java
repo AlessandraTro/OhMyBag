@@ -125,7 +125,7 @@ public class Ordine implements Serializable{
 	@Override
 	public String toString() {
 		return "Ordine [id=" + id + ", prezzoTotale=" + prezzoTotale + ", destinatario=" + destinatario
-				+ ", metodoDiPagamento=" + ", indirizzoSpedizione=" + indirizzoSpedizione
+				+ ", indirizzoSpedizione=" + indirizzoSpedizione
 				+ ", noteCorriere=" + noteCorriere + ", metodoDiSpedizione=" + metodoDiSpedizione + ", numeroTracking="
 				+ numeroTracking + ", data=" + data + ", circuito=" + circuito + ", confezioneRegalo="
 				+ confezioneRegalo + ", numeroCarta=" + numeroCarta + ", username=" + username + "]";

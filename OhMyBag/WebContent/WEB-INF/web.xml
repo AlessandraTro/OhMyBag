@@ -193,6 +193,14 @@
 		<servlet-name>DettagliUtenteAdmin</servlet-name>
 		<servlet-class>it.ohmybag.controller.DettagliUtenteAdmin</servlet-class>
 	</servlet>
+		  <servlet>
+	<servlet-name>OttieniIndirizzoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OttieniIndirizzoControl</servlet-class>
+	</servlet> 
+	<servlet>
+	<servlet-name>DeleteProductControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.DeleteProductControl</servlet-class>
+	</servlet> 
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import it.ohmybag.bean.Ordine;
 import it.ohmybag.bean.Prodotto;
@@ -459,4 +460,39 @@ public class OrdineModel {
 
 		return ordine;
 	}
+	
+	//prende tutti gli indirizzi dall'ordine di un determinato utente
+	public synchronized List<String> getIndirizziSpedizioneByUsername(String username) throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    ResultSet rs = null;
+	    List<String> indirizzi = new ArrayList<>(); // Cambio da Collection<String> a List<String>
+
+	    String querySQL = "SELECT DISTINCT IndirizzoDiSpedizione FROM Ordine WHERE Username = ?";
+
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        statement.setString(1, username);
+	        rs = statement.executeQuery();
+
+	        while (rs.next()) {
+	            String indirizzo = rs.getString("IndirizzoDiSpedizione");
+	            indirizzi.add(indirizzo);
+	        }
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (statement != null) statement.close();
+	            if (conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return indirizzi;
+	}
+
+
+	
 }

@@ -138,6 +138,11 @@ th, td {
 .password-container i{
 	margin-left:8px;
 }
+.Ordini,
+.CarteDisp{
+	overflow-y:auto;
+	max-height:300px
+}
 @media (max-width: 1000px) {
 	.setting{
 		margin-bottom:5px;

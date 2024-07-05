@@ -163,7 +163,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 						%>
 						<tr>
 							<th><%=ordine.getId()%></th>
-							<th class="prezzo"><%=ordine.getPrezzoTotale()%></th>
+							<th class="prezzo"><%=String.format("%.2f", ordine.getPrezzoTotale())%></th>
 							<th><%=new SimpleDateFormat("dd/MM/yyyy").format(ordine.getData().getTime())%></th>
 							<th><a href="#" onclick="window.open('DettagliOrdiniAdmin?Fattura=Si&Codice=<%=ordine.getId()%>');">Fattura</a><br> <a href="#"
 								class="details-link" data-bs-toggle="modal"
@@ -222,7 +222,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							</div>
 						</form>
 					</div>
-					<div style="display: block;">
+					<div class="CarteDisp" style="display: block;">
 						<h2>Carte già presenti</h2>
 						<table class="table-bordered">
 							<tr>

@@ -48,7 +48,7 @@ public class ButtonModificaProdottoControl extends HttpServlet {
             } catch (SQLException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminModificaProdotto.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminModificaProdotto.jsp");
 		dispatcher.forward(request, response);
 	}
 

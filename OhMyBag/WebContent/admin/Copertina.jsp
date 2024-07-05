@@ -28,94 +28,99 @@ if (image != null && !image.isEmpty()) {
 
 </head>
 <body>
-	<div class="container">
-		<div class="card">
-			<div class="card-body">
-				<form id="setCoverForm" action="ButtonSetCover" method="post">
-					<div class="list-group gallery">
-						<%
-						if (copertina != null) {
-						%>
-						<div class="form-check changeCover">
-							<div class="CoverImg">
-								<p class="text-copertina">Immagine di Copertina</p>
-								<img src="<%=copertina.getNome()%>" alt="Image"
-									class="img-responsive thumbnail">
-							</div>
-						</div>
-						<%
-						}
-						%>
-						<%
-						if (!altreImmagini.isEmpty()) {
-						%>
-						<%
-						for (Immagine immagine : altreImmagini) {
-						%>
-						<div class="form-check changeCover">
-							<img src="<%=immagine.getNome()%>" alt="Image"
-								class="img-responsive thumbnail"> <input type="radio"
-								name="coverImage" value="<%=immagine.getNome()%>">
-						</div>
-						<%
-						}
-						%>
-						<%
-						} else {
-						%>
-						<p>No images found.</p>
-						<%
-						}
-						%>
-					</div>
-					<div class="bottoneModal">
-						<button type="submit" class="pulsanteBigCover">Set Cover
-							Image</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<script src="js/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-	<script>
-		$(document)
-				.ready(
-						function() {
-							$('#setCoverForm')
-									.on(
-											'submit',
-											function(event) {
-												if ($('input[name="coverImage"]:checked').length === 0) {
-													alert('Seleziona una nuova immagine di copertina oppure chiudi la finestra');
-													return false;
-												}
+    <div class="container">
+        <div class="alert alert-success" role="alert" id="success-alert" style="display:none;">
+            Immagine di copertina impostata con successo!
+        </div>
+        <div class="alert alert-danger" role="alert" id="error-alert" style="display:none;">
+            Si è verificato un errore durante il cambio di Copertina! 
+        </div>
+        <div class="alert alert-info" role="alert" id="info-alert" style="display:none;">
+            Seleziona una nuova immagine di copertina oppure chiudi la finestra.
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form id="setCoverForm" action="ButtonSetCover" method="post">
+                    <div class="list-group gallery">
+                        <% if (copertina != null) { %>
+                        <div class="form-check changeCover">
+                            <div class="CoverImg">
+                                <p class="text-copertina">Immagine di Copertina</p>
+                                <img src="<%=copertina.getNome()%>" alt="Image" class="img-responsive thumbnail">
+                            </div>
+                        </div>
+                        <% } %>
+                        <% for (Immagine immagine : altreImmagini) { %>
+                        <div class="form-check changeCover">
+                            <img src="<%=immagine.getNome()%>" alt="Image" class="img-responsive thumbnail">
+                            <input type="radio" name="coverImage" value="<%=immagine.getNome()%>">
+                        </div>
+                        <% } %>
+                        <% if (altreImmagini.isEmpty()) { %>
+                        <p>No images found.</p>
+                        <% } %>
+                    </div>
+                    <div class="bottoneModal">
+                        <button type="submit" class="pulsanteBigCover">Set Cover Image</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-												event.preventDefault();
-												$
-														.ajax({
-															url : 'ButtonSetCover',
-															type : 'POST',
-															data : $(this)
-																	.serialize(),
-															success : function(
-																	response) {
-																alert('Immagine di copertina impostata con successo');
-																// Aggiorna solo la galleria di immagini
-																$("#modal-body")
-																		.load(
-																				"ButtonModal?Pulsante=Copertina");
-															},
-															error : function(
-																	xhr,
-																	status,
-																	error) {
-																alert('Si è verificato un errore: '
-																		+ error);
-															}
-														});
-											});
-						});
-	</script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script>
+	//Setta la copertina nella modale Copertina.jsp
+
+        $(document).ready(function() {
+            $('#setCoverForm').on('submit', function(event) {
+                event.preventDefault();
+                
+                if ($('input[name="coverImage"]:checked').length === 0) {
+                    showAlert('info', 'Seleziona una nuova immagine di copertina oppure chiudi la finestra');
+                    return;
+                }
+                
+                $.ajax({
+                    url: 'ButtonSetCover',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                    	setTimeout(function() {
+                            showAlert('success', 'Immagine di copertina impostata con successo!');
+                        }, 100);
+                        // Aggiorna solo la galleria di immagini
+                        $("#modal-body").load("ButtonModal?Pulsante=Copertina");
+                    },
+                    error: function(xhr, status, error) {
+                        showAlert('danger', 'Si è verificato un errore: ' + error);
+                    }
+                });
+            });
+
+            function showAlert(type, message) {
+                console.log('Show alert:', type, message); // Log di debug
+                var alertDiv;
+                switch(type) {
+                    case 'success':
+                        alertDiv = '#success-alert';
+                        break;
+                    case 'danger':
+                        alertDiv = '#error-alert';
+                        break;
+                    case 'info':
+                        alertDiv = '#info-alert';
+                        break;
+                    default:
+                        alertDiv = '#secondary-alert'; // Default to error alert if type is not recognized
+                }
+                $(alertDiv).text(message).show();
+                setTimeout(function() {
+                    $(alertDiv).hide();
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -95,7 +95,7 @@ public class ButtonAddImage extends HttpServlet {
 			return;
 		}
 
-		response.sendRedirect("AdminModificaProdotto.jsp"); // Ridireziona alla pagina AdminModificaProdotto.jsp
+		response.sendRedirect("admin/AdminModificaProdotto.jsp"); // Ridireziona alla pagina AdminModificaProdotto.jsp
 	}
 
 	private String extractFileName(Part part) {

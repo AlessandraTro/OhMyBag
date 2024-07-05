@@ -42,7 +42,7 @@ public class ButtonSetCover extends HttpServlet {
         }
 
         // Usa forward invece di sendRedirect per mantenere gli attributi
-        request.getRequestDispatcher("AdminModificaProdotto.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/AdminModificaProdotto.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -33,13 +33,13 @@ public class ButtonModal extends HttpServlet{
 
 		        switch (pulsante) {
 		            case "Delete":
-		                page = "DeleteImage.jsp";
+		                page = "admin/DeleteImage.jsp";
 		                break;
 		            case "Add":
-		                page = "AddImage.jsp";
+		                page = "admin/AddImage.jsp";
 		                break;
 		            case "Copertina":
-		                page = "Copertina.jsp";
+		                page = "admin/Copertina.jsp";
 		                break;
 		            default:
 		                page = "404.jsp";

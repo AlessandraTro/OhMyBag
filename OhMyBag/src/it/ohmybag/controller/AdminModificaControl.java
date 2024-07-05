@@ -78,7 +78,7 @@ public class AdminModificaControl extends HttpServlet {
 		}
 		// A modifica completata elimino il prodotto dalla sessione e ritorno al catalogo dell'admin
 		request.getSession().removeAttribute("ProdottoDaModificare");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminProdotti.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminProdotti.jsp");
 		dispatcher.forward(request, response);
 	}
 

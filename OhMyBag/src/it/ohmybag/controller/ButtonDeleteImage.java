@@ -68,7 +68,7 @@ public class ButtonDeleteImage extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("AdminModificaProdotto.jsp"); // Redirigi alla pagina di modifica del prodotto
+        response.sendRedirect("admin/AdminModificaProdotto.jsp"); // Redirigi alla pagina di modifica del prodotto
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -140,12 +140,14 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
             </div>
         </div>
     </div>
-</div>
+</div>	<%@ include file="/ConfirmationModal.jsp" %>
+
 	<!-- SCRIPT -->
 	<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 	<!-- script preso online per includere CKEditor dal CDN -->
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/modificaProdotto.js"></script>
+	<script></script>
 </body>
 </html>

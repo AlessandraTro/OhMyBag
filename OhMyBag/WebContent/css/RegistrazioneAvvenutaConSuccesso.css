@@ -1,22 +1,25 @@
-
 :root {
-    --primary-color: #c6c3c3;
-    --second-color: #ffffff;
-    --black-color: #000000;
+	--primary-color: #c6c3c3;
+	--second-color: #ffffff;
+	--black-color: #000000;
 }
 
-.Log-text{
+.jumbotron-fluid {
+	margin-top: 8%;
+}
+
+.Log-text {
 	font-weight: bolder;
-	font-size:20px;
+	font-size: 20px;
 	display: flex;
-    justify-content: space-around;
-    margin-bottom:0px;
+	justify-content: space-around;
+	margin-bottom: 0px;
 }
 
-.Log-prosegui{
-	font-size:20px;
+.Log-prosegui {
+	font-size: 20px;
 	display: flex;
-    justify-content: space-around;
+	justify-content: space-around;
 }
 
 .login {
@@ -28,11 +31,9 @@
 	background-color: #d6ccc2;
 	color: #fff;
 	font-size: 22px; /* Aumenta la dimensione del testo */
-    padding: 10px 50px; /* Aumenta il padding per allargare il pulsante */
-    position: absolute;
+	padding: 10px 50px; /* Aumenta il padding per allargare il pulsante */
+	position: absolute;
 }
-
-
 
 .container-all {
 	width: 100%;
@@ -52,7 +53,7 @@
 	border-radius: 15px;
 	padding: 3.5em 2.5em 4.5em 2.5em;
 	color: var(--second-color);
-	margin: 20px 0px;	
+	margin: 20px 0px;
 }
 
 body {
@@ -65,43 +66,43 @@ body {
 }
 
 .container-text {
-    margin-right: 25px;
+	margin-right: 25px;
 }
 
-.container-text p{
-	color:#f9ceb8;
-	font-size:x-large;
+.container-text p {
+	color: #f9ceb8;
+	font-size: x-large;
 }
 
-.container-text h1{
-	color:var(--second-color);
+.container-text h1 {
+	color: var(--second-color);
 }
 
 @media only screen and (max-width: 900px) {
-    .container-all{
-        flex-direction: column;
-        align-items: center; /* Centra verticalmente i contenuti */
-        text-align: center; /* Centra il testo */
-    }
-    .container-text {
-        margin-bottom: 20px;
-    }
+	.container-all {
+		flex-direction: column;
+		align-items: center; /* Centra verticalmente i contenuti */
+		text-align: center; /* Centra il testo */
+	}
+	.container-text {
+		margin-bottom: 20px;
+	}
 }
 /* Regole CSS per schermi con larghezza massima di 768px */
 @media only screen and (max-width: 1100px) {
-    .container-all{
-        padding: 2em;
-    }
+	.container-all {
+		padding: 2em;
+	}
 }
 
 /* Regole CSS per schermi con larghezza massima di 564px (già definito) */
 
 /* Regole CSS per schermi con larghezza massima di 320px */
 @media only screen and (max-width: 450px) {
-    .container-all{
-        padding: 1em;
-    }
-    .container-text {
-        font-size: 14px;
-    }
+	.container-all {
+		padding: 1em;
+	}
+	.container-text {
+		font-size: 14px;
+	}
 }

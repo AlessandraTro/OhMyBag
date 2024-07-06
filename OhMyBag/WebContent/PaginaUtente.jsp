@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
 	import="java.util.*, it.ohmybag.bean.*,java.util.GregorianCalendar, java.text.SimpleDateFormat, java.util.Date, java.io.*"%>
 <%!String citta;
 	String provincia;
@@ -59,7 +59,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 				</div>
 				<div class="menu-down">
 					<div>
-						<a href="DeleteAccountControl" id="deleteAccount"><b>Cancella
+						<a href="#" onclick="return CancellaAccount()" ><b>Cancella
 								account</b></a>
 					</div>
 					<div>
@@ -69,15 +69,14 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 			</div>
 			
 			
-			<!-- Alert se la modifica Ë andata a buon fine -->
+			<!-- Alert se la modifica √® andata a buon fine -->
 			<%if(request.getSession().getAttribute("Alert")!=null){ %>
 				<div class="alert alert-success" role="alert" id="AlertSuccess"><%=request.getSession().getAttribute("Alert")%></div>
 				<%request.getSession().removeAttribute("Alert");%>
 			<%}%>
 				<div class="alert alert-info" role="alert" style="display:none" id="AlertInfo"></div>
 				
-				
-			<!-- creo la pagina effettiva dove verranno visualizzate le div in base a ciÚ che viene scelto nel menu -->
+			<!-- creo la pagina effettiva dove verranno visualizzate le div in base a ci√≤ che viene scelto nel menu -->
 			<div class="containerPagina">
 				<!-- per i dispositivi mobile viene visualizzato un pulsante per aprire il menu -->
 				<div class="setting">
@@ -102,14 +101,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							<div class="content">
 								<label for="Email">Email:</label> <input class="input-field"
 									type="text" id="Email" name="Email"
-									value="<%=utente.getEmail()%>" disabled
-									oninput="showEmailWarning()">
-								<p id="email-warning" style="display: none; color: red;">
-									Attenzione: modificare l'email richiede una verifica.<br>
-									Verr‡ modificato anche lo Username.
-								</p>
-								<p id="email-error" style="display: none; color: red;">Email
-									non valida.</p>
+									value="<%=utente.getEmail()%>" disabled readonly>
 							</div>
 							<div class="content">
 								<label for="CF">Codice Fiscale:</label> <input
@@ -163,7 +155,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 						%>
 						<tr>
 							<th><%=ordine.getId()%></th>
-							<th class="prezzo"><%=String.format("%.2f", ordine.getPrezzoTotale())%></th>
+							<th class="prezzo"><%=ordine.getPrezzoTotale()%></th>
 							<th><%=new SimpleDateFormat("dd/MM/yyyy").format(ordine.getData().getTime())%></th>
 							<th><a href="#" onclick="window.open('DettagliOrdiniAdmin?Fattura=Si&Codice=<%=ordine.getId()%>');">Fattura</a><br> <a href="#"
 								class="details-link" data-bs-toggle="modal"
@@ -222,8 +214,8 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							</div>
 						</form>
 					</div>
-					<div class="CarteDisp" style="display: block;">
-						<h2>Carte gi‡ presenti</h2>
+					<div style="display: block;">
+						<h2>Carte gi√† presenti</h2>
 						<table class="table-bordered">
 							<tr>
 								<th>Numero di carta (ultime 4 cifre)</th>
@@ -245,8 +237,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							%>
 							<tr>
 								<th><%=numeroCarta%></th>
-								<th><a href="CancellaCartaControl?carta=<%=carta.getId()%>"
-									onclick="return CancellaCarta()">Cancella carta</a></th>
+								<th><a href="#" onclick="return CancellaCarta(<%=carta.getId()%>)">Cancella carta</a></th>
 							</tr>
 							<%
 							}
@@ -265,7 +256,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 						onsubmit="return ConfermaIndirizzo(event)">
 						<div class="container-form">
 							<div class="content">
-								<label for="Citta">Citt‡</label> <input class="input-field"
+								<label for="Citta">Citt√†</label> <input class="input-field"
 									type="text" name="Citta" value="<%=citta%>" required disabled>
 							</div>
 							<div class="content">
@@ -300,7 +291,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 				</div>
 
 
-				<!-- la pagina visualizza una sezione dove Ë possibile cambiare la password -->
+				<!-- la pagina visualizza una sezione dove √® possibile cambiare la password -->
 				<div id="cambia-password" class="container-insert Cambia-password"
 					style="display: none;">
 					<h2 style="margin-bottom: 10px">Cambia password</h2>
@@ -371,6 +362,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 					</div>
 				</div>
 			</div>
+			<%@ include file="/ConfirmationModal.jsp" %>
 			
 		</div>
 		<jsp:include page="Footer.jsp" />
@@ -380,7 +372,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 	<script type="text/javascript" src="js/PaginaUtente.js"></script>
 	<script type="text/javascript" src="js/ShowPassword.js"></script>
 	<script>
-    // Controlla se l'elemento dell'alert Ë presente sulla pagina
+    // Controlla se l'elemento dell'alert √® presente sulla pagina
     document.addEventListener("DOMContentLoaded", function() {
         var alertSuccess = document.getElementById("AlertSuccess");
         if (alertSuccess) {
@@ -390,9 +382,71 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             }, 3000);
         }
     });
-		function CancellaCarta(){
-			return confirm("sei sicuro di voler cancellare la carta selezionata?");
-		}
+    function CancellaCarta(idCarta) {
+        $('#confirmModalMessage').text("Sei sicuro di voler cancellare la carta selezionata?");
+        // Mostra la modale di conferma
+        $('#confirmModal').modal('show');
+
+        // Imposta l'azione di conferma per la cancellazione
+        $('#confirmActionBtn').off('click').on('click', function() {
+            // Esegui l'azione di cancellazione qui, ad esempio:
+            $.ajax({
+            url: 'CancellaCartaControl',
+            type: 'POST',
+            data: { carta: idCarta },
+            success: function(response) {
+            	// Ricarica la pagina dopo la cancellazione
+                location.reload();
+                 },
+             error: function(xhr, status, error) {
+            	 newalert('Si √® verificato un errore: ' + error);
+            	 }
+            });
+
+            // Ritorna il risultato della conferma
+            return true;
+        });
+     // Gestione del clic sul pulsante "Annulla"
+        $('#confirmModal .btn-secondary').off('click').on('click', function() {
+            $('#confirmModal').modal('hide');
+            // Esegui altre azioni di annullamento se necessario
+        });
+        // Ritorna false per impedire la propagazione del click
+        return false;
+    }
+    
+    function CancellaAccount() {
+        $('#confirmModalMessage').text("Sei sicuro di voler cancellare il tuo account? Questa azione non pu√≤ essere annullata.");
+        // Mostra la modale di conferma
+        $('#confirmModal').modal('show');
+
+        // Imposta l'azione di conferma per la cancellazione
+        $('#confirmActionBtn').off('click').on('click', function() {
+            // Esegui l'azione di cancellazione qui, ad esempio:
+            $.ajax({
+            url: 'DeleteAccountControl',
+            type: 'POST',
+            
+            success: function(response) {
+            	window.location.href= '${pageContext.request.contextPath}/HomeControl';
+                 },
+             error: function(xhr, status, error) {
+            	 newalert('Si √® verificato un errore: ' + error);
+            	 }
+            });
+
+            // Ritorna il risultato della conferma
+            return true;
+        });
+     // Gestione del clic sul pulsante "Annulla"
+        $('#confirmModal .btn-secondary').off('click').on('click', function() {
+            $('#confirmModal').modal('hide');
+            // Esegui altre azioni di annullamento se necessario
+        });
+        // Ritorna false per impedire la propagazione del click
+        return false;
+    }
+    
 	  document.getElementById("showFormLink").addEventListener("click", function(event) {
 	    event.preventDefault();
 	    document.querySelector(".Aggiungi-carta > div:first-child").style.display = "block";
@@ -435,14 +489,62 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             // Form submission handler
             window.ConfermaIndirizzo = function(event) {
                 if (isFormModified()) {
-                    return confirm("Confermi di voler modificare l'indirizzo?");
+                    $('#confirmModalMessage').text("Confermi di voler modificare l'indirizzo?");
+                    $('#confirmModal').modal('show');
+
+                    // Imposta l'azione di conferma per la cancellazione
+                    $('#confirmActionBtn').off('click').on('click', function() {
+                        $('#confirmModal').modal('hide');
+                        document.forms[3].submit();  // Submitting the form
+                    });
+
+                    // Gestione del clic sul pulsante "Annulla"
+                    $('#confirmModal .btn-secondary').off('click').on('click', function() {
+                        $('#confirmModal').modal('hide');
+                        // Esegui altre azioni di annullamento se necessario
+                    });
+
+                    // Impedisce l'invio automatico del form
+                    return false;
                 } else {
-            		newalert('Nessuna modifica rilevata.');
-            		setTimeout(function() { location.reload(); }, 1000);
+                    newalert('Nessuna modifica rilevata.');
+                    setTimeout(function() { location.reload(); }, 1000);
                     return false;
                 }
             }
         });
+        
+        function validate(form) {
+            console.log("Validating form");
+            if (!passwordCorrect) {
+                console.log("Password not correct");
+                return false;
+            }
+
+            if (!passwordValCorrect) {
+                console.log("Password validation not correct");
+                return false;
+            }
+
+            $('#confirmModalMessage').text("Sei sicuro di voler applicare le modifiche?");
+            $('#confirmModal').modal('show');
+
+            // Imposta l'azione di conferma per la cancellazione
+            $('#confirmActionBtn').off('click').on('click', function() {
+                console.log("Confirm action clicked");
+                $('#confirmModal').modal('hide');
+                document.forms[4].submit();  // Submitting the form
+            });
+
+            // Gestione del clic sul pulsante "Annulla"
+            $('#confirmModal .btn-secondary').off('click').on('click', function() {
+                console.log("Cancel action clicked");
+                $('#confirmModal').modal('hide');
+            });
+
+            // Impedisce l'invio automatico del form
+            return false;
+        }
     </script>
 </body>
 </html>

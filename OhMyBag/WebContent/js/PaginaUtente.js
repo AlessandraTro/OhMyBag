@@ -275,18 +275,35 @@ var passwordCorrect = false;
 var passwordValCorrect = false;
 
 function validate(form) {
-	console.log("Validating form");
-	if (!passwordCorrect) {
-		console.log("Password not correct");
-		return false;
-	}
+    console.log("Validating form");
+    if (!passwordCorrect) {
+        console.log("Password not correct");
+        return false;
+    }
 
-	if (!passwordValCorrect) {
-		console.log("Password validation not correct");
-		return false;
-	}
+    if (!passwordValCorrect) {
+        console.log("Password validation not correct");
+        return false;
+    }
 
-	return confirm('Sei sicuro di voler applicare le modifiche?');
+    $('#confirmModalMessage').text("Sei sicuro di voler applicare le modifiche?");
+    $('#confirmModal').modal('show');
+
+    // Imposta l'azione di conferma per la cancellazione
+    $('#confirmActionBtn').off('click').on('click', function() {
+        console.log("Confirm action clicked");
+        $('#confirmModal').modal('hide');
+        document.forms[0].submit();  // Submitting the form
+    });
+
+    // Gestione del clic sul pulsante "Annulla"
+    $('#confirmModal .btn-secondary').off('click').on('click', function() {
+        console.log("Cancel action clicked");
+        $('#confirmModal').modal('hide');
+    });
+
+    // Impedisce l'invio automatico del form
+    return false;
 }
 
 $("#pass").on('input', function() {

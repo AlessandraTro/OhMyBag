@@ -7,6 +7,7 @@ var initialCKEditorContent = "";
 
 // Funzione per inizializzare CKEditor e gestire il cambio
 $(document).ready(function() {
+	// Inizializza CKEditor
 	CKEDITOR.replace('inputDescrizione', {
 		on: {
 			instanceReady: function(evt) {
@@ -18,6 +19,15 @@ $(document).ready(function() {
 				var isModified = isFormModified(document.getElementById("productForm"));
 				console.log("CKEditor modificato:", isModified);
 			}
+		}
+	});
+
+	// Gestione del clic sul pulsante di conferma della modale
+	$('#confirmActionBtn').off('click').on('click', function() {
+		var form = $(this).data('form');
+		if (form) {
+			showAlert("success", "Modifiche avvenute con successo.");
+			form.submit();
 		}
 	});
 });
@@ -54,16 +64,29 @@ function validate(form) {
 	}
 
 	if (!isModified) {
-		alert("Nessuna modifica effettuata.");
+		showAlert("info", "Nessuna modifica effettuata.");
 		return false;
 	}
 
-	if (confirm("Sei sicuro di voler modificare le informazioni del prodotto?")) {
-		alert("Modifiche avvenute con successo.");
-		return true;
-	} else {
-		return false;
-	}
+	// Mostra la modale di conferma
+	$('#confirmModalMessage').text("Sei sicuro di voler modificare le informazioni del prodotto?");
+	$('#confirmModal').modal('show');
+
+	// Imposta l'azione di conferma per la cancellazione
+	$('#confirmActionBtn').off('click').on('click', function() {
+		console.log("Confirm action clicked");
+		$('#confirmModal').modal('hide');
+		document.forms[1].submit();  // Submitting the form
+	});
+
+	// Gestione del clic sul pulsante "Annulla"
+	$('#confirmModal .btn-secondary').off('click').on('click', function() {
+		console.log("Cancel action clicked");
+		$('#confirmModal').modal('hide');
+	});
+
+	// Ritorna false per impedire il submit del form
+	return false;
 }
 
 /* Funzioni che controllano i vari campi input ogni volta che vengono modificati e ne controlla la validità */
@@ -97,9 +120,10 @@ $("#inputDescrizione").change(function() {
 
 // Validità Prezzo
 function ValidatePrezzo(InputPrezzo) {
+	// Accetta prezzi con un massimo di due cifre decimali, separati da un punto
+	var PrezzoFormat = /^(?!(0{2,})(\.)(0{2,}))([0-9]+)(\.[0-9]{1,2})?$/;
 
-	var PrezzoFormat = /^(?!(0)+(,?)(0)+)([0-9]+)(([.,]?)([0-9]{2}))?$/;
-	if (InputPrezzo.value.match(PrezzoFormat)) {
+	if (PrezzoFormat.test(InputPrezzo.value)) {
 		$("#inputPrezzo").css({
 			"border-color": "#00fd00"
 		});
@@ -109,10 +133,11 @@ function ValidatePrezzo(InputPrezzo) {
 		$("#inputPrezzo").css({
 			"border-color": "red"
 		});
-		$("#inputPrezzoError").text("Formato Prezzo non corretto.");
+		$("#inputPrezzoError").text("Formato Prezzo non corretto. Usa il formato 00.00");
 		return false;
 	}
 }
+
 
 // Validità Sconto
 function ValidateSconto(InputSconto) {
@@ -224,9 +249,10 @@ function clearFieldStyles() {
 }
 
 //gestire il reset di conferma
+// Funzione per gestire il reset di conferma
 function confirmReset(event) {
 	event.preventDefault();
-	if (confirm("Sei sicuro di voler annullare le modifiche?")) {
+	showModal("Sei sicuro di voler annullare le modifiche?", function() {
 		// Resetta gli stili e i messaggi di errore
 		clearFieldStyles();
 
@@ -234,19 +260,15 @@ function confirmReset(event) {
 		var formElements = event.target.form.elements;
 		for (var i = 0; i < formElements.length; i++) {
 			var element = formElements[i];
-			if (element.type === "text" || element.type === "number"
-				|| element.tagName.toLowerCase() === "textarea") {
+			if (element.type === "text" || element.type === "number" || element.tagName.toLowerCase() === "textarea") {
 				element.value = element.defaultValue;
 			}
 		}
 
 		// Resetta CKEditor
-		CKEDITOR.instances['inputDescrizione']
-			.setData(CKEDITOR.instances['inputDescrizione'].element
-				.getAttribute('defaultValue'));
-	}
+		CKEDITOR.instances['inputDescrizione'].setData(CKEDITOR.instances['inputDescrizione'].element.getAttribute('defaultValue'));
+	});
 }
-
 // Funzione per controllare se il form è stato modificato
 function isFormModified(form) {
 	var isModified = false;
@@ -277,7 +299,20 @@ function isFormModified(form) {
 	return isModified;
 }
 
-
+// Funzione per mostrare la modale di conferma
+function showModal(message, confirmCallback) {
+	$('#confirmModalMessage').text(message);
+	$('#confirmModal').modal('show');
+	$('#confirmActionBtn').off('click').on('click', function() {
+		confirmCallback();
+		$('#confirmModal').modal('hide');
+	});
+	// Gestione del clic sul pulsante "Annulla"
+	$('#confirmModal .btn-secondary').off('click').on('click', function() {
+		console.log("Cancel action clicked");
+		$('#confirmModal').modal('hide');
+	});
+}
 
 // Funzione per gestire il caso in cui nessun campo è stato modificato
 function confirmNoChanges() {
@@ -285,9 +320,9 @@ function confirmNoChanges() {
 	var isModified = isFormModified(form);
 
 	if (!isModified) {
-		if (confirm("Nessun campo modificato, tornare alla pagina del catalogo?")) {
+		showModal("Nessun campo modificato, tornare alla pagina del catalogo?", function() {
 			window.location.href = "admin.jsp";
-		}
+		});
 		return false; // Blocca l'azione di default del form
 	}
 
@@ -295,12 +330,40 @@ function confirmNoChanges() {
 	return true;
 }
 
-//funzione per ritornare al catalogo
+function showAlert(type, message) {
+	console.log('Show alert:', type, message); // Log di debug
+	var alertDiv;
+	switch (type) {
+		case 'success':
+			alertDiv = '#success-alert';
+			break;
+		case 'danger':
+			alertDiv = '#error-alert';
+			break;
+		case 'info':
+			alertDiv = '#info-alert';
+			break;
+		default:
+			alertDiv = '#secondary-alert';
+	}
+	$(alertDiv).text(message).show();
+	setTimeout(function() {
+		$(alertDiv).hide();
+	}, 3000);
+}
+
+// Funzione per ritornare al catalogo
 function goToCatalog() {
 	var form = document.getElementById("productForm");
 	var isModified = isFormModified(form);
 
-	if (!isModified || confirm("Ci sono modifiche non salvate. Sei sicuro di voler tornare al catalogo?")) {
+	if (!isModified) {
 		window.location.href = "admin.jsp";
+	} else {
+		showModal("Ci sono modifiche non salvate. Sei sicuro di voler tornare al catalogo?", function() {
+			window.location.href = "admin.jsp";
+		});
 	}
 }
+
+

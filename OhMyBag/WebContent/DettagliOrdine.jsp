@@ -9,6 +9,7 @@ Ordine ordine = (Ordine) request.getSession().getAttribute("ordineSingolo");
 Collection<Composizione> composizione = (Collection<Composizione>) request.getSession()
 		.getAttribute("composizioneOrdine");
 BigDecimal prezzo = BigDecimal.ZERO;
+String confezioneRegalo = "";
 %>
 
 <!DOCTYPE html>
@@ -22,6 +23,7 @@ BigDecimal prezzo = BigDecimal.ZERO;
 <link href="css/DettagliOrdine.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 <link href="css/Modal.css" rel="stylesheet" type="text/css">
+
 
 </head>
 <body>
@@ -116,6 +118,17 @@ BigDecimal prezzo = BigDecimal.ZERO;
 					<p class="text-recap">
 
 						<%=formattedDate%></p>
+				</div>
+				<div class="text-All-Recap">
+					<p class="titol-recap">Confezione Regalo:</p>
+					<%if(ordine.isConfezioneRegalo()){
+						confezioneRegalo = "Si";
+					}else{
+						confezioneRegalo = "No";
+					}
+					%>
+					<p class="text-recap">
+						<%=confezioneRegalo%></p>
 				</div>
 				<div class="text-All-Recap">
 					<p class="titol-recap">Note Corriere:</p>

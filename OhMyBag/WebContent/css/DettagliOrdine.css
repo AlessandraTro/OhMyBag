@@ -42,8 +42,6 @@
 	margin-bottom: 10%;
 }
 
-
-
 .item {
 	display: flex;
 	flex-direction: row;
@@ -149,10 +147,9 @@ hr {
 	background-color: #d6ccc2;
 }
 
-
 @media screen and (max-width: 475px) {
-	.text-All-Recap{
-		font-size:75%;
+	.text-All-Recap {
+		font-size: 75%;
 	}
 }
 
@@ -165,6 +162,10 @@ hr {
 	.container1, .container2 {
 		width: 90%;
 		margin: 15px auto; /* Margini automatici per centrare i contenitori */
+	}
+	.container1 {
+		max-height: 400px;
+		overflow-y: auto;
 	}
 	.container2 {
 		margin-top: 20px;
@@ -210,9 +211,11 @@ hr {
 }
 
 /* Stili per schermi da 844px a 950px */
-@media screen and (min-width: 1000px) and (max-width: 950px) {
+@media screen and (min-width: 844px) and (max-width: 950px) {
 	.container1 {
 		width: 60%; /* Container1 occupa il 60% dello spazio disponibile */
+		max-height: 400px;
+		overflow-y: auto;
 	}
 	.container2 {
 		width: 40%; /* Container2 occupa il 40% dello spazio disponibile */

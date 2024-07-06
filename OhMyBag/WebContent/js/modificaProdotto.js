@@ -1,6 +1,6 @@
 /**
- * modificaProdotto.js
- */
+* modificaProdotto.js
+*/
 
 // Variabile globale per il contenuto iniziale di CKEditor
 var initialCKEditorContent = "";
@@ -321,7 +321,7 @@ function confirmNoChanges() {
 
 	if (!isModified) {
 		showModal("Nessun campo modificato, tornare alla pagina del catalogo?", function() {
-			window.location.href = "admin.jsp";
+			window.location.href = "/admin/AdminProdotti.jsp";
 		});
 		return false; // Blocca l'azione di default del form
 	}
@@ -358,10 +358,10 @@ function goToCatalog() {
 	var isModified = isFormModified(form);
 
 	if (!isModified) {
-		window.location.href = "admin.jsp";
+		window.location.href = "/admin/AdminProdotti.jsp";
 	} else {
 		showModal("Ci sono modifiche non salvate. Sei sicuro di voler tornare al catalogo?", function() {
-			window.location.href = "admin.jsp";
+			window.location.href = "/admin/AdminProdotti.jsp";
 		});
 	}
 }

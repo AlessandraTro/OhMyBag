@@ -65,10 +65,10 @@ if (img != null && !img.isEmpty()) {
                     </div>
                 </form>
             </div>
-        </div>
+        </div>	
+        
     </div>
-
-	<%@ include file="/ConfirmationModal.jsp" %>
+<%@ include file="/ConfirmationModal.jsp" %>
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>

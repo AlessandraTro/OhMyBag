@@ -30,6 +30,21 @@ p {
 	font-size: 20px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 110px;
+}
+
+@media only screen and (max-width: 500px) {
+	.immagine {
+		width: 340px;
+		margin: 20px;
+	}
+
+	
+}
 </style>
 </head>
 <body>

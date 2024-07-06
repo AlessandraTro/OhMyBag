@@ -54,7 +54,7 @@
 			<div class="creatore">
 				<img src="img/ChiSiamo/Anna.jpg" alt="immagine non presente">
 				<h4>Anna Atte</h4>
-				<p>È l'esperto di <b>marketing del gruppo</b>, con un occhio attento alle tendenze del mercato e alle strategie di comunicazione.</p>
+				<p>È l'esperta di <b>marketing del gruppo</b>, con un occhio attento alle tendenze del mercato e alle strategie di comunicazione.</p>
 			</div>
 			<div class="creatore">
 				<img src="img/ChiSiamo/Alessandra.jpg" alt="immagine non presente" class="alessandra">

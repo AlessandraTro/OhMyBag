@@ -129,7 +129,7 @@ public class LoginControl extends HttpServlet{
                     // Le password corrispondono, l'utente può accedere
                     request.getSession().setAttribute("utente", utente);
                     request.getSession().setAttribute("isLoggedIn", true);
-                    response.sendRedirect("Homepage.jsp");
+                    response.sendRedirect("home");
                 } else {
                     // Le password non corrispondono, mostra un messaggio di errore
                     request.setAttribute("loginError", true);

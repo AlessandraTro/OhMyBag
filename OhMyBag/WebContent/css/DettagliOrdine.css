@@ -213,12 +213,11 @@ hr {
 /* Stili per schermi da 844px a 950px */
 @media screen and (min-width: 844px) and (max-width: 950px) {
 	.container1 {
-		width: 60%; /* Container1 occupa il 60% dello spazio disponibile */
-		max-height: 400px;
+/* 		width: 60%; Container1 occupa il 60% dello spazio disponibile */
+/* 		max-height: 400px; */
 		overflow-y: auto;
 	}
 	.container2 {
-		width: 40%; /* Container2 occupa il 40% dello spazio disponibile */
 		margin-left: 20px; /* Aggiusta i margini se necessario */
 		margin-right: 20px; /* Aggiusta i margini se necessario */
 		display: flex;

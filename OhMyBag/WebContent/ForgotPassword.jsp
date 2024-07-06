@@ -30,7 +30,7 @@
                 <div class="login-box" style="margin-bottom:14px">
                     <input type="password" name="password" id="pass" class="input-field" required >
                     <label for="pass" class="label">New Password</label>
-                    <i class="bx bx-lock-alt icon" id="show-password"></i>
+                    <i class="fas fa-eye-slash toggle-password icon" onclick="togglePasswordVisibility('pass', this)" id="show-password"></i>
                     <p id="passwordError" class="error" style="color:ffffff"></p>
                 </div>
                 
@@ -38,7 +38,7 @@
                 <div class="login-box">
                     <input type="password" name="repeat" id="passRepeat" class="input-field" required>
                     <label for="passRepeat" class="label">Repeat new Password</label>
-                    <i class="bx bx-lock-alt icon" id="show-password"></i>
+                    <i class="fas fa-eye-slash toggle-password icon" onclick="togglePasswordVisibility('passRepeat', this)" id="show-password"></i>
                     <p id="passwordValError" class="error" style="color:ffffff"></p>
                 </div>
                 <%if(request.getAttribute("oldPassword")!=null){ %>
@@ -58,6 +58,7 @@
     <%@ include file="Footer.jsp"%>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/ShowPassword.js"></script>
     <script>
     	var passwordCorrect = false;
 		var passwordValCorrect = false;

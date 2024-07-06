@@ -141,7 +141,7 @@ th, td {
 .Ordini,
 .CarteDisp{
 	overflow-y:auto;
-	max-height:300px
+	max-height:450px
 }
 @media (max-width: 1000px) {
 	.setting{

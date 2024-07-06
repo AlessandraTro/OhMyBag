@@ -63,7 +63,7 @@ public class AdminAddProdottoControl extends HttpServlet{
 			System.out.println("Errore: "+e.getMessage());
 		}
 		
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminAddProdotto.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminAddProdotto.jsp");
         dispatcher.forward(request, response);
 	}
 	

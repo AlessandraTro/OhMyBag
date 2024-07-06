@@ -1,31 +1,16 @@
 USE OhMyBag;
+/* creazione admin */
+INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) 
+VALUES ("admin@gmail.com", "CRNFTM05C07R791N", "admin@gmail.com",
+"dd4ba0294a9a22303ad7dd083c6e735cf48c7fd4ffe34a68e22c4fe41f3d2b916668e986751d7a54a79ea9f037ff20c579c43824928be8ee38fc0ff7ba3432db",/*Ciao.03*/
+"9999999999","admin","admin",1,"2024-05-20",
+"Via Giuseppe Cosenza 180,Maddaloni,SA,84033");
 
-/*creazione utente di prova*/
-INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) VALUES ("otineb", "CRNFTM05C07R791N", "email@gmail.com","password","9999999999","Marco","Verdi",0,"2024-05-20",
-"<ul>
-<li><b>Citta:</b> Roma</li>
-<li><b>Via:</b> Via Roma</li>
-<li><b>CAP:</b> 00100</li>
-<li><b>Provincia:</b> RM</li>
-</ul>");
-
-/*creazione di un'ordine fatto dall'utente otineb*/
-INSERT INTO Ordine 
-    (PrezzoTotale, Destinatario, IndirizzoDiSpedizione, 
-    NoteCorriere, MetodoDiSpedizione, NumeroTracking, Data, Circuito, 
-    ConfezioneRegalo, NumeroCarta, Username) 
-VALUES 
-    (100.50, 
-    'Nome Destinatario', 
-    'Indirizzo di Spedizione', 
-    'Note per il corriere', 
-    'Standard', 
-    '123456789', 
-    '2024-05-05', 
-    'Visa', 
-    true, 
-    '1234 5678 9012 3456', 
-    'email@gmail.com');
+INSERT INTO utente (Username, Cf, Email, Password, Telefono, Nome, Cognome, Admin, DataNascita, IndirizzoSpedizione) 
+VALUES ("user@gmail.com", "CRNFTM05C07R791N", "user@gmail.com",
+"dd4ba0294a9a22303ad7dd083c6e735cf48c7fd4ffe34a68e22c4fe41f3d2b916668e986751d7a54a79ea9f037ff20c579c43824928be8ee38fc0ff7ba3432db",/*Ciao.03*/
+"9999999999","Marco","Verdi",0,"2024-05-20",
+"Via Giuseppe Cosenza 180,Maddaloni,SA,84033");
 
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");

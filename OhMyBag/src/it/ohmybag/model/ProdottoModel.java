@@ -371,7 +371,7 @@ public class ProdottoModel{
 		return prodotti;
 	}
 	
-	/*ritorna tutti i prodotti che si trovano all'interno del database con quantita diversa da zero*/
+	/*ritorna tutti i prodotti che si trovano all'interno del database che non sono stati eliminati*/
 	public synchronized Collection<Prodotto> allProduct() throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;
@@ -387,27 +387,28 @@ public class ProdottoModel{
 			ResultSet rs= statement.executeQuery();
 			while(rs.next()){
 				Prodotto bean=new Prodotto();
-				
-				bean.setId(rs.getString("ID"));
-				bean.setMarca(rs.getString("Marca"));
-				bean.setNome(rs.getString("Nome"));
-				bean.setPrezzo(rs.getFloat("Prezzo"));
-				bean.setTipologia(rs.getString("Tipologia"));
-				bean.setIdCategoria(rs.getInt("IDCategoria"));
-				bean.setDescrizione(rs.getString("Descrizione"));
-				bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
-				
-		        java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
-		        GregorianCalendar dataInserimento = new GregorianCalendar();
-		        dataInserimento.setTime(dataInserimentoSQL);
-				bean.setDataInserimento(dataInserimento);
-				
-				bean.setSconto(rs.getInt("Sconto"));
-				bean.setDisponibilita(rs.getInt("Disponibilita"));
-				bean.setIva(rs.getInt("Iva"));
-				
-				if(bean.getDisponibilita()>0)
-					prodotti.add(bean);
+				bean.setEliminato(rs.getBoolean("Eliminato"));
+				if(!bean.isEliminato()) {//se il prodotto non è stato impostato come eliminato dall'admin
+					bean.setId(rs.getString("ID"));
+					bean.setMarca(rs.getString("Marca"));
+					bean.setNome(rs.getString("Nome"));
+					bean.setPrezzo(rs.getFloat("Prezzo"));
+					bean.setTipologia(rs.getString("Tipologia"));
+					bean.setIdCategoria(rs.getInt("IDCategoria"));
+					bean.setDescrizione(rs.getString("Descrizione"));
+					bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+					
+			        java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+			        GregorianCalendar dataInserimento = new GregorianCalendar();
+			        dataInserimento.setTime(dataInserimentoSQL);
+					bean.setDataInserimento(dataInserimento);
+					
+					bean.setSconto(rs.getInt("Sconto"));
+					bean.setDisponibilita(rs.getInt("Disponibilita"));
+					bean.setIva(rs.getInt("Iva"));
+					
+					prodotti.add(bean); //lo aggiungo alla lista
+				}
 			}
 		}finally {
 			try {
@@ -441,26 +442,28 @@ public class ProdottoModel{
 			while(rs.next()){
 				Prodotto bean=new Prodotto();
 				
-				bean.setId(rs.getString("ID"));
-				bean.setMarca(rs.getString("Marca"));
-				bean.setNome(rs.getString("Nome"));
-				bean.setPrezzo(rs.getFloat("Prezzo"));
-				bean.setTipologia(rs.getString("Tipologia"));
-				bean.setIdCategoria(rs.getInt("IDCategoria"));
-				bean.setDescrizione(rs.getString("Descrizione"));
-				bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
-				
-		        java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
-		        GregorianCalendar dataInserimento = new GregorianCalendar();
-		        dataInserimento.setTime(dataInserimentoSQL);
-				bean.setDataInserimento(dataInserimento);
-				
-				bean.setSconto(rs.getInt("Sconto"));
-				bean.setDisponibilita(rs.getInt("Disponibilita"));
-				bean.setIva(rs.getInt("Iva"));
-
-				if(bean.getDisponibilita()>0)
+				bean.setEliminato(rs.getBoolean("Eliminato"));
+				if(!bean.isEliminato()) {//se il prodotto non è stato impostato come eliminato dall'admin
+					bean.setId(rs.getString("ID"));
+					bean.setMarca(rs.getString("Marca"));
+					bean.setNome(rs.getString("Nome"));
+					bean.setPrezzo(rs.getFloat("Prezzo"));
+					bean.setTipologia(rs.getString("Tipologia"));
+					bean.setIdCategoria(rs.getInt("IDCategoria"));
+					bean.setDescrizione(rs.getString("Descrizione"));
+					bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+					
+			        java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+			        GregorianCalendar dataInserimento = new GregorianCalendar();
+			        dataInserimento.setTime(dataInserimentoSQL);
+					bean.setDataInserimento(dataInserimento);
+					
+					bean.setSconto(rs.getInt("Sconto"));
+					bean.setDisponibilita(rs.getInt("Disponibilita"));
+					bean.setIva(rs.getInt("Iva"));
+	
 					prodotti.add(bean);
+				}
 			}
 		}finally {
 			try {
@@ -767,27 +770,29 @@ public class ProdottoModel{
 	        rs = statement.executeQuery();
 	        while (rs.next()) {
 	            Prodotto bean = new Prodotto();
-
-	            bean.setId(rs.getString("ID"));
-	            bean.setMarca(rs.getString("Marca"));
-	            bean.setNome(rs.getString("Nome"));
-	            bean.setPrezzo(rs.getFloat("Prezzo"));
-	            bean.setTipologia(rs.getString("Tipologia"));
-	            bean.setIdCategoria(rs.getInt("IDCategoria"));
-	            bean.setDescrizione(rs.getString("Descrizione"));
-	            bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
-
-	            java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
-	            GregorianCalendar dataInserimento = new GregorianCalendar();
-	            dataInserimento.setTime(dataInserimentoSQL);
-	            bean.setDataInserimento(dataInserimento);
-
-	            bean.setSconto(rs.getInt("Sconto"));
-	            bean.setDisponibilita(rs.getInt("Disponibilita"));
-	            bean.setIva(rs.getInt("Iva"));
-
-				if(bean.getDisponibilita()>0)
+	            
+				bean.setEliminato(rs.getBoolean("Eliminato"));
+				if(!bean.isEliminato()) {//se il prodotto non è stato impostato come eliminato dall'admin
+		            bean.setId(rs.getString("ID"));
+		            bean.setMarca(rs.getString("Marca"));
+		            bean.setNome(rs.getString("Nome"));
+		            bean.setPrezzo(rs.getFloat("Prezzo"));
+		            bean.setTipologia(rs.getString("Tipologia"));
+		            bean.setIdCategoria(rs.getInt("IDCategoria"));
+		            bean.setDescrizione(rs.getString("Descrizione"));
+		            bean.setAnnoCollezione(rs.getInt("AnnoCollezione"));
+	
+		            java.sql.Date dataInserimentoSQL = rs.getDate("DataInserimento");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            bean.setDataInserimento(dataInserimento);
+	
+		            bean.setSconto(rs.getInt("Sconto"));
+		            bean.setDisponibilita(rs.getInt("Disponibilita"));
+		            bean.setIva(rs.getInt("Iva"));
+	
 					prodotti.add(bean);
+				}
 	        }
 	    } finally {
 	        // Chiusura delle risorse in ordine inverso di apertura

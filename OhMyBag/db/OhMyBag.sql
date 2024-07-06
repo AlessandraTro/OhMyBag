@@ -59,6 +59,7 @@ CREATE TABLE Prodotto(
     Sconto 			int 		  check(Sconto>=0 AND Sconto<100),
     Disponibilita 	int 		  check(Disponibilita>=0),
     Iva             int           not null,
+    Eliminato		boolean		  not null DEFAULT false,
     foreign key (IDCategoria) references Categoria(ID)
 );
 

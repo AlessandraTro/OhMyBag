@@ -4,51 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="css/Footer.css" rel="stylesheet" type="text/css">
 </head>
-<style>
-/* Rimuovere l'effetto di sottolineatura dai link */
-a {
-	text-decoration: none; /* Rimuove l'effetto di sottolineatura */
-	color: inherit;
-	/* Utilizza il colore ereditato dal testo circostante */
-}
-
-.footer-container {
-	background-color: #d6ccc2; /* Colore di sfondo */
-}
-
-#myFooter {
-	padding: 50px 50px 0px 50px;
-}
-
-.float-end-custom {
-	text-align: right;
-}
-
-footer {
-	font-family: Times New Roman, Sans-Serif;
-}
-
-h5 {
-	font-weight: bold; /* Aggiungi il grassetto */
-}
-
-.btn-outline-success {
-	border-color: #827b7b;
-	cursor: pointer;
-	background-color: #827b7b;
-	color: #fff;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-bottom: 1%;
-	--bs-btn-active-bg: #827b7b;
-	--bs-btn-active-border-color: #827b7b;
-}
-</style>
-
 <body>
-	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="bootstrap" viewBox="0 0 118 94">
     <title>Bootstrap</title>
     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -106,10 +65,10 @@ h5 {
 					<form id="myForm">
 						<h5>Entra nel mondo di OhMyBag</h5>
 						<p>Resta aggiornato su eventi, collezioni e novità esclusive.</p>
-						<div class="d-flex flex-column flex-sm-row w-100 gap-2">
-								<input class="form-control" type="email" id="email" name="email"
-									placeholder="Enter your email" required>
-								<button class="btn btn-outline-success" type="submit">Subscribe</button>
+						<div class="d-flex flex-column w-100 gap-2 email-input">
+							<input class="form-control" type="email" id="email" name="email"
+								placeholder="Enter your email" required>
+							<button class="btn btn-outline-success" type="submit">Subscribe</button>
 						</div>
 					</form>
 				</div>
@@ -160,34 +119,56 @@ h5 {
 	<!-- Include EmailJS SDK -->
 	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-	
+
 	<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("HcMmT-E0CFrPuWtLE");
+		document
+				.addEventListener(
+						'DOMContentLoaded',
+						function() {
+							// Initialize EmailJS with your user ID
+							emailjs.init("HcMmT-E0CFrPuWtLE");
 
-            document.getElementById('myForm').addEventListener('submit', function(event) {
-                event.preventDefault();
+							document
+									.getElementById('myForm')
+									.addEventListener(
+											'submit',
+											function(event) {
+												event.preventDefault();
 
-                var userEmail = document.getElementById('email').value;
+												var userEmail = document
+														.getElementById('email').value;
 
-                // Define the template parameters
-                var templateParams = {
-                    user_email: userEmail
-                };
+												// Define the template parameters
+												var templateParams = {
+													user_email : userEmail
+												};
 
-                // Send email using EmailJS
-                emailjs.send("service_OhMyBag", "OhmyBag2024", templateParams)
-                    .then(function(response) {
-                        console.log('Email sent:', response);
-                        alert('Subscription successful! Check your email for confirmation.');
-                        document.getElementById('email').value = ''; // Clear the input field
-                    }, function(error) {
-                        console.error('Email sending failed:', error);
-                        alert('Subscription failed. Please try again later.');
-                    });
-            });
-        });
-    </script>
+												// Send email using EmailJS
+												emailjs
+														.send(
+																"service_OhMyBag",
+																"OhmyBag2024",
+																templateParams)
+														.then(
+																function(
+																		response) {
+																	console
+																			.log(
+																					'Email sent:',
+																					response);
+																	alert('Subscription successful! Check your email for confirmation.');
+																	document
+																			.getElementById('email').value = ''; // Clear the input field
+																},
+																function(error) {
+																	console
+																			.error(
+																					'Email sending failed:',
+																					error);
+																	alert('Subscription failed. Please try again later.');
+																});
+											});
+						});
+	</script>
 </body>
 </html>

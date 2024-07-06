@@ -67,7 +67,7 @@
 							<!-- Mostra la scritta e il carousel sulla stessa riga su dispositivi di piccole dimensioni -->
 							<!-- DISPOSITIVI PICCOLI -->
 							<h1 class="flex-grow-1">NUOVI ARRIVI</h1>
-							<div id="carouselExampleControls" class="carousel slide"
+							<div id="carouselExampleControls" class="carousel slide carousel-dark"
 								data-bs-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active">

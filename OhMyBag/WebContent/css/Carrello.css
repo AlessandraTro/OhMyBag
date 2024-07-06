@@ -182,8 +182,9 @@
 	margin-bottom: 2%
 }
 
-.mb-2 {
-	text-align: center;
+.riepilogo {
+	display:flex;
+	justify-content: center;
 }
 
 .inf {

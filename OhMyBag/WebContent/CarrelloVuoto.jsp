@@ -21,7 +21,7 @@
 			</div>
 			<div class="information2">
 				<div class="clas-vuota">
-					<h5 class="fw-bold mb-2">Riepilogo Prodotti</h5>
+					<h5 class="fw-bold riepilogo">Riepilogo Prodotti</h5>
 					<div class="d-flex justify-content-between p-2"
 						style="background-color: #ede4db;">
 						<h5 class="fw-bold mb-2">Totale:</h5>

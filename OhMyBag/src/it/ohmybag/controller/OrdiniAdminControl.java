@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -73,7 +74,8 @@ public class OrdiniAdminControl extends HttpServlet {
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("admin/OrdiniAdmin.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/OrdiniAdmin.jsp");
+     	dispatcher.forward(request, response);
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

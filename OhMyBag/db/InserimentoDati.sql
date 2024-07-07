@@ -12,6 +12,10 @@ VALUES ("user@gmail.com", "CRNFTM05C07R791N", "user@gmail.com",
 "9999999999","Marco","Verdi",0,"2024-05-20",
 "Via Giuseppe Cosenza 180,Maddaloni,SA,84033");
 
+INSERT INTO carta (Id,Username,CVV,Circuito,DataScadenza,NumeroCarta) VALUES (1,'user@gmail.com',222,'visa','2029-01-01','ChuJX0kQ/9LN173r6tRkpQ==2299');
+
+INSERT INTO ordine (Id,PrezzoTotale,Destinatario,IndirizzoDiSpedizione,NoteCorriere,MetodoDiSPedizione,NumeroTracking,Data,Circuito,ConfezioneRegalo,NumeroCarta,Username) VALUES (1,2120.92,'Marco Verdi','Via Roma 44, Roma, RM, 00100','','premium','929296','2024-07-07','visa',0,'ChuJX0kQ/9LN173r6tRkpQ==2299','user@gmail.com');
+
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");
 INSERT INTO Categoria (ID, Nome) VALUES (02, "Uomo");

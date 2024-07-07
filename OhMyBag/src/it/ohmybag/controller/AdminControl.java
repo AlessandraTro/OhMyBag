@@ -96,7 +96,7 @@ public class AdminControl extends HttpServlet {
             request.getSession().setAttribute("products", products);
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("404.jsp");
+            response.sendError(404);
             return;
         }
         // Reindirizza alla pagina AdminProdotti.jsp

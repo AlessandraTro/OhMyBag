@@ -102,8 +102,7 @@ public class OttieniCartaControl extends HttpServlet {
 						Carta carta = new Carta();
 						carta.setCircuito(circuito);
 						carta.setNumeroCarta(encryptedCardNumber + cardNumber.substring(15));
-						System.out.println("Carta: " + carta.getNumeroCarta());
-						System.out.println("ultime 4: " + cardNumber.substring(15));
+
 						try {
 							int cvv = Integer.parseInt(cvc);
 							carta.setCvv(cvv);
@@ -118,7 +117,6 @@ public class OttieniCartaControl extends HttpServlet {
 
 						// Salva la nuova carta nel database
 						cartaModel.saveCreditCard(carta);
-						System.out.println("Nuova carta salvata con successo.");
 
 						request.setAttribute("carta", carta);
 					}

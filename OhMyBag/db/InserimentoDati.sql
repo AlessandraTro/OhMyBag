@@ -16,14 +16,6 @@ INSERT INTO carta (Id,Username,CVV,Circuito,DataScadenza,NumeroCarta) VALUES (1,
 
 INSERT INTO ordine (Id,PrezzoTotale,Destinatario,IndirizzoDiSpedizione,NoteCorriere,MetodoDiSPedizione,NumeroTracking,Data,Circuito,ConfezioneRegalo,NumeroCarta,Username) VALUES (1,2120.92,'Marco Verdi','Via Roma 44, Roma, RM, 00100','','premium','929296','2024-07-07','visa',0,'ChuJX0kQ/9LN173r6tRkpQ==2299','user@gmail.com');
 
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'000AAG',12.139,1,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'002AAA',290.36,2,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'002AAB',524.6,1,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'466492 DTDHT 1712',469.7,1,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'BSC21402444',73.139,1,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'C1854H03O-Q11',73.078,1,22,0);
-INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'Y3E205Y497O180100',671,1,22,0);
-
 /* INSERIMENTO CATEGORIA */
 INSERT INTO Categoria (ID, Nome) VALUES (01, "Donna");
 INSERT INTO Categoria (ID, Nome) VALUES (02, "Uomo");
@@ -1404,3 +1396,12 @@ INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Viaggi/B
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Viaggi/Bagagli a mano/Bugatti/Bugatti - Bagaglio a Mano/2.jpg", 0, "BU154H03T-Q11");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Viaggi/Bagagli a mano/Bugatti/Bugatti - Bagaglio a Mano/3.jpg", 0, "BU154H03T-Q11");
 INSERT INTO Immagine (Nome, Copertina, IDProdotto) VALUES("img/prodotti/Viaggi/Bagagli a mano/Bugatti/Bugatti - Bagaglio a Mano/4.jpg", 0, "BU154H03T-Q11");
+
+/*composizione finta*/
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'000AAG',12.139,1,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'002AAA',290.36,2,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'002AAB',524.6,1,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'466492 DTDHT 1712',469.7,1,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'BSC21402444',73.139,1,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'C1854H03O-Q11',73.078,1,22,0);
+INSERT INTO composizione (IDOrdine,IDProdotto,Prezzo,Quantita,IVA,Sconto) VALUES (1,'Y3E205Y497O180100',671,1,22,0);

@@ -40,12 +40,11 @@ public class CategorieProdottiControl extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         String categoria = request.getParameter("categoria");
-        System.out.println("CATEGORIA"+categoria);
         String tipo = request.getParameter("tipo");
         int idCategoria = 0;
 
         if (categoria == null || tipo == null) {
-            response.sendRedirect("404.jsp");
+            response.sendError(404);
             return;
         }
 
@@ -56,8 +55,11 @@ public class CategorieProdottiControl extends HttpServlet {
             case "Uomo":
                 idCategoria = 2;
                 break;
+            case "Viaggi":
+            	idCategoria = 3;
+                break;
             default:
-                idCategoria = 3;
+                response.sendError(404);
                 break;
         }
 
@@ -70,16 +72,13 @@ public class CategorieProdottiControl extends HttpServlet {
             }
 
             Collection<Immagine> images = immagineModel.doRetrieveAll();
-
+            
+            //Paginazione
             int productsPerPage = 8; // Numero di prodotti per pagina
 	        int totalProducts = products.size(); // Numero totale di prodotti
-	        System.out.println("numero"+totalProducts);
-
 	        int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage); // Calcolo delle pagine
-
 	        int currentPage = 1; // Pagina di default
 	        String pageParam = request.getParameter("page");
-		    System.out.println("PAGE catalog" +pageParam);
 
 	        if (pageParam != null) {
 	            try {
@@ -110,10 +109,9 @@ public class CategorieProdottiControl extends HttpServlet {
 	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Catalogo.jsp");
 	            dispatcher.forward(request, response);
 	        }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
+            response.sendError(500);
         }
     }
     

@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	import="java.util.*, it.ohmybag.bean.*,java.util.GregorianCalendar, java.text.SimpleDateFormat, java.util.Date, java.io.*"%>
-<%!String citta;
+	
+<%! // Dichiarazione delle variabili di stato per l'indirizzo di spedizione
+	String citta;
 	String provincia;
 	String via;
 	int cap;%>
-<%
+<% // Recupero delle informazioni dell'utente, degli ordini e delle carte dalla sessione
 Utente utente = (Utente) request.getSession().getAttribute("utente");
 ArrayList<Ordine> ordini = (ArrayList<Ordine>) request.getSession().getAttribute("OrdiniUtente");
 LinkedList<Carta> carte = (LinkedList<Carta>) request.getSession().getAttribute("Carte");
 
+//Recupero dell'indirizzo di spedizione dell'utente
 String indirizzoSpedizione = utente.getIndirizzoSpedizione();
 
 // Utilizzo String.split per dividere l'indirizzo in componenti
@@ -29,14 +32,12 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
 <link href="css/PaginaUtente.css" rel="stylesheet">
-
 <title>Utente</title>
 </head>
 <body>
 	<div class="wrapper">
 		<jsp:include page="Header.jsp" />
 		<div class="containerAll">
-		
 		
 			<!-- creo il menu che esce sul lato sinistro della pagina -->
 			<div class="container-menu">
@@ -59,8 +60,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 				</div>
 				<div class="menu-down">
 					<div>
-						<a href="#" onclick="return CancellaAccount()" ><b>Cancella
-								account</b></a>
+						<a href="#" onclick="return CancellaAccount()" ><b>Cancella account</b></a>
 					</div>
 					<div>
 						<a href="LogoutControl"><b>Log-Out</b></a>
@@ -83,55 +83,45 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 					<i id="settings-icon" class="settings-icon fas fa-cog"></i>
 				</div>
 				<!-- la pagina di Default visualizza i dati anagrafici -->
-				<div id="dati-anagrafici" class="container-insert Dati-anagrafici"
-					style="display: none;">
+				<div id="dati-anagrafici" class="container-insert Dati-anagrafici" style="display: none;">
 					<h2>Dati Anagrafici</h2>
-					<form id="modificaDatiForm" action="ModificaDatiControl"
-						method="POST" onsubmit="return handleFormSubmit(event)">
+					<form id="modificaDatiForm" action="ModificaDatiControl" method="POST" onsubmit="return handleFormSubmit(event)">
 						<div class="container-form">
+						<!-- Campi dati anagrafici -->
 							<div class="content">
-								<label for="Nome">Nome:</label> <input class="input-field"
-									type="text" name="Nome" value="<%=utente.getNome()%>" disabled>
+								<label for="Nome">Nome:</label> 
+								<input class="input-field" type="text" name="Nome" value="<%=utente.getNome()%>" disabled>
 							</div>
 							<div class="content">
-								<label for="Cognome">Cognome:</label> <input class="input-field"
-									type="text" name="Cognome" value="<%=utente.getCognome()%>"
-									disabled>
+								<label for="Cognome">Cognome:</label> 
+								<input class="input-field" type="text" name="Cognome" value="<%=utente.getCognome()%>" disabled>
 							</div>
 							<div class="content">
-								<label for="Email">Email:</label> <input class="input-field"
-									type="text" id="Email" name="Email"
-									value="<%=utente.getEmail()%>" disabled readonly>
+								<label for="Email">Email:</label> 
+								<input class="input-field" type="text" id="Email" name="Email" value="<%=utente.getEmail()%>" disabled readonly>
 							</div>
 							<div class="content">
-								<label for="CF">Codice Fiscale:</label> <input
-									class="input-field" type="text" name="CF"
-									value="<%=utente.getCodiceFiscale()%>" disabled>
+								<label for="CF">Codice Fiscale:</label> 
+								<input class="input-field" type="text" name="CF" value="<%=utente.getCodiceFiscale()%>" disabled>
 							</div>
 							<div class="content">
-								<label for="DataDiNascita">Data di nascita:</label> <input
-									class="input-field" type="text" name="DataDiNascita"
-									value="<%=new SimpleDateFormat("dd/MM/yyyy").format(utente.getDataDiNascita().getTime())%>"
-									disabled>
+								<label for="DataDiNascita">Data di nascita:</label> 
+								<input class="input-field" type="text" name="DataDiNascita" value="<%=new SimpleDateFormat("dd/MM/yyyy").format(utente.getDataDiNascita().getTime())%>" disabled>
 							</div>
 							<div class="content">
-								<label for="Telefono">Telefono:</label> <input
-									class="input-field" type="text" name="Telefono"
-									value="<%=utente.getTelefono()%>" disabled>
+								<label for="Telefono">Telefono:</label> 
+								<input class="input-field" type="text" name="Telefono" value="<%=utente.getTelefono()%>" disabled>
 							</div>
-							<div class="content button" id="modifica-bottoni"
-								style="display: none;">
+							<div class="content button" id="modifica-bottoni" style="display: none;">
 								<div class="content submit">
-									<input type="submit" value="Applica Modifiche"
-										class="input-submit">
+									<input type="submit" value="Applica Modifiche" class="input-submit">
 								</div>
 								<div class="content reset">
 									<input type="reset" value="Reset" class="input-reset">
 								</div>
 							</div>
 							<div class="content button">
-								<input type="button" id="modifica-campi"
-									value="Modifica i campi">
+								<input type="button" id="modifica-campi" value="Modifica i campi">
 							</div>
 						</div>
 					</form>
@@ -139,8 +129,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 
 
 				<!-- la pagina visualizza gli ordini effettuati dall'utente -->
-				<div id="ordini" class="container-insert Ordini"
-					style="display: none;">
+				<div id="ordini" class="container-insert Ordini" style="display: none;">
 					<h2 style="margin-bottom: 10px">Ordini effettuati</h2>
 					<table class="table-bordered">
 						<tr>
@@ -149,6 +138,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							<th>Data Acquisto</th>
 							<th>Azione</th>
 						</tr>
+						<!-- Ciclo per mostrare gli ordini -->
 						<%
 						if (ordini != null && !ordini.isEmpty()) {
 							for (Ordine ordine : ordini) {
@@ -157,10 +147,10 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							<th><%=ordine.getId()%></th>
 							<th class="prezzo"><%=String.format("%.2f", ordine.getPrezzoTotale())%></th>
 							<th><%=new SimpleDateFormat("dd/MM/yyyy").format(ordine.getData().getTime())%></th>
-							<th><a href="#" onclick="window.open('DettagliOrdiniAdmin?Fattura=Si&Codice=<%=ordine.getId()%>');">Fattura</a><br> <a href="#"
-								class="details-link" data-bs-toggle="modal"
-								data-bs-target="#ordiniModal"
-								data-order-id="<%=ordine.getId()%>">Dettagli</a></th>
+							<th>
+								<!-- Link per visualizzare dettagli e fattura -->
+								<a href="#" onclick="window.open('DettagliOrdiniAdmin?Fattura=Si&Codice=<%=ordine.getId()%>');">Fattura</a><br> 
+								<a href="#" class="details-link" data-bs-toggle="modal" data-bs-target="#ordiniModal" data-order-id="<%=ordine.getId()%>">Dettagli</a></th>
 						</tr>
 						<%
 						}
@@ -173,39 +163,33 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 
 
 				<!-- la pagina visualizza una sezione per poter aggiungere le carte -->
-				<div id="aggiungi-carta" class="container-insert Aggiungi-carta"
-					style="display: none;">
+				<div id="aggiungi-carta" class="container-insert Aggiungi-carta" style="display: none;">
+				<!-- Form per aggiungere una carta -->
 					<div style="display: none;">
 						<h2 style="margin-bottom: 10px">Aggiungi Carta</h2>
 						<form action="AddCreditCardControl" method="POST">
 							<div class="container-form">
 								<div class="content">
-									<input type="hidden" name="action" value="addCard"> <label
-										for="NumeroCarta">Numero carta:</label>
+									<input type="hidden" name="action" value="addCard"> 
+									<label for="NumeroCarta">Numero carta:</label>
 									<div style="display: flex;">
-										<input class="input-field" type="text" id="NumeroCarta"
-											name="NumeroCarta" maxlenght=19
-											pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" required> <img
-											id="Mastercard" src="img/metodiDiPagamento/cc-mastercard.svg">
+										<input class="input-field" type="text" id="NumeroCarta" name="NumeroCarta" maxlenght=19 pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" required> 
+										<img id="Mastercard" src="img/metodiDiPagamento/cc-mastercard.svg">
 										<img id="Visa" src="img/metodiDiPagamento/cc-visa.svg">
 									</div>
-									<p id="ErroreCarta" style="color: red; display: none;">Inserire
-										una carta valida</p>
+									<p id="ErroreCarta" style="color: red; display: none;">Inserire una carta valida</p>
 								</div>
 								<div class="content">
-									<label for="DataScadenza">Data di scadenza:</label> <input
-										class="input-field" type="month" name="DataScadenza"
-										min="2024-07" required>
+									<label for="DataScadenza">Data di scadenza:</label> 
+									<input class="input-field" type="month" name="DataScadenza" min="2024-07" required>
 								</div>
 								<div class="content">
-									<label for="CVV">CVV:</label> <input class="input-field"
-										type="number" name="CVV" max="999" min="100" required>
+									<label for="CVV">CVV:</label> <input class="input-field" type="number" name="CVV" max="999" min="100" required>
 								</div>
 								<div id="circuitoContainer" class="content"></div>
 								<div class="content button">
 									<div class="content submit">
-										<input type="submit" value="Aggiungi Carta"
-											class="input-submit" id="input-submitCarta">
+										<input type="submit" value="Aggiungi Carta" class="input-submit" id="input-submitCarta">
 									</div>
 									<div class="content reset">
 										<input type="reset" value="Reset" class="input-reset">
@@ -249,42 +233,36 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 
 
 				<!-- la pagina visualizza una sezione dove si puo visualizzare e cambiare indirizzo -->
-				<div id="cambia-indirizzo" class="container-insert Cambia-indirizzo"
-					style="display: none;">
+				<div id="cambia-indirizzo" class="container-insert Cambia-indirizzo" style="display: none;">
 					<h2 style="margin-bottom: 10px">Cambia indirizzo</h2>
-					<form action="CambiaIndirizzoControl" method="POST"
-						onsubmit="return ConfermaIndirizzo(event)">
+					<form action="CambiaIndirizzoControl" method="POST" onsubmit="return ConfermaIndirizzo(event)">
 						<div class="container-form">
 							<div class="content">
-								<label for="Citta">Città</label> <input class="input-field"
-									type="text" name="Citta" value="<%=citta%>" required disabled>
+								<label for="Citta">Città</label> 
+								<input class="input-field" type="text" name="Citta" value="<%=citta%>" required disabled>
 							</div>
 							<div class="content">
-								<label for="Provincia">Provincia</label> <input
-									class="input-field" type="text" name="Provincia"
-									value="<%=provincia%>" required disabled>
+								<label for="Provincia">Provincia</label> 
+								<input class="input-field" type="text" name="Provincia" value="<%=provincia%>" required disabled>
 							</div>
 							<div class="content">
-								<label for="Via">Via</label> <input class="input-field"
-									type="text" name="Via" value="<%=via%>" required disabled>
+								<label for="Via">Via</label> 
+								<input class="input-field" type="text" name="Via" value="<%=via%>" required disabled>
 							</div>
 							<div class="content">
-								<label for="CAP">CAP</label> <input class="input-field"
-									type="number" name="CAP" value="<%=cap%>" required disabled>
+								<label for="CAP">CAP</label> 
+								<input class="input-field" type="number" name="CAP" value="<%=cap%>" required disabled>
 							</div>
-							<div class="content button" id="button-group"
-								style="display: none;">
+							<div class="content button" id="button-group" style="display: none;">
 								<div class="content submit">
-									<input type="submit" value="Cambia indirizzo"
-										class="input-submit" id="input-submit">
+									<input type="submit" value="Cambia indirizzo" class="input-submit" id="input-submit">
 								</div>
 								<div class="content reset">
 									<input type="reset" value="Reset" class="input-reset">
 								</div>
 							</div>
 							<div class="content button">
-								<input type="button" value="Modifica i campi"
-									id="cambia-indirizzo-btn">
+								<input type="button" value="Modifica i campi" id="cambia-indirizzo-btn">
 							</div>
 						</div>
 					</form>
@@ -295,36 +273,29 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 				<div id="cambia-password" class="container-insert Cambia-password"
 					style="display: none;">
 					<h2 style="margin-bottom: 10px">Cambia password</h2>
-					<form action="CambiaPasswordControl" method="POST"
-						onsubmit="return validate(this)">
+					<!-- Form per cambiare la password -->
+					<form action="CambiaPasswordControl" method="POST" onsubmit="return validate(this)">
 						<div class="container-form">
 							<div class="content">
 								<label for="PasswordVecchia">Inserisci vecchia Password</label>
 								<div class="password-container">
-									<input class="input-field" type="password"
-										name="PasswordVecchia" id="PasswordVecchia" required>
-									<i class="fas fa-eye-slash toggle-password"
-										onclick="togglePasswordVisibility('PasswordVecchia', this)"></i>
+									<input class="input-field" type="password" name="PasswordVecchia" id="PasswordVecchia" required>
+									<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('PasswordVecchia', this)"></i>
 								</div>
-								<p id="ErroreVecchiaPassword" style="color: red; display: none;">Inserire
-									la vecchia password</p>
+								<p id="ErroreVecchiaPassword" style="color: red; display: none;">Inserire la vecchia password</p>
 							</div>
 							<div class="content">
 								<div class="login-box">
 									<label for="pass" class="label">New Password</label>
 									<div class="password-container">
-										<input type="password" name="password" id="pass"
-											class="input-field" required> <i
-											class="fas fa-eye-slash toggle-password"
-											onclick="togglePasswordVisibility('pass', this)"></i>
+										<input type="password" name="password" id="pass" class="input-field" required> <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('pass', this)"></i>
 									</div>
 									<p id="passwordError" class="error" style="color: red"></p>
 								</div>
 							</div>
 							<div class="content">
 								<div class="login-box">
-									<label for="passRepeat" class="label">Repeat new
-										Password</label>
+									<label for="passRepeat" class="label">Repeat new Password</label>
 									<div class="password-container">
 										<input type="password" name="repeat" id="passRepeat" class="input-field" required>
 										<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('passRepeat', this)"></i>
@@ -334,8 +305,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 							</div>
 							<div class="content button">
 								<div class="content submit">
-									<input type="submit" value="Cambia Password"
-										class="input-submit" id="input-submitPassword">
+									<input type="submit" value="Cambia Password" class="input-submit" id="input-submitPassword">
 								</div>
 								<div class="content reset">
 									<input type="reset" value="Reset" class="input-reset">
@@ -353,10 +323,8 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 				<div class="modal-dialog modal-xl" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="ordiniModalLabel">Dettagli
-								Ordine</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
+							<h5 class="modal-title" id="ordiniModalLabel">Dettagli Ordine</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body"></div>
 					</div>
@@ -367,7 +335,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 		</div>
 		<jsp:include page="Footer.jsp" />
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>	
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/PaginaUtente.js"></script>
 	<script type="text/javascript" src="js/ShowPassword.js"></script>
@@ -382,6 +350,8 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             }, 3000);
         }
     });
+    
+    //Funzione che cancella la carta
     function CancellaCarta(idCarta) {
         $('#confirmModalMessage').text("Sei sicuro di voler cancellare la carta selezionata?");
         // Mostra la modale di conferma
@@ -389,7 +359,6 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 
         // Imposta l'azione di conferma per la cancellazione
         $('#confirmActionBtn').off('click').on('click', function() {
-            // Esegui l'azione di cancellazione qui, ad esempio:
             $.ajax({
             url: 'CancellaCartaControl',
             type: 'POST',
@@ -406,15 +375,16 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             // Ritorna il risultato della conferma
             return true;
         });
-     // Gestione del clic sul pulsante "Annulla"
+        
+     	// Gestione del clic sul pulsante "Annulla"
         $('#confirmModal .btn-secondary').off('click').on('click', function() {
             $('#confirmModal').modal('hide');
-            // Esegui altre azioni di annullamento se necessario
         });
         // Ritorna false per impedire la propagazione del click
         return false;
     }
     
+    //funzione che cancella l'account
     function CancellaAccount() {
         $('#confirmModalMessage').text("Sei sicuro di voler cancellare il tuo account? Questa azione non può essere annullata.");
         // Mostra la modale di conferma
@@ -422,7 +392,6 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
 
         // Imposta l'azione di conferma per la cancellazione
         $('#confirmActionBtn').off('click').on('click', function() {
-            // Esegui l'azione di cancellazione qui, ad esempio:
             $.ajax({
             url: 'DeleteAccountControl',
             type: 'POST',
@@ -438,55 +407,60 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             // Ritorna il risultato della conferma
             return true;
         });
-     // Gestione del clic sul pulsante "Annulla"
+     	
+        // Gestione del clic sul pulsante "Annulla"
         $('#confirmModal .btn-secondary').off('click').on('click', function() {
             $('#confirmModal').modal('hide');
-            // Esegui altre azioni di annullamento se necessario
         });
         // Ritorna false per impedire la propagazione del click
         return false;
     }
     
+ // Mostra il form per aggiungere una carta quando si clicca sul link "Aggiungi carta"
 	  document.getElementById("showFormLink").addEventListener("click", function(event) {
 	    event.preventDefault();
+	    // Mostra il primo div (form per aggiungere carta) e nasconde il secondo div (messaggio di conferma)
 	    document.querySelector(".Aggiungi-carta > div:first-child").style.display = "block";
 	    document.querySelector(".Aggiungi-carta > div:last-child").style.display = "none";
 	  });
 	  
+	// Nasconde il form per aggiungere una carta quando si clicca sul link "Aggiungi carta" nel menu laterale
 	  document.getElementById("aggiungi-carta-link").addEventListener("click", function(event) {
 		    event.preventDefault();
+		    // Nasconde il primo div (form per aggiungere carta) e mostra il secondo div (messaggio di conferma)
 		    document.querySelector(".Aggiungi-carta > div:first-child").style.display = "none";
 		    document.querySelector(".Aggiungi-carta > div:last-child").style.display = "block";
 	  });
 
+	// Funzione che viene eseguita quando il documento HTML è completamente caricato
         document.addEventListener("DOMContentLoaded", function() {
-            const editButton = document.getElementById("cambia-indirizzo-btn");
-            const submitButton = document.getElementById("input-submit");
-            const formFields = document.querySelectorAll(".input-field");
-            const buttonGroup = document.getElementById("button-group");
+            const editButton = document.getElementById("cambia-indirizzo-btn"); // Bottone per modificare l'indirizzo
+            const submitButton = document.getElementById("input-submit"); // Bottone di submit
+            const formFields = document.querySelectorAll(".input-field"); // Campi del form
+            const buttonGroup = document.getElementById("button-group"); // Gruppo di pulsanti
 
-            // Store the initial values of the fields
+            // Memorizza i valori iniziali dei campi del form
             const initialValues = Array.from(formFields).map(field => field.value);
 
-            // Function to enable form fields for editing
+         	// Abilita la modifica dei campi del form
             function enableFields() {
                 formFields.forEach(field => field.disabled = false);
                 buttonGroup.style.display = "flex";
             }
 
-            // Function to check if any field is modified
+         	// Verifica se è stato modificato qualche campo del form
             function isFormModified() {
                 return Array.from(formFields).some((field, index) => {
                     return field.value !== initialValues[index];
                 });
             }
 
-            // Event listener for the edit button
+            // Event listener per il bottone di modifica
             editButton.addEventListener("click", function() {
                 enableFields();
             });
 
-            // Form submission handler
+         	// Gestore per la sottomissione del form
             window.ConfermaIndirizzo = function(event) {
                 if (isFormModified()) {
                     $('#confirmModalMessage').text("Confermi di voler modificare l'indirizzo?");
@@ -495,7 +469,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
                     // Imposta l'azione di conferma per la cancellazione
                     $('#confirmActionBtn').off('click').on('click', function() {
                         $('#confirmModal').modal('hide');
-                        document.forms[3].submit();  // Submitting the form
+                        document.forms[3].submit();  // Invia il form
                     });
 
                     // Gestione del clic sul pulsante "Annulla"
@@ -507,6 +481,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
                     // Impedisce l'invio automatico del form
                     return false;
                 } else {
+                    // Mostra un messaggio se nessuna modifica è stata rilevata e ricarica la pagina dopo un secondo
                     newalert('Nessuna modifica rilevata.');
                     setTimeout(function() { location.reload(); }, 1000);
                     return false;
@@ -514,6 +489,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             }
         });
         
+     	// Funzione per validare il form
         function validate(form) {
             console.log("Validating form");
             if (!passwordCorrect) {
@@ -526,6 +502,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
                 return false;
             }
 
+            // Mostra un messaggio di conferma utilizzando un modal
             $('#confirmModalMessage').text("Sei sicuro di voler applicare le modifiche?");
             $('#confirmModal').modal('show');
 
@@ -533,7 +510,7 @@ if (components.length >= 4) {// verifico se ci sono tutti i componenti
             $('#confirmActionBtn').off('click').on('click', function() {
                 console.log("Confirm action clicked");
                 $('#confirmModal').modal('hide');
-                document.forms[4].submit();  // Submitting the form
+                document.forms[4].submit();  // Invia il form
             });
 
             // Gestione del clic sul pulsante "Annulla"

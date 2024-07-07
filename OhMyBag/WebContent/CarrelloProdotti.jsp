@@ -187,142 +187,87 @@ prodotti = (Carrello) request.getSession().getAttribute("Carrello");
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script>
-		// Definizione della funzione calcolaTotale()
-		var prezzo = <%=prezzo%>;
+	
+	// Assegna alla variabile 'prezzo' il valore calcolato nel backend JSP
+	var prezzo = <%=prezzo%>;
+	
+	// Definizione della funzione calcolaTotale() per calcolare il totale del carrello
+	function calcolaTotale() {
+		var spedizione = 0;// Variabile per il costo di spedizione, inizialmente impostata a 0
+		var totale = parseFloat(prezzo.toFixed(2)); // Converte prezzo in un numero con due cifre decimali
+		var prezzoValue = document.getElementById('prezzo_value'); // Seleziona l'elemento HTML dove viene mostrato il totale
 
-		function calcolaTotale() {
-			var spedizione = 0;
-			var totale = parseFloat(prezzo.toFixed(2)); // Converte prezzo in un numero con due cifre decimali
+		// Aggiorna il valore del prezzo totale nel paragrafo
+		prezzoValue.innerText = totale.toFixed(2) + ' €';
+	}
 
-			var prezzoValue = document.getElementById('prezzo_value');
+	// Esegue la funzione calcolaTotale() quando il contenuto della pagina è completamente caricato
+	document.addEventListener('DOMContentLoaded', function() {
+		// Chiama la funzione per calcolare il totale all'avvio della pagina
+		calcolaTotale();
+	});
 
-			// Aggiorna il valore del prezzo totale nel paragrafo
-			prezzoValue.innerText = totale.toFixed(2) + ' €';
-		}
-
-		document.addEventListener('DOMContentLoaded', function() {
-			// Chiama la funzione per calcolare il totale all'avvio della pagina
-			calcolaTotale();
-		});
-
-		$(document)
-				.ready(
-						function() {
-							$('.minus')
-									.on(
-											'click',
-											function(e) {
-												e.preventDefault();
-												var idProdotto = $(this).data(
-														'id');
-												$
-														.ajax({
-															url : 'RemoveProductControl',
-															type : 'GET',
-															data : {
-																ID : idProdotto,
-																carts : 1
-															},
-															success : function(
-																	response) {
-																// Aggiorna il contenuto del carrello
-																$(
-																		'#dynamic-content')
-																		.html(
-																				response);
-																// Ricalcola il totale
-																calcolaTotale();
-															},
-															error : function(
-																	xhr,
-																	status,
-																	error) {
-																console
-																		.error(
-																				'Errore AJAX:',
-																				status,
-																				error);
-																alert('Errore durante la rimozione del prodotto.');
-															}
-														});
-											});
-
-							// Analogamente per $('.plus').on('click') e $('.float-end').on('click')
-
-							$('.plus')
-									.on(
-											'click',
-											function(e) {
-												e.preventDefault();
-												var idProdotto = $(this).data(
-														'id');
-												$
-														.ajax({
-															url : 'CartControl',
-															type : 'GET',
-															data : {
-																ID : idProdotto,
-																carts : 1
-															},
-															success : function(
-																	response) {
-																$(
-																		'#dynamic-content')
-																		.html(
-																				response);
-																calcolaTotale();
-															},
-															error : function(
-																	xhr,
-																	status,
-																	error) {
-																console
-																		.error(
-																				'Errore AJAX:',
-																				status,
-																				error);
-																alert('Errore durante l\'aggiunta del prodotto.');
-															}
-														});
-											});
-
-							$('.float-end')
-									.on(
-											'click',
-											function(e) {
-												e.preventDefault();
-												var idProdotto = $(this).data(
-														'id');
-												$
-														.ajax({
-															url : 'RemoveAllProductControl',
-															type : 'GET',
-															data : {
-																ID : idProdotto,
-																carts : 1
-															},
-															success : function(
-																	response) {
-																$(
-																		'#dynamic-content')
-																		.html(
-																				response);
-																calcolaTotale();
-															},
-															error : function(
-																	xhr,
-																	status,
-																	error) {
-																console
-																		.error(
-																				'Errore AJAX:',
-																				status,
-																				error);
-																alert('Errore durante la rimozione completa del prodotto.');
-															}
-														});
-											});
+	// Utilizza jQuery per gestire gli eventi quando il documento è pronto
+	$(document).ready(function() {
+		$('.minus').on('click',function(e) {
+			e.preventDefault(); // Previene il comportamento di default del link
+			var idProdotto = $(this).data('id'); // Ottiene l'ID del prodotto dal data attribute
+			$.ajax({
+				url : 'RemoveProductControl', // URL del server per rimuovere un prodotto
+				type : 'GET',
+				data : {ID : idProdotto, carts : 1}, // Dati inviati al server
+				success : function(response) {
+					// Aggiorna il contenuto del carrello
+					$('#dynamic-content').html(response);
+						// Ricalcola il totale
+						calcolaTotale();
+					},
+					error : function(xhr,status,error) {
+						console.error('Errore AJAX:',status,error); // Log degli errori
+							alert('Errore durante la rimozione del prodotto.'); // Messaggio di errore
+							}
 						});
+					});
+
+	    // Gestisce il click sul pulsante 'plus' per aumentare la quantità di un prodotto
+		$('.plus').on('click',
+			function(e) {
+				e.preventDefault();
+				var idProdotto = $(this).data('id');
+					$.ajax({
+						url : 'CartControl', // URL del server per aggiungere un prodotto
+						type : 'GET',
+						data : {ID : idProdotto, carts : 1 },
+							success : function(response) {
+								$('#dynamic-content').html(response); // Aggiorna il contenuto del carrello
+									calcolaTotale();                 // Ricalcola il totale
+									},
+									error : function(xhr,status,error) {
+										console.error('Errore AJAX:', status, error);
+										alert('Errore durante l\'aggiunta del prodotto.');
+									}
+								});
+						});					
+
+	    // Gestisce il click sull'icona 'x' per rimuovere completamente un prodotto dal carrello
+			$('.float-end').on('click',function(e) {
+				e.preventDefault();
+				var idProdotto = $(this).data('id');
+					$.ajax({
+						url : 'RemoveAllProductControl', // URL del server per rimuovere completamente un prodotto
+						type : 'GET',
+						data : {ID : idProdotto, carts : 1 },
+						 success : function(response) {
+							$('#dynamic-content').html(response); // Aggiorna il contenuto del carrello
+								calcolaTotale();                // Ricalcola il totale
+							},
+							error : function(xhr,status,error) {
+								console.error('Errore AJAX:',status,error);
+										alert('Errore durante la rimozione completa del prodotto.');
+									}
+								});
+							});
+					});
 	</script>
 </body>
 </html>

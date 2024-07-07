@@ -30,45 +30,30 @@ public class HomeControl extends HttpServlet {
 		 immagineModel = new ImmagineModel();
 		 prodottoModel = new ProdottoModel();
 		}
-
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	
     public HomeControl() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		try {
-			
 			/* setta l'attributo products che conterrà tutti i prodotti contenuti nel DB */
-			request.getSession().setAttribute("products", prodottoModel.allProduct());
-		    // Ottieni tutti i prodotti dal database
+			request.getSession().setAttribute("products", prodottoModel.allProduct()); // Ottiene tutti i prodotti dal database
 			
 			/*setta l'attributo ImageList che conterrà tutte le immagini dei prodotti contenuti nel DB*/
-			request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll());
+			request.getSession().setAttribute("ImageList", immagineModel.doRetrieveAll()); // Ottiene tutte le immagini dal database
 		  
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
 
-	
-		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	

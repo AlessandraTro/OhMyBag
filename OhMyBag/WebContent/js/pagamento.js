@@ -32,6 +32,7 @@ function currentAddress() {
 
 }
 
+// Gestisce il cambio di stato del toggle per l'indirizzo
 document.getElementById("toggle-new-address").addEventListener("change", function() {
 	var newAddressDiv = document.getElementById("new-address-content");
 	if (this.checked) {
@@ -49,8 +50,7 @@ document.getElementById("toggle-new-address").addEventListener("change", functio
 	}
 });
 
-//gestisce esistenza carta 
-
+// Funzione per verificare se la carta di credito esiste già
 function checkCardExists(cardNumber) {
 	const xhr = new XMLHttpRequest();
 	xhr.open('POST', 'OttieniCartaControl', true);
@@ -78,7 +78,6 @@ function checkCardExists(cardNumber) {
 }
 
 //gestisce la comparsa e la scomparsa delle sezioni carta
-
 function currentPaymentMethod() {
 	var checkbox = document.getElementById("flexCheck");
 	var savedPaymentDiv = document.getElementById("savedPaymentMethod");
@@ -107,6 +106,7 @@ function currentPaymentMethod() {
 	}
 }
 
+// Gestisce il cambio di stato del toggle per il metodo di pagamento
 document.getElementById("toggle-payment-method").addEventListener(
 	"change",
 	function() {
@@ -132,8 +132,6 @@ document.getElementById("toggle-payment-method").addEventListener(
 	});
 
 // gestisce l'inserimento dei caratteri della carta
-
-
 	$(document).ready(function() {
 		$('#card-number').on('input', function() {
 			var cardNumber = $(this).val().replace(/\D/g, ''); // Rimuove tutti i caratteri non numerici
@@ -149,7 +147,6 @@ document.getElementById("toggle-payment-method").addEventListener(
 	});
 
 //validazione campi
-
 var addressCorrect = false;
 var cityCorrect = false;
 var countryCorrect = false;
@@ -162,32 +159,21 @@ var courierNotesCorrect = false;
 
 function validateForm() {
 
-
-	var addressCorrect = addressValidator(document
-		.getElementById("address"));
+	var addressCorrect = addressValidator(document.getElementById("address"));
 	var cityCorrect = cityValidator(document.getElementById("city"));
-	var countryCorrect = countryValidator(document
-		.getElementById("country"));
+	var countryCorrect = countryValidator(document.getElementById("country"));
 	var zipCorrect = zipValidator(document.getElementById("zip"));
-	var paymentMethodSelected = document
-		.querySelector("input[name='circuito']:checked") !== null;
+	var paymentMethodSelected = document.querySelector("input[name='circuito']:checked") !== null;
 	var expiryCorrect = expiryValidator();
-	var cardNumberCorrect = cardNumberValidator(document
-		.getElementById("card-number"));
+	var cardNumberCorrect = cardNumberValidator(document.getElementById("card-number"));
 	var cvcCorrect = cvcValidator(document.getElementById("cvc"));
 	var paymentMethodSelected = document.querySelector("input[name='circuito']:checked");
 	var courierNotesCorrect = courierNotesValidator(document.getElementById("courierNotes"));
-
-
-
 
 	if (!paymentMethodSelected) {
 		alert('Selezionare un circuito di carta di credito (Visa o MasterCard).');
 		return false;
 	}
-
-
-
 	return true;
 }
 
@@ -371,10 +357,3 @@ function cvcValidator(cvc) {
 		return false;
 	}
 }
-
-
-
-
-
-
-

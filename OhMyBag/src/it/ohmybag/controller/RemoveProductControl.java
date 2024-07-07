@@ -38,20 +38,22 @@ public class RemoveProductControl extends HttpServlet {
 			cart = Integer.parseInt(cartStr);
 		}
 
-		System.out.println("CARRELLO= " + cart);
 		HashMap<Prodotto, Integer> prodotti = carrello.getProdotti();
 		ArrayList<Immagine> images = carrello.getImmagini();
 
+		// Itera sui prodotti nel carrello
 		if (!prodotti.isEmpty()) {
 			Iterator<Map.Entry<Prodotto, Integer>> iterator = prodotti.entrySet().iterator();
 			while (iterator.hasNext()) {
 				Map.Entry<Prodotto, Integer> entry = iterator.next();
 				Prodotto prodotto = entry.getKey();
+				// Controlla se l'id del prodotto corrisponde a quello passato come parametro
 				if (prodotto.getId().equals(idProdotto)) {
 					int quantita = entry.getValue();
+					// Se la quantità è 1, rimuove completamente il prodotto
 					if (quantita == 1) {
-						System.out.println("tolgo tutto");
 						iterator.remove(); // Rimuovi l'elemento utilizzando l'iteratore
+						// Rimuove l'immagine corrispondente al prodotto
 						Iterator<Immagine> iteratorImage = images.iterator();
 						while (iteratorImage.hasNext()) {
 							Immagine immagine = iteratorImage.next();
@@ -61,14 +63,15 @@ public class RemoveProductControl extends HttpServlet {
 						}
 
 					} else {
-						System.out.println("sottraggo");
-						entry.setValue(quantita - 1); // Aggiorna il valore della quantità
+						entry.setValue(quantita - 1); // Decrementa la quantità del prodotto nel carrello
 					}
 				}
 			}
 		}
 
 		request.getSession().setAttribute("Carrello", carrello);
+		
+		// Redireziona l'utente in base al parametro cart
 		if (cart == 1) {
 			response.sendRedirect("CartControl?carts=1");
 			return;
@@ -79,7 +82,6 @@ public class RemoveProductControl extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 }

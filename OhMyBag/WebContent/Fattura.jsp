@@ -6,21 +6,18 @@
 Collection<Prodotto> prodottiOrdine = (Collection<Prodotto>) request.getSession().getAttribute("prodottiOrdine");
 Collection<Immagine> immaginiCopertina = (Collection<Immagine>) request.getSession().getAttribute("copertinaProdotto");
 Ordine ordine = (Ordine) request.getSession().getAttribute("ordineSingolo");
-Collection<Composizione> composizione = (Collection<Composizione>) request.getSession()
-		.getAttribute("composizioneOrdine");
+Collection<Composizione> composizione = (Collection<Composizione>) request.getSession().getAttribute("composizioneOrdine");
 Utente utente = (Utente) request.getSession().getAttribute("utente");
 
 if (ordine == null || utente == null) {
-	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/404.jsp");
-	dispatcher.forward(request, response);
+	response.sendError(404);
 	return;
 }
 
 boolean authUser = ordine.getUsername().equals(utente.getUsername()); //controlla se l'ordine è dell'utente loggato
 
 if (!authUser) {
-	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/404.jsp");
-	dispatcher.forward(request, response);
+	response.sendError(404);
 	return;
 }
 %>
@@ -47,9 +44,9 @@ if (!authUser) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String formattedDate = dateTime.format(formatter);
 		%>
-		<h1>
-			Fattura del
-			<%=formattedDate%></h1>
+		<h1> Fattura del <%=formattedDate%></h1>
+		
+		<!-- dati a destra della fattura -->
 		<div id="company" class="clearfix">
 			<div>OhMyBag</div>
 			<div>
@@ -58,6 +55,8 @@ if (!authUser) {
 			<div>0975 251262</div>
 			<div>ohmybag2024@gmail.com</div>
 		</div>
+		
+		<!-- dati a sinistra della fattura -->
 		<div id="project">
 			<div>
 				<span>CLIENTE</span>
@@ -82,14 +81,13 @@ if (!authUser) {
 
 		<div style="margin-top: 100px;"></div>
 		<hr class="hr hr-blurry" />
-
-
 		<table>
 			<thead>
 				<tr>
 					<th class="service">PRODOTTO</th>
 					<th class="desc">DESCRIZIONE</th>
 					<th class="unit">PREZZO (Iva Comp.)</th>
+					<th class="scont">SCONTO</th>
 					<th class="qty">QUANTITA'</th>
 					<th class="total">TOTALE (Iva Comp.)</th>
 				</tr>
@@ -97,59 +95,60 @@ if (!authUser) {
 			<tbody>
 				<%
 				float total = 0;
+				int sconto = 0;
 				int iva = 0;
 				for (Composizione comp : composizione) {
 					if (iva == 0)
 						iva = 22;
 					for (Prodotto prodotto : prodottiOrdine) {
 						if (prodotto.getId().equals(comp.getIdProdotto())) {
-					float prezzoUnitario = comp.getPrezzo() / comp.getQuantita();
-					prezzoUnitario = (float) (Math.ceil(prezzoUnitario * Math.pow(10, 2)) / Math.pow(10, 2));
-					total += comp.getPrezzo();
+							System.out.println("prezzo unitario: " + comp.getPrezzo());
+							System.out.println("quantità: " + comp.getQuantita());
+					sconto= comp.getSconto();	//prende lo sconto dalla composizione
+					System.out.println("sconto: " + sconto);
+
+					float prezzoUnitario = ((comp.getPrezzo() / comp.getQuantita())/(100-sconto))*100; // calcolo del prezzo del prodotto incluso di iva
+					total += (comp.getPrezzo()/(100-sconto))*100;
 				%>
 				<tr>
 					<td class="service"><%=prodotto.getNome()%></td>
 					<td class="desc"><%=prodotto.getTipologia()%></td>
 					<td class="unit"><%=String.format("%.2f", prezzoUnitario)%> €</td>
+					<td class="scont"><%=sconto%> %</td>
 					<td class="qty"><%=comp.getQuantita()%></td>
-					<td class="total"><%=String.format("%.2f", comp.getPrezzo())%>
-						€</td>
+					<td class="total"><%=String.format("%.2f", comp.getPrezzo())%> €</td>
 				</tr>
 				<%
 				}
 				}
 				}
-				total = (float) (Math.ceil(total * Math.pow(10, 2)) / Math.pow(10, 2));
 				%>
 				<tr>
 					<%
-					float totIva = (total * iva) / 100;
-					totIva = (float) (Math.ceil(totIva * Math.pow(10, 2)) / Math.pow(10, 2));
+					float imponibile = (total*100)/(100+iva);
 					%>
-					<td class="imp" colspan="4">IMPONIBILE</td>
-					<td class="total2"><%=String.format("%.2f", total - totIva)%> €</td>
+					<td class="imp" colspan="5">IMPONIBILE</td>
+					<td class="total2"><%=String.format("%.2f", imponibile)%> €</td>
 				</tr>
 				<tr>
-					<td colspan="4">SPEDIZIONE</td>
+					<td colspan="5">SPEDIZIONE</td>
 					<%
 					float costoSpedizione = 0.00f;
-					if (ordine.getMetodoDiSpedizione().equals("Premium")) {
+					if (ordine.getMetodoDiSpedizione().equals("premium")) {
 						costoSpedizione = 6.90f;
 					}
 					%>
-					<td class="total"><%=String.format("%.2f", costoSpedizione)%>
-						€</td>
+					<td class="total"><%=String.format("%.2f", costoSpedizione)%> €</td>
 				</tr>
 				<tr>
-					<td colspan="4">IVA <%=iva%> %
+					<td colspan="5">IVA <%=iva%> %
 					</td>
 
-					<td class="total"><%=String.format("%.2f", totIva)%> €</td>
+					<td class="total"><%=String.format("%.2f", total-imponibile)%> €</td>
 				</tr>
 				<tr>
-					<td colspan="4" class="grand total">TOTALE FINALE</td>
-					<td class="TOTALE"><%=String.format("%.2f", ordine.getPrezzoTotale())%>
-						€</td>
+					<td colspan="5" class="grand total">TOTALE FINALE</td>
+					<td class="TOTALE"><%=String.format("%.2f", ordine.getPrezzoTotale())%> €</td>
 				</tr>
 			</tbody>
 		</table>
@@ -167,17 +166,15 @@ if (!authUser) {
 
 
 	<script>
+	//funzione che permette la stampa della fattura
 		function stampaFattura() {
 			window.print();
 		}
 	</script>
-	<!--     <footer> La fattura è stata creata da un computer ed è valida senza firma e sigillo. </footer> -->
 </body>
-
 <!-- Rimuove sia ordine che listaComposizione dalla sessione (usati per creare la fattura) -->
 <%
 request.getSession().removeAttribute("ordineSingolo");
 request.getSession().removeAttribute("composizioneOrdine");
 %>
-
 </html>

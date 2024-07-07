@@ -26,6 +26,12 @@
 			d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" " />
   </symbol>
 </svg>
+<div class="alert-container">
+		<div class="alert alert-success" role="alert" id="success-alert"
+			style="display: none;">Subscription successful! Controlla la tua e-mail per conferma.</div>
+		<div class="alert alert-danger" role="alert" id="error-alert"
+			style="display: none;">Subscription failed. Per piacere riprova più tardi.</div>
+	</div>
 
 	<div class="footer-container">
 		<footer id="myFooter">
@@ -41,9 +47,7 @@
 					<ul class="nav flex-column">
 						<li><a href="HomeControl">Home</a></li>
 						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>
-						<!-- Da fare -->
 						<li><a href="LoginControl">Login</a></li>
-						<!-- Da fare -->
 					</ul>
 				</div>
 
@@ -51,12 +55,8 @@
 				<div class="col-sm-2">
 					<h5>About us</h5>
 					<ul class="nav flex-column">
-						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our
-								Team</a></li>
-						<!-- Da fare -->
-						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact
-								us</a></li>
-						<!-- Da fare -->
+						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our Team</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact us</a></li>
 					</ul>
 				</div>
 
@@ -66,8 +66,7 @@
 						<h5>Entra nel mondo di OhMyBag</h5>
 						<p>Resta aggiornato su eventi, collezioni e novità esclusive.</p>
 						<div class="d-flex flex-column w-100 gap-2 email-input">
-							<input class="form-control" type="email" id="email" name="email"
-								placeholder="Enter your email" required>
+							<input class="form-control" type="email" id="email" name="email" placeholder="Enter your email" required>
 							<button class="btn btn-outline-success" type="submit">Subscribe</button>
 						</div>
 					</form>
@@ -116,59 +115,54 @@
 
 		</footer>
 	</div>
-	<!-- Include EmailJS SDK -->
-	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+	
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Include EmailJS SDK -->
 
 	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							// Initialize EmailJS with your user ID
-							emailjs.init("HcMmT-E0CFrPuWtLE");
-
-							document
-									.getElementById('myForm')
-									.addEventListener(
-											'submit',
-											function(event) {
-												event.preventDefault();
-
-												var userEmail = document
-														.getElementById('email').value;
-
-												// Define the template parameters
-												var templateParams = {
-													user_email : userEmail
-												};
-
-												// Send email using EmailJS
-												emailjs
-														.send(
-																"service_OhMyBag",
-																"OhmyBag2024",
-																templateParams)
-														.then(
-																function(
-																		response) {
-																	console
-																			.log(
-																					'Email sent:',
-																					response);
-																	alert('Subscription successful! Check your email for confirmation.');
-																	document
-																			.getElementById('email').value = ''; // Clear the input field
-																},
-																function(error) {
-																	console
-																			.error(
-																					'Email sending failed:',
-																					error);
-																	alert('Subscription failed. Please try again later.');
-																});
-											});
-						});
+		document.addEventListener('DOMContentLoaded',function() {
+			// Inizializza EmailJS con l'user ID
+			emailjs.init("HcMmT-E0CFrPuWtLE");
+			document.getElementById('myForm').addEventListener('submit',function(event) {
+				event.preventDefault();
+				var userEmail = document.getElementById('email').value;
+				// Definisce the template parameters
+				var templateParams = {user_email : userEmail};
+				// Manda l'email usando EmailJS
+				emailjs.send("service_OhMyBag","OhmyBag2024",templateParams).then(function(response) {
+					console.log('Email sent:',response);
+					showAlert('success','Subscription successful! Controlla la tua e-mail per conferma.');
+					document.getElementById('email').value = ''; // Pulisce l'input
+				},
+				function(error) {
+					console.error('Email sending failed:',error);
+					showAlert('danger','Subscription failed. Per piacere riprova più tardi.');
+				});
+			});
+		});
+		
+		//Mostra gli alert
+		function showAlert(type, message) {
+            var alertDiv;
+            switch(type) {
+                case 'success':
+                    alertDiv = '#success-alert';
+                    break;
+                case 'danger':
+                    alertDiv = '#error-alert';
+                    break;
+                case 'info':
+                    alertDiv = '#info-alert';
+                    break;
+                default:
+                    alertDiv = '#secondary-alert';
+            }
+            $(alertDiv).text(message).show();
+            setTimeout(function() {
+                $(alertDiv).hide();
+            }, 3000);
+        }
+		
 	</script>
 </body>
 </html>

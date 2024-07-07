@@ -40,12 +40,11 @@ public class CartControl extends HttpServlet {
 			throws ServletException, IOException {
 		String idProdotto = request.getParameter("ID");
 		String cartStr = request.getParameter("carts");
-		System.out.println("-----------------------------------------") ;
-    	System.out.println("INIZIO CART CONTROL") ;
+		
+		//se cartStr è null il control è richiamato dalla modale del carrello (ProdottiCatalogo.jsp), altrimenti da Carrello.jsp
 		int cart = 0;
 		if (cartStr != null) {
 	        try {
-	        	
 	            cart = Integer.parseInt(cartStr);
 	        } catch (NumberFormatException e) {
 	            System.out.println("Errore nel parsing del parametro carts: " + e.getMessage());
@@ -54,73 +53,54 @@ public class CartControl extends HttpServlet {
 	        }
 	    }
 
-
-		
-		System.out.println("CARRELLO2= " +cart);
-
 		try {
+			//carica tutti i prodotti e le immagini
 			prodotto = prodottomodel.doRetrieveById(idProdotto);
 			immagine = (Immagine) immagineModel.retrieveCatalogImagesById(idProdotto);
 
+			// Ottiene o crea il carrello dalla sessione utente
 			if (prodotto != null && immagine != null) {
 				Carrello carrello = (Carrello) request.getSession().getAttribute("Carrello");
 				if (carrello == null) {
 					carrello = new Carrello();
 					request.getSession().setAttribute("Carrello", carrello);
-//			        System.out.println("PROVA CARRELLO VUOTO: " + carrello.getProdotti().size());
-
 					
 				}
 				
-				
-		        System.out.println("CARELLO NUMERO PRODOTTI TOTALI: " + carrello.getProdotti().size());
-		     // Stampa i nomi e le quantità dei prodotti nel carrello
-                HashMap<Prodotto, Integer> product = carrello.getProdotti();
-                for (Entry<Prodotto, Integer> entry : product.entrySet()) {
-                    Prodotto p = entry.getKey();
-                    Integer quantita = entry.getValue();
-                    System.out.println("Nome prodotto: " + p.getNome() + ", Quantità: " + quantita);
-                }
-
-
-//				HashMap<Prodotto, Integer> product = carrello.getProdotti();
+				// Ottiene i prodotti e le immagini attualmente nel carrello
+				HashMap<Prodotto, Integer> product = carrello.getProdotti();
 				ArrayList<Immagine> images = carrello.getImmagini();
 
+				// Aggiorna la quantità del prodotto nel carrello
 				if (product.containsKey(prodotto)) {
-//					System.out.println("sono un doppione");
 					int quantita = (int) product.get(prodotto);
-//			        System.out.println("Nuova QUANTTTT: " + (quantita));
 
-					System.out.println("quantita=" + quantita + "disponibilita= " + prodotto.getDisponibilita());
 					if (prodotto.getDisponibilita() >= quantita + 1) {
 						product.remove(prodotto);
 						product.put(prodotto, quantita + 1);
-						
-				        System.out.println("Nuova quantità: " + (quantita + 1));
 					} else {
-						System.out.println("Quantità non disponibile"); /* da aggiornare con allert */
+						System.out.println("Quantità non disponibile"); 
 					}
 				} else {
+					// Aggiunge il prodotto al carrello se non è già presente
 					if (prodotto.getDisponibilita() >= 1) {
-						
-						System.out.println("AGGIUNTO PRODOTTO PRIMA VOLTA NOME: " + prodotto.getNome());
 						product.put(prodotto, 1);
 						images.add(immagine);
 						carrello.setImmagini(images);
 					}
 				}
-				
+				// Aggiorna i dati del carrello nella sessione utente
 				carrello.setProdotti(product);
 				request.getSession().setAttribute("Carrello", carrello);
-				System.out.println("FINE");
 			}
 
 		} catch (SQLException e) {
 			System.out.println("Errore SQL: " + e.getMessage());
-			response.sendRedirect("pagina_errore.jsp");
+			response.sendError(500);
 			return;
 		}
 
+		// Redireziona l'utente in base al valore di cart
 		if (!response.isCommitted()) {
 			if (cart == 1) {
 				response.sendRedirect("Carrello.jsp");

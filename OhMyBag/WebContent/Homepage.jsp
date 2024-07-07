@@ -6,17 +6,16 @@
 <html>
 <head>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
 <link href="css/Homepage.css" rel="stylesheet" type="text/css">
 
 <meta charset="UTF-8">
 <title>OhMyBag</title>
 </head>
 <body>
-<%
-
-		Utente user = (Utente) request.getSession().getAttribute("utente");
-		if (user != null && user.isAdmin()) {
+<% 	
+	//Permette di caricare un header diverso in base all’utente se è un admin o se è un utente normale 
+	Utente user = (Utente) request.getSession().getAttribute("utente");
+	if (user != null && user.isAdmin()) {
 	%>
 	<jsp:include page="admin/HeaderAdmin.jsp" />
 	<%
@@ -26,10 +25,9 @@
 	<%
 		}
 	%>
-	<!-- include dell'Header -->
-
 	<main>
-		<!-- CAROUSEL
+	
+		<!-- CAROUSEL (immagini presenti in website/Carousel)
   ================================================== -->
 		<div id="carouselCatalogo" class="carousel slide w-100 mx-auto"
 			data-bs-ride="carousel">
@@ -52,7 +50,7 @@
 			</div>
 		</div>
 
-		<!-- HEADINGS
+		<!-- HEADINGS (immagini presenti in website/headings)
   ================================================== -->
 
 		<div class="container-custom">
@@ -63,8 +61,7 @@
 						<h1 class="d-none d-lg-block">NUOVI ARRIVI</h1>
 					</div>
 					<div class="col-lg-9">
-						<div class="d-lg-none d-flex align-items-center">
-							<!-- Mostra la scritta e il carousel sulla stessa riga su dispositivi di piccole dimensioni -->
+						<div class="d-lg-none d-flex align-items-center"> <!-- Mostra la scritta e il carousel sulla stessa riga su dispositivi di piccole dimensioni -->
 							<!-- DISPOSITIVI PICCOLI -->
 							<h1 class="flex-grow-1">NUOVI ARRIVI</h1>
 							<div id="carouselExampleControls" class="carousel slide carousel-dark"
@@ -72,7 +69,6 @@
 								<div class="carousel-inner">
 									<div class="carousel-item active">
 
-										<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 										<a href="CategorieProdottiControl?categoria=Donna&tipo=">
 											<img class="bd-placeholder-img rounded-circle" width="200"
 											height="200" src="img/website/headings/dior.jpg"
@@ -82,7 +78,6 @@
 									</div>
 
 									<div class="carousel-item">
-										<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 										<a href="CategorieProdottiControl?categoria=Uomo&tipo="> <img
 											class="bd-placeholder-img rounded-circle" width="200"
 											height="200" src="img/website/headings/gucci.jpg"
@@ -92,7 +87,6 @@
 									</div>
 
 									<div class="carousel-item">
-										<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 										<a href="CategorieProdottiControl?categoria=Viaggi&tipo=">
 											<img class="bd-placeholder-img rounded-circle" width="200"
 											height="200" src="img/website/headings/prada.jpg"
@@ -115,14 +109,12 @@
 							</div>
 						</div>
 
-						<div class="d-none d-lg-block">
-							<!-- Nasconde il carousel su dispositivi di grandi dimensioni -->
+						<div class="d-none d-lg-block"> <!-- Nasconde il carousel su dispositivi di grandi dimensioni -->
 							<!-- DISPOSITIVI GRANDI -->
 							<div class="row">
 								<div class="col-lg-4 d-flex flex-column"
 									style="align-items: center;">
 
-									<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 									<a href="CategorieProdottiControl?categoria=Donna&tipo="> <img
 										class="bd-placeholder-img rounded-circle" width="160"
 										height="160" src="img/website/headings/dior.jpg"
@@ -133,7 +125,6 @@
 								<div class="col-lg-4 d-flex flex-column"
 									style="align-items: center;">
 
-									<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 									<a href="CategorieProdottiControl?categoria=Uomo&tipo="> <img
 										class="bd-placeholder-img rounded-circle" width="160"
 										height="160" src="img/website/headings/gucci.jpg"
@@ -145,7 +136,6 @@
 								<div class="col-lg-4 d-flex flex-column"
 									style="align-items: center;">
 
-									<!-- AGGIUNGERE PAGINA IN ORDINE DI ARRIVO -->
 									<a href="CategorieProdottiControl?categoria=Viaggi&tipo=">
 										<img class="bd-placeholder-img rounded-circle" width="160"
 										height="160" src="img/website/headings/prada.jpg"
@@ -159,10 +149,10 @@
 					</div>
 				</div>
 			</div>
-			<!-- START THE FEATURETTES -->
-
+			
+			<!-- START THE FEATURETTES (immagini presenti in website/featurettes)-->
 			<hr class="featurette-divider">
-
+			
 			<div class="container">
 				<div id="sezione-donna" class="row home">
 					<div class="col">
@@ -179,7 +169,6 @@
 					</div>
 				</div>
 			</div>
-
 
 			<hr class="featurette-divider">
 
@@ -199,8 +188,6 @@
 					</div>
 				</div>
 			</div>
-
-
 
 			<hr class="featurette-divider">
 

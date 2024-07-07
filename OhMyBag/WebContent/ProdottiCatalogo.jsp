@@ -8,7 +8,6 @@
         Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("ImageList");
         Integer totalPages = (Integer) request.getAttribute("totalPages");
         Integer currentPage = (Integer) request.getSession().getAttribute("currentPage");
-System.out.println("currentPage" +currentPage);
         if (totalPages == null) {
             totalPages = 1; // O un valore di default appropriato
         }
@@ -16,37 +15,33 @@ System.out.println("currentPage" +currentPage);
             currentPage = 1; // O un valore di default appropriato
         }
         
-        // Check if there's a specific parameter in the request
-        String searchParam = request.getParameter("searchField"); // Replace "paramName" with your actual parameter name
-        String categoria = request.getParameter("categoria"); // Replace "paramName" with your actual parameter name
-        String tipo = request.getParameter("tipo"); // Replace "paramName" with your actual parameter name
+        // Verifica se c'è un parametro specifico nella richiesta
+        String searchParam = request.getParameter("searchField"); //Dalla barra di ricerca
+        String categoria = request.getParameter("categoria"); //Da menu a tendina o headings
+        String tipo = request.getParameter("tipo"); //Da menu a tendina o headings
 
-        // Determine which control to load
+        // Determina quale control caricare
         String controlPage;
         if (searchParam != null && !searchParam.isEmpty()) {
-            controlPage = "ProdottiRicercaControl?searchField=" +searchParam; // Load ricercaControl if parameter is present
+            controlPage = "ProdottiRicercaControl?searchField=" +searchParam; // Carica ProdottiRicercaControl se il parametro è presente
         } else if (categoria!=null){
-            controlPage = "CategorieProdottiControl?categoria=" + categoria + "&tipo=" + tipo;
+            controlPage = "CategorieProdottiControl?categoria=" + categoria + "&tipo=" + tipo; // Carica CategorieProdottiControl se il parametro è presente
         }
         else {
-            controlPage = "CatalogoControl"; // Otherwise, load catalogoControl
+            controlPage = "CatalogoControl"; // Altrimenti, carica CatalogoControl
         }
     %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Prodotti Catalogo</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!-- <link href="css/Catalogo.css" rel="stylesheet" type="text/css"> -->
 <link href="css/CatalogoModale.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
-
 	<main>
 		<div class="album">
 			<div
@@ -60,11 +55,8 @@ System.out.println("currentPage" +currentPage);
                                 if (prodotto.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
                             %>
 							<div class="position-relative">
-
-								<img src="<%=immagine.getNome().replaceAll("\\?", "'")%>"
-									class="custom-card-img-top card-img-top-custom"> <a
-									href="#" class="add-to-cart-btn"
-									onclick="addToCart('<%= prodotto.getId() %>')"> <img
+								<img src="<%=immagine.getNome()%>"
+									class="custom-card-img-top card-img-top-custom"> <a href="#" class="add-to-cart-btn" onclick="addToCart('<%= prodotto.getId() %>')"> <img
 									src="img/website/cart-shopping-solid.svg" width="20px">
 								</a>
 							</div> <%
@@ -75,7 +67,7 @@ System.out.println("currentPage" +currentPage);
 						</a>
 						<div class="card-body d-flex flex-column">
 							<div class="card-text mb-auto">
-								<h5><%= prodotto.getNome().replaceAll("\\?", "'") %></h5>
+								<h5><%= prodotto.getNome()%></h5>
 							</div>
 							<div
 								class="mt-auto d-flex justify-content-between align-items-center">
@@ -89,6 +81,8 @@ System.out.println("currentPage" +currentPage);
 			</div>
 		</div>
 	</main>
+	
+	<!-- 	paginazione -->
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<li class="page-item <%= currentPage == 1 ? "disabled" : "" %>">
@@ -121,25 +115,21 @@ System.out.println("currentPage" +currentPage);
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="cartModalContent">
-					<!-- Il contenuto del carrello verrà inserito qui -->
+					<!-- Il contenuto del carrello verrà inserito qui dinamicamente -->
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="js/jquery-3.7.1.min.js"></script>
-
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-
 	<script>
 
-
-
+	//funzione che viene richiamata quando si preme sul simbolo del carrello vicino all'immagine
 	function addToCart(idProdotto) {
-	   
 	    openCartModal(idProdotto);
 	}
 
-
+	//apre la modale per far vedere i prodotti nel carrello
 	function openCartModal(idProdotto) {
 	    $.ajax({
 	        url: 'CartControl',
@@ -156,6 +146,7 @@ System.out.println("currentPage" +currentPage);
 	    });
 	}
 
+	//ricarica i prodotti nella pagina (ProdottiCatalogo.jsp)
 	function loadPage(page) {
 	    $.ajax({
 	        url: '<%= controlPage %>', // Assicurati che controlPage punti al tuo controller
@@ -170,7 +161,6 @@ System.out.println("currentPage" +currentPage);
 	        }
 	    });
 	}
-
 </script>
 </body>
 </html>

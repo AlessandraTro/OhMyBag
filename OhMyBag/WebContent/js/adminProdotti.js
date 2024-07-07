@@ -2,7 +2,7 @@
  * adminProdotti
  */
 
- // Funzione per gestire l'input di ricerca e applicare il filtro
+// Funzione per filtrare i prodotti nella tabella in base all'input di ricerca
     function filterUsers() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("prodottoSearch");
@@ -22,7 +22,8 @@
             }
         }
     }
-
+    
+// Gestisce l'evento di input per attivare il filtro dei prodotti
     document.getElementById("prodottoSearch").addEventListener("input", function() {
         filterUsers();
     });
@@ -41,27 +42,31 @@
     // Gestione del form per l'invio
     function submitForm() {
     	var usernameSearch = document.getElementById('prodottoSearch').value.trim();
-    	localStorage.setItem('prodottoSearch', usernameSearch);
-    	document.getElementById('filterForm').submit();
+    	localStorage.setItem('prodottoSearch', usernameSearch); // Memorizza la ricerca nel localStorage
+    	document.getElementById('filterForm').submit(); // Invia il form
     }
     
+    // Resetta il filtro e invia il form
     function resetFilters() {
     	document.getElementById('prodottoSearch').value = '';
-    	localStorage.removeItem('prodottoSearch');
-    	document.getElementById('filterForm').submit();
+    	localStorage.removeItem('prodottoSearch'); // Rimuove la ricerca dal localStorage
+    	document.getElementById('filterForm').submit(); // Invia il form
     }
     
+    // Codice da eseguire quando la finestra è completamente caricata
     window.onload = function() {
     	var usernameSearch = localStorage.getItem('prodottoSearch');
     	if (usernameSearch) {
     		document.getElementById('prodottoSearch').value = usernameSearch;
     		filterUsers(); // Applica il filtro alla tabella all'avvio
     	}
-    	localStorage.removeItem('prodottoSearch');
+    	localStorage.removeItem('prodottoSearch'); // Rimuove la ricerca dal localStorage dopo l'uso
     }
+    
+    // Funzione per eliminare un prodotto tramite ID
     function deleteProduct(productId) {
          // Apri la modale
-          $('#confirmModalMessage').text("Sei sicuro di voler eliminare questo prodotto?");
+         $('#confirmModalMessage').text("Sei sicuro di voler eliminare questo prodotto?");
          $('#confirmModal').modal('show');
 
          // Quando viene cliccato il pulsante di conferma
@@ -74,13 +79,12 @@
                      location.reload(); // Ricarica la pagina dopo il ripristino
                  }
              };
-             xhr.send('pulsante=Delete&ID=' + productId);
+             xhr.send('pulsante=Delete&ID=' + productId); // Invia la richiesta con l'ID del prodotto da eliminare
              
          });
+         
+         // Gestione dell'azione di annullamento nella modale di conferma
          $('#confirmModal .btn-secondary').off('click').on('click', function() {
-             $('#confirmModal').modal('hide');
-             // Esegui altre azioni di annullamento se necessario
+             $('#confirmModal').modal('hide'); // Chiudi la modale di conferma
          });
      }
-   
-  

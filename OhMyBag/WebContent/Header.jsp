@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OhMyBag</title>
+    <!-- Collegamento ai file CSS esterni per le icone e stili personalizzati -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link href="css/NavBar.css" rel="stylesheet" type="text/css">
@@ -16,15 +17,23 @@
 
 <nav class="navbar navbar-expand-lg bg-custom fixed-top">
     <div class="container-fluid">
+            <!-- Logo -->
         <a class="navbar-brand" href="/OhMyBag"><img class="immagine-logo" src="img/website/logo.png" alt="OhMyBag"></a>
+        
+        <!-- Bottone per il toggle della navbar su schermi piccoli -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
+        <!-- Contenuto della navbar -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Link di navigazione -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="CatalogoControl">Catalogo</a>
                 </li>
+                
+                <!-- Dropdown per le categorie "Donna" -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Donna </a>
                     <ul class="dropdown-menu">
@@ -36,6 +45,8 @@
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Donna&tipo=Sciarpe e Cappelli">Sciarpe e Cappelli</a></li>
                     </ul>
                 </li>
+                
+                <!-- Dropdown per le categorie "Uomo" -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Uomo </a>
                     <ul class="dropdown-menu">
@@ -47,6 +58,8 @@
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Uomo&tipo=Sciarpe e Cappelli">Sciarpe e Cappelli</a></li>
                     </ul>
                 </li>
+                
+                <!-- Dropdown per le categorie "Viaggi" -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Viaggi </a>
                     <ul class="dropdown-menu">
@@ -57,6 +70,8 @@
                         <li><a class="dropdown-item" href="CategorieProdottiControl?categoria=Viaggi&tipo=Accessori Da Viaggio">Accessori da Viaggio</a></li>
                     </ul>
                 </li>
+                
+                <!-- Link Chi Siamo e Contattaci -->
                 <li class="nav-item">
                     <a class="nav-link info" href="ChiSiamoContattaciControl?page=ChiSiamo">Chi Siamo</a>
                 </li>
@@ -65,16 +80,14 @@
                 </li>
             </ul>
             
-			 <!-- Search form -->
+			 <!-- Form di ricerca -->
             <form class="d-flex" role="search" id="searchForm" style="position: relative; margin-right:10px;">
                 <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" id="searchInput" onkeyup="showSuggestions(this.value)">
                 <button class="btn btn-outline-success" type="submit">Cerca</button>
                 <div id="suggestions" class="autocomplete-suggestions"></div>
             </form>
-            
-            
 
-            
+			<!-- Menu utente e carrello -->
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -97,6 +110,8 @@
                         <% } %>
                     </ul>
                 </li>
+                
+                <!-- Icona carrello -->
                 <li class="nav-item">
                     <a class="nav-link" href="ButtonCarrelloControl">
                         <img id="immagine-cart" src="img/website/cart-shopping-solid.svg" alt="Cart Icon">
@@ -106,7 +121,6 @@
         </div>
     </div>
 </nav>
-<!-- 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> -->
 
 <script src="js/header.js"></script>
 

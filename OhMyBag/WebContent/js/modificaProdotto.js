@@ -248,7 +248,6 @@ function clearFieldStyles() {
 	});
 }
 
-//gestire il reset di conferma
 // Funzione per gestire il reset di conferma
 function confirmReset(event) {
 	event.preventDefault();
@@ -330,6 +329,7 @@ function confirmNoChanges() {
 	return true;
 }
 
+//mostra gli alert
 function showAlert(type, message) {
 	console.log('Show alert:', type, message); // Log di debug
 	var alertDiv;

@@ -1,3 +1,5 @@
+
+// Gestisce l'evento di caricamento del documento
 document.addEventListener("DOMContentLoaded", function() {
 	// Aggiungi un evento click a tutti i link del menu
 	document.querySelectorAll('.menu-up a').forEach(link => {
@@ -46,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 });
+
+// Gestisce l'evento di caricamento del documento per il codice alert
 document.addEventListener("DOMContentLoaded", function() {
 	// Codice per gestire l'alert
 	var alertSuccess = document.getElementById("AlertSuccess");
@@ -104,12 +108,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-
-
 //inizia la parte in cui vengono modificati e verificati i dati anagrafici
 let initialFormData = {};
 
+// Abilita la modifica dei campi nel form dei dati anagrafici
 document.getElementById('modifica-campi').addEventListener('click', function() {
 	// Abilita tutti i campi di input
 	document.querySelectorAll('#dati-anagrafici input[type="text"], #dati-anagrafici input[type="number"]').forEach(function(input) {
@@ -121,27 +123,31 @@ document.getElementById('modifica-campi').addEventListener('click', function() {
 	this.style.display = 'none';
 });
 
+// Salva i dati iniziali del form all'avvio del documento
 document.addEventListener('DOMContentLoaded', function() {
-	// Save the initial form data
+	// Salva i dati iniziali del form
 	const fields = document.querySelectorAll('#dati-anagrafici input[type="text"]');
 	fields.forEach(field => {
 		initialFormData[field.name] = field.value;
 	});
 });
 
+// Mostra l'avviso email se è stata modificata
 function showEmailWarning() {
 	const emailField = document.getElementById('Email');
 	const emailWarning = document.getElementById('email-warning');
 	emailWarning.style.display = (emailField.value !== initialFormData['Email']) ? 'block' : 'none';
 }
 
+// Funzione per validare il formato dell'email
 function validateEmail(email) {
-	// Simple email validation check for '@' and '.'
+	// Semplice controllo di validazione email per '@' and '.'
 	const atIndex = email.indexOf('@');
 	const dotIndex = email.lastIndexOf('.');
 	return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
 }
 
+// Conferma le modifiche al form dei dati anagrafici
 function confirmModifications() {
 	const fields = document.querySelectorAll('#dati-anagrafici input[type="text"]');
 	let isModified = false;
@@ -170,6 +176,7 @@ function confirmModifications() {
 	return confirm('Sei sicuro di voler applicare le modifiche?');
 }
 
+// Gestisce la sottomissione del form dei dati anagrafici
 function handleFormSubmit(event) {
 	if (!confirmModifications()) {
 		event.preventDefault();
@@ -185,7 +192,7 @@ document.getElementById('NumeroCarta').addEventListener('input', function() {
 	const error = document.getElementById('ErroreCarta');
 	const errorSubmit = document.getElementById('input-submitCarta');
 
-	// Automatically add dashes every 4 digits
+	// Aggiunge automaticamente i trattini ogni 4 numeri
 	cardNumber = cardNumber.match(/.{1,4}/g)?.join('-') || cardNumber;
 	this.value = cardNumber;
 
@@ -221,13 +228,13 @@ document.getElementById('NumeroCarta').addEventListener('input', function() {
 		errorSubmit.disabled = false;
 	}
 
-	// Remove existing circuito input if it exists
+	// Rimuove existing circuito input se esiste
 	const existingInput = document.querySelector('#circuitoInput');
 	if (existingInput) {
 		existingInput.remove();
 	}
 
-	// Add new circuito input if circuito is identified
+	// Aggiunge un nuovo circuito input se circuito è identificato
 	if (circuito) {
 		const input = document.createElement('input');
 		input.type = 'hidden';
@@ -241,6 +248,7 @@ document.getElementById('NumeroCarta').addEventListener('input', function() {
 		checkCardExists(cardNumber);
 	}
 });
+
 //verifico se la carta è gia presente per quel determinato utente
 function checkCardExists(cardNumber) {
 	const errorSubmit = document.getElementById('input-submitCarta');
@@ -259,11 +267,12 @@ function checkCardExists(cardNumber) {
 	xhr.send('action=checkCard&NumeroCarta=' + encodeURIComponent(cardNumber));
 }
 
+// Funzione per mostrare un messaggio di alert personalizzato
 function newalert(message) {
 	var alertSuccess = document.getElementById("AlertInfo");
 	if (alertSuccess) {
-		alertSuccess.style.display = "block";
-		alertSuccess.innerHTML = message;
+		alertSuccess.style.display = "block"; // Mostra l'alert
+		alertSuccess.innerHTML = message; // Inserisce il messaggio nell'alert
 		// Nasconde l'alert dopo 3 secondi
 		setTimeout(function() {
 			alertSuccess.style.display = 'none';
@@ -293,7 +302,7 @@ function validate(form) {
     $('#confirmActionBtn').off('click').on('click', function() {
         console.log("Confirm action clicked");
         $('#confirmModal').modal('hide');
-        document.forms[0].submit();  // Submitting the form
+        document.forms[0].submit();  // invia il form
     });
 
     // Gestione del clic sul pulsante "Annulla"
@@ -306,6 +315,7 @@ function validate(form) {
     return false;
 }
 
+// Gestisce l'input della password
 $("#pass").on('input', function() {
 	console.log("Password changed");
 	passwordCorrect = passwordValidator(this);
@@ -314,11 +324,13 @@ $("#pass").on('input', function() {
 	}
 });
 
+// Gestisce l'input di conferma della password
 $("#passRepeat").on('input', function() {
 	console.log("Password repeat changed");
 	passwordValCorrect = passwordRepeat($('#pass')[0], this);
 });
 
+// Funzione per validare la password
 function passwordValidator(password) {
 	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_])[a-zA-Z0-9\W_]{6,}$/;
 	if (password.value.match(passw)) {
@@ -332,6 +344,7 @@ function passwordValidator(password) {
 	}
 }
 
+// Funzione per verificare se le due password coincidono
 function passwordRepeat(password, repeat) {
 	if (repeat.value !== password.value) {
 		$("#passRepeat").css({ "border-color": "red" });
@@ -343,6 +356,8 @@ function passwordRepeat(password, repeat) {
 		return true;
 	}
 }
+
+// Gestisce l'input della password vecchia
 document.getElementById('PasswordVecchia').addEventListener('input', function() {
 	let password = this.value.trim();
 
@@ -351,6 +366,7 @@ document.getElementById('PasswordVecchia').addEventListener('input', function() 
 	}
 });
 
+// Funzione per verificare se la password vecchia è corretta
 function matchPassword() {
 	const errorSubmit = document.getElementById('ErroreVecchiaPassword');
 	const disable = document.getElementById('input-submitPassword');

@@ -76,7 +76,7 @@ String confezioneRegalo = "";
 							<%=quantita%>
 						</p>
 						<p class="price" id="prezzo">
-							Prezzo:
+							Prezzo (Iva inclusa):
 							<%=String.format("%.2f", prezzoProdotto) + " €"%>
 						</p>
 					</div>
@@ -161,7 +161,7 @@ String confezioneRegalo = "";
 				BigDecimal prezzoTotale = new BigDecimal(ordine.getPrezzoTotale());
 				%>
 				<h3 class="total">
-					Totale:
+					Totale (Iva inclusa):
 					<%=String.format("%.2f", prezzoTotale) + " €"%>
 				</h3>
 			</div>

@@ -23,8 +23,6 @@ import it.ohmybag.model.ProdottoModel;
 public class CatalogoControl extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
-	
 	static ProdottoModel prodottoModel;
 	static ImmagineModel immagineModel;
 
@@ -44,7 +42,8 @@ public class CatalogoControl extends HttpServlet{
 		try {
 	        Collection<Prodotto> products = prodottoModel.allProduct();
 	        Collection<Immagine> images = immagineModel.doRetrieveAll();
-
+	        
+	        //Paginazione
 	        int productsPerPage = 8; // Numero di prodotti per pagina
 	        int totalProducts = products.size(); // Numero totale di prodotti
 	        int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage); // Calcolo delle pagine
@@ -88,13 +87,7 @@ public class CatalogoControl extends HttpServlet{
 	    }
 	}
 
-
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-
 }

@@ -140,8 +140,7 @@ OrdineModel ordineModel = new OrdineModel(); // Modello per la gestione degli or
 
 									<div id="savedAddresscont" class="hidden">
 										<select class="form-select" name="savedAddress" id="savedAddressSelect" aria-label="Default select example">
-											<option selected disabled>Selezionare indirizzo</option>
-											<option value="<%= utente.getIndirizzoSpedizione() %>"><%= utente.getIndirizzoSpedizione() %></option>
+											<option selected value="<%= utente.getIndirizzoSpedizione() %>"><%= utente.getIndirizzoSpedizione() %></option>
 											<% for (String indirizzo :  indirizzi) { %>
 											<option value="<%= indirizzo %>"><%= indirizzo %></option>
 											<% } %>

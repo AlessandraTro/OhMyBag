@@ -313,20 +313,20 @@ function showModal(message, confirmCallback) {
 	});
 }
 
-// Funzione per gestire il caso in cui nessun campo è stato modificato
+// Funzione per gestire il caso in cui nessun campo è stato modificato utilizzando AJAX
 function confirmNoChanges() {
-	var form = document.getElementById("productForm");
-	var isModified = isFormModified(form);
+    var form = document.getElementById("productForm");
+    var isModified = isFormModified(form);
 
-	if (!isModified) {
-		showModal("Nessun campo modificato, tornare alla pagina del catalogo?", function() {
-			window.location.href = "/admin/AdminProdotti.jsp";
-		});
-		return false; // Blocca l'azione di default del form
-	}
+    if (!isModified) {
+        showModal("Nessun campo modificato, tornare alla pagina del catalogo?", function() {
+            navigateToCatalog();
+        });
+        return false; // Blocca l'azione di default del form
+    }
 
-	// Se il form è stato modificato, restituisci true per permettere la navigazione
-	return true;
+    // Se il form è stato modificato, restituisci true per permettere la navigazione
+    return true;
 }
 
 //mostra gli alert
@@ -352,18 +352,32 @@ function showAlert(type, message) {
 	}, 3000);
 }
 
-// Funzione per ritornare al catalogo
+// Funzione per ritornare al catalogo utilizzando AJAX
 function goToCatalog() {
-	var form = document.getElementById("productForm");
-	var isModified = isFormModified(form);
+    var form = document.getElementById("productForm");
+    var isModified = isFormModified(form);
 
-	if (!isModified) {
-		window.location.href = "/admin/AdminProdotti.jsp";
-	} else {
-		showModal("Ci sono modifiche non salvate. Sei sicuro di voler tornare al catalogo?", function() {
-			window.location.href = "/admin/AdminProdotti.jsp";
-		});
-	}
+    if (!isModified) {
+        navigateToCatalog();
+    } else {
+        showModal("Ci sono modifiche non salvate. Sei sicuro di voler tornare al catalogo?", function() {
+            navigateToCatalog();
+        });
+    }
 }
 
-
+// Funzione per navigare alla pagina del catalogo tramite AJAX
+function navigateToCatalog() {
+    $.ajax({
+        url: 'AdminControl?pulsante=Catalogo',
+        type: 'GET',
+        success: function(response) {
+            // Inserisci il contenuto della risposta nella pagina corrente
+            $('body').html(response);
+        },
+        error: function() {
+            // Gestione degli errori
+            console.error('Errore durante il caricamento della pagina');
+        }
+    });
+}

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ohmybag.bean.Prodotto;
+import it.ohmybag.model.ImmagineModel;
 import it.ohmybag.model.ProdottoModel;
 
 @WebServlet("/AdminModificaControl")
@@ -18,10 +19,12 @@ public class AdminModificaControl extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	static ProdottoModel prodottoModel;
+	static ImmagineModel immagineModel;
 
 	static {
 
 		prodottoModel = new ProdottoModel();
+		immagineModel = new ImmagineModel();
 
 	}
 
@@ -75,6 +78,7 @@ public class AdminModificaControl extends HttpServlet {
 		try {
 			prodottoModel.updateProduct(product.getId(), product.getDescrizione(), product.getDisponibilita(),
 					product.getSconto(), product.getPrezzo(), product.getIva());
+			request.setAttribute("ImageList", immagineModel.doRetrieveAll());
 			request.getSession().setAttribute("products", prodottoModel.allProduct()); // aggiorna i prodotti nella
 																						// sessione
 		} catch (SQLException e) {

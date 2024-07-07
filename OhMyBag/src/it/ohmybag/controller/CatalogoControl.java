@@ -50,7 +50,6 @@ public class CatalogoControl extends HttpServlet{
 
 	        int currentPage = 1; // Pagina di default
 	        String pageParam = request.getParameter("page");
-		    System.out.println("PAGE catalog" +pageParam);
 
 	        if (pageParam != null) {
 	            try {

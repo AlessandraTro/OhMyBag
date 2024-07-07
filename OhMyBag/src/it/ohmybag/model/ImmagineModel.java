@@ -54,13 +54,7 @@ public class ImmagineModel {
 		}
 	}
 
-	/**
-	 * Elimina immagine
-	 * 
-	 * @param String path Il percorso dell'immagine da eliminare
-	 * 
-	 * @return boolean True se l'immagine è stata eliminata False altrimenti
-	 */
+	/*permette di eliminare un'immagine*/
 	public boolean deleteImage(String path) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -88,13 +82,7 @@ public class ImmagineModel {
 		return (result != 0);
 	}
 
-	/**
-	 * Restituisce un'immagine
-	 * 
-	 * @param String path Il percorso dell'immagine da prelevare
-	 * 
-	 * @return Immagine L'immagine prelevata
-	 */
+	/*permette di prendere un'immagine dal database*/
 	public Immagine getImage(String path) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -130,11 +118,7 @@ public class ImmagineModel {
 
 	}
 
-	/**
-	 * Preleva tutte le immagini salvate
-	 * 
-	 * @return Collection<Immagine> Tutte le immagini salvate
-	 */
+	/*salva in una collection tutte le immagini nel database*/
 	public Collection<Immagine> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -211,7 +195,7 @@ public class ImmagineModel {
     }
 	
 	 /* Recupera le immagini di copertina dal database in base all'id del prodotto */
-		public Immagine retrieveCatalogImagesById(String idProdotto) throws SQLException {
+	public Immagine retrieveCatalogImagesById(String idProdotto) throws SQLException {
 	        Connection connection = null;
 	        PreparedStatement preparedStatement = null;
 	        
@@ -285,13 +269,7 @@ public class ImmagineModel {
 	    return images;
 	}
 	
-	  /**
-     * Imposta un'immagine come copertina
-     * 
-     * @param String idProdotto L'ID del prodotto a cui appartiene l'immagine
-     * @param String nomeImmagine Il nome dell'immagine da impostare come copertina
-     * @throws SQLException In caso di errore di accesso al database
-     */
+	/*imposta un'immagine come immagine di copertina*/
     public void setCoverImage(String idProdotto, String nomeImmagine) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -323,6 +301,7 @@ public class ImmagineModel {
         }
     }
     
+    /*permette di eliminare le immagini di un prodotto*/
     public void deleteImmaginiByProdottoId(String productId) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;

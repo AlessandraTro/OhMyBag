@@ -69,6 +69,7 @@ CREATE TABLE Composizione(
     Prezzo 		float 			check(Prezzo>=0)not null,
     Quantita 	int 			check(Quantita>=0)not null,
     IVA 		float 			check(IVA>=0)not null,
+    Sconto		int				check(Sconto>=0 AND Sconto<100),
     foreign key (IDOrdine) references Ordine(ID) on delete cascade,
     foreign key (IDProdotto) references Prodotto(ID),
     primary KEY(IDOrdine,IDProdotto)

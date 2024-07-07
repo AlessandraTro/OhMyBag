@@ -26,7 +26,13 @@ footer {
 h5 {
 	font-weight: bold; /* Aggiungi il grassetto */
 }
-
+.alert-container {
+    position: fixed;
+    top: 80px; 
+    right: 20px;
+    z-index: 1050; 
+    width: 300px; 
+}
 .btn-outline-success {
 	border-color: #827b7b;
 	cursor: pointer;

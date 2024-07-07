@@ -1,5 +1,4 @@
 
-<!--
 css fattura-->.clearfix:after {
 	content: "";
 	display: table;
@@ -94,7 +93,7 @@ table th {
 }
 
 table .service, table .desc, table .unit, table .qty, table .total,
-	table .TOTALE {
+	table .scont, table .TOTALE {
 	text-align: left;
 }
 
@@ -103,8 +102,8 @@ table td {
 	text-align: right;
 }
 
-table td.service, table td.desc, table td.unit, table td.qty, table td.total
-	{
+table td.service, table td.desc, table td.unit, table td.qty, table td.total,
+	table td.scont {
 	font-size: 1.2em;
 	vertical-align: top;
 }

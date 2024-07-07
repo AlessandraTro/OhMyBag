@@ -1,4 +1,3 @@
-
 /* Definizione delle variabili CSS */
 :root {
 	--primary-color: #c6c3c3;
@@ -35,7 +34,7 @@
 .order {
 	margin: 0 auto;
 	max-height: 70%; /* Altezza massima del contenitore */
-	overflow-y: auto;/* Scroll verticale se necessario */
+	overflow-y: auto; /* Scroll verticale se necessario */
 }
 
 .order h2 {
@@ -52,8 +51,8 @@
 	max-width: 700px; /* Larghezza fissa per tutti gli item */
 	height: auto; /* Altezza dinamica per adattarsi al contenuto */
 	background-color: white;
-	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);/* Ombra */
-	overflow: hidden;/* Nasconde eventuali overflow */
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Ombra */
+	overflow: hidden; /* Nasconde eventuali overflow */
 	position: relative;
 	margin-bottom: 30px;
 }
@@ -66,13 +65,14 @@
 	width: 30%;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;/* Nasconde overflow */
+	overflow: hidden; /* Nasconde overflow */
 }
 
 .item .image img {
 	width: 50%;
 	height: 100%;
-	object-fit: cover;/* Riempie il contenitore senza distorcere l'immagine */
+	object-fit: cover;
+	/* Riempie il contenitore senza distorcere l'immagine */
 	display: block;
 }
 
@@ -100,7 +100,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 15px;/* Bordi arrotondati */
+	border-radius: 15px; /* Bordi arrotondati */
 	font-size: 0.7em; /* Riduce la dimensione del font */
 }
 
@@ -137,10 +137,10 @@ hr {
 .information {
 	position: relative;
 	width: 90%;
-	backdrop-filter: blur(25px);/* Filtro sfocato */
-	border: 2px solid var(--primary-color);/* Bordo */
-	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);/* Ombra */
-	border-radius: 15px;/* Bordi arrotondati */
+	backdrop-filter: blur(25px); /* Filtro sfocato */
+	border: 2px solid var(--primary-color); /* Bordo */
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2); /* Ombra */
+	border-radius: 15px; /* Bordi arrotondati */
 	padding: 10%;
 	color: var(--black-color);
 	display: flex;
@@ -148,9 +148,10 @@ hr {
 	background-color: #d6ccc2;
 }
 
-@media screen and (max-width: 475px) {
-	.text-All-Recap {
-		font-size: 75%;
+@media screen and (max-width: 1200px) {
+	.item .price {
+		padding: 3%;
+		width: 33%;
 	}
 }
 
@@ -214,7 +215,7 @@ hr {
 /* Stili per schermi da 844px a 950px */
 @media screen and (min-width: 844px) and (max-width: 950px) {
 	.container1 {
-		overflow-y: auto;/* Scroll verticale se necessario */
+		overflow-y: auto; /* Scroll verticale se necessario */
 	}
 	.container2 {
 		margin-left: 20px; /* Aggiusta i margini se necessario */
@@ -222,5 +223,11 @@ hr {
 		display: flex;
 		align-items: flex-start;
 		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 475px) {
+	.text-All-Recap {
+		font-size: 75%;
 	}
 }

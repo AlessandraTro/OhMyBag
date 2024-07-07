@@ -26,6 +26,7 @@
                     <input type="email" name="email" id="email" class="input-field">
                     <label for="email" class="label">E-mail</label>
                     <i class="bx bx-user icon"></i>
+                    <p class="email-not-exist" style="display:none; color:red;">Email non esistente</p>
                 </div>
                 
                 <!-- Input per la nuova password -->

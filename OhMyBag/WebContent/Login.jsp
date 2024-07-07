@@ -33,11 +33,17 @@
                 <input type="hidden" name="action" value="login">
                 
                 <!-- Messaggio di successo per il cambio password -->
-                <%if(request.getAttribute("newPassword") != null){ %>
+                <%if(request.getSession().getAttribute("newPassword") != null){ %>
 					<div class="new-password">
 						<h5 style="color:#60ff60; padding-bottom:30px;">Password aggiornata con successo</h5>
 					</div>
-				<%} %>
+				<%request.getSession().removeAttribute("newPassword");
+				}else if(request.getSession().getAttribute("errorEmail")!= null){ %>
+					<div class="new-password">
+						<h5 style="color:red; padding-bottom:30px;">Email inserita non esistente perfavore registrati</h5>
+					</div>
+				<%request.getSession().removeAttribute("errorEmail");
+				} %>
 				
 				<!-- Input per l'email -->
                 <div class="login-box">

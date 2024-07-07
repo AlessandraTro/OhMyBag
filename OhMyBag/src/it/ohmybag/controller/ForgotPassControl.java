@@ -32,6 +32,17 @@ public class ForgotPassControl extends HttpServlet{
 	    
 	    if(newPassword!=null && newPassword!="") {
 	        String email = request.getParameter("email");
+	        try {
+	        	if(!utenteModel.checkIfEmailExists(email)) {
+	        		request.getSession().setAttribute("errorEmail", true);
+	        		// Reindirizza a Login.jsp dopo la verifica sull'email
+		            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+	        	}
+	        }catch(Exception e) {
+	        	System.out.println("Error: "+e.getMessage());
+	        }
 	        String password = request.getParameter("password");
 	        String hashPassword=CriptoPassword.toHash(password);
 	        
@@ -47,7 +58,7 @@ public class ForgotPassControl extends HttpServlet{
 		            return;
 	    		}else {
 		    		utenteModel.UpdatePassword(email, hashPassword); // Aggiorna la password nel database con quella nuova
-		    		request.setAttribute("newPassword", true);
+		    		request.getSession().setAttribute("newPassword", true);
 	    		}
 	    		
 	    		// Reindirizza a Login.jsp dopo l'aggiornamento della password

@@ -19,6 +19,7 @@ public class Prodotto implements Serializable {
 	private int sconto;
 	private int disponibilita;
 	private int Iva;
+	private boolean Eliminato;
 
 	public Prodotto(String id, String marca, String nome, float prezzo, String tipologia, int idcategoria, String descrizione, int annoCollezione, int Iva){
 		this.id=id;
@@ -33,6 +34,7 @@ public class Prodotto implements Serializable {
 		this.sconto=0;
 		this.disponibilita=0;
 		this.Iva=Iva;
+		this.Eliminato=false;
 	}
 	public Prodotto() {
 		
@@ -132,6 +134,10 @@ public class Prodotto implements Serializable {
 		Iva = iva;
 	}
 	
+	public boolean getEliminato() {
+		return Eliminato;
+	}
+	
 	@Override
 	public String toString() {
 		return "Prodotto [id=" + id + ", marca=" + marca + ", nome=" + nome + ", prezzo=" + prezzo + ", tipologia="
@@ -150,6 +156,12 @@ public class Prodotto implements Serializable {
 	@Override
 	public int hashCode() {
 	    return Objects.hash(id);
+	}
+	public boolean isEliminato() {
+		return Eliminato;
+	}
+	public void setEliminato(boolean eliminato) {
+		Eliminato = eliminato;
 	}
 	
 }

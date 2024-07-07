@@ -13,7 +13,12 @@ import it.ohmybag.bean.Immagine;
 public class ImmagineModel {
 
 	private Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ConnesioneDatabase.getConnection();
 	}
 
 	/**
@@ -49,13 +54,7 @@ public class ImmagineModel {
 		}
 	}
 
-	/**
-	 * Elimina immagine
-	 * 
-	 * @param String path Il percorso dell'immagine da eliminare
-	 * 
-	 * @return boolean True se l'immagine è stata eliminata False altrimenti
-	 */
+	/*permette di eliminare un'immagine*/
 	public boolean deleteImage(String path) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -83,13 +82,7 @@ public class ImmagineModel {
 		return (result != 0);
 	}
 
-	/**
-	 * Restituisce un'immagine
-	 * 
-	 * @param String path Il percorso dell'immagine da prelevare
-	 * 
-	 * @return Immagine L'immagine prelevata
-	 */
+	/*permette di prendere un'immagine dal database*/
 	public Immagine getImage(String path) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -125,11 +118,7 @@ public class ImmagineModel {
 
 	}
 
-	/**
-	 * Preleva tutte le immagini salvate
-	 * 
-	 * @return Collection<Immagine> Tutte le immagini salvate
-	 */
+	/*salva in una collection tutte le immagini nel database*/
 	public Collection<Immagine> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -206,7 +195,7 @@ public class ImmagineModel {
     }
 	
 	 /* Recupera le immagini di copertina dal database in base all'id del prodotto */
-		public Immagine retrieveCatalogImagesById(String idProdotto) throws SQLException {
+	public Immagine retrieveCatalogImagesById(String idProdotto) throws SQLException {
 	        Connection connection = null;
 	        PreparedStatement preparedStatement = null;
 	        
@@ -279,5 +268,67 @@ public class ImmagineModel {
 
 	    return images;
 	}
+	
+	/*imposta un'immagine come immagine di copertina*/
+    public void setCoverImage(String idProdotto, String nomeImmagine) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String updateSQL = "UPDATE Immagine SET Copertina = ? WHERE IDProdotto = ?";
+
+        try {
+            connection = getConnection();
+            preparedStatement = connection.prepareStatement(updateSQL);
+            preparedStatement.setBoolean(1, false); // Imposta tutte le immagini come non copertina
+            preparedStatement.setString(2, idProdotto);
+            preparedStatement.executeUpdate();
+
+            // Imposta l'immagine selezionata come copertina
+            updateSQL = "UPDATE Immagine SET Copertina = ? WHERE IDProdotto = ? AND Nome = ?";
+            preparedStatement = connection.prepareStatement(updateSQL);
+            preparedStatement.setBoolean(1, true);
+            preparedStatement.setString(2, idProdotto);
+            preparedStatement.setString(3, nomeImmagine);
+            preparedStatement.executeUpdate();
+        } finally {
+            try {
+                if (preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                if (connection != null)
+                    connection.close();
+            }
+        }
+    }
+    
+    /*permette di eliminare le immagini di un prodotto*/
+    public void deleteImmaginiByProdottoId(String productId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getConnection();
+            
+            // Query SQL per eliminare le immagini
+            String sql = "DELETE FROM immagine WHERE id_prodotto = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, productId);
+            
+            // Esegui la query di eliminazione
+            stmt.executeUpdate();
+            
+        } finally {
+            // Chiudi le risorse (statement e connessione)
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
 
 }
+
+

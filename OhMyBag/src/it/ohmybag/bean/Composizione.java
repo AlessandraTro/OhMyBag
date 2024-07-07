@@ -6,13 +6,15 @@ public class Composizione {
 	private float prezzo;
 	private int quantita;
 	private float iva;
+	private int sconto;
 	
-	public Composizione(int idOrdine, String idProdotto, float prezzo, int quantita, float iva) {
+	public Composizione(int idOrdine, String idProdotto, float prezzo, int quantita, float iva, int sconto) {
 		this.idOrdine=idOrdine;
 		this.idProdotto=idProdotto;
 		this.prezzo=prezzo;
 		this.quantita=quantita;
 		this.iva=iva;
+		this.sconto=sconto;
 	}
 	public Composizione() {
 		
@@ -56,6 +58,12 @@ public class Composizione {
 
 	public void setIva(float iva) {
 		this.iva = iva;
+	}
+	public int getSconto() {
+		return sconto;
+	}
+	public void setSconto(int sconto) {
+		this.sconto = sconto;
 	}
 	
 }

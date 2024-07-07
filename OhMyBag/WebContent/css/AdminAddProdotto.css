@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Times New Roman, Sans-Serif;
+}
+:root {
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff;
+    --brown-color: #d6ccc2;
+    --black-color: #000000;
+}
+.alert-container {
+    position: fixed;
+    top: 80px; 
+    right: 20px;
+    z-index: 1050; 
+    width: 300px; 
+}
+.container-insert{
+	margin-top:100px;
+}
+.insert-form {
+    padding: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 4px var(--brown-color);
+    border-radius: 30px;
+    margin: 20px auto;
+    max-width: 1100px;
+}
+h2 {
+    text-align: center;
+}
+
+.label-field {
+    padding-left: 4%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-inserimento {
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.option label {
+    flex: 1;
+}
+
+.option input {
+    margin-left: 10px;
+}
+
+.contentImg {
+    display: flex;
+}
+
+form input[type=text], form input[type=number], form input[type=password],
+form input[type=date], form input[type=range], form input[type=email],
+form input[type=url], form input[type=time], form input[list] {
+    width: 500px;
+    font-size: 1em;
+}
+
+.input-field {
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+    background: transparent;/* Sfondo trasparente */
+    color: var(--black-color);
+    padding-inline: 20px 10px;/* Padding interno orizzontale */
+    border: 2px solid var(--primary-color);/* Bordo con spessore e colore */
+    border-radius: 30px;/* Border radius per angoli arrotondati */
+    outline: none;/* Rimuove l'outline di default */
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    display: inline-flex;
+    margin: 5px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.submit,
+.reset {
+    width: 200px;
+}
+
+/* Stile per il pulsante di selezione del file */
+input[type=file]::file-selector-button {
+    margin-bottom: 10px;
+    margin-right: 20px;
+    border: none;
+    background: var(--brown-color);
+    padding: 7px 14px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;/* Cursore indicatore di selezione */
+    transition: background .2s ease-in-out;/* Transizione per il cambio di colore di sfondo */
+}
+
+input[type=file]::file-selector-button:hover {
+    background: #c0c0c0;
+}
+
+.button input {
+    background-color: var(--brown-color);
+    color: #fff;
+    padding: 7px 30px;
+    border: none;
+    border-radius: 5px;/* Border radius per angoli arrotondati */
+    cursor: pointer;/* Cursore indicatore di selezione */
+}
+
+.button input:hover {
+    background-color: #c0c0c0;
+}
+
+@media (max-width: 1200px) {
+	/* Stili per la classe .container quando la larghezza massima è 1200px */
+    .container {
+        display: flex;
+        flex-direction: column;
+		align-items:center;
+    }
+    form input[type=text], form input[type=number], form input[type=password],
+    form input[type=date], form input[type=range], form input[type=email],
+    form input[type=url], form input[type=time], form input[list] {
+        width: 100%;
+        font-size: 1em;
+    }
+    .container-insert input {
+        width: 100%;
+    }
+    .submit,
+    .reset {
+        width: 70%;
+    }
+    .content {
+        width: 100%;
+    }
+}

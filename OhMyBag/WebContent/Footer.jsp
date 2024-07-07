@@ -4,45 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="css/Footer.css" rel="stylesheet" type="text/css">
 </head>
-<style>
-/* Rimuovere l'effetto di sottolineatura dai link */
-a {
-	text-decoration: none; /* Rimuove l'effetto di sottolineatura */
-	color: inherit;
-	/* Utilizza il colore ereditato dal testo circostante */
-}
-
-
-.footer-container{
-    background-color: #d6ccc2; /* Colore di sfondo */
-   
-}
-
-#myFooter{
-	padding: 50px 50px 0px 50px;
-}
-
-.float-end-custom{
-text-align: right;
-}
-
-footer{
-font-family: Times New Roman, Sans-Serif;
-
-}
-
-h5{
-    font-weight: bold; /* Aggiungi il grassetto */
-
-}
-
-
-</style>
-
 <body>
-	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="bootstrap" viewBox="0 0 118 94">
     <title>Bootstrap</title>
     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -61,11 +26,19 @@ h5{
 			d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" " />
   </symbol>
 </svg>
+<div class="alert-container">
+		<div class="alert alert-success" role="alert" id="success-alert"
+			style="display: none;">Subscription successful! Controlla la tua e-mail per conferma.</div>
+		<div class="alert alert-danger" role="alert" id="error-alert"
+			style="display: none;">Subscription failed. Per piacere riprova più tardi.</div>
+	</div>
 
 	<div class="footer-container">
 		<footer id="myFooter">
-			<p class="float-end-custom"><a href="#">Back to top</a></p> 
-		
+			<p class="float-end-custom">
+				<a href="#">Back to top</a>
+			</p>
+
 			<div class="row">
 
 				<!-- Get Started -->
@@ -74,9 +47,7 @@ h5{
 					<ul class="nav flex-column">
 						<li><a href="HomeControl">Home</a></li>
 						<li><a href="ButtonRegistrazioneControl">Sign up</a></li>
-						<!-- Da fare -->
 						<li><a href="LoginControl">Login</a></li>
-						<!-- Da fare -->
 					</ul>
 				</div>
 
@@ -84,23 +55,19 @@ h5{
 				<div class="col-sm-2">
 					<h5>About us</h5>
 					<ul class="nav flex-column">
-						<li><a href="ButtonChiSiamoControl">Our Team</a></li>
-						<!-- Da fare -->
-						<li><a href="ButtonContattaciControl">Contact us</a></li>
-						<!-- Da fare -->
+						<li><a href="ChiSiamoContattaciControl?page=ChiSiamo">Our Team</a></li>
+						<li><a href="ChiSiamoContattaciControl?page=Contattaci">Contact us</a></li>
 					</ul>
 				</div>
 
 				<!-- Newsletter -->
 				<div class="col-sm-3">
-					<form>
+					<form id="myForm">
 						<h5>Entra nel mondo di OhMyBag</h5>
 						<p>Resta aggiornato su eventi, collezioni e novità esclusive.</p>
-						<div class="d-flex flex-column flex-sm-row w-100 gap-2">
-							<label for="newsletter1" class="visually-hidden">Email
-								address</label> <input id="newsletter1" type="text" class="form-control"
-								placeholder="Email address">
-							<button class="btn btn-primary" type="button">Subscribe</button>
+						<div class="d-flex flex-column w-100 gap-2 email-input">
+							<input class="form-control" type="email" id="email" name="email" placeholder="Enter your email" required>
+							<button class="btn btn-outline-success" type="submit">Subscribe</button>
 						</div>
 					</form>
 				</div>
@@ -145,9 +112,57 @@ h5{
 								width="24" height="24"> <use xlink:href="#facebook" /></svg></a></li>
 				</ul>
 			</div>
-			
+
 		</footer>
 	</div>
+	
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Include EmailJS SDK -->
 
+	<script>
+		document.addEventListener('DOMContentLoaded',function() {
+			// Inizializza EmailJS con l'user ID
+			emailjs.init("HcMmT-E0CFrPuWtLE");
+			document.getElementById('myForm').addEventListener('submit',function(event) {
+				event.preventDefault();
+				var userEmail = document.getElementById('email').value;
+				// Definisce the template parameters
+				var templateParams = {user_email : userEmail};
+				// Manda l'email usando EmailJS
+				emailjs.send("service_OhMyBag","OhmyBag2024",templateParams).then(function(response) {
+					console.log('Email sent:',response);
+					showAlert('success','Subscription successful! Controlla la tua e-mail per conferma.');
+					document.getElementById('email').value = ''; // Pulisce l'input
+				},
+				function(error) {
+					console.error('Email sending failed:',error);
+					showAlert('danger','Subscription failed. Per piacere riprova più tardi.');
+				});
+			});
+		});
+		
+		//Mostra gli alert
+		function showAlert(type, message) {
+            var alertDiv;
+            switch(type) {
+                case 'success':
+                    alertDiv = '#success-alert';
+                    break;
+                case 'danger':
+                    alertDiv = '#error-alert';
+                    break;
+                case 'info':
+                    alertDiv = '#info-alert';
+                    break;
+                default:
+                    alertDiv = '#secondary-alert';
+            }
+            $(alertDiv).text(message).show();
+            setTimeout(function() {
+                $(alertDiv).hide();
+            }, 3000);
+        }
+		
+	</script>
 </body>
 </html>

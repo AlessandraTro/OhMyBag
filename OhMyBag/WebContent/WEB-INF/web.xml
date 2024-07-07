@@ -7,12 +7,35 @@
 	<welcome-file-list>
 		<welcome-file>home</welcome-file>
 	</welcome-file-list>
-	<resource-ref>
-		<description>JNDI reference to a data source</description>
-		<res-ref-name>jdbc/OhMyBag</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-	</resource-ref>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorPage/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errorPage/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/errorPage/401.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/errorPage/genericError.jsp</location>
+	</error-page>
+	
+	<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>it.ohmybag.controller.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+		<url-pattern>/AdminAddProdottoControl</url-pattern>
+		<url-pattern>/AdminControl</url-pattern>
+	</filter-mapping>
+
 	<servlet>
 		<servlet-name>HomeControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.HomeControl</servlet-class>
@@ -76,6 +99,110 @@
 	<servlet>
 		<servlet-name>LogoutControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.LogoutControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonModificaProdottoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonModificaProdottoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminModificaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminModificaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonDeleteImage</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonDeleteImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonAddImage</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonAddImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CheckoutControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CheckoutControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OrdiniAdminControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OrdiniAdminControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminAddProdottoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminAddProdottoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CategorieProdottiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CategorieProdottiControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OrdiniUtenteControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OrdiniUtenteControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteAccountControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.DeleteAccountControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModificaDatiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ModificaDatiControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddCreditCardControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AddCreditCardControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>VerificaVecchiaPasswordControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.VerificaVecchiaPasswordControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CambiaPasswordControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CambiaPasswordControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OttieniCartaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OttieniCartaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonSetCover</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonSetCover</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ButtonModal</servlet-name>
+		<servlet-class>it.ohmybag.controller.ButtonModal</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DettagliOrdiniAdmin</servlet-name>
+		<servlet-class>it.ohmybag.controller.DettagliOrdiniAdmin</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BarraDiRicerca</servlet-name>
+		<servlet-class>it.ohmybag.controller.BarraDiRicerca</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ProdottiRicercaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ProdottiRicercaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CancellaCartaControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.CancellaCartaControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ChiSiamoContattaciControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.ChiSiamoContattaciControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DettagliUtenteAdmin</servlet-name>
+		<servlet-class>it.ohmybag.controller.DettagliUtenteAdmin</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>OttieniIndirizzoControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.OttieniIndirizzoControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteProductControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.DeleteProductControl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminProdottiEliminatiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminProdottiEliminatiControl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>

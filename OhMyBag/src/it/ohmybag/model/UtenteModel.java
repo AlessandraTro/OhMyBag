@@ -1,9 +1,12 @@
 package it.ohmybag.model;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import it.ohmybag.bean.Utente;
@@ -57,6 +60,68 @@ public class UtenteModel {
 			}
 		}
 	}
+	
+	/*Permette di eliminare dal database l'utente con un determinato username*/
+	public synchronized boolean deleteUser(String username) throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		int result=0;
+		
+		String deleteSQL="DELETE FROM Utente WHERE Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(deleteSQL);
+			
+			statement.setString(1, username);
+			
+			result=statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+		return result!=0;
+	}
+	
+	/*permette di modificare la password di un determinato utente*/
+	public synchronized void UpdateUtente(Utente utente)throws SQLException{
+		Connection conn=null;
+		PreparedStatement statement=null;
+		
+		String updateSQL="update Utente set Nome=?, Cognome=?, Email=?, Telefono=?, IndirizzoSpedizione=? where Username=?";
+		
+		try {
+			conn=getConnection();
+			statement=conn.prepareStatement(updateSQL);
+			
+			statement.setString(1, utente.getNome());
+			statement.setString(2, utente.getCognome());
+			statement.setString(3, utente.getEmail());
+			statement.setString(4, utente.getTelefono());
+			statement.setString(5, utente.getIndirizzoSpedizione());
+			statement.setString(6, utente.getUsername());
+			
+			statement.executeUpdate();
+		}finally {
+			try {
+				if(statement!= null) {
+					statement.close();
+				}
+			}finally {
+				if(conn!=null) {
+					conn.close();
+				}
+			}
+		}
+	}
+	
 	/*permette di modificare la password di un determinato utente*/
 	public synchronized void UpdatePassword(String username,String password)throws SQLException{
 		Connection conn=null;
@@ -84,6 +149,7 @@ public class UtenteModel {
 			}
 		}
 	}
+	
 	/*permette di prendere un utente in base alla email e alla password*/
 	/*c'è anche la password per verificare direttamente se è corretta oppure no*/
 	public synchronized Utente RetriveByEmailPassword(String email, String password)throws SQLException{
@@ -197,6 +263,7 @@ public class UtenteModel {
 
 	    return password;
 	}
+	
 	/*permette di prendere un utente in base alla email e alla password
 	c'è anche la password per verificare direttamente se è corretta oppure no*/
 	public synchronized Utente RetriveByEmailPassword(String email)throws SQLException{
@@ -245,5 +312,174 @@ public class UtenteModel {
 		}
 		return bean;
 	}
+	
+	//prende tutti gli utenti
+	public Collection<Utente> getAllUtenti() throws SQLException {
+	    Connection conn = null;
+	    PreparedStatement statement = null;
+	    ResultSet rs = null;
+	    Collection<Utente> utenti = new ArrayList<>();
+
+	    String querySQL = "SELECT * FROM Utente";
+
+	    try {
+	        conn = getConnection();
+	        statement = conn.prepareStatement(querySQL);
+	        rs = statement.executeQuery();
+
+	        while (rs.next()) {
+	            Utente utente = new Utente();
+	            utente.setUsername(rs.getString("Username"));
+	            utente.setAdmin(rs.getBoolean("Admin"));
+	            utente.setNome(rs.getString("Nome"));
+	            utente.setCognome(rs.getString("Cognome"));
+	            utente.setEmail(rs.getString("Email"));
+	            utente.setCodiceFiscale(rs.getString("Cf"));
+	            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		        GregorianCalendar dataInserimento = new GregorianCalendar();
+		        dataInserimento.setTime(dataInserimentoSQL);
+		        utente.setDataDiNascita(dataInserimento);
+		        utente.setEmail(rs.getString("Email"));
+		        utente.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		        utente.setPassword(rs.getString("Password"));
+		        utente.setTelefono(rs.getString("Telefono"));
+
+	            utenti.add(utente);
+	        }
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (statement != null) statement.close();
+	            if (conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return utenti;
+	}
+	
+	//Aggiorna le informazioni dell'indirizzo di un determinato utente
+	public synchronized void updateIndirizzo(Utente utente) throws SQLException {
+        Connection conn = null;
+        PreparedStatement statement = null;
+
+        String updateSQL = "UPDATE Utente SET IndirizzoSpedizione = ? WHERE Username = ?";
+
+        try {
+            conn = getConnection();
+            statement = conn.prepareStatement(updateSQL);
+            statement.setString(1, utente.getIndirizzoSpedizione());
+            statement.setString(2, utente.getUsername());
+            statement.executeUpdate();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } finally {
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }
+    }
+
+	//prende tutti gli utenti tranne quelli admin
+		public Collection<Utente> getAllUtentiNoAdmin() throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Collection<Utente> utenti = new ArrayList<>();
+
+		    String querySQL = "SELECT * FROM Utente WHERE Admin = false"; // Query modificata
+
+		    try {
+		        conn = getConnection();
+		        statement = conn.prepareStatement(querySQL);
+		        rs = statement.executeQuery();
+
+		        while (rs.next()) {
+		            Utente utente = new Utente();
+		            utente.setUsername(rs.getString("Username"));
+		            utente.setAdmin(rs.getBoolean("Admin"));
+		            utente.setNome(rs.getString("Nome"));
+		            utente.setCognome(rs.getString("Cognome"));
+		            utente.setEmail(rs.getString("Email"));
+		            utente.setCodiceFiscale(rs.getString("Cf"));
+
+		            // Impostazione della data di nascita
+		            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            utente.setDataDiNascita(dataInserimento);
+
+		            utente.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		            utente.setPassword(rs.getString("Password"));
+		            utente.setTelefono(rs.getString("Telefono"));
+
+		            utenti.add(utente);
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return utenti;
+		}
+		
+		/* permette di prendere un utente in base alla email */
+		public synchronized Utente getUserByUsername(String email) throws SQLException {
+		    Connection conn = null;
+		    PreparedStatement statement = null;
+		    ResultSet rs = null;
+		    Utente bean = new Utente();
+		    
+		    String query = "SELECT * FROM Utente WHERE Email=?";
+		    
+		    try {
+		        conn = getConnection(); /* creo la connessione con il database */
+		        statement = conn.prepareStatement(query); /* creo lo statement per poter comunicare con il database */
+		        
+		        statement.setString(1, email);
+		        
+		        rs = statement.executeQuery();
+
+		        if (rs.next()) { // Utilizza if invece di while poiché ci aspettiamo solo un utente
+		            bean.setUsername(rs.getString("Username"));
+		            bean.setAdmin(rs.getBoolean("Admin"));
+		            bean.setCodiceFiscale(rs.getString("Cf"));
+		            bean.setCognome(rs.getString("Cognome"));
+		            
+		            java.sql.Date dataInserimentoSQL = rs.getDate("DataNascita");
+		            GregorianCalendar dataInserimento = new GregorianCalendar();
+		            dataInserimento.setTime(dataInserimentoSQL);
+		            bean.setDataDiNascita(dataInserimento);
+		            
+		            bean.setEmail(rs.getString("Email"));
+		            bean.setIndirizzoSpedizione(rs.getString("IndirizzoSpedizione"));
+		            bean.setNome(rs.getString("Nome"));
+		            bean.setPassword(rs.getString("Password"));
+		            bean.setTelefono(rs.getString("Telefono"));
+		        }
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (statement != null) statement.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return bean;
+		}
+
+		
+		
 }
 

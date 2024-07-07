@@ -122,18 +122,14 @@ public class LoginControl extends HttpServlet{
 	            dispatcher.forward(request, response);
 	            return;
 	        } else {
-	        	
-	        	System.out.println("password data base: " + utente.getPassword());
-	        	
+	        	// Verifica la corrispondenza della password 
 	        	String hashPassword=CriptoPassword.toHash(password);
-	        	System.out.println("password inviata criptografata: " + hashPassword);
-
 	        	
-	        	System.out.println(utente.getPassword().equals(hashPassword));
 	        	if (utente.getPassword().equals(hashPassword)) {
                     // Le password corrispondono, l'utente può accedere
                     request.getSession().setAttribute("utente", utente);
-                    response.sendRedirect("Homepage.jsp");
+                    request.getSession().setAttribute("isLoggedIn", true);
+                    response.sendRedirect("home");
                 } else {
                     // Le password non corrispondono, mostra un messaggio di errore
                     request.setAttribute("loginError", true);

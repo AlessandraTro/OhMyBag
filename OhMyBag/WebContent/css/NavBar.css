@@ -1,3 +1,4 @@
+/* Stili di base */
 .custom-container {
 	display: flex;
 	flex-direction: row;
@@ -12,12 +13,12 @@
 	margin-left: 15px;
 }
 
-#immagine-user{
+#immagine-user {
 	width: 22px;
 }
 
-#immagine-cart{
-	width:25px;
+#immagine-cart {
+	width: 25px;
 }
 
 .cart-section a {
@@ -26,10 +27,196 @@
 
 .bg-custom {
 	background-color: #d6ccc2;
-	padding: 15px
+	padding: 15px;
 }
 
 nav {
 	font-family: Times New Roman, Sans-Serif;
-	font-size: 20px; 
+	font-size: 20px;
+}
+
+.immagine-logo {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+/* Stili per schermi fino a 1090px di larghezza */
+@media ( max-width : 1090px) {
+	.info {
+		min-width: 101px;
+	}
+}
+
+
+/* Piccola modale per la ricerca */
+.btn-outline-success {
+	border-color: #827b7b;
+	cursor: pointer;
+	background-color: #827b7b;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 1%;
+	--bs-btn-active-bg: #827b7b; 
+    --bs-btn-active-border-color: #827b7b;
+}
+
+.btn-outline-success:hover {
+	background-color: #a59999;
+	border-color: #827b7b;
+}
+
+/* Stili per l'input di ricerca */
+.form-control {
+	position: relative;
+}
+
+.form-control input[type="search"] {
+	width: 100%;
+	padding-right: 38px; /* Larghezza dell'icona pi� padding destro */
+}
+
+.form-control .search-icon {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #6c757d;
+}
+
+/* Stili per gli suggerimenti di ricerca */
+.autocomplete-suggestions {
+	max-height: 150px;
+	overflow-y: auto;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1000;
+	font-size: 1rem;
+	border-top: none;
+	border-radius: 0 0 10px 10px;
+}
+
+.autocomplete-suggestion {
+	padding: 8px;
+	cursor: pointer;
+}
+
+.autocomplete-suggestion:hover {
+	background-color: #dfc5ae;
+}
+
+
+/*Grandezza della modal di ricerca per le varie grandezze*/
+@media ( min-width : 1046px) {
+	.autocomplete-suggestions {
+		width: 73%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 84%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( min-width : 1030px) {
+	.autocomplete-suggestions {
+		width: 71%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 83%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 1029px) {
+	.autocomplete-suggestions {
+		width: 70%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 82%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 1010px) {
+	.autocomplete-suggestions {
+		width: 65%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 79%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+/* Stili per schermi da 995px in su */
+@media ( max-width : 991px) {
+		.autocomplete-suggestions {
+		width: 91%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 94%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 816px) {
+		.autocomplete-suggestions {
+		width: 90%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 93%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 710px) {
+		.autocomplete-suggestions {
+		width: 89%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 92%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 616px) {
+		.autocomplete-suggestions {
+		width: 86%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 91%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 543px) {
+		.autocomplete-suggestions {
+		width: 85%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 90%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 493px) {
+		.autocomplete-suggestions {
+		width: 83%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 89%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 456px) {
+		.autocomplete-suggestions {
+		width: 81%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 88%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 404px) {
+		.autocomplete-suggestions {
+		width: 79%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 87%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+
+@media ( max-width : 375px) {
+		.autocomplete-suggestions {
+		width: 77%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 86%);
+		/* Calcolo personalizzato per la posizione */
+	}
+}
+
+@media ( max-width : 344px) {
+		.autocomplete-suggestions {
+		width: 75%; /* Larghezza personalizzata per schermi pi� grandi */
+		margin-top: calc(100% - 85%);
+		/* Calcolo personalizzato per la posizione */
+	}
 }

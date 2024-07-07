@@ -22,10 +22,14 @@ public class ButtonCarrelloControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Recupera il carrello dalla sessione
 		Carrello cart = (Carrello) request.getSession().getAttribute("Carrello");
+		// Se il carrello non esiste nella sessione, ne crea uno nuovo
 		if (cart == null) {
 			cart = new Carrello();
 			request.getSession().setAttribute("Carrello", cart);
+//			request.getSession().setAttribute("pagina", 1);
+			request.getSession().setAttribute("carts", 1);
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");

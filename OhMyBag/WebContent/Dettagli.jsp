@@ -10,30 +10,36 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prodotto</title>
+<title>Dettagli Prodotto</title>
 <link href="css/Dettagli.css" rel="stylesheet" type="text/css">
 <link href="css/NavBar.css" rel="stylesheet" type="text/css">
-
-
 </head>
 <body>
-	<%@ include file="Header.jsp"%>
+	<%  //Permette di caricare un header diverso in base all’utente se è un admin o se è un utente normale
+		Utente user = (Utente) request.getSession().getAttribute("utente");
+		if (user != null && user.isAdmin()) {
+	%>
+	<jsp:include page="admin/HeaderAdmin.jsp" />
+	<%
+		} else {
+	%>
+	<jsp:include page="Header.jsp" />
+	<%
+		}
+	%>
 	<div class="container">
 		<div class="product-images">
-			<div id="carouselExampleIndicators" class="carousel slide">
+			<!-- Carosello per le immagini del prodotto -->
+			<div id="carouselExampleIndicators" class="carousel carousel-dark slide">
 				<div class="carousel-indicators">
 					<%
+                    // Aggiunge i bottoni per navigare tra le immagini del carosello
 					for (int i = 0; i < images.size(); i++) {
 					%>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="<%=i%>" <%if (i == 0) {%> class="active" <%}%>
-						aria-label="Slide <%=i + 1%>"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=i%>" <%if (i == 0) {%> class="active" <%}%> aria-label="Slide <%=i + 1%>"></button>
 					<%
 					}
 					%> 
@@ -43,6 +49,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 					int index = 0;
 					%>
 					<%
+                    // Aggiunge le immagini al carosello
 					for (Immagine immagine : images) {
 					%>
 					<div class="carousel-item <%if (index == 0) {%>active<%}%>">
@@ -55,45 +62,43 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("image
 					}
 					%>
 				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<!-- Bottoni per navigare tra le immagini del carosello -->
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Previous</span>
 				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Next</span>
 				</button>
 			</div>
 
-
 			<div class="product-info">
+				<!-- Nome del prodotto -->
 				<div class="product-name"><%=product.getNome()%></div>
-				<div class="product-price">
-					Prezzo:
-					<%=String.format("%.2f", product.getPrezzo()) + " €"%>
+				<!-- Prezzo del prodotto -->
+				<div class="product-price"> Prezzo: <%=String.format("%.2f", product.getPrezzo()) + " €"%>
 				</div>
-				<a href="CartControl?ID=<%=product.getId()%>">
+				<!-- Bottone per aggiungere il prodotto al carrello -->
+				<a href="CartControl?carts=1&ID=<%=product.getId()%>">
 					<button class="add-to-cart">AGGIUNGI AL CARRELLO</button>
-				</a> <input type="checkbox" id="toggle-description">
+				</a> 
+				<input type="checkbox" id="toggle-description">
 				<hr class="hr hr-blurry" />
+				
 				<!-- Label per il checkbox (il link toggle) -->
-				<label for="toggle-description"
-					class="toggle-button toggle-button-description">Descrizione
-					Prodotto <i class="fas fa-angle-down"> </i>
+				<label for="toggle-description" class="toggle-button toggle-button-description">Descrizione Prodotto <i class="fas fa-angle-down"> </i>
 				</label>
 
 				<div class="shipping-returns" id="description-content">
 					<!-- Contenuto del dropdown-menu -->
 					<p><%=product.getDescrizione()%></p>
 				</div>
+				
 				<hr class="hr hr-blurry" />
 				<input type="checkbox" id="toggle-shipping">
 				<!-- Label per il checkbox (il link toggle) -->
-				<label for="toggle-shipping"
-					class="toggle-button  toggle-button-shipping">Spedizione e
-					Resi <i class="fas fa-angle-down"> </i>
+				<label for="toggle-shipping" class="toggle-button  toggle-button-shipping">Spedizione e Resi <i class="fas fa-angle-down"> </i>
 				</label> 
   
 				<!-- Contenuto del menu -->

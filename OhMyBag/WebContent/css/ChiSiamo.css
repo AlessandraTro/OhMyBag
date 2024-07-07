@@ -1,0 +1,56 @@
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: "Times New Roman", Times, serif;
+}
+.container{
+	font-size:20px;
+}
+.testo{
+	margin:10px;
+}
+.descrizione{
+	display: flex;
+}
+.creatori{
+	display:flex;
+}
+.creatore{
+	display:flex;
+	flex-direction:column;
+	width:34%;
+	margin: 0px 25px;
+    align-items: center;
+}
+.creatore h4{
+	margin:5px;
+}
+img{
+	width:300px;
+}
+main {
+	margin-top:80px;
+	flex: 1;
+}
+.alessandra{
+	width:400px;
+}
+@media (max-width:1150px){
+	.creatori{
+		display:flex;
+		flex-direction:column;
+		align-items: center;
+	}
+	.alessandra{
+		width:300px;
+	}
+	.creatore{
+		width:100%;
+	}
+	.descrizione{
+		display:flex;
+		flex-direction:column;
+		
+	}
+}

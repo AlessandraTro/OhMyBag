@@ -1,0 +1,20 @@
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;/* Spazio tra le miniature delle immagini */
+}
+
+.thumbnail {
+	display: block;
+	padding: 4px;
+	margin-bottom: 20px;
+}
+
+.form-check-input {
+	align-items: center;
+}
+
+.modal-body {
+	display: flex;
+	justify-content: center;
+}

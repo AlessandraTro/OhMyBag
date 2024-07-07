@@ -32,21 +32,36 @@ public class ForgotPassControl extends HttpServlet{
 	    
 	    if(newPassword!=null && newPassword!="") {
 	        String email = request.getParameter("email");
+	        try {
+	        	if(!utenteModel.checkIfEmailExists(email)) {
+	        		request.getSession().setAttribute("errorEmail", true);
+	        		// Reindirizza a Login.jsp dopo la verifica sull'email
+		            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+	        	}
+	        }catch(Exception e) {
+	        	System.out.println("Error: "+e.getMessage());
+	        }
 	        String password = request.getParameter("password");
 	        String hashPassword=CriptoPassword.toHash(password);
 	        
 	    	try {
+	    		
+                // Verifica se la password recuperata corrisponde alla password hashata nel database
 	    		if(utenteModel.RetrievePassword(email).equals(hashPassword)) {
+	    			// Imposta l'attributo per indicare che la vecchia password corrisponde
 	    			request.setAttribute("oldPassword", true);
 	    			
 		            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ForgotPassword.jsp");
 		            dispatcher.forward(request, response);
 		            return;
 	    		}else {
-		    		utenteModel.UpdatePassword(email, hashPassword);
-		    		request.setAttribute("newPassword", true);
+		    		utenteModel.UpdatePassword(email, hashPassword); // Aggiorna la password nel database con quella nuova
+		    		request.getSession().setAttribute("newPassword", true);
 	    		}
 	    		
+	    		// Reindirizza a Login.jsp dopo l'aggiornamento della password
 	            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
 	            dispatcher.forward(request, response);
 	    	}catch(Exception e){

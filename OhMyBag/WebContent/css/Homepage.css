@@ -1,9 +1,9 @@
 .bd-placeholder-img {
 	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
+	text-anchor: middle;/* Imposta l'allineamento del testo */
+	-webkit-user-select: none;/* Impedisce la selezione del testo su Safari/Chrome */
+	-moz-user-select: none;/* Impedisce la selezione del testo su Firefox */
+	user-select: none;/* Impedisce la selezione del testo */
 }
 
 @media ( min-width : 768px) {
@@ -24,13 +24,13 @@
 	margin: auto; /* Per allineare l'immagine al centro */
 }
 .carousel-item{
-	margin-top:20px;
+	margin-top:5%;
 }
 .nav-scroller {
 	position: relative;
-	z-index: 2;
+	z-index: 2;/* Imposta l'indice di sovrapposizione */
 	height: 2.75rem;
-	overflow-y: hidden;
+	overflow-y: hidden;/* Nasconde lo scrolling verticale */
 }
 
 .nav-scroller .nav {
@@ -38,10 +38,10 @@
 	flex-wrap: nowrap;
 	padding-bottom: 1rem;
 	margin-top: -1px;
-	overflow-x: auto;
+	overflow-x: auto;/* Abilita lo scrolling orizzontale */
 	text-align: center;
 	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;/* Abilita lo scrolling fluido su dispositivi mobile*/
 }
 
 .conteiner-img {
@@ -127,6 +127,6 @@ div.col h2{
 	max-width: 1000px;
 	height: auto;
 }
-.row{
+.home{
 	align-items:center;
 }

@@ -1,0 +1,202 @@
+.custom-card2 {
+	max-width: 100%;
+}
+
+.custom-card-title {
+	font-size: 140%;
+}
+
+.cust-card {
+	display: flex;
+	justify-content: space-around;
+	max-width: 80%;
+	margin-left: 10%;
+}
+
+.cust-col {
+	max-width: 20%;
+	margin-right: 10%;
+}
+
+.card-text2 {
+	color: #807b7a;
+	font-size: 100%;
+}
+
+.form-control2 {
+	border-color: black;
+	max-width: 25%;
+	text-align: center;
+}
+
+.input-group {
+	width: 86%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.input-group .btn {
+	border-radius: 0;
+	border-color: black;
+}
+
+.modal-custom {
+    position: fixed;
+    top: 70px; /* Regola la posizione superiore rispetto all'header */
+    right: 50px; /* Distanza dal bordo destro */
+    width: 80%; /* Larghezza della modale, adattabile */
+    max-width: 550px; /* Larghezza massima della modale */
+    margin: 0 auto; /* Centra la modale orizzontalmente */
+    z-index: 1050; /* Assicura che la modale sia sopra altri contenuti */
+    background-color: #fff; /* Colore di sfondo della modale */
+    border: 1px solid #ccc; /* Bordo della modale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra della modale */
+    padding: 20px; /* Padding interno della modale */
+}
+
+/* Stile per il contenuto della modale */
+.modal-custom .modal-content {
+    max-width: 100%; /* Larghezza massima del contenuto della modale */
+}
+
+.prezzo {
+	margin: 0;
+	display: inline-block;
+	white-space: nowrap;
+	font-weight: bold;
+	margin-right: 34%;
+}
+
+.text-and-input {
+	display: flex;
+	align-items: center;
+}
+
+.product-list-container {
+	max-height: 400px;
+	/* Puoi regolare questa altezza in base alle tue esigenze */
+	overflow-y: auto;
+}
+
+.pulsanti {
+	background-color: #d6ccc2;
+	color: #fff;
+	padding: 1% 2%;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 2%;
+	width: 42%;
+	text-align: center;
+}
+
+.prezzoPosition {
+	margin-top: 5%;
+	display: flex;
+	font-size: 130%;
+	justify-content: space-between;
+}
+
+.mb-2-to {
+	font-weight: bold;
+}
+
+.pulsanti:hover {
+	background-color: #827b7b;
+}
+
+.bottoni-custom {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 2%;
+}
+
+/* Impostazioni di layout per il contenitore delle immagini e del testo */
+.cust-col {
+	flex: 0 0 40%;
+	/* Occupare il 40% dello spazio */
+}
+
+.custom-col2 {
+	flex: 0 0 60%;
+	/* Occupare il 60% dello spazio */
+}
+
+/* Media query per schermi piccoli fino a 545px */
+@media ( max-width : 545px) {
+	.modal-custom {
+		top: 10px;
+		/* Regola la posizione superiore per adattarsi a schermi piccoli */
+		right: 0; /* Centra la modale orizzontalmente */
+		max-width: 100%;
+		/* Imposta la larghezza massima al 100% dello schermo */
+		width: 100%;
+		/* Assicura che la modale occupi l'intera larghezza dello schermo */
+	}
+	.minus, .plus {
+		padding: 6px;
+	}
+	.custom-card-title {
+		font-size: 116%;
+	}
+	.modal-custom .modal-content {
+		max-width: 100%;
+		/* Imposta la larghezza massima del contenuto al 100% della modale */
+		padding: 10px; /* Riduci il padding per adattarsi a schermi piccoli */
+	}
+	.custom-card2 {
+		max-width: 76%;
+		/* Assicura che le card siano al 100% della larghezza del contenitore */
+	}
+	.prezzo {
+		max-width: 19%;
+		margin-right: 34%;
+	}
+	.card-text2 {
+		color: #807b7a;
+		font-size: 90%;
+	}
+	.cust-card {
+		flex-direction: row;
+		/* Dispone le card in colonna per schermi piccoli */
+		max-width: 100%;
+		/* Assicura che il contenitore delle card sia al 100% della larghezza disponibile */
+		margin-left: 0; /* Rimuove il margine sinistro */
+	}
+	.cust-col {
+		max-width: 100%;
+		/* Assicura che le colonne siano al 100% della larghezza del contenitore */
+		margin-right: 0; /* Rimuove il margine destro */
+	}
+	.form-control2 {
+		max-width: 25%;
+		/* Assicura che il controllo del form sia al 100% della larghezza disponibile */
+	}
+	.card-body2 {
+		max-width: 70%;
+	}
+	.pulsanti {
+		width: 100%;
+		/* Imposta la larghezza dei pulsanti al 100% per adattarsi a schermi piccoli */
+	}
+	.bottoni-custom {
+		flex-direction: column;
+		/* Dispone i pulsanti in colonna per schermi piccoli */
+		align-items: center; /* Centra i pulsanti orizzontalmente */
+	}
+	.cust-col {
+		flex: 0 0 30%;
+		margin-bottom: 10px; /* Spazio tra i contenitori */
+	}
+	/* Adatta le dimensioni dei contenitori per immagini e testo su schermi piccoli */
+	.custom-col2 {
+		flex: 0 0 70%;
+		/* Entrambi i contenitori occupano il 100% della larghezza */
+		margin-bottom: 10px; /* Spazio tra i contenitori */
+	}
+	.modal-custom {
+		position: fixed;
+		top: 70px;
+	}
+}
+

@@ -13,8 +13,7 @@ public class CategoriaModel {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/OhMyBag?useSSL=false", "root", "root");
+		return ConnesioneDatabase.getConnection();
 	}
 	
 	/*inserisce una categoria*/

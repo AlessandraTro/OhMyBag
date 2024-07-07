@@ -35,7 +35,6 @@ public class RegistrazioneControl extends HttpServlet {
 
 	}
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -50,30 +49,28 @@ public class RegistrazioneControl extends HttpServlet {
 		GregorianCalendar dataNascita = new GregorianCalendar();
 		SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
 
-		//controllo sul formato della data
+		// Controllo sul formato della data
 		try {
 			dataNascita.setTime(formatoData.parse(request.getParameter("data")));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		try {
+			// Crea un nuovo oggetto Utente con i dati ricevuti
 			Utente utente = new Utente(username, password, nome, cognome, cf, email, indirizzoSpedizione, telefono,
 					dataNascita, false);
 
 			utenteModel.saveUtente(utente);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		response.sendRedirect("RegistrazioneAvvenutaConSuccesso.jsp");
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		doGet(request, response);
 	}
 }
-
-

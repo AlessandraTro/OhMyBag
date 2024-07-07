@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 import it.ohmybag.bean.Composizione;
@@ -26,7 +25,7 @@ public class ComposizioneModel {
 		PreparedStatement statement=null;
 		
 		/*Sringa con Query*/
-		String insertSQL="INSERT INTO Composizione (IDOrdine, IDProdotto, Prezzo, Quantita, IVA) VALUES (?,?,?,?,?)";
+		String insertSQL="INSERT INTO Composizione (IDOrdine, IDProdotto, Prezzo, Quantita, IVA, Sconto) VALUES (?,?,?,?,?,?)";
 		
 		try {
 			conn=getConnection();/*creo la connessione con il database*/
@@ -37,6 +36,7 @@ public class ComposizioneModel {
 			statement.setFloat(3,composizione.getPrezzo());
 			statement.setInt(4, composizione.getQuantita());
 			statement.setFloat(5, composizione.getIva());
+			statement.setInt(6, composizione.getSconto());
 			
 			statement.executeUpdate();
 		}finally {
@@ -68,11 +68,12 @@ public class ComposizioneModel {
 
 	        while(rs.next()) { // Controlla se ci sono risultati nel ResultSet
 	        	bean=new Composizione();
-	            bean.setIdProdotto(rs.getString("IDOrdine"));
-	            bean.setIdOrdine(rs.getInt("IDProdotto"));
+	            bean.setIdProdotto(rs.getString("IDProdotto"));
+	            bean.setIdOrdine(rs.getInt("IDOrdine"));
 	            bean.setIva(rs.getInt("IVA"));
 	            bean.setPrezzo(rs.getFloat("Prezzo"));
 	            bean.setQuantita(rs.getInt("Quantita"));
+	            bean.setSconto(rs.getInt("Sconto"));
 	            
 	            elementi.add(bean);
 	        }
@@ -89,7 +90,7 @@ public class ComposizioneModel {
 	    }
 	    return elementi; // Restituisce il bean, che potrebbe essere null se non ci sono risultati nel ResultSet
 	}
-	
+	/*permette di eliminare una determinata composizione*/
 	public synchronized boolean deleteComp(String idProdotto, int idOrdine) throws SQLException{
 		Connection conn=null;
 		PreparedStatement statement=null;

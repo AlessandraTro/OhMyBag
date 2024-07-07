@@ -13,11 +13,11 @@ public class Carta {
 	
 	
 	//costruttore
-	public Carta(int id, String numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
+	public Carta(String numeroCarta, String circuito, String username, int cvv, GregorianCalendar dataScadenza) {
 		this.numeroCarta = numeroCarta;
 		this.cvv = cvv;
 		this.circuito = circuito;
-		this.id = id;
+		setId(id);
 		this.dataScadenza = dataScadenza;
 		this.username = username;
 	}

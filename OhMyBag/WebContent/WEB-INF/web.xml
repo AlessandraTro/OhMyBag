@@ -8,8 +8,6 @@
 		<welcome-file>home</welcome-file>
 	</welcome-file-list>
 
-
-
 	<error-page>
 		<error-code>500</error-code>
 		<location>/errorPage/500.jsp</location>
@@ -26,6 +24,7 @@
 		<exception-type>java.lang.Throwable</exception-type>
 		<location>/errorPage/genericError.jsp</location>
 	</error-page>
+	
 	<filter>
 		<filter-name>AdminFilter</filter-name>
 		<filter-class>it.ohmybag.controller.AdminFilter</filter-class>
@@ -193,18 +192,18 @@
 		<servlet-name>DettagliUtenteAdmin</servlet-name>
 		<servlet-class>it.ohmybag.controller.DettagliUtenteAdmin</servlet-class>
 	</servlet>
-		  <servlet> 
-	<servlet-name>OttieniIndirizzoControl</servlet-name>
+	<servlet>
+		<servlet-name>OttieniIndirizzoControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.OttieniIndirizzoControl</servlet-class>
-	</servlet> 
+	</servlet>
 	<servlet>
-	<servlet-name>DeleteProductControl</servlet-name>
+		<servlet-name>DeleteProductControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.DeleteProductControl</servlet-class>
-	</servlet> 
+	</servlet>
 	<servlet>
-	<servlet-name>AdminProdottiEliminatiControl</servlet-name>
+		<servlet-name>AdminProdottiEliminatiControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.AdminProdottiEliminatiControl</servlet-class>
-	</servlet> 
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>
 		<url-pattern>/home</url-pattern>

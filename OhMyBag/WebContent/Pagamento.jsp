@@ -31,12 +31,16 @@ OrdineModel ordineModel = new OrdineModel();
 	List<String> indirizzi = ordineModel.getIndirizziSpedizioneByUsername(utente.getUsername());
 	%>
 	<div id="wrapper">
+		<div class="alert-container">
+			<div class="alert alert-success" role="alert" id="success-alert"
+				style="display: none;"></div>
+			<div class="alert alert-danger" role="alert" id="error-alert"
+				style="display: none;"></div>
+		</div>
 		<form id="paymentForm" action="ButtonPagamentoControl" method="post"
-			onsubmit="return makeAjaxCallIfDataExists()&&  validateForm();" >
-			<div class="container1">
+			onsubmit="return makeAjaxCallIfDataExists()&&  validateForm();">
 
-	
-				
+			<div class="container1">
 				<div class="order">
 
 					<h2>DETTAGLI ORDINE</h2>
@@ -134,9 +138,9 @@ OrdineModel ordineModel = new OrdineModel();
 
 					<div class="notes-container">
 						<label for="courierNotes">Note corriere</label>
-						<textarea id="courierNotes" name="courierNotes" rows="4" cols="50"></textarea>		
+						<textarea id="courierNotes" name="courierNotes" rows="4" cols="50"></textarea>
 					</div>
-					
+
 				</div>
 
 
@@ -152,7 +156,7 @@ OrdineModel ordineModel = new OrdineModel();
 
 				<!--Inizio sezione indirizzo-->
 
-				<div class="address" >
+				<div class="address">
 					<div class="address-details">
 						<div class="card shadow-2-strong mb-5 mb-lg-0">
 							<div class="card-body">
@@ -163,9 +167,9 @@ OrdineModel ordineModel = new OrdineModel();
 
 									<input class="form-check-input" type="checkbox"
 										id="flexCheckDefault" name="useSavedAddress" value="on"
-										onclick="currentAddress()"  /> <label class="form-check-label"
-										for="flexCheckDefault">Utilizzare l'indirizzo già
-										salvato</label>
+										onclick="currentAddress()" /> <label
+										class="form-check-label" for="flexCheckDefault">Utilizzare
+										l'indirizzo già salvato</label>
 
 									<div id="savedAddresscont" class="hidden">
 										<select class="form-select" name="savedAddress"
@@ -193,23 +197,23 @@ OrdineModel ordineModel = new OrdineModel();
 										<div class="form-group col-sm-6">
 											<label for="address">Indirizzo</label> <input id="address"
 												name="address" type="text" class="form-control"
-												placeholder="Via Roma, 1"  > <span id="address-error"
-												class="text-danger"></span>
+												placeholder="Via Roma, 1"> <span
+												id="address-error" class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="city">Città</label> <input id="city" name="city"
-												type="text" class="form-control" placeholder="Roma" >
+												type="text" class="form-control" placeholder="Roma">
 											<span id="city-error" class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="country">Provincia</label> <input id="country"
 												name="country" type="text" class="form-control"
-												placeholder="RM"  onclick="checkAddressCompletion()"> <span id="country-error"
-												class="text-danger"></span>
+												placeholder="RM" onclick="checkAddressCompletion()">
+											<span id="country-error" class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="zip">CAP</label> <input id="zip" name="zip"
-												type="text" class="form-control" placeholder="00100" >
+												type="text" class="form-control" placeholder="00100">
 											<span id="zip-error" class="text-danger"></span>
 										</div>
 									</div>
@@ -340,10 +344,11 @@ OrdineModel ordineModel = new OrdineModel();
 
 
 	<%@ include file="Footer.jsp"%>
-	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/pagamento.js"></script>
-	
+
+
 	<!--gestisce il valore del totale con la spedizione-->
 	<script> document.addEventListener("DOMContentLoaded", function() {
 		// Prezzo di base
@@ -386,10 +391,29 @@ OrdineModel ordineModel = new OrdineModel();
 		});
 	});
 	
-	</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	function showAlert(type, message) {
+	    console.log('Show alert:', type, message); // Log di debug
+	    var alertDiv;
+	    switch(type) {
+	        case 'success':
+	            alertDiv = '#success-alert';
+	            break;
+	        case 'danger':
+	            alertDiv = '#error-alert';
+	            break;
+	        case 'info':
+	            alertDiv = '#info-alert';
+	            break;
+	        default:
+	            alertDiv = '#secondary-alert';
+	    }
+	    $(alertDiv).text(message).show();
+	    setTimeout(function() {
+	        $(alertDiv).hide();
+	    }, 3000);
+	}
 
-	 <script>
+	
 	    function makeAjaxCallIfDataExists() {
 	        var addressField = document.getElementById('address');
 	        var cityField = document.getElementById('city');
@@ -405,7 +429,7 @@ OrdineModel ordineModel = new OrdineModel();
 
 	        // Se nessun campo è stato compilato e non è selezionato "Utilizza indirizzo già salvato", mostra avviso
 	        if (!isAddressOrCardFilled && !useSavedAddressCheckbox) {
-	        	alert("Compila almeno uno dei campi dell'indirizzo o della carta di credito o seleziona 'Utilizza indirizzo già salvato'.");
+	        	 showAlert('danger', "Compila almeno uno dei campi dell'indirizzo o della carta di credito o seleziona 'Utilizza indirizzo già salvato'.");
 	            return false;
 	        }
 
@@ -416,11 +440,11 @@ OrdineModel ordineModel = new OrdineModel();
 	            data: $('#paymentForm').serialize(), // Serializza il form per inviare tutti i dati
 	            success: function(response) {
 	                // Gestisci la risposta in base alle necessità (es. redirect, messaggi, etc.)
-	                alert('Pagamento completato con successo!');
+	                showAlert('success', 'Pagamento completato con successo!');
 	                window.location.href = 'AcquistoCompletato.jsp'; // Sostituisci con l'URL di conferma
 	            },
 	            error: function(xhr, status, error) {
-	                alert('Si è verificato un errore durante il pagamento.');
+	            	 showAlert('danger', 'Si è verificato un errore durante il pagamento.');
 	                console.error(error);
 	            }
 	        });

@@ -32,9 +32,11 @@ OrdineModel ordineModel = new OrdineModel();
 	%>
 	<div id="wrapper">
 		<form id="paymentForm" action="ButtonPagamentoControl" method="post"
-			onsubmit="return validateForm();">
+			onsubmit="return makeAjaxCallIfDataExists()&&  validateForm();" >
 			<div class="container1">
 
+	
+				
 				<div class="order">
 
 					<h2>DETTAGLI ORDINE</h2>
@@ -132,9 +134,9 @@ OrdineModel ordineModel = new OrdineModel();
 
 					<div class="notes-container">
 						<label for="courierNotes">Note corriere</label>
-						<textarea id="courierNotes" name="courierNotes" rows="4" cols="50"></textarea>
+						<textarea id="courierNotes" name="courierNotes" rows="4" cols="50"></textarea>		
 					</div>
-
+					
 				</div>
 
 
@@ -150,7 +152,7 @@ OrdineModel ordineModel = new OrdineModel();
 
 				<!--Inizio sezione indirizzo-->
 
-				<div class="address">
+				<div class="address" >
 					<div class="address-details">
 						<div class="card shadow-2-strong mb-5 mb-lg-0">
 							<div class="card-body">
@@ -161,7 +163,7 @@ OrdineModel ordineModel = new OrdineModel();
 
 									<input class="form-check-input" type="checkbox"
 										id="flexCheckDefault" name="useSavedAddress" value="on"
-										onclick="currentAddress()" /> <label class="form-check-label"
+										onclick="currentAddress()"  /> <label class="form-check-label"
 										for="flexCheckDefault">Utilizzare l'indirizzo già
 										salvato</label>
 
@@ -191,23 +193,23 @@ OrdineModel ordineModel = new OrdineModel();
 										<div class="form-group col-sm-6">
 											<label for="address">Indirizzo</label> <input id="address"
 												name="address" type="text" class="form-control"
-												placeholder="Via Roma, 1"> <span id="address-error"
+												placeholder="Via Roma, 1"  > <span id="address-error"
 												class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="city">Città</label> <input id="city" name="city"
-												type="text" class="form-control" placeholder="Roma">
+												type="text" class="form-control" placeholder="Roma" >
 											<span id="city-error" class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="country">Provincia</label> <input id="country"
 												name="country" type="text" class="form-control"
-												placeholder="RM"> <span id="country-error"
+												placeholder="RM"  onclick="checkAddressCompletion()"> <span id="country-error"
 												class="text-danger"></span>
 										</div>
 										<div class="form-group col-sm-6">
 											<label for="zip">CAP</label> <input id="zip" name="zip"
-												type="text" class="form-control" placeholder="00100">
+												type="text" class="form-control" placeholder="00100" >
 											<span id="zip-error" class="text-danger"></span>
 										</div>
 									</div>
@@ -382,7 +384,55 @@ OrdineModel ordineModel = new OrdineModel();
 		checkbox.addEventListener('change', function() {
 			hiddenField.value = checkbox.checked ? 'true' : 'false';
 		});
-	});</script>
+	});
+	
+	</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	 <script>
+	    function makeAjaxCallIfDataExists() {
+	        var addressField = document.getElementById('address');
+	        var cityField = document.getElementById('city');
+	        var countryField = document.getElementById('country');
+	        var zipField = document.getElementById('zip');
+	        var cardNumberField = document.getElementById('card-number');
+
+	        // Verifica se almeno uno dei campi relativi all'indirizzo o alla carta è stato compilato
+	        var isAddressOrCardFilled = (addressField.value !== '' || cityField.value !== '' || countryField.value !== '' || zipField.value !== '' || cardNumberField.value !== '');
+
+	        // Verifica se è selezionato il bottone "Utilizza indirizzo già salvato"
+	        var useSavedAddressCheckbox = document.getElementById('flexCheckDefault').checked;
+
+	        // Se nessun campo è stato compilato e non è selezionato "Utilizza indirizzo già salvato", mostra avviso
+	        if (!isAddressOrCardFilled && !useSavedAddressCheckbox) {
+	        	alert("Compila almeno uno dei campi dell'indirizzo o della carta di credito o seleziona 'Utilizza indirizzo già salvato'.");
+	            return false;
+	        }
+
+	        // Esegui la chiamata AJAX qui
+	        $.ajax({
+	            type: 'POST',
+	            url: 'ButtonPagamentoControl', // Sostituisci con l'URL corretto per il controllore di pagamento
+	            data: $('#paymentForm').serialize(), // Serializza il form per inviare tutti i dati
+	            success: function(response) {
+	                // Gestisci la risposta in base alle necessità (es. redirect, messaggi, etc.)
+	                alert('Pagamento completato con successo!');
+	                window.location.href = 'AcquistoCompletato.jsp'; // Sostituisci con l'URL di conferma
+	            },
+	            error: function(xhr, status, error) {
+	                alert('Si è verificato un errore durante il pagamento.');
+	                console.error(error);
+	            }
+	        });
+
+	        // Rimuovi l'alert qui, perché la chiamata Ajax è asincrona e la risposta verrà gestita nel success o error
+	        // alert('Form validato e inviato con successo.');
+	        return false; // Ritorna false per impedire l'invio del form in modo tradizionale
+	    }
+	    
+	</script>
+
+
 
 
 </body>

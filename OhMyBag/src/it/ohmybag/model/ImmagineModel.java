@@ -322,6 +322,34 @@ public class ImmagineModel {
             }
         }
     }
+    
+    public void deleteImmaginiByProdottoId(String productId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = getConnection();
+            
+            // Query SQL per eliminare le immagini
+            String sql = "DELETE FROM immagine WHERE id_prodotto = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, productId);
+            
+            // Esegui la query di eliminazione
+            stmt.executeUpdate();
+            
+        } finally {
+            // Chiudi le risorse (statement e connessione)
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+
 }
 
 

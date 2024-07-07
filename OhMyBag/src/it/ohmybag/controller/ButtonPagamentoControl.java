@@ -42,6 +42,9 @@ public class ButtonPagamentoControl extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	response.setContentType("text/html;charset=UTF-8");
+	    request.setCharacterEncoding("UTF-8");
         try {
             System.out.println("Inizio doGet");
 
@@ -100,7 +103,7 @@ public class ButtonPagamentoControl extends HttpServlet {
                 }
                 
                 
-                
+               
               
                 HashMap<Prodotto, Integer> prodotti = carrello.getProdotti();
                 float prezzoTotale = 0;

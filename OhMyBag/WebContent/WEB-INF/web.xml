@@ -193,13 +193,17 @@
 		<servlet-name>DettagliUtenteAdmin</servlet-name>
 		<servlet-class>it.ohmybag.controller.DettagliUtenteAdmin</servlet-class>
 	</servlet>
-		  <servlet>
+		  <servlet> 
 	<servlet-name>OttieniIndirizzoControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.OttieniIndirizzoControl</servlet-class>
 	</servlet> 
 	<servlet>
 	<servlet-name>DeleteProductControl</servlet-name>
 		<servlet-class>it.ohmybag.controller.DeleteProductControl</servlet-class>
+	</servlet> 
+	<servlet>
+	<servlet-name>AdminProdottiEliminatiControl</servlet-name>
+		<servlet-class>it.ohmybag.controller.AdminProdottiEliminatiControl</servlet-class>
 	</servlet> 
 	<servlet-mapping>
 		<servlet-name>HomeControl</servlet-name>

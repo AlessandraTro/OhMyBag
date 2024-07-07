@@ -134,6 +134,10 @@ public class Prodotto implements Serializable {
 		Iva = iva;
 	}
 	
+	public boolean getEliminato() {
+		return Eliminato;
+	}
+	
 	@Override
 	public String toString() {
 		return "Prodotto [id=" + id + ", marca=" + marca + ", nome=" + nome + ", prezzo=" + prezzo + ", tipologia="

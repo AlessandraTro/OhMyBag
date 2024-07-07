@@ -63,7 +63,7 @@ public class OttieniIndirizzoControl extends HttpServlet {
                     request.setAttribute("indirizzo", indirizzoSelezionato);
                 
                 
-                } else {
+                } else if(request.getParameter("address") == null && request.getParameter("city") == null && request.getParameter("country") ==null && request.getParameter("zip") == null){
                     indirizzo = request.getParameter("address") + ", " +
                                 request.getParameter("city") + ", " +
                                 request.getParameter("country") + ", " +

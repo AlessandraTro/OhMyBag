@@ -26,10 +26,14 @@ public class AdminControl extends HttpServlet {
 
 	static UtenteModel utenteModel;
 	static OrdineModel ordineModel;
-
+	static ImmagineModel immagineModel;
+	static ProdottoModel prodottoModel;
+	
 	static {
 		utenteModel = new UtenteModel();
 		ordineModel = new OrdineModel();
+		immagineModel = new ImmagineModel();
+		prodottoModel = new ProdottoModel ();
 	}
 
 	public AdminControl() {
@@ -41,6 +45,14 @@ public class AdminControl extends HttpServlet {
 			throws ServletException, IOException {
 
 		String pulsante = (String) request.getParameter("pulsante");
+		String productId = request.getParameter("ID");
+		
+		try {
+			request.setAttribute("ImageList", immagineModel.doRetrieveAll());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (pulsante.equals("Add")) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminAddProdotto.jsp");
@@ -68,12 +80,24 @@ public class AdminControl extends HttpServlet {
 			}
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/UtentiAdmin.jsp");
 			dispatcher.forward(request, response);
-			return; // Termina qui per evitare ulteriori forward
-		}
+			  return;// Termina qui per evitare ulteriori forward
+			  
+		}  else if (pulsante.equals("Delete")) {  
+            prodottoModel.setProductAsDeleted(productId);
+        }
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
-		dispatcher.forward(request, response);
-	}
+        try {
+            Collection<Prodotto> products = prodottoModel.adminFalseProduct();
+            request.getSession().setAttribute("products", products);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendRedirect("404.jsp");
+            return;
+        }
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminProdotti.jsp");
+        dispatcher.forward(request, response);
+    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

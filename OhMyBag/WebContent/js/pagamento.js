@@ -29,6 +29,7 @@ function currentAddress() {
 		newAddressSection.classList.add("visible");
 		savedAddressSelect.disabled = true;
 	}
+
 }
 
 document.getElementById("toggle-new-address").addEventListener("change", function() {
@@ -157,11 +158,10 @@ var cardHolderCorrect = false;
 var expiryCorrect = false;
 var cardNumberCorrect = false;
 var cvcCorrect = false;
+var courierNotesCorrect = false;
 
 function validateForm() {
 
-	var useSavedAddress = document.getElementById("flexCheckDefault").checked;
-	var useSavedCard = document.getElementById("useSavedCard").checked;
 
 	var addressCorrect = addressValidator(document
 		.getElementById("address"));
@@ -176,6 +176,9 @@ function validateForm() {
 		.getElementById("card-number"));
 	var cvcCorrect = cvcValidator(document.getElementById("cvc"));
 	var paymentMethodSelected = document.querySelector("input[name='circuito']:checked");
+	var courierNotesCorrect = courierNotesValidator(document.getElementById("courierNotes"));
+
+
 
 
 	if (!paymentMethodSelected) {
@@ -183,43 +186,8 @@ function validateForm() {
 		return false;
 	}
 
-	if (!addressCorrect) {
-		alert('Indirizzo non valido.');
-		return false;
-	}
 
-	if (!cityCorrect) {
-		alert('Città non valida.');
-		return false;
-	}
 
-	if (!countryCorrect) {
-		alert('Paese non valido.');
-		return false;
-	}
-
-	if (!zipCorrect) {
-		alert('CAP non valido.');
-		return false;
-	}
-
-	if (!expiryCorrect) {
-		alert('Data di scadenza non valida.');
-		return false;
-	}
-
-	if (!cardNumberCorrect) {
-		alert('Numero carta non valido.');
-		return false;
-	}
-
-	if (!cvcCorrect) {
-		alert('CVC non valido.');
-		return false;
-	}
-
-	alert('Form validato e inviato con successo.');
-	// Aggiungi il codice per inviare il form
 	return true;
 }
 
@@ -251,6 +219,7 @@ $("#card-number").change(function() {
 $("#cvc").change(function() {
 	cvcCorrect = cvcValidator(this);
 });
+
 
 /* Funzioni per il controllo della validità dei singoli input */
 function addressValidator(address) {
@@ -371,6 +340,7 @@ function cardNumberValidator(cardNumber) {
 		$("#card-number-error").text("Formato del numero carta errato. Inserisci il numero nel formato corretto (es. 1234-5678-9012-3456).");
 		return false;
 	}
+
 }
 
 // Funzione per verificare se il numero è di tipo Visa

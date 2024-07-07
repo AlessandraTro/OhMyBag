@@ -18,12 +18,13 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 </head>
 
 <body>
+    <!-- Fragment per includere l'header dell'admin -->
 	<%@ include file="HeaderAdmin.jsp"%>
 	<div class="container-table">
 		<h1>
 			<strong>Prodotti</strong>
 		</h1>
-
+        <!-- Form per la ricerca dei prodotti -->
 		<form class="formOrdini" id="filterForm" method="post">
 			<div class="Sel-prodotto">
 				<label class="text-inputs" for="usernameSearch">Prodotto:</label> <input
@@ -34,6 +35,8 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<button class="buttonsFilter" type="button" onclick="resetFilters()">Reset</button>
 			</div>
 		</form>
+		
+        <!-- Tabella per visualizzare i prodotti -->
 		<table border="1">
 			<tr>
 				<th>Immagine</th>
@@ -42,11 +45,14 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<th>Action</th>
 			</tr>
 			<%
+            // Controlla se ci sono prodotti disponibili
             if (products != null && products.size() != 0) {
+                // Itera sui prodotti disponibili
             	for (Prodotto bean : products) {
             %>
 			<tr id="product-<%=bean.getId()%>">
 				<%
+                // Itera sulle immagini per trovare quella di copertina
                 for (Immagine immagine : images) {
                     if (bean.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
                 %>
@@ -59,11 +65,12 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<td><%=bean.getId()%></td>
 				<td><%=bean.getNome()%></td>
 				<td>
-
+                    <!-- Bottone per eliminare il prodotto -->
 					<button class="delete-button"
 						onclick="deleteProduct('<%=bean.getId()%>')">Elimina</button>
-					<br> <a
-					href="ButtonModificaProdottoControl?ID=<%=bean.getId()%>"
+					<br> 
+                    <!-- Link per modificare il prodotto -->
+					<a href="ButtonModificaProdottoControl?ID=<%=bean.getId()%>"
 					class="details-link">Modifica</a><br>
 				</td>
 			</tr>
@@ -78,9 +85,11 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
             }
             %>
 		</table>
+        <!-- Link per visualizzare i prodotti eliminati -->
 		<a href="AdminProdottiEliminatiControl" class="details-link">Visualizza
 			Prodotti Eliminati</a>
 	</div>
+    <!-- Fragment per includere il modal di conferma -->
 	<%@ include file="/ConfirmationModal.jsp" %>
 	<script src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>

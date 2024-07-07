@@ -19,11 +19,14 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
 </head>
 
 <body>
+    <!-- Fragment per includere l'header dell'admin -->
     <%@ include file="HeaderAdmin.jsp"%>
+    <!-- Form per modificare il prodotto -->
 	<form class="formAdmin" id="productForm" action="AdminModificaControl" method="post" onsubmit="return validate(this)">
 	<div class="informazioni">
 		<div class="header">
 			<h2 class="titolo">Dettagli Prodotto</h2>
+			<!-- Bottone per tornare al catalogo -->
 			<button type="button" class="pulsante" onclick="goToCatalog()">Torna al Catalogo</button>
 		</div>
 		<div class="container-dettagli">
@@ -62,7 +65,7 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
             </div>
 
             <div class="login-box">
-            <!-- Formattata la data -->
+            <!-- Formattazione della data di inserimento -->
 			<%
 			GregorianCalendar calendar = product.getDataInserimento();
 			LocalDateTime dateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
@@ -119,6 +122,7 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
         	        	<hr class="featurette-divider">
         	
         	<div class="buttonBig">
+               <!-- Bottoni per inviare il modulo o resettare i campi -->
         		 <button type="submit" class="pulsanteBig" onclick="return confirmNoChanges()">Modifica</button>
         	     <button type="reset" class="pulsanteBig" onclick="confirmReset(event)">Reset</button>
    			</div>        	
@@ -128,6 +132,7 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
     </div>	
     </form>
     <!-- MODALI -->
+    <!-- Modale per gestire le immagini -->
 	<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -140,11 +145,16 @@ Categoria categoria = (Categoria) request.getSession().getAttribute("categoria")
             </div>
         </div>
     </div>
-</div>	<%@ include file="/ConfirmationModal.jsp" %>
+</div>
+<!-- Fragment per includere il modal di conferma -->
+<%@ include file="/ConfirmationModal.jsp" %>
 
 	<!-- SCRIPT -->
+	<!-- Inclusione di jQuery -->
 	<script src="js/jquery-3.7.1.min.js"></script>
+	<!-- Inclusione di Bootstrap -->
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<!-- Inclusione di CKEditor dal CDN -->
 	<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 	<!-- script preso online per includere CKEditor dal CDN -->
 	

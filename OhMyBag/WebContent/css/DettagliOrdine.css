@@ -1,3 +1,5 @@
+
+/* Definizione delle variabili CSS */
 :root {
 	--primary-color: #c6c3c3;
 	--second-color: #ffffff;
@@ -33,7 +35,7 @@
 .order {
 	margin: 0 auto;
 	max-height: 70%; /* Altezza massima del contenitore */
-	overflow-y: auto;
+	overflow-y: auto;/* Scroll verticale se necessario */
 }
 
 .order h2 {
@@ -50,8 +52,8 @@
 	max-width: 700px; /* Larghezza fissa per tutti gli item */
 	height: auto; /* Altezza dinamica per adattarsi al contenuto */
 	background-color: white;
-	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-	overflow: hidden;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);/* Ombra */
+	overflow: hidden;/* Nasconde eventuali overflow */
 	position: relative;
 	margin-bottom: 30px;
 }
@@ -64,14 +66,13 @@
 	width: 30%;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;
+	overflow: hidden;/* Nasconde overflow */
 }
 
 .item .image img {
 	width: 50%;
 	height: 100%;
-	object-fit: cover;
-	/* Riempie il contenitore senza distorcere l'immagine */
+	object-fit: cover;/* Riempie il contenitore senza distorcere l'immagine */
 	display: block;
 }
 
@@ -99,7 +100,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 15px;
+	border-radius: 15px;/* Bordi arrotondati */
 	font-size: 0.7em; /* Riduce la dimensione del font */
 }
 
@@ -136,10 +137,10 @@ hr {
 .information {
 	position: relative;
 	width: 90%;
-	backdrop-filter: blur(25px);
-	border: 2px solid var(--primary-color);
-	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
-	border-radius: 15px;
+	backdrop-filter: blur(25px);/* Filtro sfocato */
+	border: 2px solid var(--primary-color);/* Bordo */
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);/* Ombra */
+	border-radius: 15px;/* Bordi arrotondati */
 	padding: 10%;
 	color: var(--black-color);
 	display: flex;
@@ -213,9 +214,7 @@ hr {
 /* Stili per schermi da 844px a 950px */
 @media screen and (min-width: 844px) and (max-width: 950px) {
 	.container1 {
-/* 		width: 60%; Container1 occupa il 60% dello spazio disponibile */
-/* 		max-height: 400px; */
-		overflow-y: auto;
+		overflow-y: auto;/* Scroll verticale se necessario */
 	}
 	.container2 {
 		margin-left: 20px; /* Aggiusta i margini se necessario */

@@ -1,7 +1,7 @@
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 15px;
+	gap: 15px;/* Spazio tra le miniature delle immagini */
 }
 
 .thumbnail {

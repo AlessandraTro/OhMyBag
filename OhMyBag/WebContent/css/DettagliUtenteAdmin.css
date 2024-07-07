@@ -1,10 +1,10 @@
 .information {
 	position: relative;
 	width: 90%;
-	backdrop-filter: blur(25px);
-	border: 2px solid var(--primary-color);
-	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
-	border-radius: 15px;
+	backdrop-filter: blur(25px);/* Filtro sfocato per il blur dello sfondo */
+	border: 2px solid var(--primary-color);/* Bordo di 2px solid con colore variabile */
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);/* Ombra con effetto al bordo */
+	border-radius: 15px;/* Bordi arrotondati */
 	padding: 10%;
 	color: var(--black-color);
 	display: flex;

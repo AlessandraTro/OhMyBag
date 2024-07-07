@@ -16,7 +16,7 @@ body {
 	background-color: #fff;
 	padding: 50px;
 	border: 2px solid var(--primary-color);
-	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);/* Ombra leggera */
 	border-radius: 15px;
 }
 
@@ -42,8 +42,8 @@ h1 {
 	background-color: #d6ccc2;
 	color: #fff;
 	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+	border-radius: 5px;/* Border radius per angoli arrotondati */
+	cursor: pointer;/* Cursore indicatore di selezione */
 	margin-bottom: 3%;
 	width: 300px;
 }
@@ -67,7 +67,7 @@ h1 {
 
 table {
 	width: 100%;
-	border-collapse: collapse;
+	border-collapse: collapse;/* Unisce i bordi delle celle */
 	margin-bottom: 20px;
 }
 
@@ -85,6 +85,7 @@ th {
 	color: #333;
 }
 
+/*viene utilizzato per selezionare tutte le righe pari all'interno di una tabella*/
 tr:nth-child(even) {
 	background-color: #f9f9f9;
 }

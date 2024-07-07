@@ -3,6 +3,7 @@
     import="java.sql.SQLException, java.util.*, java.time.*, java.time.format.DateTimeFormatter, it.ohmybag.bean.*, it.ohmybag.model.*"%>
     
 <%
+//Ottieni la collezione degli utenti dalla sessione
 Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribute("utenti");
 %>
 <!DOCTYPE html>
@@ -16,6 +17,7 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
 <title>Utenti</title>
 </head>
 <body>
+	<%-- Includi l'header dell'amministratore --%>
     <%@ include file="HeaderAdmin.jsp"%>
     <div class="tutto">
         <div class="container-table">
@@ -40,8 +42,10 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
                     </tr>
                 </thead>
                 <tbody id="utentiTableBody">
-                    <% 
+                    <%
+                 	// Verifica se ci sono utenti da visualizzare
                     if (utenti != null && !utenti.isEmpty()) {
+                    	// Ciclo attraverso gli utenti e li visualizzo in una tabella
                         for (Utente utenteLoop : utenti) {
                     %>
                     <tr class="tab">
@@ -49,7 +53,7 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
                         <td class="colonna"><%= utenteLoop.getCognome() %></td>
                         <td class="colonna"><%= utenteLoop.getUsername() %></td>
     
-                        <!-- Formattata la data -->
+                        <!-- Formattata la data di nascita -->
                         <%
                         GregorianCalendar calendar = utenteLoop.getDataDiNascita();
                         LocalDateTime dateTime = LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
@@ -57,7 +61,9 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
                         String formattedDate = dateTime.format(formatter);
                         %>
                         <td class="colonna"><%= formattedDate %></td>
-                        <td class="colonna"><a href="#" class="details-link"
+                        <td class="colonna">
+                        <!-- Link per visualizzare i dettagli dell'utente in una modale -->
+                        <a href="#" class="details-link"
 						data-bs-toggle="modal" data-bs-target="#utenteModal"
 						data-order-id="<%=utenteLoop.getEmail()%>">Dettagli</a><br></td>
                     </tr>
@@ -65,6 +71,7 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
                         }
                     } else {
                     %>
+                    <!-- Nessun utente trovato -->
                     <tr class="tab">
                         <td class="colonna" colspan="5">Nessun utente trovato</td>
                     </tr>
@@ -76,7 +83,7 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
         </div>
     </div>
     
-    	<!-- Dettagli Utente Modal -->
+    <!-- Modale per i dettagli dell'utente -->
 	<div class="modal fade" id="utenteModal" tabindex="-1" role="dialog"
 		aria-labelledby="utenteModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
@@ -98,11 +105,16 @@ Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribu
      <script src="js/utentiAdmin.js"></script>
 
 	<script>
+	// Aggiungi un listener quando il documento è completamente caricato
 document.addEventListener('DOMContentLoaded', function () {
+	// Seleziona tutti i link per i dettagli degli utenti
     var detailsLinks = document.querySelectorAll('.details-link');
     
+ 	// Itera su ogni link
     detailsLinks.forEach(function(link) {
+    	// Aggiungi un listener per l'evento click
         link.addEventListener('click', function(event) {
+        	// Ottieni l'username dell'utente cliccato
             var username = event.target.getAttribute('data-order-id');
             
             // Fai una chiamata AJAX per ottenere i dettagli dell'ordine

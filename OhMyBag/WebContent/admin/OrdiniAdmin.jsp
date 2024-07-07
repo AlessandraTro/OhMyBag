@@ -2,8 +2,11 @@
 	pageEncoding="UTF-8"
 	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.bean.*,it.ohmybag.model.*"%>
 <%
+//Ottieni la collezione degli ordini dalla sessione
 Collection<Ordine> ordini = (Collection<Ordine>) request.getSession().getAttribute("ordini");
+//Ottieni la collezione degli utenti dalla sessione
 Collection<Utente> utenti = (Collection<Utente>) request.getSession().getAttribute("utenti");
+//Se non ci sono ordini, inizializza una nuova ArrayList
 if (ordini == null) {
 	ordini = new ArrayList<>();
 }
@@ -19,6 +22,7 @@ if (ordini == null) {
 <title>Ordini</title>
 </head>
 <body>
+	<%-- Includi l'header dell'amministratore --%>
 	<%@ include file="HeaderAdmin.jsp"%>
 	<div class="tutto">
 		<div class="container-table">
@@ -29,6 +33,7 @@ if (ordini == null) {
 					<label class="text-inputs" for="username">Utente:</label> <select
 						id="username" name="username">
 						<option class="tendina" value="">--Seleziona Utente--</option>
+						<%-- Ciclo sugli utenti disponibili e li aggiungi come opzioni nella tendina --%>
 						<%
 						if (utenti != null) {
 							for (Utente utenteLoop : utenti) {
@@ -61,6 +66,7 @@ if (ordini == null) {
 					<th class="riga">Data Ordine</th>
 					<th class="riga">Ordine</th>
 				</tr>
+				<%-- Ciclo sugli ordini e li visualizzi in una tabella --%>
 				<%
 				if (!ordini.isEmpty()) {
 					for (Ordine ordine : ordini) {
@@ -94,7 +100,7 @@ if (ordini == null) {
 		</div>
 	</div>
 
-	<!-- Dettagli Ordine Image Modal -->
+	<!-- Modal per i dettagli dell'ordine -->
 	<div class="modal fade" id="ordiniModal" tabindex="-1" role="dialog"
 		aria-labelledby="ordiniModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl" role="document">

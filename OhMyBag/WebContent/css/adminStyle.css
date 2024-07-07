@@ -13,8 +13,8 @@
 
 table, th, td {
 	text-align: center;
-	border: 1px solid black;
-	border-collapse: collapse;
+	border: 1px solid black;/* Aggiunge un bordo nero di 1px a tutte le celle e agli intestazioni */
+	border-collapse: collapse;/* Specifica che i bordi delle celle devono fondersi */
 }
 
 th, td {

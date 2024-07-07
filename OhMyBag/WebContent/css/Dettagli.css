@@ -12,7 +12,7 @@ body {
 
 .product-images{
 	flex: 1;
-	overflow-x: hidden;
+	overflow-x: hidden;/* Nascondi lo scroll orizzontale */
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:center;
@@ -47,7 +47,7 @@ img {
 	color: #fff;
 	padding: 10px 120px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 5px;/* Bordi arrotondati */
 	cursor: pointer;
 	margin-bottom: 30px;
 	
@@ -65,8 +65,8 @@ img {
 .toggle-button {
 	background: none;
 	border: none;
-	cursor: pointer;
-	text-decoration: underline;
+	cursor: pointer;/* Puntatore del mouse */
+	text-decoration: underline;/* Sottolineato */
 	color: #6b6565;
 	margin-bottom: 10px;
 	margin-top: 15px;
@@ -75,7 +75,7 @@ img {
 }
 
 .description:target, .shipping-returns:target {
-	display: block;
+	display: block;/* Visualizza il contenuto quando l'ancora è selezionata */
 }
 
 .carousel-control-prev, .carousel-control-next {

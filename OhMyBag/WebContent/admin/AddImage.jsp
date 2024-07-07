@@ -29,6 +29,8 @@ if (images != null && !images.isEmpty()) {
 
 <body>
     <div class="container">
+
+		<!--possibili alert che potrebbero uscire nel sito -->
         <div class="alert alert-success" role="alert" id="success-alert" style="display:none;">
             Immagini aggiunte con successo!
         </div>
@@ -41,6 +43,8 @@ if (images != null && !images.isEmpty()) {
         <div class="alert alert-secondary" role="alert" id="secondary-alert" style="display:none;">
             Formato file non valido.
         </div>
+        
+		<!--inizio sezione di aggiunta immagine con modale-->
         <div class="card">
             <div class="card-body">
                 <form id="addImageForm" onsubmit="return validateFiles(event)"
@@ -48,6 +52,9 @@ if (images != null && !images.isEmpty()) {
                     <div class="list-group gallery">
                         <% if (images != null && !images.isEmpty()) { %>
                         <% if (copertina != null) { %>
+                        
+<!--                         se è presente la copertina del prodotto allora la aggiungo -->
+<!--                         ad una sezione separata dalle altre immagini -->
                         <div class="form-check copertina">
                             <p class="text-copertina">Immagine di Copertina</p>
                             <img src="<%= request.getContextPath() + "/" + copertina.getNome() %>"
@@ -55,18 +62,25 @@ if (images != null && !images.isEmpty()) {
                         </div>
                         <% } %>
                         <% for (Immagine immagine : altreImmagini) { %>
+                        
+<!--                         carico tutte le immagini che sono presenti per quel prodotto  -->
+<!--                         al di fuori dell'immagine di copertina che è già stata caricata -->
                         <div class="form-check">
                             <img src="<%= request.getContextPath() + "/" + immagine.getNome() %>"
                                  alt="Product Image" class="img-responsive">
                         </div>
                         <% } %>
                         <% } else { %>
+                        
+<!--                         altrimenti avviso che non sono presenti immagini per quel prodotto -->
                         <p>No images found.</p>
                         <% } %>
                     </div>
 
                     <hr class="featurette-divider">
                     <div class="mb-3">
+                    
+<!--                     	do la possibilità all'admin di aggiungere delle immagini -->
                         <label for="formFile" class="form-label">Seleziona Immagini</label>
                         <input class="form-control" type="file" id="formFile" name="images" accept="image/*" multiple>
                     </div>
@@ -81,6 +95,7 @@ if (images != null && !images.isEmpty()) {
     <script src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script>
+    
 	//Gestisce l'aggiunta di una o più immagini nella modale AddImage.jsp
     $(document).ready(function() {
         $('#addImageForm').on('submit', function(event) {
@@ -106,8 +121,8 @@ if (images != null && !images.isEmpty()) {
                 });
             }
         });
+        
 		//Controlla che i file siano immagini
-
         function validateFiles() {
             const files = document.getElementById('formFile').files;
             if (files.length === 0) {
@@ -122,9 +137,9 @@ if (images != null && !images.isEmpty()) {
             }
             return true;
         }
-
+		
+		//metodo per gestire i vari alert
         function showAlert(type, message) {
-            console.log('Show alert:', type, message); // Log di debug
             var alertDiv;
             switch(type) {
                 case 'success':

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*,it.ohmybag.model.*"%>
-
-
+	import="java.sql.SQLException,java.util.*,java.time.*,java.time.format.DateTimeFormatter,it.ohmybag.model.*,it.ohmybag.bean.*"%>
 <%
 Collection<Immagine> image = (Collection<Immagine>) request.getSession().getAttribute("productImages");
 Immagine copertina = null;
@@ -29,17 +27,21 @@ if (image != null && !image.isEmpty()) {
 </head>
 <body>
     <div class="container">
+        <!-- Alert di successo -->
         <div class="alert alert-success" role="alert" id="success-alert" style="display:none;">
             Immagine di copertina impostata con successo!
         </div>
+        <!-- Alert di errore -->
         <div class="alert alert-danger" role="alert" id="error-alert" style="display:none;">
             Si è verificato un errore durante il cambio di Copertina! 
         </div>
+        <!-- Alert di informazione -->
         <div class="alert alert-info" role="alert" id="info-alert" style="display:none;">
             Seleziona una nuova immagine di copertina oppure chiudi la finestra.
         </div>
         <div class="card">
             <div class="card-body">
+                <!-- Form per impostare l'immagine di copertina -->
                 <form id="setCoverForm" action="ButtonSetCover" method="post">
                     <div class="list-group gallery">
                         <% if (copertina != null) { %>
@@ -71,17 +73,19 @@ if (image != null && !image.isEmpty()) {
     <script src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script>
-	//Setta la copertina nella modale Copertina.jsp
+	//Funzione per settare la copertina nella modale Copertina.jsp
 
         $(document).ready(function() {
             $('#setCoverForm').on('submit', function(event) {
                 event.preventDefault();
                 
+                // Controlla se è selezionata un'immagine di copertina
                 if ($('input[name="coverImage"]:checked').length === 0) {
                     showAlert('info', 'Seleziona una nuova immagine di copertina oppure chiudi la finestra');
                     return;
                 }
                 
+             	// Effettua una chiamata AJAX per impostare l'immagine di copertina
                 $.ajax({
                     url: 'ButtonSetCover',
                     type: 'POST',
@@ -99,6 +103,7 @@ if (image != null && !image.isEmpty()) {
                 });
             });
 
+         	// Funzione per mostrare gli alert
             function showAlert(type, message) {
                 console.log('Show alert:', type, message); // Log di debug
                 var alertDiv;

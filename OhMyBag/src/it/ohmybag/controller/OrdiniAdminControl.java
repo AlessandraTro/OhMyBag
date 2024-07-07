@@ -73,7 +73,7 @@ public class OrdiniAdminControl extends HttpServlet {
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("OrdiniAdmin.jsp");
+        response.sendRedirect("admin/OrdiniAdmin.jsp");
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

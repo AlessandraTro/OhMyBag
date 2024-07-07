@@ -7,16 +7,16 @@
 
 /* Nelle card */
 .bi {
-	vertical-align: -.125em;
-	fill: currentColor;
+	vertical-align: -.125em;/* Imposta l'allineamento verticale dell'elemento */
+	fill: currentColor;/* Colora l'icona con il colore corrente del testo */
 }
 
 /* croller per la navigazione */
 .nav-scroller {
 	position: relative;
-	z-index: 2;
+	z-index: 2;/* Imposta lo z-index a 2 per gestire la sovrapposizione con altri elementi */
 	height: 2.75rem;
-	overflow-y: hidden;
+	overflow-y: hidden;/* Nasconde il contenuto che eccede l'altezza specificata lungo l'asse verticale */
 }
 
 /* stilizzare una barra di navigazione orizzontale */
@@ -25,10 +25,10 @@
 	flex-wrap: nowrap;
 	padding-bottom: 1rem;
 	margin-top: -1px;
-	overflow-x: auto;
+	overflow-x: auto;/* Abilita lo scorrimento orizzontale se il contenuto supera la larghezza dell'elemento */
 	text-align: center;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
+	white-space: nowrap;/* Impedisce il wrapping del testo, forzando il testo a rimanere su una singola riga */
+	-webkit-overflow-scrolling: touch;/* Abilita il comportamento di scorrimento fluido (scrolling) su dispositivi touch per WebKit */
 }
 /* Personalizzazione della paginazione */
 .pagination {
@@ -49,6 +49,7 @@
 	color: white !important; /* Colore del testo al passaggio del mouse */
 }
 
+/*si applica agli elementi figlio diretti di un elemento*/
 .active>.page-link {
 	background-color: #958971 !important;
 	/* Colore di sfondo della pagina attiva */

@@ -16,12 +16,14 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 	type="text/css">
 </head>
 <body>
+    <!-- Fragment per includere l'header dell'admin -->
 	<%@ include file="HeaderAdmin.jsp"%>
 	<div class="container-table">
 		<h1>
 			<strong>Prodotti eliminati</strong>
 		</h1>
-
+		
+        <!-- Form per la ricerca dei prodotti eliminati -->
 		<form class="formOrdini" id="filterForm" method="post">
 			<div class="Sel-prodotto">
 				<label class="text-inputs" for="usernameSearch">Prodotto:</label> <input
@@ -32,6 +34,8 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<button class="buttonsFilter" type="button" onclick="resetFilters()">Reset</button>
 			</div>
 		</form>
+		
+        <!-- Tabella per visualizzare i prodotti eliminati -->
 		<table border="1">
 			<tr>
 				<th>Immagine</th>
@@ -40,11 +44,14 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<th>Action</th>
 			</tr>
 			<%
+            // Controlla se ci sono prodotti eliminati disponibili
             if (deletedProducts != null && deletedProducts.size() != 0) {
+                // Itera sui prodotti eliminati disponibili
                 for (Prodotto bean : deletedProducts) {
             %>
 			<tr id="product-<%=bean.getId()%>">
 				<%
+                // Itera sulle immagini per trovare quella di copertina
                 for (Immagine immagine : images) {
                     if (bean.getId().equals(immagine.getIdProdotto()) && immagine.isCopertina()) {
                 %>
@@ -57,8 +64,11 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 				<td><%=bean.getId()%></td>
 				<td><%=bean.getNome()%></td>
 				<td>
+                    <!-- Bottone per ripristinare il prodotto -->
 					<button onclick="restoreProduct('<%=bean.getId()%>')"
-						class="restore-link">Ripristina</button> <a
+						class="restore-link">Ripristina</button> 
+                    <!-- Link per modificare il prodotto -->
+					<a
 					href="ButtonModificaProdottoControl?ID=<%=bean.getId()%>"
 					class="details-link">Modifica</a><br>
 				</td>
@@ -74,8 +84,12 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
             }
             %>
 		</table>
+		
+        <!-- Link per ritornare al catalogo -->
 		<a href="AdminControl?pulsante=Catalogo" class="details-link">Ritorna al catalogo</a>
 	</div>
+	
+    <!-- Fragment per includere il modal di conferma -->
 	<%@ include file="/ConfirmationModal.jsp" %>
 	<script src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
@@ -83,7 +97,7 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
 	<script>
 	
 	 function restoreProduct(productId) {
-         // Apri la modale
+         // Apri la modale di conferma
           $('#confirmModalMessage').text("Sei sicuro di voler ripristinare il prodotto?");
          $('#confirmModal').modal('show');
 
@@ -100,6 +114,8 @@ Collection<Immagine> images = (Collection<Immagine>) request.getAttribute("Image
              xhr.send('pulsante=Ripristina&ID=' + productId);
              
          });
+         
+         // Quando viene cliccato il pulsante di annullamento
          $('#confirmModal .btn-secondary').off('click').on('click', function() {
              $('#confirmModal').modal('hide');
              // Esegui altre azioni di annullamento se necessario

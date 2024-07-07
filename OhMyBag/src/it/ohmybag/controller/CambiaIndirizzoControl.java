@@ -41,9 +41,9 @@ public class CambiaIndirizzoControl extends HttpServlet {
 		utente=(Utente) request.getSession().getAttribute("utente");
 		utente.setIndirizzoSpedizione(Indirizzo);
 		try {
-			utenteModel.UpdateUtente(utente);
-			request.getSession().invalidate();
-			request.getSession().setAttribute("utente", utente);
+			utenteModel.UpdateUtente(utente); // Aggiorna l'utente nel database
+			request.getSession().invalidate(); // Invalida la sessione corrente
+			request.getSession().setAttribute("utente", utente); // Imposta i nuovi attributi di sessione
 			request.getSession().setAttribute("Alert", "Indirizzo cambiato con successo");
 		}catch(Exception e) {
 			System.out.println("Errore:"+e.getMessage());

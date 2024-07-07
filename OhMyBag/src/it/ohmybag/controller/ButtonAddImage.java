@@ -35,6 +35,7 @@ public class ButtonAddImage extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Ottiene il percorso dell'applicazione e imposta il percorso di salvataggio delle immagini
 		String applicationPath = request.getServletContext().getRealPath("");
 		String savePath = applicationPath + File.separator + "img" + File.separator + "prodotti";
 
@@ -45,10 +46,12 @@ public class ButtonAddImage extends HttpServlet {
 		String productId = product.getId();
 
 		try {
+			// Recupera tutte le immagini associate al prodotto
 			Collection<Immagine> images = (Collection<Immagine>) immagineModel.doRetrieveByProductId(productId);
 			for (Part part : request.getParts()) {
 				String fileName = extractFileName(part);
 				if (fileName != null && !fileName.isEmpty()) {
+					// Imposta il percorso del file
 					String filePath = savePath + File.separator + categoria.getNome() + File.separator
 							+ product.getTipologia() + File.separator + product.getMarca() + File.separator
 							+ product.getNome() + File.separator + fileName;
@@ -57,6 +60,7 @@ public class ButtonAddImage extends HttpServlet {
 					File file = new File(filePath);
 					file.getParentFile().mkdirs();
 
+					// Scrive il file nel percorso specificato
 					part.write(filePath);
 
 					//Salva le informazioni dell'immagini nel database
@@ -67,15 +71,14 @@ public class ButtonAddImage extends HttpServlet {
 					newImage.setIdProdotto(productId);
 					
 					boolean trovato = false;
+					// Controlla se l'immagine è già presente nel database
 					for (Immagine img : images) {
 						if (img.getNome().equals(newImage.getNome())) {
 							trovato = true;
-							System.out.println("Immagine già presente nel database");
 						}
 					}
 					if (!trovato) {
 						immagineModel.saveImage(newImage);
-						System.out.println("Percorso immagine salvato: " + newImage.getNome());
 					}
 
 				}

@@ -36,6 +36,7 @@ public class AdminAddProdottoControl extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
+		// Recupera i parametri della richiesta
 		String id=request.getParameter("ID");
 		String nome=request.getParameter("Nome");
 		float prezzo=Float.parseFloat(request.getParameter("Prezzo"));
@@ -48,15 +49,13 @@ public class AdminAddProdottoControl extends HttpServlet{
 		int annoCollezione=Integer.parseInt(request.getParameter("AnnoCollezione"));
 		int disponibilita=Integer.parseInt(request.getParameter("Disponibilita"));
 		
-		System.out.println("immagine= "+request.getParameter("imgCopertina"));
-		
-		System.out.println("ID: "+id);
-		
+		// Crea un nuovo oggetto Prodotto e imposta i suoi attributi
 		prodotto= new Prodotto(id,marca,nome,prezzo,tipologia, categoria, descrizione, annoCollezione, iva);
 		prodotto.setDisponibilita(disponibilita);
 		prodotto.setSconto(sconto);
 		
 		try {
+			// Salva il prodotto nel database e aggiunge l'immagine
 			prodottoModel.saveProduct(prodotto);
 			aggiuntaImmagine(request, response);
 		}catch(Exception e) {
@@ -110,6 +109,7 @@ public class AdminAddProdottoControl extends HttpServlet{
 	    response.getWriter().println("Upload completato con successo!");
 	}
 
+	// Metodo per salvare l'immagine nel file system
 	private void saveImageToFileSystem(Part part, String imageSavePath) throws IOException {
 	    File file = new File(imageSavePath);
 	    file.getParentFile().mkdirs();

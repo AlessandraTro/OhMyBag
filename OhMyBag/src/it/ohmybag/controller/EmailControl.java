@@ -33,6 +33,7 @@ public class EmailControl extends HttpServlet {
 		String email = request.getParameter("email");
 
 		try {
+			// Verifica se l'email esiste utilizzando il modello UtenteModel
 			boolean emailCheck = (boolean) utenteModel.checkIfEmailExists(email);
 			response.getWriter().print(emailCheck);
 			

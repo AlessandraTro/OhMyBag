@@ -44,9 +44,9 @@ public class CancellaCartaControl extends HttpServlet {
 		Utente utente=(Utente) request.getSession().getAttribute("utente");
 
 		try {
-			cartaModel.cancellaCarta(utente.getUsername(), id);
-			request.getSession().setAttribute("Carte", cartaModel.retriveCardByUsername(utente.getUsername()));
-			request.getSession().setAttribute("Alert", "Carta cancellata con successo");
+			cartaModel.cancellaCarta(utente.getUsername(), id);  // Cancella la carta dal database usando il modello CartaModel
+			request.getSession().setAttribute("Carte", cartaModel.retriveCardByUsername(utente.getUsername())); // Aggiorna la lista delle carte nella sessione
+			request.getSession().setAttribute("Alert", "Carta cancellata con successo");  // Imposta un messaggio di conferma nella sessione
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

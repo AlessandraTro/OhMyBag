@@ -33,14 +33,15 @@ public class ModificaDatiControl extends HttpServlet {
 			throws ServletException, IOException {
 		utente=(Utente)request.getSession().getAttribute("utente");
 		try {
+			// Aggiorna i dati dell'utente con quelli ricevuti dalla richiesta
 			utente.setNome(request.getParameter("Nome"));
 			utente.setCognome(request.getParameter("Cognome"));
 			utente.setTelefono(request.getParameter("Telefono"));
 			utente.setEmail(request.getParameter("Email"));
 			utente.setUsername(request.getParameter("Email"));
 			
-			utenteModel.UpdateUtente(utente);
-			request.getSession().invalidate();
+			utenteModel.UpdateUtente(utente); // Esegue l'aggiornamento dell'utente nel database
+			request.getSession().invalidate(); // Invalida la sessione corrente e imposta i nuovi dati dell'utente
 			request.getSession().setAttribute("utente", utente);
 			request.getSession().setAttribute("Alert", "Dati modificati con successo");
 		}catch(Exception e) {

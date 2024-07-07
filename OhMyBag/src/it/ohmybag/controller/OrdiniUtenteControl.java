@@ -41,6 +41,7 @@ public class OrdiniUtenteControl extends HttpServlet {
 		utente=(Utente)request.getSession().getAttribute("utente");
 		
 		try {
+			// Ottiene gli ordini dell'utente e le carte associate
 			request.getSession().setAttribute("OrdiniUtente", ordineModel.getOrdiniByUsername(utente.getUsername()));
 			carte=(LinkedList<Carta>)cartaModel.retriveCardByUsername(utente.getUsername());
 			

@@ -30,7 +30,7 @@ public class ButtonSetCover extends HttpServlet {
         Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
 
         try {
-            immagineModel.setCoverImage(product.getId(), coverImage);
+            immagineModel.setCoverImage(product.getId(), coverImage); // Imposta l'immagine di copertina per il prodotto
             request.getSession().setAttribute("productImages", immagineModel.doRetrieveByProductId(product.getId())); // Carica solo le immagini del prodotto richiesto
             request.setAttribute("updateStatus", "success"); // Imposta lo stato dell'aggiornamento
 

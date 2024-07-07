@@ -33,7 +33,7 @@ public class DeleteAccountControl extends HttpServlet {
 			throws ServletException, IOException {
 		utente=(Utente)request.getSession().getAttribute("utente");
 		try {
-			request.getSession().invalidate();
+			request.getSession().invalidate(); // Invalida la sessione per disconnettere l'utente
 			utenteModel.deleteUser(utente.getUsername());
 		}catch(Exception e) {
 			System.out.println("Error:"+e.getMessage());

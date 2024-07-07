@@ -36,19 +36,19 @@ public class ProdottiRicercaControl extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    response.setCharacterEncoding("UTF-8");
 	    response.setContentType("text/html; charset=UTF-8");
-
-	    // Retrieve search field parameter
+	    
+	    // Recupera il parametro del campo di ricerca
 	    String searchField = request.getParameter("searchField");
-	    System.out.println("searchField" + searchField);
+	   
+	    // Recupera la collezione di prodotti dalla sessione
 	    Collection<Prodotto> prodotti = (Collection<Prodotto>) request.getSession().getAttribute("products");
 	    ArrayList<Prodotto> filteredProducts = new ArrayList<>();
 
-	    // Filter products based on searchField
+	    // Filtra i prodotti in base al campo di ricerca
 	    if (searchField != null && !searchField.trim().isEmpty()) {
 	        for (Prodotto prodotto : prodotti) {
 	            if (prodotto.getNome().toLowerCase().startsWith(searchField.toLowerCase())) {
 	                filteredProducts.add(prodotto);
-	    	    	System.out.println("Nome Prodotto"+prodotto.getNome());
 
 	            }
 	        }
@@ -56,21 +56,21 @@ public class ProdottiRicercaControl extends HttpServlet {
 	        filteredProducts.addAll(prodotti);
 	    }
 
-	    // Retrieve images for products
+	 // Recupera le immagini per i prodotti
 	    try {
 	        request.setAttribute("ImageList", immagineModel.doRetrieveAll());
 	    } catch (SQLException e) {
-	        e.printStackTrace(); // Consider handling this exception more gracefully
+	        e.printStackTrace(); 
 	    }
 
-	    // Pagination setup
-	    int productsPerPage = 8; // Number of products per page
-	    int totalProducts = filteredProducts.size(); // Total number of products after filtering
-	    int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage); // Calculate total pages
+	 // Impostazione della paginazione
+	    int productsPerPage = 8; // Numero di prodotti per pagina
+	    int totalProducts = filteredProducts.size(); // Numero totale di prodotti dopo il filtro
+	    int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage); // Calcola il numero totale di pagine
 
-	    int currentPage = 1; // Default page
+	    int currentPage = 1; 
 	    String pageParam = request.getParameter("page");
-	    System.out.println("PAGE PRODOTTI" +pageParam);
+
 	    if (pageParam != null) {
             try {
                 currentPage = Integer.parseInt(pageParam);
@@ -89,16 +89,15 @@ public class ProdottiRicercaControl extends HttpServlet {
 	            .limit(productsPerPage)
 	            .collect(Collectors.toList());
 
-	    System.out.println("currentPage2" +currentPage);
 
-	    // Set attributes for JSP rendering
+	    
 	    request.setAttribute("productPage", productsForPage);
 	    request.setAttribute("totalPages", totalPages);
 	    request.getSession().setAttribute("currentPage", currentPage);
 	    request.getSession().setAttribute("searchField", searchField);
 
 
-	    // Check if request is AJAX or not
+	    // Controlla se la richiesta è AJAX o no
 	    if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("/ProdottiCatalogo.jsp");
 	        dispatcher.include(request, response);

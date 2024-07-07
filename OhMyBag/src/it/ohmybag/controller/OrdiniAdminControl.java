@@ -44,17 +44,23 @@ public class OrdiniAdminControl extends HttpServlet {
         Collection<Utente> utenti = null;
 
         try {
-            utenti = utenteModel.getAllUtentiNoAdmin();
+            utenti = utenteModel.getAllUtentiNoAdmin(); // Ottiene tutti gli utenti (esclusi quelli con ruolo admin)
 
             if (username != null && !username.isEmpty()) {
                 if (startDateStr != null && !startDateStr.isEmpty() && endDateStr != null && !endDateStr.isEmpty()) {
+                	
+                	 // Se specificato, ottiene gli ordini per username e intervallo di date
                     java.util.Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
                     java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
                     ordini = ordineModel.getOrdiniByUsernameAndDateRange(username, startDate, endDate);
                 } else {
+                	
+                	 // Altrimenti ottiene gli ordini solo per username
                     ordini = ordineModel.getOrdiniByUsername(username);
                 }
             } else if (startDateStr != null && !startDateStr.isEmpty() && endDateStr != null && !endDateStr.isEmpty()) {
+            	
+            	// Se specificato, ottiene gli ordini per intervallo di date
                 java.util.Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateStr);
                 java.util.Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateStr);
                 ordini = ordineModel.getOrdiniByDateRange(startDate, endDate);

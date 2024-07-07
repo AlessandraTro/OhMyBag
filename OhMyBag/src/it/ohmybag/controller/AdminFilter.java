@@ -35,8 +35,10 @@ public class AdminFilter extends HttpFilter implements Filter {
 
 		Utente u = (Utente) hrequest.getSession().getAttribute("utente");
 
+		// Controlla se l'utente è autenticato e se è amministratore
 		if ((u != null)) {
 			if (u.isAdmin())
+				// L'utente è amministratore, continua la catena del filtro
 				chain.doFilter(request, response);
 			else
 				hresponse.sendError(401);

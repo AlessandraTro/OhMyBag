@@ -37,11 +37,13 @@ public class AdminProdottiEliminatiControl extends HttpServlet {
 		String pulsante = request.getParameter("pulsante");
 		String productId = request.getParameter("ID");
 
+		// Se il pulsante premuto è "Ripristina", ripristina il prodotto
 		if ("Ripristina".equals(pulsante)) {
 			prodottoModel.setProductAsRestored(productId);
 		}
 
 		try {
+			// Recupera la lista dei prodotti eliminati e delle immagini
 			Collection<Prodotto> deletedProducts = prodottoModel.adminTrueProduct();
 			request.getSession().setAttribute("deletedProducts", deletedProducts);
 			request.setAttribute("ImageList", immagineModel.doRetrieveAll());

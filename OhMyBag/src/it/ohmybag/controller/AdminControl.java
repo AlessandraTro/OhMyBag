@@ -54,6 +54,7 @@ public class AdminControl extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		// Controlla il valore del pulsante premuto e gestisce le azioni corrispondenti
 		if (pulsante.equals("Add")) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminAddProdotto.jsp");
 			dispatcher.forward(request, response);
@@ -61,6 +62,7 @@ public class AdminControl extends HttpServlet {
 
 		} else if (pulsante.equals("Ordini")) {
 			try {
+				// Recupera tutti gli utenti non amministratori e tutti gli ordini
 				Collection<Utente> utenti = utenteModel.getAllUtentiNoAdmin();
 				Collection<Ordine> ordini = ordineModel.getAllOrdini();
 				request.getSession().setAttribute("utenti", utenti);
@@ -73,6 +75,7 @@ public class AdminControl extends HttpServlet {
 			return; // Termina qui per evitare ulteriori forward
 		} else if (pulsante.equals("Utenti")) {
 			try {
+				// Recupera tutti gli utenti non amministratori
 				Collection<Utente> utenti = utenteModel.getAllUtentiNoAdmin();
 				request.getSession().setAttribute("utenti", utenti);
 			} catch (SQLException e) {
@@ -83,10 +86,12 @@ public class AdminControl extends HttpServlet {
 			  return;// Termina qui per evitare ulteriori forward
 			  
 		}  else if (pulsante.equals("Delete")) {  
+			// Imposta il prodotto come eliminato
             prodottoModel.setProductAsDeleted(productId);
         }
 
         try {
+        	// Recupera tutti i prodotti non eliminati
             Collection<Prodotto> products = prodottoModel.adminFalseProduct();
             request.getSession().setAttribute("products", products);
         } catch (SQLException e) {
@@ -94,7 +99,7 @@ public class AdminControl extends HttpServlet {
             response.sendRedirect("404.jsp");
             return;
         }
-
+        // Reindirizza alla pagina AdminProdotti.jsp
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminProdotti.jsp");
         dispatcher.forward(request, response);
     }

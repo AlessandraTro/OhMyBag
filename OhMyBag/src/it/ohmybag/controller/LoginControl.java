@@ -122,7 +122,7 @@ public class LoginControl extends HttpServlet{
 	            dispatcher.forward(request, response);
 	            return;
 	        } else {
-	        	
+	        	// Verifica la corrispondenza della password 
 	        	String hashPassword=CriptoPassword.toHash(password);
 	        	
 	        	if (utente.getPassword().equals(hashPassword)) {

@@ -59,11 +59,13 @@ public class DettagliOrdini extends HttpServlet {
 		String fattura = request.getParameter("Fattura");
 
 		try {
+			// Recupera l'ordine, la composizione dell'ordine, i prodotti e le immagini associate
 			Ordine ordine = ordineModel.getOrdineById(codice);
 			Collection<Composizione> composizione = composizioneModel.doRetrieveById(codice);
 			Collection<Immagine> immaginiCopertina = new ArrayList();
 			Collection<Prodotto> prodottiOrdine = new ArrayList();
 
+			// Recupera ciascun prodotto e la rispettiva immagine di copertina per ogni composizione
 			for (Composizione comp : composizione) {
 
 				Prodotto prodotto = prodottoModel.doRetrieveById(comp.getIdProdotto());
@@ -76,12 +78,6 @@ public class DettagliOrdini extends HttpServlet {
 			String numeroCartaMascherato = mascheraNumeroCarta(ordine.getNumeroCarta());
 			ordine.setNumeroCarta(numeroCartaMascherato); // Aggiorna l'ordine con il numero mascherato
 
-			// da togliere
-			System.out.println("Codice Ordine: " + ordine.getId());
-			System.out.println("COMPISZIONE: " + composizione.size());
-			System.out.println("PRODOTTI: " + prodottiOrdine.size());
-			System.out.println("IMMAGINI: " + immaginiCopertina.size());
-			System.out.println("Carta: " + ordine.getNumeroCarta());
 			request.getSession().setAttribute("prodottiOrdine", prodottiOrdine);
 			request.getSession().setAttribute("copertinaProdotto", immaginiCopertina);
 			request.getSession().setAttribute("ordineSingolo", ordine);
@@ -93,10 +89,11 @@ public class DettagliOrdini extends HttpServlet {
 		}
 
 		if ("Si".equals(fattura)) {
+			// Se richiesta la fattura, reindirizza alla pagina Fattura.jsp
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Fattura.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			// Inoltra la richiesta alla pagina JSP corretta
+			// Altrimenti, reindirizza alla pagina DettagliOrdine.jsp
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DettagliOrdine.jsp");
 			dispatcher.forward(request, response);
 		}

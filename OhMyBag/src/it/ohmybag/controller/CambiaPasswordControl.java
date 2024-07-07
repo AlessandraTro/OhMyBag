@@ -34,18 +34,18 @@ public class CambiaPasswordControl extends HttpServlet {
 			throws ServletException, IOException {
 		String passwordNuova=request.getParameter("password");
 		utente=(Utente) request.getSession().getAttribute("utente");
-		String hashPassword=CriptoPassword.toHash(passwordNuova);
+		String hashPassword=CriptoPassword.toHash(passwordNuova); // Crea l'hash della nuova password
 		
 		try {
-			utenteModel.UpdatePassword(utente.getEmail(), hashPassword);
-			utente.setPassword(hashPassword);
-			request.getSession().invalidate();
+			utenteModel.UpdatePassword(utente.getEmail(), hashPassword); // Aggiorna la password dell'utente nel database
+			utente.setPassword(hashPassword);  // Imposta la nuova password nell'oggetto utente
+			request.getSession().invalidate(); // Invalida la sessione corrente
 			request.getSession().setAttribute("utente", utente);
 			request.getSession().setAttribute("Alert", "Password cambiata con successo");
 		}catch(Exception e) {
 			System.out.println("Errore:"+e.getMessage());
 		}
-		
+		// Inoltra la richiesta al controllo degli ordini utente
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrdiniUtenteControl");
 		dispatcher.forward(request, response);
 	}

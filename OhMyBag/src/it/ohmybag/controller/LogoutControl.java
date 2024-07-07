@@ -18,7 +18,7 @@ public class LogoutControl extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
-	    request.getSession().invalidate();
+	    request.getSession().invalidate();  // Invalida la sessione corrente
 	    response.sendRedirect("Homepage.jsp");
 	}
 	

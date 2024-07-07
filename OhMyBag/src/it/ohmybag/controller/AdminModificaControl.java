@@ -32,12 +32,13 @@ public class AdminModificaControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		response.setContentType("text/html;charset=UTF-8");
-	    request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		Prodotto product = (Prodotto) request.getSession().getAttribute("ProdottoDaModificare");
-		
-		//se uno qualsiasi dei campi non viene aggiornato allora viene reinserito il dato già presente
+
+		// se uno qualsiasi dei campi non viene aggiornato allora viene reinserito il
+		// dato già presente
 		String inputDescrizione = request.getParameter("inputDescrizione");
 		if (inputDescrizione != null && !inputDescrizione.equals("")) {
 			product.setDescrizione(inputDescrizione);
@@ -55,7 +56,7 @@ public class AdminModificaControl extends HttpServlet {
 			inputQuantity = Integer.parseInt(quantity);
 			product.setDisponibilita(inputQuantity);
 		}
-		
+
 		String iva = request.getParameter("inputIva");
 		int inputIva = 0;
 		if (iva != null && !iva.equals("")) {
@@ -69,14 +70,18 @@ public class AdminModificaControl extends HttpServlet {
 			inputSconto = Integer.parseInt(sconto);
 			product.setSconto(inputSconto);
 		}
-		
+
+		// Aggiorna il prodotto nel database
 		try {
-			prodottoModel.updateProduct(product.getId(), product.getDescrizione(), product.getDisponibilita(), product.getSconto(), product.getPrezzo(), product.getIva());
-			request.getSession().setAttribute("products", prodottoModel.allProduct()); //aggiorna i prodotti nella sessione
+			prodottoModel.updateProduct(product.getId(), product.getDescrizione(), product.getDisponibilita(),
+					product.getSconto(), product.getPrezzo(), product.getIva());
+			request.getSession().setAttribute("products", prodottoModel.allProduct()); // aggiorna i prodotti nella
+																						// sessione
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// A modifica completata elimino il prodotto dalla sessione e ritorno al catalogo dell'admin
+		// A modifica completata elimino il prodotto dalla sessione e ritorno al
+		// catalogo dell'admin
 		request.getSession().removeAttribute("ProdottoDaModificare");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminProdotti.jsp");
 		dispatcher.forward(request, response);

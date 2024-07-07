@@ -45,6 +45,7 @@ public class AddCreditCardControl extends HttpServlet {
         }
     }
 
+   // Metodo per aggiungere una carta di credito
     private void addCreditCard(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numerocarta = request.getParameter("NumeroCarta");
@@ -52,6 +53,7 @@ public class AddCreditCardControl extends HttpServlet {
         String dataScadenzaParam = request.getParameter("DataScadenza");
         String circuito = request.getParameter("circuito");
 
+     // Controlla che tutti i parametri siano presenti
         if (numerocarta == null || cvvParam == null || dataScadenzaParam == null || circuito == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing parameters");
             return;
@@ -63,6 +65,7 @@ public class AddCreditCardControl extends HttpServlet {
 
         Utente utente = (Utente) request.getSession().getAttribute("utente");
 
+     // Controlla che l'utente sia loggato
         if (utente == null) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "User not logged in");
             return;
@@ -114,6 +117,7 @@ public class AddCreditCardControl extends HttpServlet {
         String numeroCartaCriptato = CriptoCard.encryptFirstNDigits(numerocarta, 15);
         boolean cardExists = false;
         try {
+        	// Controlla se la carta esiste già nel database
             cardExists = cartaModel.checkCardExists(numeroCartaCriptato+ numerocarta.substring(15), utente.getUsername());
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error checking credit card");
